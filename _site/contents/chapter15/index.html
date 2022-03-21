@@ -1,0 +1,1180 @@
+<!DOCTYPE html>
+<html lang="en-us">
+
+  <head>
+  <link href="http://gmpg.org/xfn/11" rel="profile">
+  <meta http-equiv="content-type" content="text/html; charset=utf-8">
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
+
+  <style>
+    .MathJax {
+      padding: 2em 0.3em;
+      overflow-x: auto;
+      overflow-y: hidden;
+    }
+@media print {
+
+    .container {
+        padding: 0;
+        max-width: unset;
+        break-after: page;
+        break-before: page;
+    }
+    .content {
+        padding: 0;
+    }
+    .masthead {
+        display: none;
+    }
+    .sidebar-toggle {
+        display: none;
+    }
+
+
+}
+  </style>
+  <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js"></script>
+
+  <title>
+    
+      Barrier Method &middot; 모두를 위한 컨벡스 최적화
+    
+  </title>
+
+  <link rel="stylesheet" href="/public/css/poole.css">
+  <link rel="stylesheet" href="/public/css/syntax.css">
+  <link rel="stylesheet" href="/public/css/lanyon.css">
+  <link rel="stylesheet" href="/public/css/github-markdown.css">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=PT+Serif:400,400italic,700%7CPT+Sans:400">
+
+  <link rel="apple-touch-icon-precomposed" sizes="122x144" href="https://convex-optimization-for-all.github.io/public/logo.png">
+  <link rel="shortcut icon" href="https://convex-optimization-for-all.github.io/public/convex-logo-144x144.png">
+
+  <link rel="alternate" type="application/rss+xml" title="RSS" href="https://convex-optimization-for-all.github.io/atom.xml">
+
+  
+  <script>
+    (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+    (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+    m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+    })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+    ga('create', 'UA-189737072-1', 'auto');
+    ga('send', 'pageview');
+  </script>
+  
+</head>
+
+
+  <body class="sidebar-overlay">
+
+    <!-- Target for toggling the sidebar `.sidebar-checkbox` is for regular
+     styles, `#sidebar-checkbox` for behavior. -->
+<input type="checkbox" class="sidebar-checkbox" id="sidebar-checkbox">
+
+<!-- Toggleable sidebar -->
+<div class="sidebar" id="sidebar">
+  <div class="sidebar-item">
+    <p>모두를 위한 컨벡스 최적화</p>
+  </div>
+
+  <nav class="sidebar-nav">
+    <a class="sidebar-nav-item" href="https://convex-optimization-for-all.github.io/">Home</a>
+
+    
+
+    
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+        
+          <a class="sidebar-nav-item" href="https://convex-optimization-for-all.github.io/contents/chapter01/">01. Introduction</a>
+        
+      
+    
+      
+        
+          <a class="sidebar-nav-item" href="https://convex-optimization-for-all.github.io/contents/chapter02/">02. Convex Sets</a>
+        
+      
+    
+      
+        
+          <a class="sidebar-nav-item" href="https://convex-optimization-for-all.github.io/contents/chapter03/">03. Convex Functions</a>
+        
+      
+    
+      
+        
+          <a class="sidebar-nav-item" href="https://convex-optimization-for-all.github.io/contents/chapter04/">04. Convex Optimization Basis</a>
+        
+      
+    
+      
+        
+          <a class="sidebar-nav-item" href="https://convex-optimization-for-all.github.io/contents/chapter05/">05. Canonical Problems</a>
+        
+      
+    
+      
+        
+          <a class="sidebar-nav-item" href="https://convex-optimization-for-all.github.io/contents/chapter06/">06. Gradient Descent</a>
+        
+      
+    
+      
+        
+          <a class="sidebar-nav-item" href="https://convex-optimization-for-all.github.io/contents/chapter07/">07. Subgradient</a>
+        
+      
+    
+      
+        
+          <a class="sidebar-nav-item" href="https://convex-optimization-for-all.github.io/contents/chapter08/">08. Subgradient Method</a>
+        
+      
+    
+      
+        
+          <a class="sidebar-nav-item" href="https://convex-optimization-for-all.github.io/contents/chapter09/">09. Proximal Gradient Descent and Acceleration</a>
+        
+      
+    
+      
+        
+          <a class="sidebar-nav-item" href="https://convex-optimization-for-all.github.io/contents/chapter10/">10. Duality in Linear Programs</a>
+        
+      
+    
+      
+        
+          <a class="sidebar-nav-item" href="https://convex-optimization-for-all.github.io/contents/chapter11/">11. Duality in General Programs</a>
+        
+      
+    
+      
+        
+          <a class="sidebar-nav-item" href="https://convex-optimization-for-all.github.io/contents/chapter12/">12. KKT Conditions</a>
+        
+      
+    
+      
+        
+          <a class="sidebar-nav-item" href="https://convex-optimization-for-all.github.io/contents/chapter13/">13. Duality uses and correspondences</a>
+        
+      
+    
+      
+        
+          <a class="sidebar-nav-item" href="https://convex-optimization-for-all.github.io/contents/chapter14/">14. Newton's Method</a>
+        
+      
+    
+      
+        
+          <a class="sidebar-nav-item active" href="https://convex-optimization-for-all.github.io/contents/chapter15/">15. Barrier Method</a>
+        
+      
+    
+      
+        
+          <a class="sidebar-nav-item" href="https://convex-optimization-for-all.github.io/contents/chapter16/">16. Duality Revisited</a>
+        
+      
+    
+      
+        
+          <a class="sidebar-nav-item" href="https://convex-optimization-for-all.github.io/contents/chapter17/">17. Primal-Dual Interior-Point Methods</a>
+        
+      
+    
+      
+        
+          <a class="sidebar-nav-item" href="https://convex-optimization-for-all.github.io/contents/chapter18/">18. Quasi-Newton Methods</a>
+        
+      
+    
+      
+        
+          <a class="sidebar-nav-item" href="https://convex-optimization-for-all.github.io/contents/chapter19/">19. Proximal Netwon Method</a>
+        
+      
+    
+      
+        
+          <a class="sidebar-nav-item" href="https://convex-optimization-for-all.github.io/contents/chapter20/">20. Dual Methods</a>
+        
+      
+    
+      
+        
+          <a class="sidebar-nav-item" href="https://convex-optimization-for-all.github.io/contents/chapter21/">21. Alternating Direction Method of Mulipliers</a>
+        
+      
+    
+      
+        
+          <a class="sidebar-nav-item" href="https://convex-optimization-for-all.github.io/contents/chapter22/">22. Conditional Gradient Method</a>
+        
+      
+    
+      
+        
+          <a class="sidebar-nav-item" href="https://convex-optimization-for-all.github.io/contents/chapter23/">23. Coordinate Descent</a>
+        
+      
+    
+      
+        
+          <a class="sidebar-nav-item" href="https://convex-optimization-for-all.github.io/contents/chapter24/">24.  Mixed Integer Programming 1</a>
+        
+      
+    
+      
+        
+          <a class="sidebar-nav-item" href="https://convex-optimization-for-all.github.io/contents/chapter25/">25.  Mixed Integer Programming 2</a>
+        
+      
+    
+      
+        
+          <a class="sidebar-nav-item" href="https://convex-optimization-for-all.github.io/reference/">26. Reference</a>
+        
+      
+    
+
+    <span class="sidebar-nav-item">Currently v1.1.0</span>
+  </nav>
+
+  <div class="sidebar-item">
+    <p>
+      &copy; 2022. All rights reserved.
+    </p>
+  </div>
+</div>
+
+
+    <!-- Wrap is the content to shift when toggling the sidebar. We wrap the
+         content to avoid any CSS collisions with our real content. -->
+    <div class="wrap github-md-body">
+      <div class="masthead">
+        <div class="container">
+          <h3 class="masthead-title">
+            <a href="/" title="Home">모두를 위한 컨벡스 최적화</a>
+            <small></small>
+          </h3>
+          <a class="github-logo__wrapper" target="_blank" href="https://github.com/convex-optimization-for-all/convex-optimization-for-all.github.io" titltle="Github">
+           <svg class="github-logo" xmlns="http://www.w3.org/2000/svg"  viewBox="0 0 48 48"><linearGradient id="rL2wppHyxHVbobwndsT6Ca" x1="4" x2="44" y1="23.508" y2="23.508" gradientUnits="userSpaceOnUse"><stop offset="0" stop-color="#4c4c4c"/><stop offset="1" stop-color="#343434"/></linearGradient><path fill="url(#rL2wppHyxHVbobwndsT6Ca)" d="M24,4C12.954,4,4,12.954,4,24c0,8.887,5.801,16.411,13.82,19.016h12.36	C38.199,40.411,44,32.887,44,24C44,12.954,35.046,4,24,4z"/><path d="M30.01,41.996L30,36.198c0-0.939-0.22-1.856-0.642-2.687c5.641-1.133,8.386-4.468,8.386-10.177	c0-2.255-0.665-4.246-1.976-5.92c0.1-0.317,0.174-0.645,0.22-0.981c0.188-1.369-0.023-2.264-0.193-2.984l-0.027-0.116	c-0.186-0.796-0.409-1.364-0.418-1.388l-0.111-0.282l-0.111-0.282l-0.302-0.032l-0.303-0.032c0,0-0.199-0.021-0.501-0.021	c-0.419,0-1.04,0.042-1.627,0.241l-0.196,0.066c-0.74,0.249-1.439,0.485-2.417,1.069c-0.286,0.171-0.599,0.366-0.934,0.584	C27.334,12.881,25.705,12.69,24,12.69c-1.722,0-3.365,0.192-4.889,0.571c-0.339-0.22-0.654-0.417-0.942-0.589	c-0.978-0.584-1.677-0.819-2.417-1.069l-0.196-0.066c-0.585-0.199-1.207-0.241-1.626-0.241c-0.302,0-0.501,0.021-0.501,0.021	l-0.302,0.032l-0.3,0.031l-0.112,0.281l-0.113,0.283c-0.01,0.026-0.233,0.594-0.419,1.391l-0.027,0.115	c-0.17,0.719-0.381,1.615-0.193,2.983c0.048,0.346,0.125,0.685,0.23,1.011c-1.285,1.666-1.936,3.646-1.936,5.89	c0,5.695,2.748,9.028,8.397,10.17c-0.194,0.388-0.345,0.798-0.452,1.224c-0.197,0.067-0.378,0.112-0.538,0.137	c-0.238,0.036-0.487,0.054-0.739,0.054c-0.686,0-1.225-0.134-1.435-0.259c-0.313-0.186-0.872-0.727-1.414-1.518	c-0.463-0.675-1.185-1.558-1.992-1.927c-0.698-0.319-1.437-0.502-2.029-0.502c-0.138,0-0.265,0.01-0.376,0.028	c-0.517,0.082-0.949,0.366-1.184,0.78c-0.203,0.357-0.235,0.773-0.088,1.141c0.219,0.548,0.851,0.985,1.343,1.255	c0.242,0.133,0.765,0.619,1.07,1.109c0.229,0.368,0.335,0.63,0.482,0.992c0.087,0.215,0.183,0.449,0.313,0.732	c0.47,1.022,1.937,1.924,2.103,2.023c0.806,0.483,2.161,0.638,3.157,0.683l0.123,0.003c0,0,0.001,0,0.001,0	c0.24,0,0.57-0.023,1.004-0.071v2.613c0.002,0.529-0.537,0.649-1.25,0.638l0.547,0.184C19.395,43.572,21.645,44,24,44	c2.355,0,4.605-0.428,6.703-1.176l0.703-0.262C30.695,42.538,30.016,42.422,30.01,41.996z" opacity=".05"/><path d="M30.781,42.797c-0.406,0.047-1.281-0.109-1.281-0.795v-5.804c0-1.094-0.328-2.151-0.936-3.052	c5.915-0.957,8.679-4.093,8.679-9.812c0-2.237-0.686-4.194-2.039-5.822c0.137-0.365,0.233-0.75,0.288-1.147	c0.175-1.276-0.016-2.086-0.184-2.801l-0.027-0.116c-0.178-0.761-0.388-1.297-0.397-1.319l-0.111-0.282l-0.303-0.032	c0,0-0.178-0.019-0.449-0.019c-0.381,0-0.944,0.037-1.466,0.215l-0.196,0.066c-0.714,0.241-1.389,0.468-2.321,1.024	c-0.332,0.198-0.702,0.431-1.101,0.694C27.404,13.394,25.745,13.19,24,13.19c-1.762,0-3.435,0.205-4.979,0.61	c-0.403-0.265-0.775-0.499-1.109-0.699c-0.932-0.556-1.607-0.784-2.321-1.024l-0.196-0.066c-0.521-0.177-1.085-0.215-1.466-0.215	c-0.271,0-0.449,0.019-0.449,0.019l-0.302,0.032l-0.113,0.283c-0.009,0.022-0.219,0.558-0.397,1.319l-0.027,0.116	c-0.169,0.715-0.36,1.524-0.184,2.8c0.056,0.407,0.156,0.801,0.298,1.174c-1.327,1.62-1.999,3.567-1.999,5.795	c0,5.703,2.766,8.838,8.686,9.806c-0.395,0.59-0.671,1.255-0.813,1.964c-0.33,0.13-0.629,0.216-0.891,0.256	c-0.263,0.04-0.537,0.06-0.814,0.06c-0.69,0-1.353-0.129-1.69-0.329c-0.44-0.261-1.057-0.914-1.572-1.665	c-0.35-0.51-1.047-1.417-1.788-1.755c-0.635-0.29-1.298-0.457-1.821-0.457c-0.11,0-0.21,0.008-0.298,0.022	c-0.366,0.058-0.668,0.252-0.828,0.534c-0.128,0.224-0.149,0.483-0.059,0.708c0.179,0.448,0.842,0.85,1.119,1.002	c0.335,0.184,0.919,0.744,1.254,1.284c0.251,0.404,0.37,0.697,0.521,1.067c0.085,0.209,0.178,0.437,0.304,0.712	c0.331,0.719,1.353,1.472,1.905,1.803c0.754,0.452,2.154,0.578,2.922,0.612l0.111,0.002c0.299,0,0.8-0.045,1.495-0.135v3.177	c0,0.779-0.991,0.81-1.234,0.81c-0.031,0,0.503,0.184,0.503,0.184C19.731,43.64,21.822,44,24,44c2.178,0,4.269-0.36,6.231-1.003	C30.231,42.997,30.812,42.793,30.781,42.797z" opacity=".07"/><path fill="#fff" d="M36.744,23.334c0-2.31-0.782-4.226-2.117-5.728c0.145-0.325,0.296-0.761,0.371-1.309	c0.172-1.25-0.031-2-0.203-2.734s-0.375-1.25-0.375-1.25s-0.922-0.094-1.703,0.172s-1.453,0.469-2.422,1.047	c-0.453,0.27-0.909,0.566-1.27,0.806C27.482,13.91,25.785,13.69,24,13.69c-1.801,0-3.513,0.221-5.067,0.652	c-0.362-0.241-0.821-0.539-1.277-0.811c-0.969-0.578-1.641-0.781-2.422-1.047s-1.703-0.172-1.703-0.172s-0.203,0.516-0.375,1.25	s-0.375,1.484-0.203,2.734c0.077,0.562,0.233,1.006,0.382,1.333c-1.31,1.493-2.078,3.397-2.078,5.704	c0,5.983,3.232,8.714,9.121,9.435c-0.687,0.726-1.148,1.656-1.303,2.691c-0.387,0.17-0.833,0.33-1.262,0.394	c-1.104,0.167-2.271,0-2.833-0.333s-1.229-1.083-1.729-1.813c-0.422-0.616-1.031-1.331-1.583-1.583	c-0.729-0.333-1.438-0.458-1.833-0.396c-0.396,0.063-0.583,0.354-0.5,0.563c0.083,0.208,0.479,0.521,0.896,0.75	c0.417,0.229,1.063,0.854,1.438,1.458c0.418,0.674,0.5,1.063,0.854,1.833c0.249,0.542,1.101,1.219,1.708,1.583	c0.521,0.313,1.562,0.491,2.688,0.542c0.389,0.018,1.308-0.096,2.083-0.206v3.75c0,0.639-0.585,1.125-1.191,1.013	C19.756,43.668,21.833,44,24,44c2.166,0,4.243-0.332,6.19-0.984C29.585,43.127,29,42.641,29,42.002v-5.804	c0-1.329-0.527-2.53-1.373-3.425C33.473,32.071,36.744,29.405,36.744,23.334z M11.239,32.727c-0.154-0.079-0.237-0.225-0.185-0.328	c0.052-0.103,0.22-0.122,0.374-0.043c0.154,0.079,0.237,0.225,0.185,0.328S11.393,32.806,11.239,32.727z M12.451,33.482	c-0.081,0.088-0.255,0.06-0.389-0.062s-0.177-0.293-0.096-0.381c0.081-0.088,0.255-0.06,0.389,0.062S12.532,33.394,12.451,33.482z M13.205,34.732c-0.102,0.072-0.275,0.005-0.386-0.15s-0.118-0.34-0.016-0.412s0.275-0.005,0.386,0.15	C13.299,34.475,13.307,34.66,13.205,34.732z M14.288,35.673c-0.069,0.112-0.265,0.117-0.437,0.012s-0.256-0.281-0.187-0.393	c0.069-0.112,0.265-0.117,0.437-0.012S14.357,35.561,14.288,35.673z M15.312,36.594c-0.213-0.026-0.371-0.159-0.353-0.297	c0.017-0.138,0.204-0.228,0.416-0.202c0.213,0.026,0.371,0.159,0.353,0.297C15.711,36.529,15.525,36.62,15.312,36.594z M16.963,36.833c-0.227-0.013-0.404-0.143-0.395-0.289c0.009-0.146,0.2-0.255,0.427-0.242c0.227,0.013,0.404,0.143,0.395,0.289	C17.381,36.738,17.19,36.846,16.963,36.833z M18.521,36.677c-0.242,0-0.438-0.126-0.438-0.281s0.196-0.281,0.438-0.281	c0.242,0,0.438,0.126,0.438,0.281S18.762,36.677,18.521,36.677z"/></svg>
+          </a>
+        </div>
+      </div>
+
+      <div class="container content">
+        <h1>15. Barrier Method</h1>
+
+
+
+
+
+
+<!-- Get first post and show it -->
+
+<p>이 장에서는 2nd-order method 중 하나인 <strong>Barrier Method</strong>에 대해 살펴보도록 하겠다.</p>
+
+<p><strong>Barrier Method</strong>는 2nd-order method 문제 중에 가장 어려운 문제라고 할 수 있는 <strong>Inequality constraint와 equality constrained smooth problem</strong>을 풀기 위한 방법이다.</p>
+
+<p>(참고로, 최적화 문제를 풀 때 gradient를 사용하면 1st-order method라고 하며 hessian을 사용하면 2nd-order method라고 한다.)</p>
+
+<h2 id="references-and-further-readings">References and further readings</h2>
+<ul>
+  <li>S. Boyd and L. Vandenberghe (2004), “Convex optimization”, Chapter 11</li>
+  <li>A. Nemirovski (2004), “Interior-point polynomial time methods in convex programming”, Chapter 4</li>
+  <li>J. Nocedal and S. Wright (2006), “Numerical optimization”, Chapters 14 and 19</li>
+</ul>
+
+
+<!-- Remove first element from post_list which is already shown above. -->
+  
+
+<!-- List up the posts in the chapter -->
+<ul style="list-style: none;">
+
+  
+  
+  
+  
+    <li style="text-align:left; vertical-align: middle; margin-left: -2em; margin-top: 5px;" >
+      <a href="#_page_1">15-01 Barrier method and log barrier function</a>
+    </li>
+  
+  
+
+  
+  
+  
+  
+  
+    <li style="text-align:left; vertical-align: middle;  margin-left: 0em;" >
+      <a href="#_page_2"> 15-01-01 Inequality constrained minimization problems</a>
+    </li>
+  
+
+  
+  
+  
+  
+  
+    <li style="text-align:left; vertical-align: middle;  margin-left: 0em;" >
+      <a href="#_page_3"> 15-01-02 Log barrier function & barrier method</a>
+    </li>
+  
+
+  
+  
+  
+  
+  
+    <li style="text-align:left; vertical-align: middle;  margin-left: 0em;" >
+      <a href="#_page_4"> 15-01-03 Log barrier calculus</a>
+    </li>
+  
+
+  
+  
+  
+  
+    <li style="text-align:left; vertical-align: middle; margin-left: -2em; margin-top: 5px;" >
+      <a href="#_page_5">15-02 Central path</a>
+    </li>
+  
+  
+
+  
+  
+  
+  
+    <li style="text-align:left; vertical-align: middle; margin-left: -2em; margin-top: 5px;" >
+      <a href="#_page_6">15-03 Properties and interpretation</a>
+    </li>
+  
+  
+
+  
+  
+  
+  
+  
+    <li style="text-align:left; vertical-align: middle;  margin-left: 0em;" >
+      <a href="#_page_7"> 15-03-01 Perturbed KKT conditions</a>
+    </li>
+  
+
+  
+  
+  
+  
+  
+    <li style="text-align:left; vertical-align: middle;  margin-left: 0em;" >
+      <a href="#_page_8"> 15-03-02 Suboptimality gap</a>
+    </li>
+  
+
+  
+  
+  
+  
+    <li style="text-align:left; vertical-align: middle; margin-left: -2em; margin-top: 5px;" >
+      <a href="#_page_9">15-04 Barrier method v.0 and v.1</a>
+    </li>
+  
+  
+
+  
+  
+  
+  
+    <li style="text-align:left; vertical-align: middle; margin-left: -2em; margin-top: 5px;" >
+      <a href="#_page_10">15-05 Convergence analysis</a>
+    </li>
+  
+  
+
+  
+  
+  
+  
+    <li style="text-align:left; vertical-align: middle; margin-left: -2em; margin-top: 5px;" >
+      <a href="#_page_11">15-06 Barrier method v.2</a>
+    </li>
+  
+  
+
+  
+  
+  
+  
+    <li style="text-align:left; vertical-align: middle; margin-left: -2em; margin-top: 5px;" >
+      <a href="#_page_12">15-07 Feasibility methods</a>
+    </li>
+  
+  
+
+  
+  
+  
+  
+    <li style="text-align:left; vertical-align: middle; margin-left: -2em; margin-top: 5px;" >
+      <a href="#_page_13">15-08 Formal barrier method</a>
+    </li>
+  
+  
+
+</ul>
+
+
+<main class="container">
+    <div class="content">
+        <article class="post-body">
+            <h1><a name="_page_1"></a>15-01 Barrier method and log barrier function</h1>
+            <script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+    displayAlign: "center"
+});
+</script>
+
+<p>앞 장에서 <strong>equality constrained smooth problem</strong>을 newton’s method를 이용해서 푸는 방법을 살펴보았다. 이 장에서는 <strong>inequality and equality constrained smooth problem</strong>를 풀기 위한 방법을 살펴볼 것이다.</p>
+
+<p>기본 아이디어는 문제를 equality constrained smooth problem으로 변환해서 newton’s method로 푸는 것이다. 이와 같은 방법을 <strong>interior method</strong>라고 하는데 이 장에서는 interior method 중 하나인 <strong>barrier method</strong>에 대해 살펴보도록 하겠다.</p>
+
+        </article>
+    </div>
+</main>
+
+<main class="container">
+    <div class="content">
+        <article class="post-body">
+            <h1><a name="_page_2"></a>15-01-01 Inequality constrained minimization problems</h1>
+            <script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+    displayAlign: "center"
+});
+</script>
+
+<p>다음과 같은 convex optimization 문제를 고려해보자.</p>
+<blockquote>
+
+\[\begin{align}
+&amp;\min_{x}           &amp;&amp; f(x) \\ 
+&amp;\text{subject to } &amp;&amp; Ax = b \\
+                    &amp;&amp;&amp; h_{i}(x) \leq 0, i = 1, \dotsc, m
+\end{align}\]
+</blockquote>
+
+<p>이와 같이 inquality가 포함된 문제에서는 binding contraints와 non-binding contraints를 파악하기 어려우며, 특히 feasible region의 boundary에서 이러한 어려움이 발생한다. 참고로, Binding constraints란 solution을 찾을 때 영향을 주는 제약조건을 의미한다.</p>
+
+<p>따라서, <strong>interior method</strong>는 feasible region의 boundary가 아닌 interior에서 문제를 풀어보자는 접근 방법이다.</p>
+
+<h2 id="background-of-interior-method">Background of interior method</h2>
+<p>General problem에 대한 <strong>interior method</strong>는 1960년대에 Anthony V. Fiacco과 Garth P. McCormick이  제안했다. Interior method는 제안 당시 인기있었던 sequential quadratic programming나 active set method에 밀려서 주목을 받지 못하다가 1980년대에 이르러서야 주목을 받기 시작했다.</p>
+
+<p>Active set method의 경우 최적화 결과에 영향을 주는 constraints가 무엇인지 결정하는 이론이다. Active set method에서는 constraint가 0이면 active로 판단하며 이런 constraints들을 active set이라고 한다. 그런데, active set을 구하려면 feasible region의 boundary를 계산해야 하며 constraint 수가 많이질 수록 계산량이 많아지는 문제가 있다.</p>
+
+<p>이런 방식의 문제점을 파악하고 boudnary가 아닌 interior에서 문제를 풀어보자는 접근한 방식이 바로 Interior point method라고 할 수 있다. 예를 들어 LP에서 constrant수가 \(m\)개라면 boundary를 계산하기 위해 총 \(O(m^2)\)의 계산이 필요한데 interior method의 경우 \(m\)이 아주 커지더라도 newton step 20~30번 내에서 해를 찾는다. 성능에 대한 자세한 사항은 뒷부분에서 다시 다룰 예정이다.</p>
+
+<ul>
+  <li>참고 : <a href="https://en.wikipedia.org/wiki/Interior-point_method">Interior point method</a></li>
+  <li>참고 : <a href="https://en.wikipedia.org/wiki/Active_set_method">Active set method</a></li>
+</ul>
+
+<h2 id="reducing-equality-constrained-minimization-problem">Reducing equality constrained minimization problem</h2>
+<p>위의 문제는 \(C := \{x : h_i(x) \le 0, i = 1, \cdots , m \}\)라고 하면 다음과 같이 다시 작성해 볼 수 있다. Inequality constraints는 Indicator function 형태로 objective function에 포함시킬 수 있다.</p>
+
+<blockquote>
+\[\begin{align}
+&amp;\min_{x} \ &amp;&amp; f(x) + I_C(x) \\
+&amp;\text{subject to }\  &amp;&amp; Ax = b \\
+\end{align}\]
+</blockquote>
+
+<p>이와 같이 문제를 equality constrained minimization problem으로 변환할 수 있다. 하지만, Indicator function의 경우 여전히 boundary를 포함하고 있기 때문에 원래 문제의 boundary 계산의 어려움을 여전히 갖고 있으며 differentiable하지 않기 때문에 newton’s method를 적용하기는 어렵다.</p>
+
+<p>indicator function \(I_C\)를 <strong>barrier function</strong>으로 근사하면 어떨까? 그럴 경우 boundary는 포함하지 않게 되며 differentiable하기 때문에 newton’s method를 적용할 수 있게 된다.</p>
+
+<p>이와 같이 barrier function으로 재정의한 문제를 푸는 방법을 barrier method라고 하는데 다음 절에서 자세히 소개하고 있다.</p>
+
+        </article>
+    </div>
+</main>
+
+<main class="container">
+    <div class="content">
+        <article class="post-body">
+            <h1><a name="_page_3"></a>15-01-02 Log barrier function & barrier method</h1>
+            <script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+    displayAlign: "center"
+});
+</script>
+
+<p>Barrier method를 소개하기 전에 먼저 indicator function을 barrier function으로 어떻게 근사할 수 있는지 살펴보도록 하자.</p>
+
+<h2 id="approximation-of-indicator-function">Approximation of indicator function</h2>
+<p>다음 그림을 보면 indicator function과 barrier function을 확인할 수 있다. 점선은 indicator function인 \(I_C\)이며 실선은 \(t = 0.5, 1, 2\)에 대한 barrier function \(\phi(x) = -1/t\log(-x)\)이다. Barrier function은 indicator function을 smooth하게 근사하고 있으며 \(t=2\)일 때 가장 좋은 근사를 보여주고 있다.</p>
+
+<figure class="image" style="align: center;">
+<p align="center">
+ <img src="/img/chapter_img/chapter15/15_barrier_function_01.png" alt="" width="70%" height="70%" />
+ <figcaption style="text-align: center;">$$\text{[Fig 1] barrier function }\phi(x) = -1/t\log(-x) [1]$$</figcaption>
+</p>
+</figure>
+
+<h2 id="logarithmic-barrier-function">Logarithmic barrier function</h2>
+<p>\(h_1, \cdots , h_m : \mathbb{R}^n \to \mathbb{R}\)가 convex이고 두번 미분가능하다고 하자.  set \(\{x : h_i(x) \lt 0, i = 1, \cdots , m \}\)에 대해 다음 함수를 logarithmic barrier function이라고 한다.</p>
+
+<blockquote>
+
+  <p>\begin{align}
+\phi(x) = - \sum_{i=1}^{m} \log(-h_i(x))
+\end{align}</p>
+</blockquote>
+
+<p>여기서 set은 interior of feasible set \(C\)로 non-empty라고 가정한다.</p>
+
+<h2 id="barrier-method">Barrier method</h2>
+
+<p>Barrier function을 사용해서 원래 문제를 다음과 같이 근사할 수 있다. 단, \(t\gt 0\)이다.</p>
+<blockquote>
+
+\[\begin{align}
+&amp;\min_{x}           &amp;&amp; f(x) + \frac{1}{t} \phi(x) &amp; \qquad      &amp; \min_{x} &amp;&amp; tf(x) + \phi(x) \\
+&amp;\text{subject to } &amp;&amp; Ax = b                     &amp; \iff \qquad &amp; \text{subject to } &amp;&amp; Ax = b \\
+\end{align}\]
+</blockquote>
+
+<p>이와 같이 정의된 문제를 newton’s method로 푸는 방법을 <strong>barrier method</strong>라고 한다.</p>
+
+        </article>
+    </div>
+</main>
+
+<main class="container">
+    <div class="content">
+        <article class="post-body">
+            <h1><a name="_page_4"></a>15-01-03 Log barrier calculus</h1>
+            <p>Log barrier function의 gradient와 hessian은 다음과 같다.</p>
+<blockquote>
+
+  <p>\begin{align}
+\phi(x) = - \sum_{i=1}^{m} \log(-h_i(x))
+\end{align}</p>
+</blockquote>
+
+<p>Gradient :</p>
+<blockquote>
+
+  <p>\begin{align}
+\nabla \phi(x) = - \sum_{i=1}^{m} \frac{1}{h_i(x)} \nabla h_i(x)
+\end{align}</p>
+</blockquote>
+
+<p>Hessian :</p>
+
+<blockquote>
+
+  <p>\begin{align}
+\nabla^2 \phi(x) = \sum_{i=1}^{m} \frac{1}{h_i(x)^2} \nabla h_i(x) \nabla h_i(x)^T -  \sum_{i=1}^{m} \frac{1}{h_i(x)} \nabla^2 h_i(x)
+\end{align}</p>
+</blockquote>
+
+<h2 id="example--phix---sum_i1n-logx_i">Example : \(\phi(x) = -\sum_{i=1}^{n} \log(x_i)\)</h2>
+<p>Barrier function \(\phi(x) = -\sum_{i=1}^{n} \log(-x_i)\)에 대한 gradient와 hessian을 구해보면 다음과 같은 결과를 얻을 수 있다.</p>
+<blockquote>
+
+  <p>\begin{align}
+\phi(x) = -\sum_{i=1}^{n} \log(x_i)
+\end{align}
+따라서, \(h_i(x) =  -x_i\)이고 \(x_i \ge 0\)이다.</p>
+</blockquote>
+
+<p>Gradient :</p>
+<blockquote>
+
+\[\nabla \phi(x) = - 
+\begin{bmatrix}
+1/x_1 \\\
+\vdots \\\
+1/x_n \\\
+\end{bmatrix}
+ = -X^{-1} \mathbb{1}, \qquad X = \text{diag}(x)\]
+</blockquote>
+
+<p>Hessian :</p>
+<blockquote>
+
+\[\nabla^2 \phi(x) = 
+\begin{bmatrix}
+1/x_1^2 &amp; \cdots &amp; \\\
+\vdots &amp; \ddots &amp; \vdots  \\\
+&amp; \cdots &amp; 1/x_n^2 \\\
+\end{bmatrix}
+ = X^{-2}\]
+</blockquote>
+
+        </article>
+    </div>
+</main>
+
+<main class="container">
+    <div class="content">
+        <article class="post-body">
+            <h1><a name="_page_5"></a>15-02 Central path</h1>
+            <p>다음과 같은 barrier problem (\(t \gt 0\))의 solution을 \(x^*(t)\)라고 하면 <strong>central path</strong>는 set \(\{x^*(t) \vert t \gt 0 \}\)을 말한다.</p>
+
+<blockquote>
+\[\begin{align}
+&amp;\min_{x} \ &amp;&amp;  tf(x) + \phi(x) \\
+&amp;\text{subject to } \ &amp;&amp; Ax = b \\
+\end{align}\]
+</blockquote>
+
+<p>적합한 조건이 주어지면  <strong>central path</strong> 집합은 \(\mathbb{R}^n\)에서 smooth path가 되며 \(t \to \infty\)일 때 \(x^*(t) \to x^*\)가 된다. (\(x^*\)는 원래 문제의 solution이다.)</p>
+
+<p><strong>Central path</strong>는 boundary에 있는 optimal을 한번에 구하기 어려울 때 interior에서 boundary쪽으로 점진적으로 새로운 \(t\)에 대한 문제로 재정의해서 풀어나가게 되는데, 이 때 각 단계의 해가 이루는 집합이라고 볼 수 있다.</p>
+
+<h2 id="example--central-path-for-an-lp">Example : central path for an LP</h2>
+<p>다음의 LP 문제에 대한 central path를 구해보자.</p>
+<blockquote>
+\[\begin{align*}
+&amp;\min_{x} \ &amp;&amp; c^Tx \\
+&amp;\text{subject to } \ &amp;&amp; a_i^Tx = b_i^T, i = 1, \cdots , 6 \\
+\end{align*}\]
+</blockquote>
+
+<p>다음 그림에서 점선은 logarithmic barrier function \(\phi\)를 나타낸다. <br /></p>
+
+<figure class="image" style="align: center;">
+<p align="center">
+ <img src="/img/chapter_img/chapter15/15_central_path_02.png" alt="" width="70%" height="70%" />
+ <figcaption style="text-align: center;">[Fig 1] Central path [1]</figcaption>
+</p>
+</figure>
+
+<p>Central path가 \(t \to \infty\)일때 optimal \(x^*\)로 수렴하는 것을 볼 수 있다.  이때, hyperplane \(c^Tx = c^Tx(t)\)는 \(c^Tx(t)\)를 지나는 \(\phi\)의 level curve의 접선이다.</p>
+
+        </article>
+    </div>
+</main>
+
+<main class="container">
+    <div class="content">
+        <article class="post-body">
+            <h1><a name="_page_6"></a>15-03 Properties and interpretation</h1>
+            <p>이 절에서는 barrier problem과 original problem의 KKT condition을 구해서 어떤 차이가 있는지 확인해 볼 것이다. 그리고, 두 문제의 solution에 대한 suboptimality gap을 구해보려고 한다.</p>
+
+        </article>
+    </div>
+</main>
+
+<main class="container">
+    <div class="content">
+        <article class="post-body">
+            <h1><a name="_page_7"></a>15-03-01 Perturbed KKT conditions</h1>
+            <p>Barrier problem과 원래 식에서 KKT condition을 도출해 보면 다음과 같다.</p>
+<h2 id="kkt-conditions-for-barrier-problem">KKT conditions for barrier problem</h2>
+<p>Barrier problem의 KKT condition의 두번째 항은 log berrier function의 gradient를 사용해서 도출되었다.</p>
+<blockquote>
+
+\[\begin{align}
+t \nabla f(x^*(t)) - \sum_{i=1}^{m} \frac{1}{h_i(x^*(t))} \nabla h_i(x^*(t)) + A^Tw = 0  \\\ 
+ Ax^*(t) = b, \quad h_i(x^*(t)) \lt 0, \quad i = 1, \cdots , m \\\
+\end{align}\]
+</blockquote>
+
+<h2 id="kkt-conditions-for-the-original-problem">KKT conditions for the original problem</h2>
+<p>원래 문제의 KKT condition을 보면 complementary slackness에 의해서 \(h_i(x^*) \cdot u_i^* = 0\)이 도출되었는데 실제 이 boundary condition을 알기가 매우 어렵다.</p>
+<blockquote>
+
+\[\begin{align}
+\nabla f(x^*) + \sum_{i=1}^{m} u_i^* \nabla h_i(x^*) + A^Tv^* = 0 \\\ 
+Ax^* = b, \quad h_i(x^*) \le 0, \quad u_i^* \ge 0,   \\\ 
+h_i(x^*) \cdot u_i^* = 0,  \quad i = 1, \cdots , m \\\
+\end{align}\]
+</blockquote>
+
+<h2 id="redefinition-of-kkt-conditions-for-barrier-problem">Redefinition of KKT conditions for barrier problem</h2>
+<p>그렇다면 두 KKT condition 사이에는 어떤 관계가 있을까?</p>
+
+<p>먼저 \(u_i(t)\)와 \(v\)를 다음과 같이 두고</p>
+<blockquote>
+
+\[\begin{align}
+u_i(t) = - \frac{1}{t h_i(x^*(t))}, \quad v = \frac{1}{t}w
+\end{align}\]
+</blockquote>
+
+<p>KKT conditions for barrier problem을 재정의해보자.</p>
+
+<p>재정의된 문제를 보면 KKT conditions for the original problem과 거의 유사한 모양임을 알 수 있다. 이 식에서 \(u_i(t) \cdot   h_i(x^*(t)) = - \frac{1}{t}\)이 \(t \to \infty\)일 경우 0이 되는데 원래 식의 \(h_i(x^*) \cdot u_i^* = 0\)과 일치하게 된다.</p>
+
+<blockquote>
+
+\[\begin{align}
+&amp; \nabla f(x^*(t)) + \sum_{i=1}^{m} u_i(t) \nabla h_i(x^*(t)) + tA^Tv = 0  \\\ 
+&amp; Ax^*(t) = b, \quad u_i(t) \cdot   h_i(x^*(t)) = - \frac{1}{t}, \quad h_i(x^*(t)) \lt 0, \quad u_i(t) \gt 0 , \quad i = 1, \cdots , m \\\
+\end{align}\]
+</blockquote>
+
+        </article>
+    </div>
+</main>
+
+<main class="container">
+    <div class="content">
+        <article class="post-body">
+            <h1><a name="_page_8"></a>15-03-02 Suboptimality gap</h1>
+            <p>앞 절에서 구한 barrier problem과 original problem의 solution인 \(f(x^*(t))\)와 \(f(x^*)\)의 suboptimality gap은 어떻게 될까?</p>
+
+<h2 id="convexity-of-f-and-h_i">Convexity of \(f\) and \(h_i\)</h2>
+<p>Convexity가 보장되면 함수가 접선(tangent)보다 항상 크므로 \(f(x^*) \ge f(x^*(t)) + \nabla f(x^*(t))^T (x^* - x^*(t))\)가 성립한다. (Tangent는 Talyor 1차 근사식)
+따라서, 다음의 식을 구할 수 있다.</p>
+<blockquote>
+\[\begin{align}
+f(x^*(t)) - f(x^*) \le \nabla f(x^*(t))^T (x^*(t) - x^*)
+\end{align}\]
+</blockquote>
+
+<p>비슷하게 \(h_i(x^*) \ge h_i(x^*(t)) + \nabla h_i(x^*(t))^T (x^* - x^*(t))\)가 성립하므로 다음의 식을 구할 수 있다.</p>
+
+<blockquote>
+\[\begin{align}
+h_i(x^*(t)) - h_i(x^*) \le \nabla h_i(x^*(t))^T (x^*(t) - x^*), \quad i = i, \cdots , m
+\end{align}\]
+</blockquote>
+
+<h2 id="derivation-of-suboptimality-gap">Derivation of suboptimality gap</h2>
+<p>이 두 식에서 suboptimality gap을 유도해 보도록 하겠다. 오른쪽 항은 위의 두 convexity 조건에 의해 도출된다.</p>
+
+<blockquote>
+\[\begin{align}
+f(x^*(t)) - f(x^*) + \sum_{i=1}^{m}  u_i(t) (h_i(x^*(t)) - h_i(x^*) ) 
+    &amp; \le 	\left\langle \nabla  f(x^*(t))  + \sum_{i=1}^{m} u_i(t) \nabla h_i(x^*(t)), \quad x^*(t) - x^* \right\rangle \\\
+    &amp; = \left\langle -tA^Tv,  \quad x^*(t) - x^* \right\rangle \\\
+\end{align}\]
+</blockquote>
+
+<p>이 식에서 오른쪽 항을 내적해 보면 \(Ax^*(t) = b\)이고 \(Ax^* = b\)이므로 전체가 0이 된다.
+따라서, 첫번째 식의 세번째 항을 오른쪽으로 넘겨서 정리해 보면 다음과 같은 결과를 얻을 수 있다.</p>
+
+<blockquote>
+\[\begin{align}
+f(x^*(t)) - f(x^*) &amp; \le - \sum_{i=1}^{m}  u_i(t) (h_i(x^*(t)) - h_i(x^*) )  \\\
+    &amp; = \frac{m}{t} +  \sum_{i=1}^{m} u_i(t) h_i(x^*) \\\
+    &amp; \le \frac{m}{t}   
+\end{align}\]
+</blockquote>
+
+<p>두번째 라인의 첫번째 항은 KKT condition에서 \(u_i(t) \cdot   h_i(x^*(t)) = - \frac{1}{t}\)를 만족하므로  \(\frac{m}{t}\)가 된다.  두번째 항도 KKT condition에서 \(\sum_{i=1}^{m} u_i(t)  h_i(x^*) \le 0\)이므로 제거할 수 있다.</p>
+
+<p>결과적으로 다음과 같은 suboptimality gap을 구할 수 있으며 이는 유용한 stopping criterion이 된다. 참고로, 이 결과는 다음 장에서 duality gap으로도 유도할 수 있다.</p>
+
+<blockquote>
+\[\begin{align}
+f(x^*(t)) - f(x^*) \le \frac{m}{t}
+\end{align}\]
+</blockquote>
+
+        </article>
+    </div>
+</main>
+
+<main class="container">
+    <div class="content">
+        <article class="post-body">
+            <h1><a name="_page_9"></a>15-04 Barrier method v.0 and v.1</h1>
+            <h2 id="barrier-method-v0">Barrier method v.0</h2>
+<p><strong>Barrier method v.0</strong>은 \(\epsilon \gt 0\)일 때 \(t = m/\epsilon\)로 선택해서 다음 barrier problem을 풀어서 \(f(x^*(t)) - f(x^*) \le \epsilon\)를 구한다.</p>
+<blockquote>
+
+\[\begin{align}
+ &amp;\min_{x} \ &amp;&amp; tf(x) + \phi(x) \\
+ &amp;\text{subject to } \ &amp;&amp; Ax = b \\
+\end{align}\]
+</blockquote>
+
+<p>이때, \(m\)은 constraint개수이고 \(t\)는 \(1/\epsilon\)의 배수이기 때문에 \(\epsilon\)이 작을 수록 \(t\)가 매우 커지게 되며 결국 central path의 끝부분이 되므로 문제는 original problem과 같아진다. 따라서, 매우 느리고 구하기 힘든 문제가 될 수 있다.</p>
+
+<p>따라서, central path를 따라 solution을 구하는 것이 더 나은 방법으로 <strong>barrier method v.1</strong>이 정의될 수 있다.</p>
+
+<h2 id="barrier-method-v1">Barrier method v.1</h2>
+<p><strong>Barrier method v.1</strong>은 \(t\) 값을 증가시키면서 다음의 barrier problem을 점진적으로 여러번 푸는 방법이다.</p>
+<blockquote>
+
+\[\begin{align}
+ &amp;\min_{x} \ &amp;&amp; tf(x) + \phi(x) \\
+ &amp;\text{subject to } \ &amp;&amp; Ax = b \\
+\end{align}\]
+</blockquote>
+
+<h4 id="algorithm">Algorithm</h4>
+<p>알고리즘을 설명하면 다음과 같다.</p>
+
+<ol>
+  <li>\(t^{(0)} \gt 0\)이고 \(k := 0\)을 선택한다.</li>
+  <li>\(t = t^{(0)}\)에서 barrier problem을 풀어서 \(x^{(0)} = x^*(t)\)을 구한다.</li>
+  <li>While \(m/t \gt \epsilon\) <br />
+  3-1. \(t^{(k+1)} \gt t^{(k)}\)를 선택한다. <br />
+  3-2. Newton’s method를 \(x^{(k)}\)로 초기화한다. (warm start)<br />
+     \(t = t^{(k+1)}\)에서 barrier problem을 풀어서 \(x^{(k+1)} = x^*(t)\)을 구한다.<br />
+  end while<br /></li>
+</ol>
+
+<h4 id="comments">Comments</h4>
+<ul>
+  <li><strong>Common update 방법</strong> : \(t^{(k+1)} = \mu t^{(k)}\), (\(\mu \gt 1\))</li>
+  <li><strong>Warm start</strong> :  단계 3-2에서는 이전 단계의 solution을 다음 단계의 초기값으로 사용하는데 이를 warm start라고 한다.</li>
+  <li><strong>Centering step</strong> :  알고리즘에서 barrier problem을 푸는 단계인 2와 3-2를 centering step ( or outer iteration)이라고 한다.</li>
+</ul>
+
+<h4 id="considerations">Considerations</h4>
+<p>\(\mu\)와 \(t^{(0)}\)의 선택에 있어서, 다음의 trade off를 고려해야 한다.</p>
+<h6 id="mu의-선택">\(\mu\)의 선택</h6>
+<ul>
+  <li>\(\mu\)가 너무 작다면, outer iteration이 많아진다. (이 경우 warm start가 도움이 된다.)<br /></li>
+  <li>\(\mu\)가 너무 크다면, 모든 centering step에서 newton method가 수렴할 때까지 iteration을 많이 해야 한다.</li>
+</ul>
+
+<h6 id="알고리즘-초기값-선택">알고리즘 초기값 선택</h6>
+<ul>
+  <li>\(t^{(0)}\)가 너무 작다면, outer iteration이 많아진다.<br /></li>
+  <li>\(t^{(0)}\)가 너무 크다면, v.0과 같은 문제가 된다. 따라서, 첫번째 centering step에서 newton method가 \(x^{(0)}\)을 구하기 위해 iteration을 많이 해야 한다.</li>
+</ul>
+
+<p>다행히도 실제 barrier method의 성능은 \(\mu\)와 \(t^{(0)}\)의 선택에 매우 robust한 편이다. 그리고, 이들 parameter의 적절한 범위는 문제의 크기에 따라 달라진다.</p>
+
+<h2 id="example-of-small-lp">Example of small LP</h2>
+<p>다음 그릠에는 n=50 dimensions, m=100 inequality constraints 조건의 LP 문제를 barrier method로 실행했을 때 성능을 보여주고 있다. \(\mu = 2\)인 경우 outer iteration이 커지고 \(\mu=150\)인 경우에 centering step이 \(\mu=50\)일 때보다 상대적으로 증가했음을 확인할 수 있다.</p>
+
+<figure class="image" style="align: center;">
+<p align="center">
+ <img src="/img/chapter_img/chapter15/15_barrier_method_03.png" alt="" width="70%" height="70%" />
+ <figcaption style="text-align: center;">[Fig 1] Example of small LP [3]</figcaption>
+</p>
+</figure>
+
+        </article>
+    </div>
+</main>
+
+<main class="container">
+    <div class="content">
+        <article class="post-body">
+            <h1><a name="_page_10"></a>15-05 Convergence analysis</h1>
+            <p>Barrier method는 centering step을 정확히 푼다고 가정하면 다음의 수렴 결과를 얻을 수 있다.</p>
+
+<h2 id="convergence-theorem">Convergence Theorem</h2>
+<p><strong>Barrier method</strong>는 \(k\) centering step후 다음 식을 만족한다. (단, \(k\)는 outer iteration 수이다.)</p>
+<blockquote>
+\[\begin{align}
+f(x^{(k)}) - f^{*} \le  \frac{m}{\mu^k t^{(0)}}
+\end{align}\]
+</blockquote>
+
+<p>즉, barrier method로 원하는 accuracy level \(\epsilon\)에 도달하려면 다음 centering step 수에 첫번째 centering step인 1을 더한 횟수의 step이 필요하다.</p>
+
+<blockquote>
+\[\begin{align}
+\frac{log(m/(t^{(0)}\epsilon))}{\log \mu} + 1
+\end{align}\]
+</blockquote>
+
+<p>따라서, \(O(\log 1/\epsilon )\)으로 linear convergence임을 알 수 있다.</p>
+
+<p>Newton’s method는 \(O(\log \log 1/\epsilon )\)로 quadratic convergence이지만 이 경우 문제가 매우 어렵기 때문에 linear convergence가 그렇게 나쁜 결과는 아니다.</p>
+
+<p>Linear convergence와 quadratic convergence의 정의는 Wiki를 참고하라.<br /></p>
+<ul>
+  <li>참고 : <a href="https://en.wikipedia.org/wiki/Rate_of_convergence">Rate of convergnece</a></li>
+</ul>
+
+        </article>
+    </div>
+</main>
+
+<main class="container">
+    <div class="content">
+        <article class="post-body">
+            <h1><a name="_page_11"></a>15-06 Barrier method v.2</h1>
+            <p>이전 알고리즘에서는 central path에 있는 solution을 생성했는데, 실제 centeral path는 optimal로 가는 과정(“means to an end”)일 뿐이다. 따라서, 문제를 정확히 풀 필요는 없다.</p>
+
+<h2 id="barrier-method-v2">Barrier method v.2</h2>
+<p>이런 이유로 Barrier method v.2은 barrier problem을 approximation해서 풀게 된다.</p>
+
+<h4 id="algorithm">Algorithm</h4>
+<p>알고리즘의 단계는 Barrier method v.1과 동일하다.</p>
+
+<p>단, 단계 2의  \(x^{(0)} \approx x^*(t)\)와 단계 3-2의 \(x^{(k+1)} \approx x^*(t)\) 부분이 approximation으로 바뀌었다.</p>
+
+<ol>
+  <li>\(t^{(0)} \gt 0\)이고 \(k := 0\)을 선택한다.</li>
+  <li>\(t = t^{(0)}\)에서 barrier problem을 풀어서 \(x^{(0)} \approx x^*(t)\)을 구한다.</li>
+  <li>While \(m/t \gt \epsilon\) <br />
+  3-1. \(t^{(k+1)} \gt t^{(k)}\)를 선택한다. <br />
+  3-2. Newton’s method를 \(x^{(k)}\)로 초기화한다. (warm start)<br />
+     \(t = t^{(k+1)}\)에서 barrier problem을 풀어서 \(x^{(k+1)} \approx x^*(t)\)을 구한다.<br />
+  end while<br /></li>
+</ol>
+
+<h4 id="important-issues-can-be-formalized">Important issues (can be formalized):</h4>
+<p>Barrier method v.2에서는 다음 두 가지 사항이 매우 중요하다.<br /></p>
+
+<ul>
+  <li>얼마나 근사를 잘 할 수 있는가? (How close should each approximation be?)</li>
+  <li>Centering step 별로 얼마나 많은 newton step이 필요한가? (How many Newton steps suffice at each centering step?)</li>
+</ul>
+
+<h2 id="example-of-lp">Example of LP</h2>
+<p>다음 그림을 보면 \(m\)개 constraint를 갖는 문제에 대해 barrier method를 실행해 보면 \(m\)의 크기가 커지더라도 linear convergence를 한다는 것을 볼 수 있다. 즉, \(m\)에 대해 log scale을 갖는다.</p>
+
+<figure class="image" style="align: center;">
+<p align="center">
+ <img src="/img/chapter_img/chapter15/15_barrier_methodv2_04.png" alt="" width="70%" height="70%" />
+ <figcaption style="text-align: center;">[Fig 1] m에 대해 newton iteration과 suboptimality gap 분석 [1]</figcaption>
+</p>
+</figure>
+
+<p>다르게 보면 (\(10^4\)인 초기 suboptimal gap (duality gap)을 줄이기 위해 필요한) newton step은 \(m\)에 대해 천천히 증가한다. 아래 그림을 보면 \(m\)이 크게 증하하더라도 각 centering step 별로 20~30 newton step 정도만 필요하다. 단, 한 newton step은 문제의 크기에 따라 크게 달라진다.</p>
+
+<figure class="image" style="align: center;">
+<p align="center">
+ <img src="/img/chapter_img/chapter15/15_barrier_methodv2_05.png" alt="" width="70%" height="70%" />
+ <figcaption style="text-align: center;">[Fig 2] m의 증가와 newton iteration 수 분석 [1]</figcaption>
+</p>
+</figure>
+
+        </article>
+    </div>
+</main>
+
+<main class="container">
+    <div class="content">
+        <article class="post-body">
+            <h1><a name="_page_12"></a>15-07 Feasibility methods</h1>
+            <p>지금까지 첫번째 centering step(\(t = t^{(0)}\))에서 \(x^{(0)} = x^*\)를 계산하기 위해 strictly feasible point에서 시작한다고 암묵적으로 가정을 했다.</p>
+
+<p>이 점은 \(x\)는 다음과 같은 조건을 만족하는 strictly feasible point이다.</p>
+<blockquote>
+\[h_i(x) \lt 0, \quad i = 1, \cdots, m, \quad Ax = b\]
+</blockquote>
+
+<h2 id="maximum-infeasibility">Maximum infeasibility</h2>
+<p>어떻게 \(x\)를 구할까? 다음 문제를 풀어서 구할 수 있다.</p>
+
+<blockquote>
+
+\[\begin{align}
+&amp;\min_{x, s} \        &amp;&amp; s \\
+&amp;\text{subject to } \ &amp;&amp; h_i(x) \le s,&amp; i = 1, \cdots, m \\
+                      &amp;&amp;&amp; Ax = b \\
+\end{align}\]
+</blockquote>
+
+<p>목표는 solution \(s\)이 음수가 되게 하는 것이다. 이 문제를 <strong>feasibility method</strong>라고 한다.</p>
+
+<p>Strictly feasible starting point를 구하는 것은 쉽기 때문에 barrier method를 이용해서 풀 수도 있다. 즉, inequality constraint인 \(h_i(x) \le s\)에 slack 변수를 추가해서 equality constraint로 바꾸어 풀면 된다.</p>
+
+<p>이 문제를 풀 때 high accuracy를 만족할 필요는 없으며 feasible \(s &lt; 0\)인 \((x,s)\)를 찾기만 하면 된다.</p>
+
+<h2 id="infeasibility-for-each-inequality-constraint">Infeasibility for each inequality constraint</h2>
+<p>다음과 같이 문제를 정의해서 풀 수도 있다. 앞에 방법은 모든 inequality의 maximum infeasbility를 찾는 문제였다면 이 문제는 각 inequality 별로  infeasible variable \(s_i, i = 1, \cdots, m\)를 찾는 문제이다.</p>
+<blockquote>
+
+\[\begin{align}
+&amp;\min_{x, s} \        &amp;&amp; 1^Ts \\
+&amp;\text{subject to } \ &amp;&amp; h_i(x) \le s_i,&amp; i = 1, \cdots, m \\
+                      &amp;&amp;&amp; Ax = b \\
+\end{align}\]
+</blockquote>
+
+<p>이 방법의 장점은 solution인 \(s\)를 보면 문제가 infeasible한지 알 수 있다는 것이다. 즉, \(s\)의 요소가 0이상이면 해당 constraint는 만족되지 않는다.</p>
+
+        </article>
+    </div>
+</main>
+
+<main class="container">
+    <div class="content">
+        <article class="post-body">
+            <h1><a name="_page_13"></a>15-08 Formal barrier method</h1>
+            <p>Open convex set \(D \subset \mathbb{R}^n\)로 정의되는 convex function \(\phi : D \to \mathbb{R}\)가 다음의 조건을 만족시키면, 그 function은 파라미터 \(\nu\)를 갖는 <strong>self-concordant barrier</strong>이다.</p>
+
+<ul>
+  <li>\(\phi\)는 self-concordant</li>
+  <li>모든 \(x \in D\)에 대해 다음과 같이 상수 \(\nu\)에 bound되는  newton decrement를 갖는다.</li>
+</ul>
+
+<blockquote>
+\[\lambda(x)^2 = \nabla \phi(x) (\nabla^2 \phi(x))^{-1} \nabla \phi(x) \le \nu\]
+</blockquote>
+
+<p>다음 LP 문제를 고려해보자. (여기서 \(\bar{D}\)는 domain \(D\)의 closure이다.)</p>
+<blockquote>
+
+\[\begin{align}
+&amp;\min_{x} \           &amp;&amp; c^Tx \\
+&amp;\text{subject to } \ &amp;&amp; x \in \bar{D}  \\
+\end{align}\]
+</blockquote>
+
+<p>이 문제는 다음과 같은 문제로 근사된다.</p>
+<blockquote>
+
+\[\begin{align}
+&amp;\min_{x} &amp;&amp; tc^Tx + \phi(x) \\
+\end{align}\]
+</blockquote>
+
+<p>여기서, \(\phi_t(x) := tc^Tx + \phi(x)\)라고 하고 이에 해당하는 newton decrement를 \(\lambda_t(x)\)라고 하자.</p>
+
+<p>Key observation : \(t^+ \gt t\)의 경우</p>
+<blockquote>
+
+\[\begin{align}
+\lambda_t^+(x) \le &amp; \frac{t^+}{t}\lambda_t^+(x) + \left ( \frac{t^+}{t} -1 \right ) \sqrt{\nu}  \\\
+\end{align}\]
+</blockquote>
+
+<h2 id="theorem">Theorem</h2>
+
+<blockquote>
+\[\begin{align}
+&amp; \text{if} \quad \lambda_t(x) \le \frac{1}{9} \quad \text{and} \quad \frac{t^+}{t} \le 1 + \frac{1}{8 \sqrt{\nu}} \quad \text{then} \quad \lambda_t^+(x^+) \le \frac{1}{9}  \\\
+&amp; \qquad \qquad \text{for} \quad x^+ = x - (\nabla^2 (\phi_{t^+}(x))^{-1} \nabla (\phi_{t^+}(x)
+\end{align}\]
+</blockquote>
+
+<p>결론적으로 \(\lambda_{t^{(0)}}(x^{(0)}) \lt \frac{1}{9}\)가 되도록 \(x^{(0)}, t^{(0)}\)으로 시작하고 \(\mu := 1 + \frac{1}{8 \sqrt(\nu)}\)으로 선택한다면, 각 centering step마다 한 newton step이면 충분하다.</p>
+
+        </article>
+    </div>
+</main>
+
+
+
+
+      </div>
+    </div>
+
+    <label for="sidebar-checkbox" class="sidebar-toggle"></label>
+
+    <script src='/public/js/script.js'></script>
+  </body>
+</html>

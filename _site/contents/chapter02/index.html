@@ -1,0 +1,1545 @@
+<!DOCTYPE html>
+<html lang="en-us">
+
+  <head>
+  <link href="http://gmpg.org/xfn/11" rel="profile">
+  <meta http-equiv="content-type" content="text/html; charset=utf-8">
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
+
+  <style>
+    .MathJax {
+      padding: 2em 0.3em;
+      overflow-x: auto;
+      overflow-y: hidden;
+    }
+@media print {
+
+    .container {
+        padding: 0;
+        max-width: unset;
+        break-after: page;
+        break-before: page;
+    }
+    .content {
+        padding: 0;
+    }
+    .masthead {
+        display: none;
+    }
+    .sidebar-toggle {
+        display: none;
+    }
+
+
+}
+  </style>
+  <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js"></script>
+
+  <title>
+    
+      Convex Sets &middot; 모두를 위한 컨벡스 최적화
+    
+  </title>
+
+  <link rel="stylesheet" href="/public/css/poole.css">
+  <link rel="stylesheet" href="/public/css/syntax.css">
+  <link rel="stylesheet" href="/public/css/lanyon.css">
+  <link rel="stylesheet" href="/public/css/github-markdown.css">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=PT+Serif:400,400italic,700%7CPT+Sans:400">
+
+  <link rel="apple-touch-icon-precomposed" sizes="122x144" href="https://convex-optimization-for-all.github.io/public/logo.png">
+  <link rel="shortcut icon" href="https://convex-optimization-for-all.github.io/public/convex-logo-144x144.png">
+
+  <link rel="alternate" type="application/rss+xml" title="RSS" href="https://convex-optimization-for-all.github.io/atom.xml">
+
+  
+  <script>
+    (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+    (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+    m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+    })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+    ga('create', 'UA-189737072-1', 'auto');
+    ga('send', 'pageview');
+  </script>
+  
+</head>
+
+
+  <body class="sidebar-overlay">
+
+    <!-- Target for toggling the sidebar `.sidebar-checkbox` is for regular
+     styles, `#sidebar-checkbox` for behavior. -->
+<input type="checkbox" class="sidebar-checkbox" id="sidebar-checkbox">
+
+<!-- Toggleable sidebar -->
+<div class="sidebar" id="sidebar">
+  <div class="sidebar-item">
+    <p>모두를 위한 컨벡스 최적화</p>
+  </div>
+
+  <nav class="sidebar-nav">
+    <a class="sidebar-nav-item" href="https://convex-optimization-for-all.github.io/">Home</a>
+
+    
+
+    
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+        
+          <a class="sidebar-nav-item" href="https://convex-optimization-for-all.github.io/contents/chapter01/">01. Introduction</a>
+        
+      
+    
+      
+        
+          <a class="sidebar-nav-item active" href="https://convex-optimization-for-all.github.io/contents/chapter02/">02. Convex Sets</a>
+        
+      
+    
+      
+        
+          <a class="sidebar-nav-item" href="https://convex-optimization-for-all.github.io/contents/chapter03/">03. Convex Functions</a>
+        
+      
+    
+      
+        
+          <a class="sidebar-nav-item" href="https://convex-optimization-for-all.github.io/contents/chapter04/">04. Convex Optimization Basis</a>
+        
+      
+    
+      
+        
+          <a class="sidebar-nav-item" href="https://convex-optimization-for-all.github.io/contents/chapter05/">05. Canonical Problems</a>
+        
+      
+    
+      
+        
+          <a class="sidebar-nav-item" href="https://convex-optimization-for-all.github.io/contents/chapter06/">06. Gradient Descent</a>
+        
+      
+    
+      
+        
+          <a class="sidebar-nav-item" href="https://convex-optimization-for-all.github.io/contents/chapter07/">07. Subgradient</a>
+        
+      
+    
+      
+        
+          <a class="sidebar-nav-item" href="https://convex-optimization-for-all.github.io/contents/chapter08/">08. Subgradient Method</a>
+        
+      
+    
+      
+        
+          <a class="sidebar-nav-item" href="https://convex-optimization-for-all.github.io/contents/chapter09/">09. Proximal Gradient Descent and Acceleration</a>
+        
+      
+    
+      
+        
+          <a class="sidebar-nav-item" href="https://convex-optimization-for-all.github.io/contents/chapter10/">10. Duality in Linear Programs</a>
+        
+      
+    
+      
+        
+          <a class="sidebar-nav-item" href="https://convex-optimization-for-all.github.io/contents/chapter11/">11. Duality in General Programs</a>
+        
+      
+    
+      
+        
+          <a class="sidebar-nav-item" href="https://convex-optimization-for-all.github.io/contents/chapter12/">12. KKT Conditions</a>
+        
+      
+    
+      
+        
+          <a class="sidebar-nav-item" href="https://convex-optimization-for-all.github.io/contents/chapter13/">13. Duality uses and correspondences</a>
+        
+      
+    
+      
+        
+          <a class="sidebar-nav-item" href="https://convex-optimization-for-all.github.io/contents/chapter14/">14. Newton's Method</a>
+        
+      
+    
+      
+        
+          <a class="sidebar-nav-item" href="https://convex-optimization-for-all.github.io/contents/chapter15/">15. Barrier Method</a>
+        
+      
+    
+      
+        
+          <a class="sidebar-nav-item" href="https://convex-optimization-for-all.github.io/contents/chapter16/">16. Duality Revisited</a>
+        
+      
+    
+      
+        
+          <a class="sidebar-nav-item" href="https://convex-optimization-for-all.github.io/contents/chapter17/">17. Primal-Dual Interior-Point Methods</a>
+        
+      
+    
+      
+        
+          <a class="sidebar-nav-item" href="https://convex-optimization-for-all.github.io/contents/chapter18/">18. Quasi-Newton Methods</a>
+        
+      
+    
+      
+        
+          <a class="sidebar-nav-item" href="https://convex-optimization-for-all.github.io/contents/chapter19/">19. Proximal Netwon Method</a>
+        
+      
+    
+      
+        
+          <a class="sidebar-nav-item" href="https://convex-optimization-for-all.github.io/contents/chapter20/">20. Dual Methods</a>
+        
+      
+    
+      
+        
+          <a class="sidebar-nav-item" href="https://convex-optimization-for-all.github.io/contents/chapter21/">21. Alternating Direction Method of Mulipliers</a>
+        
+      
+    
+      
+        
+          <a class="sidebar-nav-item" href="https://convex-optimization-for-all.github.io/contents/chapter22/">22. Conditional Gradient Method</a>
+        
+      
+    
+      
+        
+          <a class="sidebar-nav-item" href="https://convex-optimization-for-all.github.io/contents/chapter23/">23. Coordinate Descent</a>
+        
+      
+    
+      
+        
+          <a class="sidebar-nav-item" href="https://convex-optimization-for-all.github.io/contents/chapter24/">24.  Mixed Integer Programming 1</a>
+        
+      
+    
+      
+        
+          <a class="sidebar-nav-item" href="https://convex-optimization-for-all.github.io/contents/chapter25/">25.  Mixed Integer Programming 2</a>
+        
+      
+    
+      
+        
+          <a class="sidebar-nav-item" href="https://convex-optimization-for-all.github.io/reference/">26. Reference</a>
+        
+      
+    
+
+    <span class="sidebar-nav-item">Currently v1.1.0</span>
+  </nav>
+
+  <div class="sidebar-item">
+    <p>
+      &copy; 2022. All rights reserved.
+    </p>
+  </div>
+</div>
+
+
+    <!-- Wrap is the content to shift when toggling the sidebar. We wrap the
+         content to avoid any CSS collisions with our real content. -->
+    <div class="wrap github-md-body">
+      <div class="masthead">
+        <div class="container">
+          <h3 class="masthead-title">
+            <a href="/" title="Home">모두를 위한 컨벡스 최적화</a>
+            <small></small>
+          </h3>
+          <a class="github-logo__wrapper" target="_blank" href="https://github.com/convex-optimization-for-all/convex-optimization-for-all.github.io" titltle="Github">
+           <svg class="github-logo" xmlns="http://www.w3.org/2000/svg"  viewBox="0 0 48 48"><linearGradient id="rL2wppHyxHVbobwndsT6Ca" x1="4" x2="44" y1="23.508" y2="23.508" gradientUnits="userSpaceOnUse"><stop offset="0" stop-color="#4c4c4c"/><stop offset="1" stop-color="#343434"/></linearGradient><path fill="url(#rL2wppHyxHVbobwndsT6Ca)" d="M24,4C12.954,4,4,12.954,4,24c0,8.887,5.801,16.411,13.82,19.016h12.36	C38.199,40.411,44,32.887,44,24C44,12.954,35.046,4,24,4z"/><path d="M30.01,41.996L30,36.198c0-0.939-0.22-1.856-0.642-2.687c5.641-1.133,8.386-4.468,8.386-10.177	c0-2.255-0.665-4.246-1.976-5.92c0.1-0.317,0.174-0.645,0.22-0.981c0.188-1.369-0.023-2.264-0.193-2.984l-0.027-0.116	c-0.186-0.796-0.409-1.364-0.418-1.388l-0.111-0.282l-0.111-0.282l-0.302-0.032l-0.303-0.032c0,0-0.199-0.021-0.501-0.021	c-0.419,0-1.04,0.042-1.627,0.241l-0.196,0.066c-0.74,0.249-1.439,0.485-2.417,1.069c-0.286,0.171-0.599,0.366-0.934,0.584	C27.334,12.881,25.705,12.69,24,12.69c-1.722,0-3.365,0.192-4.889,0.571c-0.339-0.22-0.654-0.417-0.942-0.589	c-0.978-0.584-1.677-0.819-2.417-1.069l-0.196-0.066c-0.585-0.199-1.207-0.241-1.626-0.241c-0.302,0-0.501,0.021-0.501,0.021	l-0.302,0.032l-0.3,0.031l-0.112,0.281l-0.113,0.283c-0.01,0.026-0.233,0.594-0.419,1.391l-0.027,0.115	c-0.17,0.719-0.381,1.615-0.193,2.983c0.048,0.346,0.125,0.685,0.23,1.011c-1.285,1.666-1.936,3.646-1.936,5.89	c0,5.695,2.748,9.028,8.397,10.17c-0.194,0.388-0.345,0.798-0.452,1.224c-0.197,0.067-0.378,0.112-0.538,0.137	c-0.238,0.036-0.487,0.054-0.739,0.054c-0.686,0-1.225-0.134-1.435-0.259c-0.313-0.186-0.872-0.727-1.414-1.518	c-0.463-0.675-1.185-1.558-1.992-1.927c-0.698-0.319-1.437-0.502-2.029-0.502c-0.138,0-0.265,0.01-0.376,0.028	c-0.517,0.082-0.949,0.366-1.184,0.78c-0.203,0.357-0.235,0.773-0.088,1.141c0.219,0.548,0.851,0.985,1.343,1.255	c0.242,0.133,0.765,0.619,1.07,1.109c0.229,0.368,0.335,0.63,0.482,0.992c0.087,0.215,0.183,0.449,0.313,0.732	c0.47,1.022,1.937,1.924,2.103,2.023c0.806,0.483,2.161,0.638,3.157,0.683l0.123,0.003c0,0,0.001,0,0.001,0	c0.24,0,0.57-0.023,1.004-0.071v2.613c0.002,0.529-0.537,0.649-1.25,0.638l0.547,0.184C19.395,43.572,21.645,44,24,44	c2.355,0,4.605-0.428,6.703-1.176l0.703-0.262C30.695,42.538,30.016,42.422,30.01,41.996z" opacity=".05"/><path d="M30.781,42.797c-0.406,0.047-1.281-0.109-1.281-0.795v-5.804c0-1.094-0.328-2.151-0.936-3.052	c5.915-0.957,8.679-4.093,8.679-9.812c0-2.237-0.686-4.194-2.039-5.822c0.137-0.365,0.233-0.75,0.288-1.147	c0.175-1.276-0.016-2.086-0.184-2.801l-0.027-0.116c-0.178-0.761-0.388-1.297-0.397-1.319l-0.111-0.282l-0.303-0.032	c0,0-0.178-0.019-0.449-0.019c-0.381,0-0.944,0.037-1.466,0.215l-0.196,0.066c-0.714,0.241-1.389,0.468-2.321,1.024	c-0.332,0.198-0.702,0.431-1.101,0.694C27.404,13.394,25.745,13.19,24,13.19c-1.762,0-3.435,0.205-4.979,0.61	c-0.403-0.265-0.775-0.499-1.109-0.699c-0.932-0.556-1.607-0.784-2.321-1.024l-0.196-0.066c-0.521-0.177-1.085-0.215-1.466-0.215	c-0.271,0-0.449,0.019-0.449,0.019l-0.302,0.032l-0.113,0.283c-0.009,0.022-0.219,0.558-0.397,1.319l-0.027,0.116	c-0.169,0.715-0.36,1.524-0.184,2.8c0.056,0.407,0.156,0.801,0.298,1.174c-1.327,1.62-1.999,3.567-1.999,5.795	c0,5.703,2.766,8.838,8.686,9.806c-0.395,0.59-0.671,1.255-0.813,1.964c-0.33,0.13-0.629,0.216-0.891,0.256	c-0.263,0.04-0.537,0.06-0.814,0.06c-0.69,0-1.353-0.129-1.69-0.329c-0.44-0.261-1.057-0.914-1.572-1.665	c-0.35-0.51-1.047-1.417-1.788-1.755c-0.635-0.29-1.298-0.457-1.821-0.457c-0.11,0-0.21,0.008-0.298,0.022	c-0.366,0.058-0.668,0.252-0.828,0.534c-0.128,0.224-0.149,0.483-0.059,0.708c0.179,0.448,0.842,0.85,1.119,1.002	c0.335,0.184,0.919,0.744,1.254,1.284c0.251,0.404,0.37,0.697,0.521,1.067c0.085,0.209,0.178,0.437,0.304,0.712	c0.331,0.719,1.353,1.472,1.905,1.803c0.754,0.452,2.154,0.578,2.922,0.612l0.111,0.002c0.299,0,0.8-0.045,1.495-0.135v3.177	c0,0.779-0.991,0.81-1.234,0.81c-0.031,0,0.503,0.184,0.503,0.184C19.731,43.64,21.822,44,24,44c2.178,0,4.269-0.36,6.231-1.003	C30.231,42.997,30.812,42.793,30.781,42.797z" opacity=".07"/><path fill="#fff" d="M36.744,23.334c0-2.31-0.782-4.226-2.117-5.728c0.145-0.325,0.296-0.761,0.371-1.309	c0.172-1.25-0.031-2-0.203-2.734s-0.375-1.25-0.375-1.25s-0.922-0.094-1.703,0.172s-1.453,0.469-2.422,1.047	c-0.453,0.27-0.909,0.566-1.27,0.806C27.482,13.91,25.785,13.69,24,13.69c-1.801,0-3.513,0.221-5.067,0.652	c-0.362-0.241-0.821-0.539-1.277-0.811c-0.969-0.578-1.641-0.781-2.422-1.047s-1.703-0.172-1.703-0.172s-0.203,0.516-0.375,1.25	s-0.375,1.484-0.203,2.734c0.077,0.562,0.233,1.006,0.382,1.333c-1.31,1.493-2.078,3.397-2.078,5.704	c0,5.983,3.232,8.714,9.121,9.435c-0.687,0.726-1.148,1.656-1.303,2.691c-0.387,0.17-0.833,0.33-1.262,0.394	c-1.104,0.167-2.271,0-2.833-0.333s-1.229-1.083-1.729-1.813c-0.422-0.616-1.031-1.331-1.583-1.583	c-0.729-0.333-1.438-0.458-1.833-0.396c-0.396,0.063-0.583,0.354-0.5,0.563c0.083,0.208,0.479,0.521,0.896,0.75	c0.417,0.229,1.063,0.854,1.438,1.458c0.418,0.674,0.5,1.063,0.854,1.833c0.249,0.542,1.101,1.219,1.708,1.583	c0.521,0.313,1.562,0.491,2.688,0.542c0.389,0.018,1.308-0.096,2.083-0.206v3.75c0,0.639-0.585,1.125-1.191,1.013	C19.756,43.668,21.833,44,24,44c2.166,0,4.243-0.332,6.19-0.984C29.585,43.127,29,42.641,29,42.002v-5.804	c0-1.329-0.527-2.53-1.373-3.425C33.473,32.071,36.744,29.405,36.744,23.334z M11.239,32.727c-0.154-0.079-0.237-0.225-0.185-0.328	c0.052-0.103,0.22-0.122,0.374-0.043c0.154,0.079,0.237,0.225,0.185,0.328S11.393,32.806,11.239,32.727z M12.451,33.482	c-0.081,0.088-0.255,0.06-0.389-0.062s-0.177-0.293-0.096-0.381c0.081-0.088,0.255-0.06,0.389,0.062S12.532,33.394,12.451,33.482z M13.205,34.732c-0.102,0.072-0.275,0.005-0.386-0.15s-0.118-0.34-0.016-0.412s0.275-0.005,0.386,0.15	C13.299,34.475,13.307,34.66,13.205,34.732z M14.288,35.673c-0.069,0.112-0.265,0.117-0.437,0.012s-0.256-0.281-0.187-0.393	c0.069-0.112,0.265-0.117,0.437-0.012S14.357,35.561,14.288,35.673z M15.312,36.594c-0.213-0.026-0.371-0.159-0.353-0.297	c0.017-0.138,0.204-0.228,0.416-0.202c0.213,0.026,0.371,0.159,0.353,0.297C15.711,36.529,15.525,36.62,15.312,36.594z M16.963,36.833c-0.227-0.013-0.404-0.143-0.395-0.289c0.009-0.146,0.2-0.255,0.427-0.242c0.227,0.013,0.404,0.143,0.395,0.289	C17.381,36.738,17.19,36.846,16.963,36.833z M18.521,36.677c-0.242,0-0.438-0.126-0.438-0.281s0.196-0.281,0.438-0.281	c0.242,0,0.438,0.126,0.438,0.281S18.762,36.677,18.521,36.677z"/></svg>
+          </a>
+        </div>
+      </div>
+
+      <div class="container content">
+        <h1>02. Convex Sets</h1>
+
+
+
+
+
+
+<!-- Get first post and show it -->
+
+<p>이 장에서는 convex optimization의 근간을 이루는 개념인 convex set에 대해 살펴볼 것이다.</p>
+
+<h4 id="배경">배경</h4>
+<p>Convex optimization이란 문제를 convex function으로 정의해서 최대 또는 최소를 구하는 기법을 말한다.
+Convex set은 다음 두 가지 측면에서 convex function과 밀접한 관련이 있다.</p>
+
+<ul>
+  <li>Convex function은 convex set으로 정의된다. 즉, 함수의 정의역과 치역이 convex set으로 정의되며 그에 따라 convex function의 주요 성질들이 convex set에 의해 결정된다.</li>
+  <li>Optimization 문제를 convex function으로 변환하면 쉽게 풀 수 있다. 하지만, 가끔씩 내가 풀려는 문제가 convex function로 정의된 것인지 판단하기 어려울 때가 있다. 이럴 때는 함수의 epigraph가 convex set인지를 확인해서 convex function임을 판별할 수가 있다.</li>
+</ul>
+
+<h4 id="내용">내용</h4>
+<p>이 장에서는 convex set의 정의와 예제, 주요 속성, convexity를 유지하는 연산에 대해 살펴볼 것이다.</p>
+
+
+<!-- Remove first element from post_list which is already shown above. -->
+  
+
+<!-- List up the posts in the chapter -->
+<ul style="list-style: none;">
+
+  
+  
+  
+  
+    <li style="text-align:left; vertical-align: middle; margin-left: -2em; margin-top: 5px;" >
+      <a href="#_page_1">02-01 Affine and Convex Sets</a>
+    </li>
+  
+  
+
+  
+  
+  
+  
+  
+    <li style="text-align:left; vertical-align: middle;  margin-left: 0em;" >
+      <a href="#_page_2"> 02-01-01 Line, line segment, ray</a>
+    </li>
+  
+
+  
+  
+  
+  
+  
+    <li style="text-align:left; vertical-align: middle;  margin-left: 0em;" >
+      <a href="#_page_3"> 02-01-02 Affine set</a>
+    </li>
+  
+
+  
+  
+  
+  
+  
+    <li style="text-align:left; vertical-align: middle;  margin-left: 0em;" >
+      <a href="#_page_4"> 02-01-03 Convex set</a>
+    </li>
+  
+
+  
+  
+  
+  
+  
+    <li style="text-align:left; vertical-align: middle;  margin-left: 0em;" >
+      <a href="#_page_5"> 02-01-04 Cone</a>
+    </li>
+  
+
+  
+  
+  
+  
+    <li style="text-align:left; vertical-align: middle; margin-left: -2em; margin-top: 5px;" >
+      <a href="#_page_6">02-02 Some important examples</a>
+    </li>
+  
+  
+
+  
+  
+  
+  
+  
+    <li style="text-align:left; vertical-align: middle;  margin-left: 0em;" >
+      <a href="#_page_7"> 02-02-01 Convex set examples</a>
+    </li>
+  
+
+  
+  
+  
+  
+  
+    <li style="text-align:left; vertical-align: middle;  margin-left: 0em;" >
+      <a href="#_page_8"> 02-02-02 Convex Cone examples</a>
+    </li>
+  
+
+  
+  
+  
+  
+    <li style="text-align:left; vertical-align: middle; margin-left: -2em; margin-top: 5px;" >
+      <a href="#_page_9">02-03 Operations that preserve convexity</a>
+    </li>
+  
+  
+
+  
+  
+  
+  
+    <li style="text-align:left; vertical-align: middle; margin-left: -2em; margin-top: 5px;" >
+      <a href="#_page_10">02-04 Generalized inequalities</a>
+    </li>
+  
+  
+
+  
+  
+  
+  
+    <li style="text-align:left; vertical-align: middle; margin-left: -2em; margin-top: 5px;" >
+      <a href="#_page_11">02-05 Separating and supporting hyperplanes</a>
+    </li>
+  
+  
+
+  
+  
+  
+  
+    <li style="text-align:left; vertical-align: middle; margin-left: -2em; margin-top: 5px;" >
+      <a href="#_page_12">02-06 Dual cones and generalized inequalities</a>
+    </li>
+  
+  
+
+  
+  
+  
+  
+  
+    <li style="text-align:left; vertical-align: middle;  margin-left: 0em;" >
+      <a href="#_page_13"> 02-06-01 Dual cones</a>
+    </li>
+  
+
+  
+  
+  
+  
+  
+    <li style="text-align:left; vertical-align: middle;  margin-left: 0em;" >
+      <a href="#_page_14"> 02-06-02 Dual generalized inequalities</a>
+    </li>
+  
+
+</ul>
+
+
+<main class="container">
+    <div class="content">
+        <article class="post-body">
+            <h1><a name="_page_1"></a>02-01 Affine and Convex Sets</h1>
+            <p>이 절에서는 convex set을 중심으로 하는 개념과 정의를 살펴볼 것이다. 이 절에서는 세 가지 종류의 set을 소개하고 있는데, 이 중 가장 일반적인 set이 affine set이며 affine set에서 범위를 제약해서 정의한 set이 convex set과 cone이다.</p>
+
+<p>재미있는 것은 이 set들은 아주 많은 직선(line) 또는 선분(line segment), 반직선(ray)이 모여있다고 가정하고 있다는 것이다. Affine set은 무수히 많은 line을 모여서 만들어진 것이며, convex set은 무수히 많은 line segment이 모여서 만들어진 것이고 cone은 무수히 많은 ray가 모여서 만들어진 것으로 생각하면 쉽게 이해할 수 있을 것이다. 그리고, cone은 nonnegative homogenous set이라고도 하는데 ray의 한쪽 방향으로만 커지는 성질을 생각하면 왜 이런 이름 붙었는지 쉽게 이해할 수 있을 것이다.</p>
+
+        </article>
+    </div>
+</main>
+
+<main class="container">
+    <div class="content">
+        <article class="post-body">
+            <h1><a name="_page_2"></a>02-01-01 Line, line segment, ray</h1>
+            <p>Affine set, convex set, cone을 정의하기 위해 먼저 직선(line), 선분(line segment), 반직선(ray)을 먼저 살펴보자.</p>
+
+<p>Line은 두 점을 지나면서 양쪽 방향으로 무한히 커지는 선을 말한다. 반면, line segment는 두 점 사이에서만 정의되는 선을 말하며, ray는 한 점에서 시작해서 다른 점을 지나면서 무한히 커지는 선을 말한다. 다음 그림에서는 line과 line segmemt를 보여주고 있다. 파라미터 \(\theta\)의 범위에 따라 line, line segment, ray가 어떻게 정의될 지 상상해보라.</p>
+
+<figure class="image" style="align: center;">
+<p align="center">
+  <img src="/img/chapter_img/chapter02/02.01_Line_Segment.png" alt="Line Segment" width="70%" />
+  <figcaption style="text-align: center;">$$\text{[Fig1] } x_1\text{과 } x_2 \text{ 을 지나는 Line과 Line Segment [1]}$$</figcaption>
+</p>
+</figure>
+
+<p>[참고] Set에 포함된 임의의 두 점을 이용해서 line 또는 line segment, ray를 만들었을 때, 이들이 set에 포함되는지 여부로 set을 정의하게 된다. (이때 set을 여러 점으로도 정의할 수 있는데, set에 포함된 여러 점들을 이용해서 affine combination, convex combination, conic combination 했을 때 그 결과가 set에 포함되는지 여부로 정의하게 된다. 자세한 내용은  뒷 절에서 설명할 것이다.)</p>
+
+<h2 id="line">Line</h2>
+
+<p>두 점 \(x_1\)과 \(x_2\)을 지나는 <strong>Line</strong>은 다음과 같이 정의된다. 이때, \(\theta\)는 임의의 실수이며 \(\theta\)가 0이면 \(y\)는 \(x_2\)가 되고, \(\theta\)가 1이면 \(y\)는 \(x_1\)이 된다. 따라서, \(\theta\)가 0보다 작거나 1보다 크면 \(x_2\)에서  \(x_1\)까지의 범위를 벗어나는 것을 위의 그림에서 확인할 수 있다.</p>
+
+<blockquote>
+  <p>\(y = \theta x_1 + (1 - \theta) x_2\) with \(\theta \in R\)</p>
+</blockquote>
+
+<h2 id="line-segment">Line segment</h2>
+
+<p>직선의 식에서 \(\theta\)의 범위를 0에서 1로 제한하면 <strong>line segment</strong>가 된다. 따라서, line segment는 직선의 식에 \(0 \le \theta \le 1\) 조건을 추가해서 정의할 수 있다.</p>
+
+<blockquote>
+  <p>\(y = \theta x_1 + (1 - \theta) x_2\) with \(0 \le \theta \le 1\)</p>
+</blockquote>
+
+<p>다음과 같이 식을 조금 다르게 표현해서 해석해보면 line segment는 점 \(x_2\)에서 출발해서 \((x_1 - x_2)\) 벡터 방향으로 \(\theta\)배로 진행하다 \(x_1\)에 도달하면 멈추는 것으로  생각해볼 수 있다.</p>
+
+<blockquote>
+  <p>\(y = x_2 + \theta (x_1 - x_2)\) with \(0 \le \theta \le 1\)</p>
+</blockquote>
+
+<h2 id="ray">Ray</h2>
+
+<p>Ray는 한 점에서 시작해서 다른 점을 지나면서 무한히 커지는 직선을 말한다. 점 \(x_2\)에서 출발해서 \((x_1 - x_2)\) 벡터 방향으로 \(\theta\)배로 무한히 진행한다.</p>
+
+<blockquote>
+  <p>\(y = x_2 + \theta (x_1 - x_2)\) with \(\theta \ge 0\)</p>
+</blockquote>
+
+<p>이 식을 다음과 같이 정리해 보면 위의 line과 line segment 식과 \(\theta\)의 조건만 다르고 동일한 형태임을 알 수 있다.</p>
+
+<blockquote>
+  <p>\(y = \theta x_1 + (1 - \theta) x_2\) with \(\theta \ge 0\)</p>
+</blockquote>
+
+<p>이제  \(\theta\)의 범위가 line은 \(\theta \in R\), line segment는 \(0 \le \theta \le 1\), ray는 \(\theta \ge 0\)라는 것을 알 수 있다. 또한, 앞으로 정의하게 될 affine set, convex set, conic set에서도 \(\theta\)의 범위도 동일하다는 것을 알게 될 것이다.</p>
+
+
+        </article>
+    </div>
+</main>
+
+<main class="container">
+    <div class="content">
+        <article class="post-body">
+            <h1><a name="_page_3"></a>02-01-02 Affine set</h1>
+            <p>Affine set은 점(point), 직선(line), 평면(plane), 초평면(hyperplane)과 같이 선형적 특성이 있으면서 경계가 없는 집합을 말한다. 어떤 집합이 affine set이라고 말할 수 있으려면 집합에 속한 임의의 두 점으로 직선을 만들어서 그 직선이 집합에 포함되는지를 보면 된다. 이쯤에서 다들 느끼겠지만 직선이 포함된다는 의미는 경계가 없다는 의미이므로 어떤 공간이 경계가 있다면 affine set이 될 수 없다는 것을 직관적으로 알 수 있을 것이다. 수학적으로 이 내용을 정의해보자.</p>
+
+<h2 id="affine-set">Affine set</h2>
+
+<p>집합 \(C \subseteq R^n\)에 속한 두 점 \(x_1\), \(x_2 \in C\)을 지나는 직선을 만들었을 때 이 직선이 \(C\)에 포함되면 이 집합을 <strong>affine set</strong>이라고 한다.</p>
+
+<blockquote>
+  <p>\(\theta x_1 + (1-\theta)x_2 \in C\) with \(\theta \in R\)</p>
+</blockquote>
+
+<p>이 식을 다르게 해석해 보면 set \(C\)에 속한 두 점을 linear combination하되 계수의 합을 1로 제한했다고 볼 수도 있다. (이 식에서 계수인 \(\theta\)와 \((1-\theta)\)의 합은 1이다. ) 그리고, 그 결과가  \(C\)에 다시 포함되면 affine set이다.</p>
+
+<h2 id="affine-combination">Affine combination</h2>
+
+<p>여러 점들을 linear combination할 때 계수의 합을 1로 제한하게 되면 이를 <strong>affine combination</strong>이라고 한다.</p>
+
+<blockquote>
+  <p>\(\theta_1 x_1 + \theta_2 x_2 + \cdots + \theta_k x_k \in C\) with \(\theta_1 + \theta_2 + ... + \theta_k = 1\)</p>
+</blockquote>
+
+<p>이제 affine set의 정의를 affine combination 개념을 이용해서 일반화해 볼 수 있다. 즉, 어떤 집합에 속하는 점들을 affine combination했을 때 그 결과가 다시 그 집합에 속하면 그 집합은 affine set이라고 말할 수 있다.</p>
+
+<p>반대로 affine set에 속하는 점들을 affine combination하면 항상 set에 속하게 된다.</p>
+
+<h2 id="affine-hull">Affine hull</h2>
+
+<p>\(C \subseteq \mathbb{R}^n\)에 포함된 점들의 모든 affine combination들의 집합을 \(C\)의 affine hull이라고 하며 <strong>aff</strong> \(C\)로 표기한다. Affine hull <strong>aff</strong> \(C\)은 항상 affine set이며, 집합 \(C\)를 포함하는 가장 작은 affine set이다.</p>
+<blockquote>
+\[\mathbb{aff} C = \{ \theta_1 x_1 + \dotsi + \theta_k x_k \phantom{1} \mid \phantom{1} x_1, \dotso, x_k \in C, \theta_1 + \dotsi + \theta_k = 1 \}\]
+</blockquote>
+
+<h2 id="affine-set과-subspace의-관계">Affine set과 subspace의 관계</h2>
+
+<p>Affine set \(C\)가 있을 때 \(x_0 \in C\)라면 set \(V = C - x_0\)는 subspace이다. 
+(\(V\)가 subspace라는 증명은 아래에 있다.)</p>
+
+<blockquote>
+\[V = C - x_0 =  \{ x - x_0 \phantom{1} \mid \phantom{1} x \in C \}\]
+</blockquote>
+
+<p>따라서, <strong>“Affine set \(C\)은 linear subspace \(V\)를 \(x_0\)만큼 translation한 것이다”</strong> 라고 할 수 있으며, \(x_0\)는 집합 \(C\)에서 임의로 선택할 수 있다. 그리고, \(C\)의 차원은 \(V\)의 차원과 같다. (\(C, V \subseteq \mathbb{R}^n\))</p>
+
+<blockquote>
+\[C = V + x_0 =  \{ v + x_0 \phantom{1} \mid\phantom{1} v \in V \}\]
+</blockquote>
+
+<h4 id="참고-v가-subspace임을-증명">[참고] \(V\)가 subspace임을 증명</h4>
+
+<p>\(V\)는 subspace라는 것을 증명하려면 sum과 scalar multiplication에 닫혀있다는 것을 보이면 된다.</p>
+
+<p>먼저 \(v_1, v_2 \in V\)이고 \(\alpha, \beta \in R\)라고 하자. 만일 \(\alpha v_1 + \beta v_2 + x_0\)가 \(C\)에 속한다는 것을 확인한다면, \(V = C - x_0\)에 따라 \(\alpha v_1 + \beta v_2 \in V\)가 되므로 \(V\)가 sum과 scalar multiplication에 닫혀있다는 것을 알 수 있다.</p>
+
+<p>\(v_1 + x_0 \in C\)이고 \(v_2 + x_0 \in C\)이므로 \(\alpha v_1 + \beta v_2 + x_0\)는 다음과 같이 전개될 수 있다. 
+이때, 전개 결과에서 계수들의 합이 \(\alpha + \beta + (1 -  \alpha - \beta) = 1\)이므로, \(C\)에 속하는 세 점의 affine combination 형태임을 알 수 있다. 따라서, 전개 결과는 집합 \(C\)에 속하게 된다.</p>
+
+<blockquote>
+\[\alpha v_1 + \beta v_2 + x_0 = \alpha (v_1 + x_0) + \beta (v_2 + x_0) + (1 - \alpha - \beta) x_0 \in C\]
+</blockquote>
+
+<p>정리하면 \(\alpha v_1 + \beta v_2 + x_0 \in C\)이기 때문에 \(\alpha v_1 + \beta v_2 \in V\)가 되어서 \(V\)는 sum과 scalar multiplication에 닫혀있는 subspace임을 알 수 있다.</p>
+
+        </article>
+    </div>
+</main>
+
+<main class="container">
+    <div class="content">
+        <article class="post-body">
+            <h1><a name="_page_4"></a>02-01-03 Convex set</h1>
+            <p>이제 이 장의 핵심 개념인 convex set을 살펴보자. 직관적으로 convex set이란 오목하게 들어간 부분이나 내부에 구멍이 없는 집합을 의미한다. 따라서, 어떤 집합이 convex set이라고 말할 수 있으려면 집합에 속한 임의의 두 점으로 선분(line segment)을 만들어서 그 선분이 집합에 포함되는지를 보면 된다.</p>
+
+<h2 id="convex-set">Convex set</h2>
+
+<p>집합 \(C \subseteq R^n\)에 속한 두 점 \(x_1\), \(x_2 \in C\)을 연결한 line segment가 \(C\)에 포함되면 이 집합을 <strong>convex set</strong>이라고 한다.</p>
+
+<blockquote>
+  <p>\(\theta x_1 + (1-\theta)x_2 \in C\) with \(x_1, x_2 \in C\), \(0 \le \theta \le 1\)</p>
+</blockquote>
+
+<p>이 식을 다르게 해석해 보면 set \(C\)에 속한 두 점을 linear combination하되 계수가 양수이고 계수의 합을 1로 제한했다고 볼 수 있다. 그리고, 그 결과가  \(C\)에 다시 포함되면 convex set이다.</p>
+
+<p>아래 그림에는 convex set을 설명하는 예들이 있다. 왼쪽의 육각형은 convex이지만 가운데 있는 콩팥 모양은 내부에 두 점을 이었을 때 선분이 외부로 나가기 때문에 convex가 아니다. 오른쪽 네모의 경우 경계의 일부가 open된 상태라 경계에서 선분을 만들면 set의 범위를 벗어나므로 convex가 아니다.</p>
+
+<figure class="image" style="align: center;">
+<p align="center">
+  <img src="/img/chapter_img/chapter02/02.02_Convex_Set.png" alt="[Fig1] Convex Set [1]" width="70%" />
+  <figcaption style="text-align: center;">[Fig1] Convex Set [1]</figcaption>
+</p>
+</figure>
+
+<h2 id="convex-combination">Convex combination</h2>
+
+<p>점들을 linear combination할 때 계수가 양수이고 계수의 합을 1로 제한하면 이를 <strong>convex combination</strong>이라고 한다.</p>
+
+<blockquote>
+  <p>A point of the form \(\theta_1 x_1 + \theta_2 x_2 + ... + \theta_k x_k\) with \(\theta_1 + \theta_2 + ... + \theta_k = 1, \theta_i \ge  0, i = 1,  ..., k\)</p>
+</blockquote>
+
+<p>이제 convex set의 정의를 convex combination 개념을 이용해서 일반화해 볼 수 있다. 즉, 어떤 집합 C에 속하는 임의의 여러 점들의 convex combination이 집합 C에 속하면 그 집합은 convex set이라고 말할 수 있다.</p>
+
+<p>반대로 convex set C에 속하는 점들의 convex combination은 항상 set C에 속하게 된다.</p>
+
+<h2 id="convex-hull">Convex hull</h2>
+
+<p>\(C \subseteq R^n\)에 포함된 점들의 모든 convex combination들의 집합을 \(C\)의 convex hull이라고 하며 <strong>conv</strong> \(C\)로 표기한다. Convex hull <strong>conv</strong> \(C\)은 항상 convex이며, 집합 \(C\)를 포함하는 가장 작은 convex set이다.</p>
+
+<blockquote>
+  <p><strong>conv</strong> \(C = \{ \theta_1 x_1 + \dotsi + \theta_k x_k \phantom{1}  \mid \phantom{1} x_i \in C, \phantom{1} \theta_i \ge 0, \phantom{1} i = 1, \dotsi , k, \phantom{1} \theta_1 + \dotsi + \theta_k = 1 \}\)
+아래 그림은  15개의 점으로 이뤄진 집합과 콩팥 모양의 집합에 대한 convex hull이다.</p>
+</blockquote>
+
+<figure class="image" style="align: center;">
+<p align="center">
+  <img src="/img/chapter_img/chapter02/02.03_Convex_Hull.png" alt="[Fig2] Convex hull [1]" width="70%" />
+  <figcaption style="text-align: center;">[Fig2] Convex hull [1]</figcaption>
+</p>
+</figure>
+
+
+        </article>
+    </div>
+</main>
+
+<main class="container">
+    <div class="content">
+        <article class="post-body">
+            <h1><a name="_page_5"></a>02-01-04 Cone</h1>
+            <p>Cone은 빛이 광원에서 뻣어나가는 모습처럼 어떤 방향으로는 무한히 진행되지만 나머지 방향에서는 정의되지 않는 집합이다. 어떤 집합이 cone이라고 말할 수 있으려면 원점에서 집합에 속한 임의의 한 점을 지나는 반직선(ray)을 만들어서 그 반직선이 집합에 포함되는지를 보면 된다. (따라서, Cone은 반드시 원점을 포함해야 한다.) Cone은 경계를 가지므로 affine set이 될 수 없다. 수학적으로 이 내용을 정의해보자.</p>
+
+<h2 id="cone">Cone</h2>
+
+<p>Cone은 반드시 원점을 포함해야 한다. 따라서. 원점에서 시작해서 집합에 속한 점 \(x \in C\)을 지나는 ray를 만들었을 때 \(\theta x \in C\)가 되면 집합 \(C\)를 <strong>cone</strong> 또는  <strong>nonnegative homogenous</strong>라고 한다.</p>
+
+<blockquote>
+  <p>\(\theta x \in C\) with \(x \in C\), \(\theta \ge 0\)</p>
+</blockquote>
+
+<p>[참고] Affine set이나 convex set과는 달리, cone을 정의할 때는 ray의 출발점을 원점으로 가정하고 있기 때문에 집합에 속하는 하나의 점만을 사용해서 정의한다.</p>
+
+<h2 id="convex-cone">Convex Cone</h2>
+
+<p>집합 \(C\)가 cone이면서 동시에 convex이면 이를 <strong>convex cone</strong>이라고 하며 다음과 같이 정의한다.</p>
+
+<blockquote>
+  <p>\(\theta_1 x_1 + \theta_2 x_2 \in C\) with \(x_1, x_2 \in C\), \(\theta_1, \theta_2 \ge 0\)</p>
+</blockquote>
+
+<p>다음 그림에서는 파이 모양의 convex cone을 보여주고 있다. 그림에서 \(x_1\)과 \(x_2\)는 경계에 속하는 점으로 \(\theta_1\)과 \(\theta_2\)가 모두 0이면 꼭지점이 되고, 둘 중 하나가 0이면 경계선이 되며, 둘 모두 0보다 크면 내부의 점이 된다.</p>
+
+<figure class="image" style="align: center;">
+<p align="center">
+  <img src="/img/chapter_img/chapter02/02.04_Convex_Cone.png" alt="[Fig1] Convex Cone [1]" width="70%" />
+  <figcaption style="text-align: center;">[Fig1] Convex Cone [1]</figcaption>
+</p>
+</figure>
+
+<h2 id="conic-combination">Conic combination</h2>
+
+<p>여러 점들을 linear combination할 때 계수를 0이상으로 제한하게 되면 이를 <strong>conic combination</strong> 또는 <strong>nonnegative linear combination</strong>이라고 한다.</p>
+
+<blockquote>
+  <p>A point of the form \(\theta_1 x_1 + \theta_2 x_2 + ... + \theta_k x_k\) with \(\theta_i \ge 0, i = 1,  ..., k\)</p>
+</blockquote>
+
+<p>이제 cone 정의를 conic combination 개념을 이용해서 일반화해 볼 수 있다. 즉, 어떤 집합 C에 속하는 임의의 여러 점들을 conic combination했을 때, 그 결과가 다시 집합 C에 속하면 그 집합은 conic set이라고 말할 수 있다.</p>
+
+<p>반대로 conic set C에 속하는 점들의 conic combination은 항상 C에 속하게 된다.</p>
+
+<h2 id="conic-hull">Conic hull</h2>
+
+<p>\(C \subseteq R^n\)에 포함된 점들의 모든 conic  combination들의 집합을 \(C\)의 conic hull이라고 한다. Conic hull은 항상 집합 \(C\)를 포함하는 가장 작은 convex cone이다.</p>
+
+<blockquote>
+\[\{ \theta_1 x_1 + \dotsi + \theta_k x_k \phantom{1} \mid \phantom{1} x_i \in C, \phantom{1} \theta_i \ge 0, \phantom{1} i = 1,\dotsc,k \}\]
+</blockquote>
+
+<p>다음 그림에서는 임의의 set으로 정의되는 conic hull을 보여주고 있다.</p>
+
+<figure class="image" style="align: center;">
+<p align="center">
+  <img src="/img/chapter_img/chapter02/02.04_1_Conic_hull.png" alt="[Fig2] Conic hull [1]" width="70%" />
+  <figcaption style="text-align: center;">[Fig2] Conic hull [1]</figcaption>
+</p>
+</figure>
+
+
+        </article>
+    </div>
+</main>
+
+<main class="container">
+    <div class="content">
+        <article class="post-body">
+            <h1><a name="_page_6"></a>02-02 Some important examples</h1>
+            <p>이 절에서는 convex set의 주요 예제들을 살펴본다.</p>
+
+<ul>
+  <li>Trivial ones: empty set, point, line, line segment, ray</li>
+  <li>Hyperplane: {\(x : a^T x = b\)}, for given \(a, b\), \(a \ne 0\)</li>
+  <li>Halfspace: {\(x : a^T x \le b\)} for \(a \ne 0\)</li>
+  <li>Affine space: {\(x : Ax = b\)}, for given \(A, b\)</li>
+  <li>Euclidean ball &amp; ellipsoid</li>
+  <li>Norm ball: {\(x : \left \Vert x \right \| ≤ r\)}, for given norm \(\left \Vert · \right \|\) , radius r</li>
+  <li>Convex cone : norm cone, normal cone, positive semidefinite cone</li>
+</ul>
+
+
+        </article>
+    </div>
+</main>
+
+<main class="container">
+    <div class="content">
+        <article class="post-body">
+            <h1><a name="_page_7"></a>02-02-01 Convex set examples</h1>
+            <p>Convex set에는 point, line과 같이 trivial한 것부터 hyperplane, halfspace, ball, ellipsoid, polyhedra, cone 형태의 다양한 set들이 있다.</p>
+
+<h2 id="hyperplanes">Hyperplanes</h2>
+
+<p>Hyperplane은 \(n\)차원의 공간을 반으로 가르는 \(n-1\)차원의 subset으로 다음과 같이 정의된다. 여기서, \(a\)는 hyperplane의 normal vector이고 \(b\)는 원점에서 offset이다. Hyperplane은 convex set이자 affine set이다.</p>
+
+<blockquote>
+  <p>{\(x : a^T x = b\)} with \(a \in R^n, a \ne 0, b \in R\)</p>
+</blockquote>
+
+<p>다음 그림에 hyperplane이 있다. 이 hyperplane에 속하는 임의의 x에 대해서 \((x - x_0)\)와 \(a\)는 직교(orthogonal)한다. 따라서, \(a^T (x - x_0) = 0\)이므로  \(a^T x =  b\)라면 \(b\)는 \(a^Tx_0\)이다.</p>
+
+<figure class="image" style="align: center;">
+<p align="center">
+  <img src="/img/chapter_img/chapter02/02.05_Hyperplane.png" alt="[Fig1] Hyperplane [1]" width="70%" />
+  <figcaption style="text-align: center;">[Fig1] Hyperplane [1]</figcaption>
+</p>
+</figure>
+
+<h2 id="halfspaces">Halfspaces</h2>
+
+<p>Halfspace는 hyperplane을 포함한 나머지 한쪽 space를 말한다. 따라서, 하나의 hyperplane \(a^T x = b\)은 두 개의 halfspace를 정의한다. Halfspace는 convex set이지만 affine set은 아니다.</p>
+
+<blockquote>
+  <p>{\(x : a^T x \le b\)} or {\(x : a^T x \ge b\)}  with \(a \in R^n, a \ne 0, b \in R\)</p>
+</blockquote>
+
+<p>Hyperplane \(a^T x = b\)일 때 halfspace \(a^T x \ge b\)는 normal vector a의 방향이 되며, halfspace \(a^T x \le b\)는 -a의 방향이 된다.</p>
+
+<figure class="image" style="align: center;">
+<p align="center">
+  <img src="/img/chapter_img/chapter02/02.06_Halfspace.png" alt="[Fig2] Halfspace [1]" width="70%" />
+  <figcaption style="text-align: center;">[Fig2] Halfspace [1]</figcaption>
+</p>
+</figure>
+
+<p>참고로, {\(x : a^T x \le b\)}의 interior인  {\(x : a^T x \lt b\)}를 open halfspace라고 한다.</p>
+
+<h2 id="euclidean-balls">Euclidean balls</h2>
+
+<p>Euclidean ball은 또다른 convex set으로 다음과 같이 정의된다. (\(\left \Vert . \right \|_2\)은 euclidean norm으로 \(\left \Vert u \right \|_2 = (u^T u)^\frac{1}{2}\)이다.) \(x_c\)는 중심이고 \(r\)은 반지름이다. 따라서, \(B(x_c, r)\)은 중심 \(x_c\)에서 반경 \(r\) 이내의 모든 점들을 포함한다.</p>
+
+<blockquote>
+\[B(x_c, r) = \{ x \phantom{1} \mid \phantom{1} \|x - x_c \|_2 \le r \} = \{ x \phantom{1} \mid \phantom{1} (x - x_c)^T (x - x_c) \le r^2 \} \text{ with } \ r \ge 0\]
+</blockquote>
+
+<p>Euclidean ball을 다르게 표현하면 다음과 같다.</p>
+
+<blockquote>
+\[B(x_c, r) = \{ x_c + ru \text{ } \mid \text{ } \| u \|_2 \le 1 \}\]
+</blockquote>
+
+<h2 id="ellipsoids">Ellipsoids</h2>
+
+<p>Euclidean ball과 관련된 convex set으로 ellipsoid가 있으며 다음과 같이 정의된다.</p>
+
+<blockquote>
+\[\mathcal{E} = \{x \text{ } \mid \text{ } (x - x_c)^T P^{-1} (x - x_c) \le 1 \}\]
+</blockquote>
+
+<p>여기서 \(P = P^T \succ 0\)로 \(P\)는 symmetric이고 positive definite이다. 벡터 \(x_c \in C\)는 ellipsoid의 중심이며, 행렬 \(P\)는 ellipsoid가 중심 \(x_c\)에서 모든 방향으로 얼마나 멀어지는가를 나타낸다. Ellipsoid의 축은 \(\sqrt{\lambda_i}\)가 되며 \(\lambda_i\)는 행렬 \(P\)의 eigenvalue를 말한다. 따라서, ball은 \(P = r^2 I\)인 ellipsoid의 특별한 case라고 할 수 있다.</p>
+
+<p>다음 그림은 ellipsoid를 보여주고 있다. 중심 \(x_c\)는 점으로 장축과 단축은 line segment로 그려져 있다.</p>
+
+<figure class="image" style="align: center;">
+<p align="center">
+  <img src="/img/chapter_img/chapter02/02.07_Ellipsoid.png" alt="[Fig3] Ellipsoid [1]" width="70%" />
+  <figcaption style="text-align: center;">[Fig3] Ellipsoid [1]</figcaption>
+</p>
+</figure>
+
+<p>Ellipsoid 식을 다음과 같이  \(x_c\)를 중심으로 \(Au\) 벡터를 더하는 형태로 표현할 수도 있다.</p>
+
+<blockquote>
+\[\mathcal{E} = \{ \ x_c + Au \text{ } \mid \text{ } \|u\|_2 \le 1 \}\]
+</blockquote>
+
+<p>여기서 \(A\)는 정방 행렬이고 nonsingular이다. 만일 \(A = P^\frac{1}{2}\)라고 하면 위의 식과 동일해져서 symmetric이고 positive definite라고 할 수 있다. 이때, \(A\)가 symmetric positive semidefinite이면  degenerate ellipsoid라고 하며 affine dimension은 \(A\)의 rank와 같다. Degenerate ellipsoid도 역시 convex이다.</p>
+
+<h2 id="norm-balls">Norm balls</h2>
+
+<p>Norm ball이란 \(x_c\)를 중심으로 반경 \(r\) 이내인 점들의 집합을 말한다. 단, euclidean ball은 euclidean norm으로 정의되는 반면 norm ball은 임의의 norm으로 반경이 정의된다.
+\(\left \Vert . \right \|\)을 \(R^n\)의 임의의 norm이라고 할때 norm ball은 다음과 같이 정의된다.</p>
+
+<blockquote>
+\[\{ x \phantom{1} \mid \phantom{1} \|x - x_c \| \le r  \}\]
+</blockquote>
+
+<p>P-norm이 다음과 같이 정의될 때 norm ball의 모양은 다음과 같다.</p>
+
+<blockquote>
+\[\left \Vert x \right \|_{p} = ( \sum_{i=0}^n \rvert x_i \rvert^{p} )^{1/p} \text{ for  } p \ge 1\]
+</blockquote>
+
+<p>이 그림은 3D로 \(p\)값에 따라 norm ball의 모양을 보여준다. \(p\)가 1이상이어야 norm ball이 convex set임을 알 수 있다.</p>
+
+<figure class="image" style="align: center;">
+<p align="center">
+  <img src="/img/chapter_img/chapter02/02.07_2_norm_ball.png" alt="[Fig4] Norm ball [1]" width="70%" />
+  <figcaption style="text-align: center;">[Fig4] Norm ball [1]</figcaption>
+</p>
+</figure>
+
+<p>이 그림은 2D로 p값에 따라 norm ball의 모양을 보여준다.</p>
+
+<figure class="image" style="align: center;">
+<p align="center">
+  <img src="/img/chapter_img/chapter02/02.07_3_norm_ball2.png" alt="[Fig4] Norm ball [2]" width="70%" />
+  <figcaption style="text-align: center;">[Fig4] Norm ball [2]</figcaption>
+</p>
+</figure>
+
+<h2 id="polyhedra">Polyhedra</h2>
+
+<p>Polyhedron은 선형 부등식과 등식의 교집합으로 정의된다. Affine sets (즉, subspaces, hyperplanes, lines), rays, line segments, halfspaces는 모두 polyhedron이다. Polyhedra는 convex set이며 bounded polyhedron를 polytope이라고 부르기도 한다.</p>
+
+<blockquote>
+\[\mathcal{P} = \{ x \mid a^T_i x \le b_i, i = 1, ..., m, c_j^Tx  = d_j, j = 1, ..., p\}\]
+</blockquote>
+
+<p>하나의 등식 \(c_j^Tx  = d_j\)은 두 개의 부등식 \(c^T_jx \le d_j\)과 \(c^T_jx \ge d_j\)을 정의한다. 따라서, 등식 표현은 편의상 추가된 것으로 부등식만으로도  polyhedron을 정의할 수 있다.</p>
+
+<p>다음 그림은 다섯 개 halfspace의 교집합으로 만들어진 오각형 polyhedron이다. 이  polyhedron은 outward normal vectors \(a1, . . . ., a5\)를 갖는다.</p>
+
+<figure class="image" style="align: center;">
+<p align="center">
+  <img src="/img/chapter_img/chapter02/02.09_Polyhedra.png" alt="[Fig5] Polyhedra [1]" width="70%" />
+  <figcaption style="text-align: center;">[Fig5] Polyhedra [1]</figcaption>
+</p>
+</figure>
+
+<p>행렬 표현으로 간단히 다음과 같이 정의하기도 한다.</p>
+
+<blockquote>
+\[\mathcal{P} =  \{ x \mid A^Tx \preceq b, C^Tx  = d \}\]
+</blockquote>
+
+<p>\(A = 
+\begin{bmatrix}
+a^T_1 \\\
+\cdots \\\
+a^T_m
+\end{bmatrix}\)
+\(C = 
+\begin{bmatrix}
+c^T_1 \\\
+\cdots \\\
+c^T_p
+\end{bmatrix}\)</p>
+
+<h4 id="simplexes">Simplexes</h4>
+
+<p>Simplex는 \(n\)차원 공간에서 만들 수 있는 가장 간단한 다각형으로 \(n+1\)개의 점으로 만들어진다.</p>
+
+<p>만일 \(k + 1\)개의 점 \(v_0, ... , v_k \in R^n\)가 있고 이들이 affinely independent하다면 simplex는 이 \(k+1\)개 점들의 convex hull로 정의된다. 참고로, affinely independent는 \(v_1 − v_0, . . . , v_k − v_0\)가 linearly independent하다는 의미이다.</p>
+
+<blockquote>
+\[C = \mathbb{conv} \{v_0, \cdots , v_k\} = \{ \theta_0 v_0 + · · · + \theta_k v_k  \mid \theta \succeq 0, 1^T \theta = 1 \}\]
+</blockquote>
+
+<p>다음 그림은 0차원에서 3차원까지의 simplex를 보여주고 있다. 0차원에서는 점, 1차원에서는 선분, 2차원에서는 삼각형, 3차원에서는 사면체가 해당 차원의 simplex이다.</p>
+
+<figure class="image" style="align: center;">
+<p align="center">
+  <img src="/img/chapter_img/chapter02/02.02_10_Simplex.png" alt="[Fig6] Simplex [source - wikipedia]" width="70%" />
+  <figcaption style="text-align: center;">[Fig6] Simplex [source - wikipedia]</figcaption>
+</p>
+</figure>
+
+<p>대표적인 simplex의 종류에는 probability simplex가 있다.</p>
+
+<blockquote>
+\[C = \mathbb{conv} \{e_1, \cdots, e_n \} = \{ \theta \mid \theta \succeq 0, 1^T \theta = 1\}\]
+</blockquote>
+
+        </article>
+    </div>
+</main>
+
+<main class="container">
+    <div class="content">
+        <article class="post-body">
+            <h1><a name="_page_8"></a>02-02-02 Convex Cone examples</h1>
+            <p>다음은 convex cone의 예로는 norm cone, normal cone, positive semidefinite cone 등이 있다.</p>
+
+<h2 id="norm-cone">Norm cone</h2>
+
+<p><strong>Norm cone</strong>은 반경 \(t\) 이내인 점들로 이뤄진 cone으로 \((x,t)\)로 정의되는 \(R^{n+1}\)차원의 convex cone이다. 이때, 반경은  임의의 norm으로 정의된다.</p>
+
+<blockquote>
+  <p>\(C = \{(x, t) : \left \Vert x \right \| \le t\} \subseteq R^{n+1}\), for a norm \(\left \Vert  · \right \|\)</p>
+</blockquote>
+
+<p>아래 그림에는 \(l_2\) norm \(\left \Vert  · \right \|_2\)에 대한 norm cone이 그려져 있다. 이를 second-order cone 또는 ice cream cone이라고도 부른다.</p>
+
+<figure class="image" style="align: center;">
+<p align="center">
+  <img src="/img/chapter_img/chapter02/02.08_Norm_Cone.png" alt="[Fig1] Norm Cone [1]" width="70%" />
+  <figcaption style="text-align: center;">[Fig1] Norm Cone [1]</figcaption>
+</p>
+</figure>
+
+<h2 id="normal-cone">Normal Cone</h2>
+
+<p>집합 \(C\)에 대해서 \(x \in C\)일 때, 다음 식을 만족하면 <strong>normal cone</strong>이라고 한다.
+Normal cone은 \(C\)에 상관 없이 항상 convex cone이다.</p>
+
+<blockquote>
+  <p>\(N_C(x) =\) { \(g: g^T (y - x) \le 0, \text{ for all } y \in C\) }</p>
+</blockquote>
+
+<p>Normal cone은 집합 \(C\)에 속하는 임의의 점 \(x\)와 집합 \(C\)의 모든 점 \(y\)와이 차 벡터인 \(y-x\)와 내적이 항상 0보다 작은 벡터인 \(g\)로 정의되는 cone을 말한다. 벡터 \(g\)와 \(y-x\)의 내적이 0보다 작다는 의미는 두 벡터의 각도가 (즉, \(cos\theta\)가 음수인 구간인) \(90 \le \theta \le 270\)이란 것을 의미한다.</p>
+
+<ul>
+  <li>\(x\)가 boundary에 포함된 점일 경우 모든 \(y-x\) 벡터와의 각도가 \(90 \le \theta \le 270\)인 벡터 \(g\)는 supporting hyperplane의 normal뿐이다.</li>
+  <li>\(x\)가 꼭지점일 경우 supporting hyperplane이 여러개 존재하기 때문에 벡터 \(g\)는 파이 모양이 된다.</li>
+  <li>\(x\)가 non-boundary 영역의 점일 경우 \(g\)는 영벡터뿐이다.</li>
+</ul>
+
+<p>다음 그림에 normal vector이 그려져 있다.</p>
+
+<figure class="image" style="align: center;">
+<p align="center">
+  <img src="/img/chapter_img/chapter02/02.04_2_Normal_Cone.png" alt="[Fig2] Normal Cone [3]" width="70%" />
+  <figcaption style="text-align: center;">[Fig2] Normal Cone [3]</figcaption>
+</p>
+</figure>
+
+<h2 id="positive-semidefinite-cone">Positive semidefinite cone</h2>
+
+<p><strong>Positive semidefinite</strong> \(\mathbb{S}^n_+\)의 정의는 다음과 같다. 이때 \(\mathbb{S}^n\)는  \(n × n\) symmetric matrix이다.</p>
+<blockquote>
+  <p>\(\mathbb{S}^n_+ =\) { \(X \in \mathbb{S}^n : X \succeq 0\)}</p>
+</blockquote>
+
+<p>\(\mathbb{S}^n_+\)는  \(\theta_1, \theta_2 \ge 0\), \(A, B \in  \mathbb{S}^n_+\)이면 \(\theta_1 A + \theta_2 B \in  \mathbb{S}^n_+\)를 만족하기 때문에 convex cone이며 <strong>positive semidefinite cone</strong>이라고 부른다.</p>
+
+<p>다음 그림은 \(S^2_+\)에서의 positive semidefinite cone의 boundary를 \((x, y, z) \in R^3\) 상에서 그린 그림이다. 행렬 \(X\)는 positive semidefinite이기 때문에 determinant가 0이상 이어야 한다.</p>
+
+\[X = 
+\begin{bmatrix}
+x, y \\\
+y, z
+\end{bmatrix}
+\in \mathbb{S}^2_+ \iff x \ge 0, z \ge 0, xz \ge y^2\]
+
+<figure class="image" style="align: center;">
+<p align="center">
+  <img src="/img/chapter_img/chapter02/02.10_Positive_Semidefinite_Cone.png" alt="[Fig3] Positive semidefinite cone [1]" width="70%" />
+  <figcaption style="text-align: center;">[Fig3] Positive semidefinite cone [1]</figcaption>
+</p>
+</figure>
+
+
+        </article>
+    </div>
+</main>
+
+<main class="container">
+    <div class="content">
+        <article class="post-body">
+            <h1><a name="_page_9"></a>02-03 Operations that preserve convexity</h1>
+            <p>이 절에서는 convex set의 convexity를 유지하는 연산에 대해 살펴본다. 집합의 convexity를 판별하거나 hyperplanes, halfspaces, norm balls과 같은 간단한 convex set으로 원하는 convex set을 만들 때 이런 연산들이 유용하다.</p>
+
+<p>Convexity를 유지하는 연산에는 다음과 같은 것들이 있다.</p>
+
+<ul>
+  <li>Intersection</li>
+  <li>Affine functions</li>
+  <li>Perspective function</li>
+  <li>Linear-fractional functions</li>
+</ul>
+
+<h2 id="intersection">Intersection</h2>
+
+<p>Convex set의 교집합은 convex이다. 즉, \(S_1\)과 \(S_2\)이 convex라면 \(S_1 \cap S_2\)은
+convex이다. 집합이 무한히 존재할 때에도 이와 같은 성질은 유지된다. (참고로 subspaces, affine sets, convex cones도 교집합 연산에 닫혀있다.)</p>
+
+<p>Set의 convexity는 무한한 halfspace의 교집합으로 표현할 수 있으며 그 반대도 성립한다. 
+즉, closed convex set \(S\)는 \(S\)를 포함하는 모든 halfspace의 교집합으로 다음과 같이 정의할 수 있다.</p>
+
+<blockquote>
+\[S = \bigcap \{\mathcal{H} \mid \mathcal{H} \text{ halfspace }, S \subseteq \mathcal{H}\}\]
+</blockquote>
+
+<h2 id="affine-functions">Affine functions</h2>
+
+<p>\(A \in R^{m \times n}\)이고 \(b \in R^{m}\)일 때, \(f : R^n \to R^m\)인 \(f(x) = Ax + b\)을 affine function이라고 한다.</p>
+
+<p>이때, \(C \subseteq R^n\)가 convex이고 \(D \subseteq R^m\)가 convex이면</p>
+
+<ul>
+  <li>affine image인 \(f(C) = \{f(x) \mid x \in C\}\)는 convex이다.</li>
+  <li>affine preimage인 \(f^{-1}(D) = \{x \mid f(x) \in D\}\)는 convex이다.</li>
+</ul>
+
+<p>Affine function인 <strong>scaling and translation</strong>, <strong>projection</strong>, <strong>sum of two sets</strong>, <strong>partial sum of set</strong>과 같은 연산을 convex set에 적용하면 결과는 convex set이다.</p>
+
+<p>Linear matrix inequality의 해집합 \(\{x \mid x_1 A_1 + \cdots + x_m A_m \preceq B\} (\text{ with } A_i, B \in S^n)\)도 convex이다.</p>
+
+<p>Hyperbolic cone \(\{x \mid x^T P x \lt (c^T x)^2, c^T x \gt 0\}\) (with \(P \subseteq S^n_+\), \(c \in R^n\))도 convex이다.</p>
+
+<h2 id="perspective-function">Perspective function</h2>
+
+<p><strong>Perspective function</strong>은 카메라에 상이 맺히는 것과 같이 멀리 있는 물체는 작게 가까이 있는 물체는 크게 원근에 따라 상을 만드는 함수이다. 따라서, 피사체는 \(R^{n+1}\)차원의 공간에 있고 상은 \(R^n\) 차원의 평면에 맺히게 된다.</p>
+
+<p>Perspective function을 수식으로 정의하면 \(P : R^{n+1} \rightarrow R^{n}\)로서 <strong>dom</strong> \(P = R^{n} \times R_{++}\)이고 \(P(z,t) = z/t\)와 같다. (여기서 \(R_{++} = \{x \in R \mid x \gt 0\}\)이다.) 함수를 해석해 보면 벡터의 마지막 요소가 1이 되도록 정규화를 하며, 마지막 요소를 제거해서 차원을 \(R^{n+1}\)에서 \(R^n\)로 줄인다. Perspective function은 \(C \subseteq\) <strong>dom</strong> \(P\)가 convex라면 image \(P(C) = \{P(x) \mid x \in C\}\)도 convex가 만든다.</p>
+
+<p>Perspective function은 pin-hole 카메라가 작동하는 원리와 같다. 멀리 있는 피사체가 pin-hole을 통과하게 되면 pine-hole과 피사체와의 거리에 비례해서 크기가 축소되기 때문이다. 다음 그림에 이런 원리가 그려져 있는데 직관적으로 동일한 captured ray 안에 피사체가 존재하면 상도 동일하게 맺힐 것이라는 것을 알 수 있다.</p>
+
+<figure class="image" style="align: center;">
+<p align="center">
+  <img src="/img/chapter_img/chapter02/02.03_03_pine_hole.png" alt="[Fig 1] pin-hole 카메라 작동 원리" width="70%" />
+  <figcaption style="text-align: center;">[Fig 1] pin-hole 카메라 작동 원리</figcaption>
+</p>
+</figure>
+
+<p>아래 그림에서 피사체의 한 점이 좌표 \((x_1, x_2, x_3)\)로 표현된다고 하면, 검정색 가로선은 \(x_3 = 0 \in R^3\)이고 원점을 포함한다. 이때 원점이 pine-hole이 되며 Image plane인 \(x_3 = −1\)에 피사체가 맺힌다. 피사체의 점은 perspective function에 의해 맵핑되어 Image plane에 점 \(-(x_1 / x_3, x_2 / x_3)\)으로 맺히게 된다.</p>
+
+<figure class="image" style="align: center;">
+<p align="center">
+  <img src="/img/chapter_img/chapter02/02.03_04_pine_hole_camera_model.png" alt="[Fig 2] pin-hole 카메라의 perspective function [1]" width="70%" />
+  <figcaption style="text-align: center;">[Fig 2] pin-hole 카메라의 perspective function [1]</figcaption>
+</p>
+</figure>
+
+<h2 id="linear-fractional-functions">Linear-fractional functions</h2>
+
+<p>Linear-fractional function은 perspective function과 affine function으로 구성된다.</p>
+
+<blockquote>
+\[f(x) = (A x + b)/(c^T x + d), \mathbb{dom} f(x) = \{x \mid c^T x + d \gt 0 \} (A \in R^{m \times n}, b \in R^m, c \in  R^n, d \in R)\]
+</blockquote>
+
+<p>Linear-fractional function에서 \(c = 0\)이고 \(d \gt 0\)이면 affine function이 된다. 따라서, affine function과 linear function은 linear-fractional function의 special case라고 할 수 있다.</p>
+
+<p>기하학적으로 이 함수는 affine function \(A x + b\)를 적용하고  projection function을 다시 적용한 것으로 볼 수 있다. 단, vector의 마지막 항목이 \(c^T x + d\)인 경우이다.</p>
+
+<p>다음 그림은 linear fractional function \(f(x) = \frac{1}{(x_1 + x_2 + 1)} x\), <strong>dom</strong> \(f(x) =\) {\((x_1, x_2)\) \mid \(x_1 + x_2 + 1 \gt 0\)}의 domain과 image를 보여주고 있다. \(C \subseteq R^2\)일 때 왼쪽 그림은 domain이며, 점선은 domain \(f\)의 boundary이다. 오른쪽 그림은 \(f\)의 image이며 점선은  domain \(f^{-1}\)의  boundary이다.</p>
+
+<figure class="image" style="align: center;">
+<p align="center">
+  <img src="/img/chapter_img/chapter02/02.03_05_linear_fractional_function.png" alt="[Fig 3] Linear-fractional functions [1]" width="70%" />
+  <figcaption style="text-align: center;">[Fig 3] Linear-fractional functions [1]</figcaption>
+</p>
+</figure>
+
+        </article>
+    </div>
+</main>
+
+<main class="container">
+    <div class="content">
+        <article class="post-body">
+            <h1><a name="_page_10"></a>02-04 Generalized inequalities</h1>
+            <p>1차원 실수 공간 \(R\)에서는 두 개의 숫자 1과 2가 있을 때 1보다 2가 크다고 말할 수 있다. 그러면, n차원 실수 공간 \(R^n\)에서 두 점 \(x_1\)과 \(x_2\)가 있을 때 두 점 중 어떤 점이 더 크다고 말할 수 있을까? 그렇다고 말하기는 어렵다.</p>
+
+<p>이 절에서는 n차원 실수 공간 \(R^n\)에서 두 점의 순서를 비교하기 위한 <strong>generalized inequality</strong>를 살펴보고, set의 minimum과 minumal도 함께 살펴볼 것이다.</p>
+
+<h2 id="proper-cone">Proper cone</h2>
+
+<p>Convex cone \(K \subseteq R^n\)가 다음 성질을 만족하면 <strong>proper cone</strong>이라고 한다.</p>
+
+<ul>
+  <li>K is closed. (boundary를 포함한다.)</li>
+  <li>K is solid. (interior가 empty가 아니다.)</li>
+  <li>K is pointed. (직선을 포함하지 않는다.) (또는  \(x \in K, − x \in K \implies x = 0\))</li>
+</ul>
+
+<p>\(n\)차원 공간에서 pointed &amp; closed convex cone이 \(n-1\)차원 이하의 subspace에서 정의된다면 interior가 비게 된다. 왜냐하면, \(n-1\)차원 이하의 cone은 \(n\) 차원의 open ball을 포함하지 못하기 때문에 interior가 정의되지 않는다. 따라서, cone은 solid하지 않게 되고 proper cone이 될 수 없다. 예를 들어, \(R^3\)에 정의된 2차원 파이 모양의 pointed &amp; closed convex cone은 proper cone이 아니다.</p>
+
+<p>Interior의 정의는 <em><a href="https://en.wikipedia.org/wiki/Interior_(topology)">Wikipedia 정의</a></em>를 참고하라.</p>
+
+<h2 id="generalized-inequality">Generalized inequality</h2>
+
+<p>Proper cone을 이용하면\(R^n\)의 partial ordering인 <strong>generalized inequality</strong>를 다음과 같이 정의할 수 있다.  Generalized inequality는 \(R\)의 standard ordering과 비슷한 속성을 갖는다.</p>
+
+<blockquote>
+\[x \preceq_{K} y \iff y − x \in K\]
+</blockquote>
+
+<p>비슷하게 strict parital ordering을 다음과 같이 정의할 수 있다.</p>
+
+<blockquote>
+  <p>\(x \prec_{K} y \iff y − x \in\) <strong>int</strong> \(K\)</p>
+</blockquote>
+
+<p>만일 \(K = R_{+}\)이라면 \(\preceq_{K}\)는 \(R\)에서의 일반적인 \(\le\)과 같다.</p>
+
+<h4 id="properties-of-generalized-inequalities">Properties of generalized inequalities</h4>
+
+<p>Generalized inequality \(\preceq_{K}\)는 다음과 같은 속성을 만족한다.</p>
+
+<ul>
+  <li>\(\preceq_{K}\) is <strong>preserved under addition</strong>: if \(x \preceq_{K} y\) and \(u \preceq_{K} v\), then \(x+u \preceq_{K} y +v\).</li>
+  <li>\(\preceq_{K}\) is <strong>transitive</strong>: if \(x \preceq_{K} y\) and \(y \preceq_{K} z\) then \(x \preceq_{K}  z\).</li>
+  <li>\(\preceq_{K}\) is <strong>preserved under nonnegative scaling</strong>: if \(x \preceq_{K} y\) and \(α ≥ 0\) then \(αx \preceq_{K} αy\).</li>
+  <li>\(\preceq_{K}\) is <strong>reflexive</strong>: \(x \preceq_{K} x\).</li>
+  <li>\(\preceq_{K}\) is <strong>antisymmetric</strong>: if \(x \preceq_{K} y\) and \(y \preceq_{K} x\), then \(x = y\).</li>
+  <li>\(\preceq_{K}\) is <strong>preserved under limits</strong>: if \(x_i \preceq_{K}  y_i\) for \(i = 1, 2, . . ., x_i \to x\) and \(y_i \to y\) as \(i \to ∞\), then \(x \preceq_{K} y\).</li>
+</ul>
+
+<p>Strict generalized inequality 위의 속성에 대응하는 속성을 갖는다.</p>
+
+<h2 id="minimum-and-minimal-elements">Minimum and minimal elements</h2>
+
+<p>\(R\)의 ordering과 \(R^n\)의 generalized ordering의 가장 큰 차이는 <strong>linear ordering</strong>이다. \(R\)에서는  \(x \lt y\) 또는 \(x \gt y\)와 같이 두 점을 비교할 수 있지만  generalized inequality는 그렇지 못하다. 따라서, generalized inequality 문맥으로 maximum과 minimum 개념을 정의하는 것이 훨씬 더 복잡할 것으로 예상해 볼 수 있다.</p>
+
+<h4 id="minimum-elements">Minimum elements</h4>
+
+<p>\(x \in S\)이 모든 \(y \in S\)에 대해 \(x \preceq_{K} y\)이면 \(x\)는 집합 \(S\)의 <strong>minimum</strong> element이다. 비슷한 방식으로  <strong>maximum</strong>도 정의할 수 있다. 어떤 집합에서 minimum이 존재한다면 unique하다. 즉, minimum은 오직 하나만 존재한다.</p>
+
+<p>어떤 점 \(x \in S\)가 \(S\)의 minimum이라면 \(S \subseteq x + K\)이다. 여기서 \(x + K\)의 의미는 (\(\preceq_{K}\)에 따라) 모든 점들은 \(x\)와 비교할 수 있으며 \(x\)와 같거나 크다는 의미이다.</p>
+
+<h4 id="minimal-elements">Minimal elements</h4>
+
+<p>비슷한 개념으로 <strong>minimal</strong>이 있다. \(x \in S\)이 모든 \(y \in S\)에 대해 \(y \preceq_{K} x\)인 경우는 \(y=x\)인 경우뿐이라면 \(x\)는 집합 \(S\)의 <strong>minimal</strong> element이다. 비슷한 방식으로  <strong>maximal</strong>도 정의할 수 있다. 집합은 여러 개의 minimal element를 가질 수 있다.</p>
+
+<p>어떤 점 \(x \in S\)가 \(S\)의 minimal이라면 \((x - K) \cap S =\) {\(x\)}이다. 여기서 \(x - K\)의 의미는 (\(\preceq_{K}\)에 따라) 모든 점들은 \(x\)와 비교할 수 있으며 \(x\)와 작거나 같다는 의미이다.</p>
+
+<p>\(K = R_{+}\)의 경우 minimal과 minimum은 동일하며 일반적인 minimum의 정의에 부합한다.</p>
+
+<h4 id="r2_-cone에서-minimum과-minimal">\(R^2_{+}\) cone에서 minimum과 minimal</h4>
+
+<p>\(R^2_{+}\) cone \(K\)를 고려해 보자. Inequality \(x \preceq_{K} y\)는 y가 x보다 오른쪽 위에 있다는 의미이다.  \(x \in S\)일 때 \(x\)가 minimum이란 이야기는 \(S\)의 모든 점이 \(x\)보다 오른쪽 위에 있다는 의미이다. \(x\)가 minimal이란 이야기는 \(S\)에는 \(x\)의 왼쪽 아래에 있는 점이 없다는 의미이다.</p>
+
+<p>아래 그림에서 \(S_1\)은 minimum \(x_1\)을 갖는다. 집합 \(x + K\)은 옅은 회색으로 표시되어 있으며 집합 \(S_1\)은 \(S_1 \subseteq x + K\)이기 때문에 \(x_1\)은  minimum이다. \(S_2\)은 minimal \(x_2\)을 갖는다. 집합 \(x - K\)은 옅은 회색으로 표시되어 있으며 집합 \(S_2\)은 \((x - K) \cap S =\) {\(x\)}이기 때문에  \(x_2\)는 minimal이다.</p>
+
+<figure class="image" style="align: center;">
+<p align="center">
+  <img src="/img/chapter_img/chapter02/02.06_01_Minimum_and_minimal.png" alt="[Fig1] Minimum and minimal elements [1]" width="70%" />
+  <figcaption style="text-align: center;">[Fig1] Minimum and minimal elements [1]</figcaption>
+</p>
+</figure>
+
+
+        </article>
+    </div>
+</main>
+
+<main class="container">
+    <div class="content">
+        <article class="post-body">
+            <h1><a name="_page_11"></a>02-05 Separating and supporting hyperplanes</h1>
+            <p>이 절에서는 convex set의 대표적인 특성을 나타내는 두 theorem인 <strong>separating hyperplane theorem</strong>과 <strong>supporting hyperplane theorem</strong>을 살펴볼 것이다.</p>
+
+<h2 id="separating-hyperplane-theorem">Separating hyperplane theorem</h2>
+
+<p>서로 교집합을 갖지 않는 disjoint convex set이 여러 개가 있다고 해보자. 이들을 분리하려면 어떻게 하면 좋을까? 가장 간단한 방법은 convex set 사이에 직선을 그어보는 것이다. 실제 이 방법은 classification에서 가장 많이 그리고 기본적으로 사용하는 방법이다. 그리고, 이 방법을 지지하는 이론이 바로 <strong>separating hyperplane theorem</strong>이다.</p>
+
+<p>만일, 두 개의 disjoint convex set \(C\)와 \(D\)가 있다고 해보자. 그러면, \(x \in C\)일 때  \(a^T x \le b\)이고 \(x \in D\)일 때  \(a^T x \ge b\)인 \(a \ne 0\)와 \(b\)가 존재하게 된다. 다시 말하면, affine function \(a^T x -  b\)는 \(C\)에서는 nonpositive이고 \(D\)에서는 nonnegative이다. 이때, hyperplane \(\{ x \mid a^T x =  b\}\)를 \(C\)와 \(D\)에 대한 <strong>separating hyperplane</strong>이라고 한다.</p>
+
+<p>다음 그림은 disjoint convex set인 \(C\)와 \(D\)를 나누는 separating hyperplane을 보여주고 있다.</p>
+
+<figure class="image" style="align: center;">
+<p align="center">
+  <img src="/img/chapter_img/chapter02/02.05_01_Seperating_hyperplan_theorem.png" alt="[Fig1] Separating hyperplane theorem [1]" width="70%" />
+  <figcaption style="text-align: center;">[Fig1] Separating hyperplane theorem [1]</figcaption>
+</p>
+</figure>
+
+<p>Separating hyperplane theorems의 역은 성립하지 않는다. 즉, separating hyperplane이 존재한다고 해서 두 convex set이 (교집합이 없는) disjoint convex set은 아닐 수 있다. 가장 간단한 반례로 두 convex set이 \(C = D =\) {\(0\)} \(\subseteq R\)와 같이 같더라도 \(x = 0\)은 \(C\)와 \(D\)를 분리한다는 것을 알 수 있다.</p>
+
+<h4 id="strict-separation">Strict separation</h4>
+
+<p>만일 separating hyperplane이 더 강한 조건인 \(x \in C\)일 때  \(a^T x \lt b\)이고 \(x \in D\)일 때  \(a^T x \gt b\)를 만족한다면, 이를 \(C\)와 \(D\)에 대한 <strong>strict separation</strong>이라고 한다. Disjoint closed convex set이 strict serparaton일 필요는 없지만 많은 경우에 이 조건은 성립될 수 있다.</p>
+
+<h2 id="supporting-hyperplanes-theorem">Supporting hyperplanes theorem</h2>
+
+<p><strong>Supporting hyperplane theorem</strong>은 임의의 nonempty convex set \(C\)와 \(x_0 \in\) <strong>bd</strong> \(C\)가 있을 때, 점 \(x_0\)에서 \(C\)의 <strong>supporting hyperplane</strong>이 존재하는 것을 말한다.</p>
+
+<p>그렇다면 supporting hyperplane이란 무엇인가? 먼저 점 \(x_0\)가 boundary <strong>bd</strong> \(C\)의 점이라고 하자. 집합 내의 모든 점 \(x \in C\)에 대해  \(a^T x \le a^T x_0\) (\(a \ne 0\))을 만족하면, hyperplane \(\{x \mid a^T x = a^T x_0 \}\)은 점 \(x_0\)에서 집합 \(C\)의 <strong>supporting hyperplane</strong>이라고 한다.</p>
+
+<p>[참고] boundary는 \(x_0 \in\) <strong>bd</strong> \(C =\) <strong>cl</strong> \(C\) \(\setminus\) <strong>int</strong> \(C\)와 같이 전체 set에서 interior를 빼서 정의할 수 있다.</p>
+
+<p>기하학적으로 supporting hyperplane \(\{x \mid a^T x = a^T x_0\}\)은 점 \(x_0\)에서 접선으로 공간에서 집합 \(C\)를 분리하며, halfspace \(a^T x \le a^T x_0\)는 집합 \(C\)를 포함한다.</p>
+
+<figure class="image" style="align: center;">
+<p align="center">
+  <img src="/img/chapter_img/chapter02/02.05_02_Supporting_hyperplane_theorem.png" alt="[Fig 2] Supporting hyperplane [1]" width="70%" />
+  <figcaption style="text-align: center;">[Fig 2] Supporting hyperplane [1]</figcaption>
+</p>
+</figure>
+
+
+        </article>
+    </div>
+</main>
+
+<main class="container">
+    <div class="content">
+        <article class="post-body">
+            <h1><a name="_page_12"></a>02-06 Dual cones and generalized inequalities</h1>
+            <p>이 절에서는 cone과 쌍을 이루는 dual cone에 대해 살펴보고 dual cone을 이용한 dual generalized inequalities에 대해서 살펴본다. Dual generalized inequalities를 이용하면 scalar로 된 내적 값으로 비교하기 때문에 비교가 매우 용이해진다.</p>
+
+        </article>
+    </div>
+</main>
+
+<main class="container">
+    <div class="content">
+        <article class="post-body">
+            <h1><a name="_page_13"></a>02-06-01 Dual cones</h1>
+            <h2 id="dual-cones">Dual cones</h2>
+
+<p>Dual cone은 cone과 쌍을 이뤄서 정의되며, 표기는 cone은 \(K\)로 dual cone은 \(K^∗\)로 한다. Dual cone도 cone이며 \(K\)의 convex 여부와 상관없이 \(K^∗\)은 항상 convex이다. 다음 식과 같이 dual cone은 set의 점 \(x\)와 내적을 했을 때 0보다 큰 점인 \(y\)의 집합으로 정의된다.</p>
+
+<blockquote>
+\[K^∗ = \{y \mid x^T y \ge 0 \text{ for all } x \in K\}\]
+</blockquote>
+
+<p>점 \(x\)와 점 \(y\)의 내적이 0보다 크려면 두 벡터 사이의 각도가 \(cos\theta \ge 0\)인 구간인 \(0 \le \theta \le 90\)과 \(270 \le \theta \le 360\)이 된다. 따라서, dual cone의 boundary는 cone의 boundary에서 supporting hyperplane을 만들었을 때 -normal vector의 방향으로 생성된다. 아래 그림을 보면 dual cone이 정의되는 구간을 확인할 수 있다. <strong>결론적으로 dual cone의 구간은 cone의 원점에서 정의되는 모든 supporting hyperplane들의 -normal vector 방향의 구간임을 알 수 있다.</strong></p>
+
+<figure class="image" style="align: center;">
+<p align="center">
+  <img src="/img/chapter_img/chapter02/02.06_01_2_dual_cone.png" alt="[Fig1] Dual cone 정의 구간" width="70%" />
+  <figcaption style="text-align: center;">[Fig1] Dual cone 정의 구간</figcaption>
+</p>
+</figure>
+
+<p>기하학적으로 \(y \in K^∗\)일 때 \(-y\)는 원점에서 \(K\)를 support하는 hyperplane의 normal이다. 다음 그림을 보면 왼쪽은 inward normal \(y\)를 갖는 halfspace가 cone \(K\)를 포함하므로 \(y \in K^∗\)이다. 오른쪽은 inward normal \(z\)를 갖는 halfspace가 cone \(K\)를 포함하지 않으므로 \(y \notin K^∗\)이다.</p>
+
+<figure class="image" style="align: center;">
+<p align="center">
+  <img src="/img/chapter_img/chapter02/02.06_01_dual_cone.png" alt="[Fig2] Dual cone과 supporting hyperplanne의 normal[1]" width="70%" />
+  <figcaption style="text-align: center;">[Fig2] Dual cone과 supporting hyperplanne의 normal[1]</figcaption>
+</p>
+</figure>
+
+<h2 id="dual-cones-examples">Dual cones examples</h2>
+
+<p>다음은 cone과 dual cone의 예들이다. 이 중 처음 세 개는 <strong>self-dual</strong>로 cone과 dual cone이 동일하다. 마지막 예는 \(l_\infty\) cone의 dual cone이 \(l_1\) cone임을 말하고 있다 반대로 \(l_1\) cone의 dual cone이  \(l_\infty\) cone이다.</p>
+
+<ul>
+  <li>
+\[K = R^n_+, K^* = R^n_+\]
+  </li>
+  <li>
+\[K = S^n_+, K^* = S^n_+\]
+  </li>
+  <li>
+\[K = \{(x, t) \mid  \left \Vert x \right \|_2 \le t \}, K^* = \{(x, t)\mid  \left \Vert x \right \|_2 \le t \}\]
+  </li>
+  <li>
+\[K = \{(x, t) \mid  \left \Vert x \right \|_1 \le t \}, K^* = \{(x, t) \mid  \{\left \Vert x \right \| \} {\infty} \le t \}\]
+  </li>
+</ul>
+
+<h4 id="l_2-cone은-self-dual">\(l_2\) cone은 self-dual</h4>
+
+<p>아래 그림은 \(l_2\) cone이 self-dual임을 보여주고 있다.  즉, \(x \in K\)가 boundary 점일 때 \(x\)의 supporting hyperplane의 normal인 \(-y\)는 \(K\)의 경계와 정확히 일치하며, \(y\)는 dual cone \(K^∗\)의 경계가 되므로 cone \(K\)와 dual cone \(K^*\)는 일치한다.</p>
+
+<figure class="image" style="align: center;">
+<p align="center">
+  <img src="/img/chapter_img/chapter02/02.06_03_L2_self-dual.png" alt="[Fig3] $$l_2$$ cone과 dual cone" width="70%" />
+  <figcaption style="text-align: center;">$$\text{[Fig3] } l_2 \text{ cone과 dual cone}$$</figcaption>
+</p>
+</figure>
+
+<h4 id="l_infty-cone의-dual-cone은-l_1-cone">\(l_\infty\) cone의 dual cone은 \(l_1\) cone</h4>
+
+<p>아래 그림은 \(l_\infty\) cone의 dual cone이 \(l_1\) cone임을 보여주고 있다. 즉, \(x \in K\)가 boundary 점일 때 \(x\)의 supporting hyperplane의 normal인 \(-y\)는 \(K\)의 내부로 들어가서 \(l_1\) cone의 경계와 일치하게 된다.</p>
+
+<figure class="image" style="align: center;">
+<p align="center">
+  <img src="/img/chapter_img/chapter02/02.06_04_L_inf_dual_norm.png" alt="[Fig4] $$l_\infty$$ cone과 dual cone" width="70%" />
+  <figcaption style="text-align: center;">$$\text{[Fig4] } l_\infty \text{ cone과 dual cone}$$</figcaption>
+</p>
+</figure>
+
+        </article>
+    </div>
+</main>
+
+<main class="container">
+    <div class="content">
+        <article class="post-body">
+            <h1><a name="_page_14"></a>02-06-02 Dual generalized inequalities</h1>
+            <p>Proper cone으로 generalized inequality를 정의할 수 있다면, dual cone으로도 dual generalized inequality를 정의할 수 있지 않을까? Dual cone이 proper하다면 그럴 수 있다.</p>
+
+<p>이 절에서는 proper dual cone을 이용해서 dual generalized inequality를 정의해보고 minimum과 minimal도 재정의 해보도록 하겠다.</p>
+
+<h2 id="dual-generalized-inequalities">Dual generalized inequalities</h2>
+
+<p>Proper dual cone으로 generalized inequality를 정의해보면 다음과 같다. 어떤 점 \(y\)가 있을 때  \(K\)의 모든 점 \(x\)와 내적을 해서 0보다 크다면, \(y\)는 dual cone \(K^*\)에서 0보다 크다.</p>
+
+<p>이때, \(\succeq_{K^*}\)를  \(\succeq_K\)의 <strong>dual</strong>이라고 한다. 즉, <strong>dual generalized inequality</strong>이다.</p>
+
+<blockquote>
+  <p>\(y \succeq_{K^*} 0 \iff y^T x \ge 0\) for all \(x \succeq_K 0\)</p>
+</blockquote>
+
+<h4 id="generalized-inequality와-dual의-주요-속성">Generalized inequality와 dual의 주요 속성</h4>
+
+<ul>
+  <li>\(x \preceq_K y\)  if and only if \(\lambda^T x \le \lambda^T y\) for all \(\lambda \succeq_{K^*}  0\).</li>
+  <li>\(x \prec_K y\)  if and only if \(\lambda^T x \lt \lambda^T y\) for all \(\lambda \succeq_{K^*}  0, \lambda \ne 0\).</li>
+</ul>
+
+<p>\(K = K^{**}\)이고 \(\preceq_K^*\)와 연관된 
+dual generalized inequality는 \(\preceq_K\)이기 때문에, generalized inequality와 dual이 바뀌더라도 이런 속성은 유지된다.</p>
+
+<p>예를 들어서, \(\lambda \preceq_K^* \mu\) if and only if \(\lambda^T x \le \mu^T x\) for all \(x \succeq_K  0\)이다.</p>
+
+<h2 id="minimum-and-minimal-elements-via-dual-inequalities">Minimum and minimal elements via dual inequalities</h2>
+
+<p>Proper cone \(K\)로 유도된 generalized inequality에 대해, dual generalized inequalities를 이용하여 (possibly nonconvex) 집합 \(S \subseteq R^m\)의 minimum, minimal element에 대한 특성을 표현할 수 있다.</p>
+
+<h4 id="minimum-element">Minimum element</h4>
+
+<p>모든 \(\lambda \succ_K^* 0\)와   \(z \in S\)에 대해</p>
+
+<p>\(x\)가 \(\lambda^T z\)의 unique minimizer라면, 
+generalized inequality \(\succ_K^*\)에 대해 \(x\)는 \(S\)의 minimum이다.  (Minimizer란 어떤 함수를 최소로 만드는 종속변수 값을 말한다. 여기서 함수는 \(\lambda^T z\)가 되고 종속 변수는 \(z\)이며 minimizer는 \(x\)가 된다.)</p>
+
+<p>기하학적으로 이 의미는 어떤 \(\lambda \succ_K^* 0\)이 있을 때 hyperplane \(\{ z \mid  \lambda^T (z-x) = 0 \}\)은 \(x\)에서 \(S\)의 strict supporting hyperplane이라는 것을 말한다. (Strict supporting hyperplane이란 점 \(x\)에서만 hyperplane이 교차한다는 것을 말한다.) 이때, 집합 \(S\)가 convex일 필요는 없다. 다음 그림에는 minimum \(x\)와 strict supporting hyperplane이 그려져 있다.</p>
+
+<figure class="image" style="align: center;">
+<p align="center">
+  <img src="/img/chapter_img/chapter02/02.06_02_Minimum_element.png" alt="[Fig1] Minimum element [1]" width="70%" />
+  <figcaption style="text-align: center;">[Fig1] Minimum element [1]</figcaption>
+</p>
+</figure>
+
+<h4 id="minimal-element">Minimal element</h4>
+
+<p>Minimal의 경우 필요 조건과 충분 조건 사이에 약간의 차이가 있다.</p>
+
+<p>\(\lambda \succ_K^* 0\)와 \(z \in S\)에 대해 \(x\)가 \(\lambda^T z\)의 minimizer라면 \(x \in S\)는 \(S\)의 minimal이다. 즉, \(x\)가 minimal의 경우 \(\lambda^T z\)의 unique minimizer가 아니다. 따라서, 동일한  \(\lambda\)에 대해서 여러 minimal이 존재할 수도 있고 여러 \(\lambda\)에서 여러 minimal이 존재할 수도 있다.</p>
+
+<p>다음 그림을 보면 여러 개의 minimal이 존재하는 것을 확인할 수 있다. 왼쪽 아래에 검정색 굵은 선으로 된 부분이 minimal이 존재하는 영역이다. 
+여기서 \(\lambda^T_1 z\)의 minimizer는 \(x_1\)이며 \(\lambda_1 \succ_K^* 0\) 이므로 minimal이다. 또다른 minimizer로 \(x_2\)가 존재한다.</p>
+
+<figure class="image" style="align: center;">
+<p align="center">
+  <img src="/img/chapter_img/chapter02/02.06_05_Minimal_element.png" alt="[Fig2] Minimal element [1]" width="70%" />
+  <figcaption style="text-align: center;">[Fig2] Minimal element [1]</figcaption>
+</p>
+</figure>
+
+<p>하지만 반대는 성립하지 않는다. 점 \(x\)가 집합 \(S\)에 minimal이더라도 어떤 \(\lambda\)와 \(z \in S\)에 대해 \(x\)는 \(\lambda^T z\)의 minimizer는 아니다. 다음 그림을 보면 minimizer가 아닌 minimal을 확인할 수 있다. 또한, 여기서 convexity가 역을 성립시키는데 중요한 조건임을 알 수 있다.</p>
+
+<figure class="image" style="align: center;">
+<p align="center">
+  <img src="/img/chapter_img/chapter02/02.06_06_Minimal_element2.png" alt="[Fig3] Minimal이지만 minimizer가 아닌 예 [1]" width="70%" />
+  <figcaption style="text-align: center;">[Fig3] Minimal이지만 minimizer가 아닌 예 [1]</figcaption>
+</p>
+</figure>
+
+<p>이 converse theorem은 \(\lambda_1 \succ_K^* 0\)으로 강화되지는 않는다. 아래 왼쪽 그림을 보면 \(x_1 \in S_1\)이 minimal이지만 \(\lambda_1^T x_1\)의 minimizer는 아님을 알 수 있다. 오른쪽 그림은 \(x_2 \in S_2\)이 minimal은 아니지만  \(\lambda_2^T x_2\)의 minimizer라는 것을 알 수 있다.</p>
+
+<figure class="image" style="align: center;">
+<p align="center">
+  <img src="/img/chapter_img/chapter02/02.06_07_Minimal_element3.png" alt="[Fig4] $$\lambda_1 \succ_K^* 0$$으로 강화되지 않는 Minimal 예  [1]" width="70%" />
+  <figcaption style="text-align: center;">$$\text{[Fig4] } \lambda_1 \succ_K^* 0 \text{ 으로 강화되지 않는 Minimal 예  [1]}$$</figcaption>
+</p>
+</figure>
+
+<h4 id="optimal-production-frontier">Optimal production frontier</h4>
+<p>\(n\)가지 자원 (노동, 전기, 천연가스, 물 등)을 이용해서 생산해야 하는 제품이 있다고 해보자. 
+이 제품은 여러 방식으로 생산될 수 있다. 각 생산 방법 별로 자원 벡터 \(x \in R\)가 있으며 이때 \(x_i\)는 자원 \(i\)의 소비량을 의미한다. 자원 소비량은 \(x_i \ge 0\)이고 자원은 가치가 높다고 가정한다.</p>
+
+<p>생산 집합 \(P \subseteq R^n\)은 모든 자원 벡터 \(x\)의 집합으로 정의된다. 이때, minimal 자원 벡터를 갖는 생산 방법 \(P\)를 <strong>Pareto optimal</strong> 또는 <strong>efficient</strong>라고 한다. 또한, \(P\)의 minimal 집합을 <strong>efficient production frontier</strong>라고 한다.</p>
+
+<p>Pareto optimality에 대해서 간단히 살펴보자.</p>
+
+<p>자원 벡터 \(x\)를 갖는 생산 방법 \(P_x\)와 자원 벡터 \(y\)를 갖는 생산 방법 \(P_y\)가 있다고 하자. 이때, 모든 \(i\)에 대해 \(x_i \le y_i\)이고 일부 \(i\)에 대해서는 \(x_i \lt y_i\)라면 \(P_x\)는  \(P_y\)보다 좋다고 말할 수 있다. 다시 말해서 다른 방법보다 자원을 더 많이 사용하지 않거나 최소한 한 자원을 덜 사용하면 더 좋은 방법이라고 말할 수 있다. 즉, \(x \preceq y\)이고 \(x \ne y\)인 경우에 해당한다. 
+생산 방법 \(P_x\)보다 더 좋은 방법이 없다면 \(P_x\)를 Pareto optimal이라고 한다.</p>
+
+<p>아래 식을 최소화하면 Pareto optimal 생산 방법을 찾을 수 있다. 여기서 \(\lambda_i\)는 자원 \(i\)의 가격이라고 할 수 있다. \(P\)에 대해 \(\lambda^T x\)를 최소화하면 가장 저렴한 생산 방법을 찾을 수 있다. 가격은 양수이므로 최소화 결과는 항상 Pareto optimal이다.</p>
+
+<blockquote>
+  <p>\(\lambda^T x =\) \(\lambda^T_1 x_1 + \lambda^T_2 x_2 + ... + \lambda^T_n x_n, \lambda \succ 0\)</p>
+</blockquote>
+
+<p>다음 그림은 이런 상황을 잘 보여주고 있다. 그림에서 \(x_1, x_2, x_3\)는  Pareto optimal인데  \(x_4, x_5\)는 아니다.</p>
+
+<figure class="image" style="align: center;">
+<p align="center">
+  <img src="/img/chapter_img/chapter02/02.06_08_Pareto_optimal.png" alt="[Fig5] Optimal production frontier [1]" width="70%" />
+  <figcaption style="text-align: center;">[Fig5] Optimal production frontier [1]</figcaption>
+</p>
+</figure>
+
+
+        </article>
+    </div>
+</main>
+
+
+
+
+      </div>
+    </div>
+
+    <label for="sidebar-checkbox" class="sidebar-toggle"></label>
+
+    <script src='/public/js/script.js'></script>
+  </body>
+</html>

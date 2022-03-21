@@ -1,0 +1,686 @@
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.2.2">Jekyll</generator><link href="https://convex-optimization-for-all.github.io/feed.xml" rel="self" type="application/atom+xml" /><link href="https://convex-optimization-for-all.github.io/" rel="alternate" type="text/html" /><updated>2022-03-21T08:27:09+00:00</updated><id>https://convex-optimization-for-all.github.io/feed.xml</id><title type="html">모두를 위한 컨벡스 최적화</title><subtitle>모두를 위한 컨벡스 최적화</subtitle><author><name>Kyeongmin Woo</name><email>wgm0601@gmail.com</email></author><entry><title type="html">view counts</title><link href="https://convex-optimization-for-all.github.io/home/2021/06/09/view-counts/" rel="alternate" type="text/html" title="view counts" /><published>2021-06-09T00:00:00+00:00</published><updated>2021-06-09T00:00:00+00:00</updated><id>https://convex-optimization-for-all.github.io/home/2021/06/09/view-counts</id><content type="html" xml:base="https://convex-optimization-for-all.github.io/home/2021/06/09/view-counts/"><![CDATA[<p><br />
+<br /></p>
+
+<div class="view-counts">
+  <a href="https://hits.seeyoufarm.com">
+    <img class="view-counts__img" src="https://hits.seeyoufarm.com/api/count/incr/badge.svg?url=https%3A%2F%2Fconvex-optimization-for-all.github.io&amp;count_bg=%237A86DE&amp;title_bg=%23646464&amp;icon=&amp;icon_color=%23FFFFFF&amp;title=views&amp;edge_flat=false" />
+  </a>
+</div>]]></content><author><name>Kyeongmin Woo</name><email>wgm0601@gmail.com</email></author><category term="home" /><summary type="html"><![CDATA[]]></summary></entry><entry><title type="html">author details</title><link href="https://convex-optimization-for-all.github.io/home/2021/05/20/author-details/" rel="alternate" type="text/html" title="author details" /><published>2021-05-20T00:00:00+00:00</published><updated>2021-05-20T00:00:00+00:00</updated><id>https://convex-optimization-for-all.github.io/home/2021/05/20/author-details</id><content type="html" xml:base="https://convex-optimization-for-all.github.io/home/2021/05/20/author-details/"><![CDATA[<h2 id="저자-소개">저자 소개</h2>
+<p><strong>김기범</strong> (astroblasterr@gmail.com)<br /></p>
+
+<p><strong>김정훈</strong> (placidus36@gmail.com)<br />
+대학원 석박통합과정으로 재학 중이며, 자율주행차량의 판단 분야에 관심이 많고 이를 연구하고 있습니다. 주변의 차량, 사람들과 interactive하면서도, safe-guaranteed한 자율주행차를 개발하는 것을 목표로 하고 있습니다. 기초적인 딥러닝/강화학습을 공부하면서 해당 분야들의 많은 motivation, proof가 최적화 기반에서 왔다는 것을 깨닫고 컨벡스 최적화 프로젝트에 참여하게 되었습니다.</p>
+
+<p><strong>노원종</strong> (wnoh27@naver.com)<br />
+현재 네트워크 시스템 개발 관련 일을 하고 있으며, 최근 많은 분야에서 적용되기 시작하고 있는 머신러닝/딥러닝기술들에 대해 관심을 가지고, 네트워크에서 적용가능한 기법들에 대해 공부하던 중, 그 안에 적용되고 있는 최적화 기법을 좀 더 자세히 이해하기 위해 컨벡스 최적화 프로젝트에 참여하게 되었습니다. 본 책이 머신러닝/딥러닝에 이용되는 최적화 원리를 좀 더 자세히 이해하고자 하시는 분들께 많은 도움이 되었으면 합니다.</p>
+
+<p><strong>박진우</strong> (www.jwpark.co.kr@gmail.com)<br />
+모두의 연구소 풀잎스쿨의 컨벡스 최적화 과정을 기획하였고, 해당 과정에서 facilitator로 활동중입니다. 최적화가 기계학습에서 차지하는 중요도에 비해 참고자료가 너무나도 부족한 작금의 현실에 통탄을 금치 못하고 ‘모두를 위한 컨벡스 최적화’ 프로젝트를 제안하게 되었습니다. 현재는 다중 인물에 대한 합성 얼굴 이미지 생성을 연구중이며, 또한 강화학습을 이용한 game agent 학습에도 큰 관심을 가지고 있습니다. [<a href="https://www.linkedin.com/in/curt-park/">LinkedIn</a>]</p>
+
+<p><strong>윤성진</strong> (sjyoon@gmail.com)<br />
+약 22년 동안 소프트웨어 연구개발 및 제품기획 업무를 해 왔으며 최근 5년에는 데이터 및 미들웨어 소프트웨어, 모듈형 로봇 플랫폼 제품기획을 하였습니다. 현재는 딥러닝 기반의 컴퓨터 비전에 관심을 갖고 있으며 다중 인물에 대한 합성 얼굴 이미지 생성을 연구중입니다. 모두의 연구소 풀잎스쿨에서 컨벡스 최적화를 공부하면서 학문의 중요도에 비해 진입 장벽이 높고 특히 한글 자료가 전무하다는 현실을 깨닫고 ‘모두를 위한 컨벡스 최적화’ 프로젝트에 참여하게 되었습니다. 머신러닝에 관심을 갖고 있는 많은 분들이 본서를 통해 최적화에 좀 더 쉽게 입문할 수 있으면 좋겠습니다.</p>
+
+<p><strong>이규복</strong> (gyubokl@gmail.com)<br />
+산업공학과 석사과정으로 재학 중이며 자연어 처리, 이상 탐지, 강화학습에 관심이 많습니다. 기계학습을 연구하면서 기계학습과 최적화는 떼려야 뗄 수 없는 관계라는 것을 알게 되어 최적화에 자연스럽게 관심을 가지게 되었습니다. 하지만 공부를 하면서 조금 더 친절한 자료가 있으면 좋겠다는 생각을 끊임없이 하게 되었고, ‘모두를 위한 컨벡스 최적화’ 프로젝트에 참여하게 되었습니다. 최적화의 중요성을 알고 도전하려고 하지만 입문의 장벽이 높아 포기하는 사람들에게 이 책이 조그만 희망이 되길 바랍니다. [<a href="https://www.linkedin.com/in/gyuboklee/">LinkedIn</a>]</p>
+
+<p><strong>한영일</strong> (thinkingtoyihan@gmail.com)<br />
+Computer Science와 무선통신을 공부하였으며 인지과학, 진화 심리학 그리고 인공 생명 등에 관심이 있습니다. 호기심에 시작한 최적화라는 거대한 지식의 산 아래에서 경이로움을 느끼며, 위대한 지식 앞에 또 다시 겸손을 배움니다. 본서가 저처럼 최적화라는 거대한 지식의 산 앞에서 오르기를 주저하시는 분들께 좋은 길잡이가 되어주길 바랍니다.</p>
+
+<p><strong>황혜진</strong> (brillianthhj@gmail.com)<br />
+수학 전공 및 데이터마이닝 석사 과정을 졸업하였으며, 현재 컴퓨터비전 분야 관련 개발자로 일하고 있습니다. 딥러닝 공부를 하는 동안 쉽게 이해되지 않는 수식적 배경에 대해 좀 더 깊게 파헤쳐보고자 컨벡스 최적화 프로젝트에 참여하게 되었고, 공부한 내용들을 깊이 있게 이해하고, 실제 적용 단에서 최적화 된 방법론이 어떻게 사용될 지에 대해 지속적인 관심을 가지고 스터디에 임하고 있습니다.</p>
+
+<h2 id="reviewer">Reviewer</h2>
+<p><strong>이주희</strong> (juhee1108@gmail.com)<br />
+<strong>現 이화여자대학교 수리과학연구소 연구교수</strong><br />
+이화여자대학교에서 수학박사 학위를 취득하였습니다. 주 연구 분야는 암호학으로 IoT, 머신러닝 등과 같은 다양한 응용 분야에서의 효율적인 암호 기술 개발 및 그 기반이 되는 수학적 이론을 연구합니다. 머신러닝 / 딥러닝을 활용한 암호 기술 개발을 위해 딥러닝에 관심 두게 되었고 최근 모두의 연구소 Deep Learning College에서 기초수학(선형대수/미적분학/최적화 /확률 및 통계)을 강의하였습니다. 이후 머신러닝 / 딥러닝에서 필요한 수학을 정리하면서 대부분의 문제가 논-컨벡스 최적화(non-convex optimization problem)에 해당하지만, 현재까지의 해결방안은 컨벡스 최적화 문제로 변환하는 방법이 아닐까하는 생각에 컨벡스 최적화를 공부하게 되었고, ‘모두를 위한 컨벡스 최적화’ 프로젝트에 참여하고 있습니다. 수학의 중요성을 체감하고 있는 많은 분께 이 책이 도움이 되기를 바랍니다.
+<br /></p>
+
+<p><strong>장승환</strong> (schang.math@gmail.com)<br />
+<strong>現 이화여자대학교 수리과학연구소 연구교수</strong><br /></p>
+
+<p><strong>정태수</strong> (tcheong@korea.ac.kr) <br />
+<strong>現 고려대학교 산업경영공학부 부교수, 공과대학 연구부학장</strong><br />
+고려대학교 산업경영공학부 부교수로 재직 중이며, 최적화 기법을 활용한 다양한 연구를 수행하였으며 최근들어서는 머신러닝과 관련된 산학 프로젝트도 진행 중에 있습니다. 본 전공은 마르코브 의사결정 프로세스 (Markov decision process)를 활용한 물류 및 SCM 최적화이며 박사과정 중에서 Optimization 트랙으로 박사자격시험을 준비하면서 다양한 최적화 이론을 공부하였습니다. 머신러닝 관련해서는 <a href="http://www.kmooc.kr/">K-MOOC</a>의 “Mathematical Fundamentals for Data Science”와 “Machine Learning for Data Science” 강좌 개발 및 촬영에 참여하였습니다. 최적화와 관련하여 부족하지만 조금이나마 기여를 하고자 이렇게 참여하게 되었습니다.</p>]]></content><author><name>Kyeongmin Woo</name><email>wgm0601@gmail.com</email></author><category term="home" /><summary type="html"><![CDATA[저자 소개 김기범 (astroblasterr@gmail.com)]]></summary></entry><entry><title type="html">17-01 Barrier method &amp;amp; duality &amp;amp; optimality revisited</title><link href="https://convex-optimization-for-all.github.io/contents/chapter17/2021/05/01/17_01_barrier_method_duality_optimality_revisited/" rel="alternate" type="text/html" title="17-01 Barrier method &amp;amp; duality &amp;amp; optimality revisited" /><published>2021-05-01T00:00:00+00:00</published><updated>2021-05-01T00:00:00+00:00</updated><id>https://convex-optimization-for-all.github.io/contents/chapter17/2021/05/01/17_01_barrier_method_duality_optimality_revisited</id><content type="html" xml:base="https://convex-optimization-for-all.github.io/contents/chapter17/2021/05/01/17_01_barrier_method_duality_optimality_revisited/"><![CDATA[<p>15장에서 barrier method에 대해, 13장과 16장에서는 duality에 대해 살펴보았다.
+본 장의 내용을 다루기 전에 barrier method와 duality에 대해 간단하게 다시 정리해 보고자 한다.</p>
+
+<h2 id="barrier-method">Barrier method</h2>
+<p>아래와  같은 primal 문제가 convex이고 \(f, h_i , i = 1, . . . m\)가 미분가능 할 때,</p>
+<blockquote>
+\[\begin{align}
+&amp;\min_{x} &amp;&amp; f(x) \\
+&amp;\text{subject to } &amp;&amp;h_{i}(x) \leq 0, i = 1, \dotsc, m \\
+&amp;&amp;&amp; Ax = b \\
+\end{align}\]
+</blockquote>
+
+<p>Log barrier function을 사용하여 다음과 같이 primal 문제를 barrier 문제로 바꿀 수 있다.</p>
+
+<blockquote>
+\[\begin{align}
+&amp; \min_{x} &amp;&amp; f(x) + \frac{1}{t} \phi(x) &amp; \qquad &amp; \min_{x} &amp;&amp; tf(x) + \phi(x) \\
+&amp; \text{subject to } &amp;&amp; Ax = b &amp; \iff \qquad &amp; \text{subject to } &amp;&amp; Ax = b \\
+&amp; \text{where } &amp;&amp; \phi(x) = - \sum_{i=1}^{m} \log(-h_i(x))
+\end{align}\]
+</blockquote>
+
+<p>알고리즘은 \(t &gt; 0\)를 만족하는 \(t = t^{(0)}\)에서 시작해서 \(\frac{m}{t}\)가 \(\epsilon\)보다 작거나 같아질 때까지 증가시킨다. 이때, Newton’s method를 이용해 초기값 \(x^{(0)}\)에 대한 \(x^{\star}(t)\)를 구하고 \(k = 1, 2, 3, . . .\)에 대해 각 단계에서  \(x^{(k+1)} = x^{\star}(t)\)를 구하는 과정을 반복 한다.</p>
+
+<p>알고리즘을 간략히 정리하면 다음과 같다.</p>
+
+<ol>
+  <li>\(t^{(0)} \gt 0\)이고 \(k := 0\)을 선택한다.</li>
+  <li>\(t = t^{(0)}\)에서 barrier problem을 풀어서 \(x^{(0)} = x^{\star}(t)\)을 구한다.</li>
+  <li>While \(m/t \gt \epsilon\) <br />
+  3-1. \(t^{(k+1)} = µt\)로 업데이트 한다. \((µ &gt; 1)\) <br />
+  3-2. Newton’s method를 \(x^{(k)}\)로 초기화한다. (warm start)<br />
+     \(t = t^{(k+1)}\)에서 barrier problem을 풀어서 \(x^{(k+1)} = x^{\star}(t)\)을 구한다.<br />
+  end while<br /></li>
+</ol>
+
+<ul>
+  <li>자세한 내용은  <a href="/contents/chapter15/2021/03/28/15_01_02_log_barrier_function_and_barrier_method/">15-01-02 Log barrier function &amp; barrier method</a> 참조</li>
+</ul>
+
+<h2 id="duality">Duality</h2>
+<p>다음과 같은 primal 문제가 주어졌을 때,</p>
+<blockquote>
+\[\begin{align}
+   \mathop{\text{minimize}}_x &amp;\quad f(x) \\\\
+   \text{subject to} &amp;\quad f Ax = b \\\\
+   &amp;\quad h(x) \le 0
+\end{align}\]
+</blockquote>
+
+<p>이를 Lagrangian 형태로 바꾸면 다음과 같이 바꿀 수 있다.</p>
+<blockquote>
+\[L(x,u,v) = f(x) + u^Th(x) + v^T(Ax - b)\]
+</blockquote>
+
+<p>이와 같이 정의된 Lagrangian을 이용해서 primal과 dual problem을 다음과 같은 형태로 다시 정의할 수 있다. 자세한 내용은 16장을 다시 살펴보기 바란다.<br /></p>
+<h4 id="primal-problem">Primal Problem</h4>
+<blockquote>
+\[\min_x \mathop{\max_{u,v}}_{u \geq 0} L(x,u,v)\]
+</blockquote>
+
+<h4 id="dual-problem">Dual problem</h4>
+<blockquote>
+\[\mathop{\max_{u,v}}_{u \geq 0} \min_x L(x,u,v)\]
+</blockquote>
+
+<h2 id="optimality-conditions">Optimality conditions</h2>
+
+<p>\(f,h_1,...h_m\)은 convex 이고 미분 가능하고, 또한 주어진 문제가 strong duality를 만족한다고 가정할 때, 이 문제에 대한 KKT 최적 조건(optimality condition)은 아래와 같다.</p>
+
+<blockquote>
+\[\begin{array}{rcl}
+∇f(x) +∇h(x)u + A^Tv &amp; = &amp; 0 &amp; \text{(Stationarity)}\\\
+ Uh(x) &amp; = &amp; 0 &amp; \text{(Complementary Slackness)} \\\
+Ax &amp; = &amp; b &amp; \text{(Primal Feasibility)}\\\
+u,−h(x)  &amp; ≥ &amp; 0 &amp; \text{(Dual Feasibility)}
+\end{array}\]
+</blockquote>
+
+<p>여기서 \(U\)는 \(\text{diag}(u)\)를 뜻하며, \(∇h(x)\)는 \([ ∇h_1(x) ··· ∇h_m(x) ]\)를 의미한다.</p>
+
+<ul>
+  <li>자세한 내용은 <a href="/contents/chapter12/2021/04/02/12_00_KKT_conditions/">12장 KKT conditions</a> 참조</li>
+</ul>
+
+<h2 id="central-path-equations">Central path equations</h2>
+<p>함수 \(f(x)\)를 barrier 문제로 아래와 같이 재정의 할 수 있다.<br />
+아래 수식에서 \(τ\)는 \(\frac{1}{t}\)이며 \(\tau\)를 점점 0에 가깝게 해서 반복적으로 해를 구함으로써 최종적으로 원래 문제의 해를 구하게 된다.</p>
+
+<blockquote>
+\[\begin{align}
+&amp;\min_{x} &amp;&amp; {f(x) + τ\phi(x)} \\\\
+&amp; &amp;&amp;{Ax = b} \\\
+&amp; \text{where } &amp;&amp; \phi(x) = −\sum_{i=1}^m \log(−h_i(x)).
+\end{align}\]
+</blockquote>
+
+<p>즉, 위 식에서 \(τ\)에 따라 primal 문제와의 차이가 발생하며, \(τ\)에 따라 생기는 궤적 즉, barrier 문제에 대한 해의 집합을 central path라고 한다.</p>
+
+<p>그리고 이 barrier 문제에 대한 optimality conditions은 다음과 같다.</p>
+<blockquote>
+\[\begin{array}{rcl}
+∇f(x) +∇h(x)u + A^Tv  &amp; = &amp; 0 \\\
+Uh(x) &amp; = &amp; −τ\mathbb{1} \\\
+Ax &amp; = &amp; b \\\
+u,−h(x)  &amp; &gt; &amp; 0
+\end{array}\]
+</blockquote>
+
+<ul>
+  <li>자세한 내용은 <a href="/contents/chapter16/2021/03/31/16_02_optimality_conditions/">16-02 Optimality conditions</a> 참조</li>
+</ul>
+
+<p>이번 장에서 소개할 <strong>Primal-Dual interior point method</strong>는 위의 처음 세 가지 식을 residual로 정의하고 이를 \(0\)으로 줄이면서 해를 구하는 방식이다.</p>
+
+<h5 id="useful-fact">Useful fact</h5>
+<p>솔루션 \((x(τ),u(τ),v(τ))\)는 다음의 \(mτ\) 즉 \(\frac{m}{t}\) 크기 만큼의 duality gap을 갖는다.</p>
+<blockquote>
+\[f(x(τ))−\min_x L(x,u(τ),v(τ)) = mτ= \frac{m}{t}\]
+</blockquote>]]></content><author><name>Kyeongmin Woo</name><email>wgm0601@gmail.com</email></author><category term="contents" /><category term="chapter17" /><summary type="html"><![CDATA[15장에서 barrier method에 대해, 13장과 16장에서는 duality에 대해 살펴보았다. 본 장의 내용을 다루기 전에 barrier method와 duality에 대해 간단하게 다시 정리해 보고자 한다.]]></summary></entry><entry><title type="html">17-02-01 Central path equations and Newton step</title><link href="https://convex-optimization-for-all.github.io/contents/chapter17/2021/05/01/17_02_01_central_path_equations_and_newton_step/" rel="alternate" type="text/html" title="17-02-01 Central path equations and Newton step" /><published>2021-05-01T00:00:00+00:00</published><updated>2021-05-01T00:00:00+00:00</updated><id>https://convex-optimization-for-all.github.io/contents/chapter17/2021/05/01/17_02_01_central_path_equations_and_newton_step</id><content type="html" xml:base="https://convex-optimization-for-all.github.io/contents/chapter17/2021/05/01/17_02_01_central_path_equations_and_newton_step/"><![CDATA[<p><strong>Primal-dual interior-point method</strong>는 barrier method와 마찬가지로 central path를 찾아서 해를 구하는 방식이다. 그러기 위해 perturbed KKT conditions를 residual 함수로 정의하고 이를 0으로 만드는 해를 찾는다. 이 절에서는 이와 같은 접근 방식을 설명하려고 한다.</p>
+
+<h2 id="central-path-equations">Central path equations</h2>
+<p>앞의 <a href="/contents/chapter17/2021/05/01/17_01_barrier_method_duality_optimality_revisited/">17-01 Optimality conditions</a>에서 설명했던 central path equations에서 우항을 좌항으로 옮기면 다음과 같이 정리할 수 있다. (Central path equations의 optimality condition을 perturbed KKT conditions라고도 한다.)</p>
+<blockquote>
+\[\begin{array}{rcl}
+∇f(x) +∇h(x)u + A^Tv &amp; = &amp; 0 \\\
+ Uh(x) + \tau\mathbb{1}  &amp; = &amp; 0 \\\
+Ax−b &amp; = &amp; 0 \\\
+u,−h(x)  &amp; &gt; &amp; 0
+\end{array}\]
+</blockquote>
+
+<p>원래 문제에 대한 KKT conditions에서의 complementary slackness와 inequality constraint가 perturbed KKT conditions에서와 다르다는 점을 유의해서 보자. 원래 문제의 경우 \(Uh(x) = 0\) 그리고 \(u,−h(x)  \ge 0\)이지만, perturbed KKT conditions에서는 \(Uh(x) = - \tau\mathbb{1}\) 그리고 \(u,−h(x)  \gt 0\)이다.</p>
+
+<p>이렇게 정리된 비선형 방정식인 perturbed KKT conditions는 Newton’s method의 root finding 버전을 이용해서 선형 방정식으로 근사해서 해를 구할 수 있다.</p>
+
+<h2 id="newton-step">Newton step</h2>
+<p>그러면 perturbed KKT conditions를 선형으로 근사하여 해를 구해는 방법에 대해 알아보자. Perturbed KKT conditions 식을 다음과 같은 residual의 함수 \(r(x, u, v) = 0\)로 정의할 수 있다. (함수 이름이 residual인 이유는 이 값들이 0이 되어야 optimal이 되기 때문이다.)</p>
+
+<blockquote>
+\[r(x,u,v) :=
+\begin{bmatrix}
+∇f(x) +∇h(x)u + A^Tv \\\
+Uh(x) + τ\mathbb{1} \\\
+Ax−b
+\end{bmatrix}, H(x) = \text{Diag}(h(x))\]
+</blockquote>
+
+<p>함수의 근을 찾기 위해 \(r(x, u, v)\)을 Taylor 1차식으로 근사하면 다음과 같다. (이 과정은 non-linear equation을 linear equation으로 근사하는 과정으로 자세한 내용은 <a href="/contents/chapter14/2021/03/26/14_01_newton_method/">14-02-01 Root finding</a>을 참조)</p>
+<blockquote>
+\[\begin{align}
+0 &amp; = r(x + \Delta x, u + \Delta u, r + \Delta v)  \\\\
+  &amp; \approx r(x, u, v) + \nabla r(x, u, v) 
+\begin{pmatrix}
+\Delta x \\\\
+\Delta u \\\\
+\Delta v \\\\
+\end{pmatrix} \\\\
+\end{align}\]
+</blockquote>
+
+<p>이에 따라 함수 \(r(x, u, v)\)은 다음과 같이 정리할 수 있다.</p>
+
+<blockquote>
+\[\begin{align}
+\nabla r(x, u, v) 
+\begin{pmatrix}
+\Delta x \\\\
+\Delta u \\\\
+\Delta v \\\\
+\end{pmatrix} = -r(x, u, v) \\\\
+\end{align}\]
+</blockquote>
+
+<p>\(r(x, u, v)\)을 \(x, u, v\)에 대해 미분하여 Jacobian matrix \(\nabla r(x, u, v)\)을 구한 후 위의 식을 대입해 보면 아래와 같다.</p>
+<blockquote>
+  <p>\(\begin{bmatrix}
+\nabla^2f(x) + \sum_i u_i \nabla^2h_i(x) &amp; \nabla h(x) &amp; A^T \\\
+ U \nabla  h(x)^T &amp; H(x) &amp; 0 \\\
+A &amp; 0 &amp; 0
+\end{bmatrix}
+\begin{bmatrix}
+\Delta x \\\
+\Delta u \\\
+\Delta v
+\end{bmatrix} = −r(x,u,v)\)
+where
+\(r(x,u,v) :=
+\begin{bmatrix}
+\nabla f(x) +\nabla h(x)u + A^Tv \\\
+Uh(x) + τ\mathbb{1} \\\
+Ax−b
+\end{bmatrix}, H(x) = \text{Diag}(h(x))\)</p>
+</blockquote>
+
+<p>이 식의 해인 \((\Delta x, \Delta u, \Delta v)\)는 primal, dual 변수의 업데이트 방향이다. 이 장에서 소개할 방법을 <strong>Primal-Dual</strong> interior point method라고 부르는 이유는 residual 함수를 이용해서 primal, dual 변수를 동시에 업데이트하기 때문이다.</p>]]></content><author><name>Kyeongmin Woo</name><email>wgm0601@gmail.com</email></author><category term="contents" /><category term="chapter17" /><summary type="html"><![CDATA[Primal-dual interior-point method는 barrier method와 마찬가지로 central path를 찾아서 해를 구하는 방식이다. 그러기 위해 perturbed KKT conditions를 residual 함수로 정의하고 이를 0으로 만드는 해를 찾는다. 이 절에서는 이와 같은 접근 방식을 설명하려고 한다.]]></summary></entry><entry><title type="html">17-02-02 Surrogate duality gap, residuals</title><link href="https://convex-optimization-for-all.github.io/contents/chapter17/2021/05/01/17_02_02_surrogate_duality_gap_residuals/" rel="alternate" type="text/html" title="17-02-02 Surrogate duality gap, residuals" /><published>2021-05-01T00:00:00+00:00</published><updated>2021-05-01T00:00:00+00:00</updated><id>https://convex-optimization-for-all.github.io/contents/chapter17/2021/05/01/17_02_02_surrogate_duality_gap_residuals</id><content type="html" xml:base="https://convex-optimization-for-all.github.io/contents/chapter17/2021/05/01/17_02_02_surrogate_duality_gap_residuals/"><![CDATA[<p>Primal-Dual 알고리즘을 정의하기 위해 먼저 세 가지 residual 종류와 surrogate duality gap을 정의해보자. Residual과 surrogate duality gap은 Primal-Dual 알고리즘에서 최소화해야 할 목표이다.</p>
+
+<h2 id="residuals">Residuals</h2>
+<p>\((x,u,v)\)에서의 dual, central, primal residual는 다음과 같이 정의된다.</p>
+
+<blockquote>
+  <p>\(r_{dual} = \nabla f(x) +\nabla h(x)u + A^Tv\\\)
+\(r_{cent} =  Uh(x) + τ\mathbb{1} \\\) 
+\(r_{prim} = Ax−b\)</p>
+</blockquote>
+
+<p>이들은 함수 \(r(x,u,v)\)의 각 row에 해당된다. <strong>Primal-dual interior point method</strong>는 이 세 가지 residual이 계속해서 0이 되게하기 보다는 0을 만족하는 방향으로 실행한다. 즉, 실행 과정에서 반드시 feasible일 필요는 없다는 이야기이다.</p>
+
+<p>\(r_{dual}\)를 dual residual이라고 부르는 이유는 아래 식에서와 같이 \(r_{dual} = 0\)이면 \(u, v\)가 \(g\)의 domain에 있다는 것을 보장하게 되며 이는 곧 dual feasible임을 의미하기 때문이다.</p>
+
+<blockquote>
+\[\begin{align}
+&amp; r_{dual} = \nabla f(x) +\nabla h(x)u + A^Tv = 0 \\\\
+&amp; \iff \min_{x} L(x,u.v) = g(u,v) \\\\
+\end{align}\]
+</blockquote>
+
+<p>비슷하게 \(r_{prim}=0\)을 만족하면 primal feasble하기 때문에 \(r_{prim}\)을 primal residual이라고 부른다.</p>
+
+<h2 id="surrogate-duality-gap">Surrogate duality gap</h2>
+<p>Barrier method는 feasible하기 때문에 duality gap이 존재하지만, primal-dual interior-point method는  반드시 feasible할 필요가 없기 때문에 <strong>surrogate duality gap</strong>을 사용한다. <strong>Surrogate duality gap</strong>은 다음 식으로 정의된다.</p>
+
+<blockquote>
+\[−h(x)^Tu  \quad \text{for} \quad h(x) \le 0, u \ge 0\]
+</blockquote>
+
+<p>만일 \(r_{dual} = 0\)이고  \(r_{prim} = 0\)라면 surrogate duality gap은 true duality gap이 된다. 즉, primal and dual feasible하면 surrogate duality gap은 실제 duality gap \(\frac{m}{t}\)과 같아진다.</p>
+
+<p><strong>[참고] Perturbed KKT 조건과 파라미터 t</strong> <br /></p>
+
+<ul>
+  <li>Perturbed KKT 조건에서 파라미터 t는 \(t = −\frac{m}{h(x)^Tu}\)이다.</li>
+  <li>자세한 내용은 <a href="/contents/chapter15/2021/03/28/15_03_01_perturbed_kkt_conditions/">15-03-01 Perturbed KKT conditions</a>와 <a href="/contents/chapter15/2021/03/28/15_03_02_suboptimality_gap/">15-03-02 Suboptimality gap</a>을 참조</li>
+</ul>
+
+<p>그리고, \(u &gt; 0,h(x) &lt; 0\)이고 아래의 조건을 만족하면 \((x,u,v)\)는 central path 상에 존재하게 된다.</p>
+
+<blockquote>
+  <p>\(r(x,u,v) = 0\) for \(\tau = -\frac{h(x)^Tu}{m}\)</p>
+</blockquote>
+
+<p>즉, central path 상에 존재하는 점에서 residual은 0이다.</p>]]></content><author><name>Kyeongmin Woo</name><email>wgm0601@gmail.com</email></author><category term="contents" /><category term="chapter17" /><summary type="html"><![CDATA[Primal-Dual 알고리즘을 정의하기 위해 먼저 세 가지 residual 종류와 surrogate duality gap을 정의해보자. Residual과 surrogate duality gap은 Primal-Dual 알고리즘에서 최소화해야 할 목표이다.]]></summary></entry><entry><title type="html">17-02-03 Primal-Dual Algorithm</title><link href="https://convex-optimization-for-all.github.io/contents/chapter17/2021/05/01/17_02_03_primal_dual_algorithm/" rel="alternate" type="text/html" title="17-02-03 Primal-Dual Algorithm" /><published>2021-05-01T00:00:00+00:00</published><updated>2021-05-01T00:00:00+00:00</updated><id>https://convex-optimization-for-all.github.io/contents/chapter17/2021/05/01/17_02_03_primal_dual_algorithm</id><content type="html" xml:base="https://convex-optimization-for-all.github.io/contents/chapter17/2021/05/01/17_02_03_primal_dual_algorithm/"><![CDATA[<p>Primal-Dual 알고리즘을 정의하기 위해 먼저 \(\tau(x,u)\)를 다음과 같이 정의하자</p>
+<blockquote>
+\[\tau(x,u) := -\frac{h(x)^Tu}{m} \quad \text{with} \quad h (x) \le 0, u \ge 0\]
+</blockquote>
+
+<p>참고로 Barrier method에서의 \(t\)와 \(\mu\)를 Primal-Dual 알고리즘에서는 \(\tau\)와 \(\sigma\)로 재정의하여 표기한다.</p>
+<blockquote>
+\[\tau = \frac{1}{t}, \quad \sigma = \frac{1}{\mu}\]
+</blockquote>
+
+<h2 id="primal-dual-algorithm">Primal-Dual Algorithm</h2>
+<p>Primal-Dual 알고리즘은 다음과 같다.</p>
+<blockquote>
+  <ol>
+    <li>\(\sigma\)를 선택 (\(\sigma ∈ (0,1)\))<br /></li>
+    <li>\((x^0,u^0,v^0)\)를 선택 \((h(x^0) &lt; 0\). \(u^0 &gt; 0\))<br /></li>
+    <li>다음 단계를 반복 (\(k = 0,1,...\))<br />
+\(\quad\) * Newton step 계산 :<br />
+\(\qquad \quad (x,u,v) = (x^k,u^k,v^k)\) <br />
+\(\qquad \quad \tau := \sigma \tau(x^k,u^k)\) 계산<br />
+\(\qquad \quad \tau\)에 대해 \((\Delta x,\Delta u,\Delta v)\) 계산<br />
+\(\quad\) * Backtracking으로 step length \(θ_k\)를 선택<br />
+\(\quad\) * Primal-Dual 업데이트 :<br />
+\(\qquad \quad (x^{k+1},u^{k+1},v^{k+1}) := (x^k,u^k,v^k) + \theta_k(\Delta x,\Delta u,\Delta v)\)<br /></li>
+    <li>종료 조건 : \(-h(x^{k+1})^Tu \le \epsilon\) and \((\parallel r_{prim} \parallel^2_2 + \parallel r_{dual} \parallel^2_2)^{1/2} \le \epsilon\) 조건을 만족하면 중지 <br /></li>
+  </ol>
+</blockquote>
+
+<p>알고리즘은 각 단계 별로 Newton step을 실행하여 \((\Delta x,\Delta u,\Delta v)\)를 계산하고  Primal-Dual 업데이트를 하여 \((x^{k+1},u^{k+1},v^{k+1})\)를 구한다. 단, Backtracking line search를 통해 Primal-Dual 변수가 feasible해 지도록 \(θ_k\)를 선택한다. 알고리즘은 surrogate duality gap과 primal and dual residual이 \(\epsilon\) 보다 작아지면 종료한다.</p>
+
+<h2 id="backtracking-line-search">Backtracking line search</h2>
+<p>Primer-Dual 알고리즘에서 Newton step을 한번만 실행하기 때문에 정확한 해을 찾기 보다는 해의 방향을 구한 것으로 볼 수 있다. 따라서, 그 방향으로 이동하면서 feasible set으로 들어올 수 있도록 적절한 step length를 구해야 한다.</p>
+
+<p>즉, 알고리즘의 각 스텝에서 \(θ\)를 구해서 primal-daual 변수를 업데이트한다.</p>
+
+<blockquote>
+\[x^+ = x + θ\Delta x, \quad  u^+ = u + θ\Delta u, \quad v^+ = v + θ\Delta v\]
+</blockquote>
+
+<p>이 과정에는 두 가지 주요 목표가 있다.</p>
+
+<ul>
+  <li>\(h(x) &lt; 0, u &gt; 0\)의 조건을 유지하는 것</li>
+  <li>\(\parallel r(x,u,v) \parallel\)을 감소시키는 것</li>
+</ul>
+
+<p>이를 위해 다단계 백트랙킹 선형 검색(<strong>multi-stage backtracking line search</strong>)을 사용한다.</p>
+
+<h4 id="stage-1-dual-feasiblity-u-gt-0">Stage 1: dual feasiblity \(u \gt 0\)</h4>
+<p>처음에는 \(u + \theta \Delta u ≥ 0\)를 만족하는 가장 큰 스텝 \(\theta_{max} ≤ 1\)으로 시작한다.</p>
+
+<blockquote>
+\[\theta_{\max} = \min \Biggl\{1,\  \min \Bigl\{ −\frac{u_i}{\Delta u_i} : ∆u_i &lt; 0 \Bigr\} \Biggr\}\]
+</blockquote>
+
+<p>위의 식은 다음과 같이 유도된다.</p>
+
+<blockquote>
+\[\begin{align}
+&amp;u + \theta \Delta u &amp;&amp; \ge 0  \\\\
+\Leftrightarrow \quad &amp;u &amp;&amp; \ge -\theta \Delta u \\\\
+\Leftrightarrow \quad &amp;- u/\Delta u &amp;&amp; \ge \theta \quad  \text{ such that }-\Delta u \gt 0  \\\\
+\end{align}\]
+</blockquote>
+
+<p>이는 \(u\)를 feasible하게 만드는 과정이다.</p>
+
+<h4 id="stage-2-primal-feasiblity-hx-lt-0">Stage 2: primal feasiblity \(h(x) \lt 0\)</h4>
+<p>그 다음엔 파라미터  \(\alpha, \beta \in (0,1)\)로 하고 \(\theta\)를 \(0.99\theta_{max}\)로 설정한 후 다음 업데이트를 수행 한다.</p>
+
+<ul>
+  <li>\(h_i(x^+) &lt; 0, i = 1,...m\)를 만족할 때까지, \(θ = βθ\)를 업데이트 <br /></li>
+</ul>
+
+<p>이는 \(x\)를 feasible하게 만드는 과정이다.</p>
+
+<h4 id="stage-3--reduce-parallel-rxuv-parallel">Stage 3 : reduce \(\parallel r(x,u,v) \parallel\)</h4>
+<ul>
+  <li>\(\| r(x^+,u^+,v^+) \| ≤ (1−\alpha \theta) \| r(x,u,v) \|\)를 만족할 때까지, \(\theta = \beta \theta\)를 업데이트</li>
+</ul>
+
+<p>Stage 3의 update 식은 기존의 backtracking line search 알고리즘과 동일하다.</p>
+
+<p>위의 식에서 우항은 다음과 같이 유도될 수 있다. 먼저 Newton’s method에서 다음 결과를 얻는다.</p>
+<blockquote>
+\[\begin{align}
+\Delta w = (\Delta x, \Delta u, \Delta v) &amp;\approx -r^{'}(w)^{-1} r(w) \\\\
+\Leftrightarrow r(w)  &amp;\approx  -r^{'}(w) \Delta w \\\\
+\end{align}\]
+</blockquote>
+
+<p>위의 식에서 \(r^{'}(w) \Delta w \approx -r(w)\)이므로 이를 아래 Taylor 1차 근사식에 대입한다.</p>
+<blockquote>
+\[\begin{align}
+r(w + \theta \Delta w) &amp; \approx r(w) +  r^{'}(w) (\theta \Delta w) \\\\
+&amp;\approx (1-\theta) r(w) \\\\
+\end{align}\]
+</blockquote>
+
+<p>결과적으로 \(r(w + \alpha \theta \Delta w) \approx (1-\alpha  \theta) r(w)\)가 된다.</p>]]></content><author><name>Kyeongmin Woo</name><email>wgm0601@gmail.com</email></author><category term="contents" /><category term="chapter17" /><summary type="html"><![CDATA[Primal-Dual 알고리즘을 정의하기 위해 먼저 \(\tau(x,u)\)를 다음과 같이 정의하자 \[\tau(x,u) := -\frac{h(x)^Tu}{m} \quad \text{with} \quad h (x) \le 0, u \ge 0\]]]></summary></entry><entry><title type="html">17-02 Primal-dual interior-point method</title><link href="https://convex-optimization-for-all.github.io/contents/chapter17/2021/05/01/17_02_primal_dual_interior_point_method/" rel="alternate" type="text/html" title="17-02 Primal-dual interior-point method" /><published>2021-05-01T00:00:00+00:00</published><updated>2021-05-01T00:00:00+00:00</updated><id>https://convex-optimization-for-all.github.io/contents/chapter17/2021/05/01/17_02_primal_dual_interior_point_method</id><content type="html" xml:base="https://convex-optimization-for-all.github.io/contents/chapter17/2021/05/01/17_02_primal_dual_interior_point_method/"><![CDATA[<p>Barrier method와 같이 <strong>primal-dual interior-point method</strong>도 central path 위의 점을 (근사적으로) 계산하는 것을 목표로 한다. 그러나 두 가지 방법은 여러 차이점이 있다.</p>
+
+<h2 id="primal-dual-interior-point-method와-barrier-method의-차이점">Primal-dual interior-point method와 barrier method의 차이점</h2>
+<ul>
+  <li>일반적으로 iteration 별로 <strong>한 번의 뉴턴 스텝</strong>을 실행한다. (즉, 센터링 스텝을 위한 추가 반복문이 없다.)</li>
+  <li><strong>반드시 feasible일 필요는 없다</strong>.  (Backtracking line search를 통해 feasible한 곳으로 밀어준다.)</li>
+  <li>일반적으로 <strong>더 효과적</strong>이다. 특히 적절한 조건 위에서 linear convergence보다 뛰어난 성능을 보인다.</li>
+  <li>Barrier method에 비해 조금은 덜 직관적이다.</li>
+</ul>]]></content><author><name>Kyeongmin Woo</name><email>wgm0601@gmail.com</email></author><category term="contents" /><category term="chapter17" /><summary type="html"><![CDATA[Barrier method와 같이 primal-dual interior-point method도 central path 위의 점을 (근사적으로) 계산하는 것을 목표로 한다. 그러나 두 가지 방법은 여러 차이점이 있다.]]></summary></entry><entry><title type="html">17-03 Some history</title><link href="https://convex-optimization-for-all.github.io/contents/chapter17/2021/05/01/17_03_some_history/" rel="alternate" type="text/html" title="17-03 Some history" /><published>2021-05-01T00:00:00+00:00</published><updated>2021-05-01T00:00:00+00:00</updated><id>https://convex-optimization-for-all.github.io/contents/chapter17/2021/05/01/17_03_some_history</id><content type="html" xml:base="https://convex-optimization-for-all.github.io/contents/chapter17/2021/05/01/17_03_some_history/"><![CDATA[<p>일반적으로 현대의 state-of-art LP Solver들은  Simplex method와 interior-point method를 모두 사용하고 있다.</p>
+
+<ul>
+  <li>
+    <p>Dantzig(1940년대): Simplex 방법, LP의 general form을 푼 최초의 방식으로 Iteration 없이 exact solution을 구한다. 오늘날까지도 LP를 위한 가장 잘 알려지고 많이 연구되는 알고리즘 중 하나이다.</p>
+  </li>
+  <li>
+    <p>Klee 및 Minty(1972) : \(n\)개의 변수와 \(2n\)개의 제약 조건을 갖는 pathological LP. Simplex method로 풀려면 \(2^n\)번 반복이 필요하다.</p>
+  </li>
+  <li>
+    <p>Khachiyan (1979) : Nemirovski와 Yudin (1976)의 타원체 방법을 기반으로 한 LP의 polynormial-time 알고리즘으로 이론적으로는 강하나, 실제 문제에서는 그렇지 못하다.</p>
+  </li>
+  <li>
+    <p>Karmarkar (1984) : interior-point polynomial-time LP 방법으로 상당히 효과적이며 breakthrough가 된 연구이다. (미국 특허 4,744,026, 2006년 만료).</p>
+  </li>
+  <li>
+    <p>Renegar (1988) : LP를위한 Newton 기반 interior-point 알고리즘. Lee-Sidford의 최신 연구가 나올 때까지 이론적으로 가장 좋은 계산 복잡도를 갖고 있었다.</p>
+  </li>
+</ul>]]></content><author><name>Kyeongmin Woo</name><email>wgm0601@gmail.com</email></author><category term="contents" /><category term="chapter17" /><summary type="html"><![CDATA[일반적으로 현대의 state-of-art LP Solver들은 Simplex method와 interior-point method를 모두 사용하고 있다.]]></summary></entry><entry><title type="html">17-04 Special case, linear programming</title><link href="https://convex-optimization-for-all.github.io/contents/chapter17/2021/05/01/17_04_special_case_linear_programming/" rel="alternate" type="text/html" title="17-04 Special case, linear programming" /><published>2021-05-01T00:00:00+00:00</published><updated>2021-05-01T00:00:00+00:00</updated><id>https://convex-optimization-for-all.github.io/contents/chapter17/2021/05/01/17_04_special_case_linear_programming</id><content type="html" xml:base="https://convex-optimization-for-all.github.io/contents/chapter17/2021/05/01/17_04_special_case_linear_programming/"><![CDATA[<p>이 절에서는 LP(linear programming) 문제에 대한 Primer-Dual method의 예시를 살펴보자.</p>
+
+<h2 id="linear-programming">Linear programming</h2>
+<p>다음과 같은 primal LP 문제가 있다.</p>
+<blockquote>
+\[\begin{align}
+   &amp;\min_{x} &amp;&amp; {c^Tx} \\\\
+   &amp;\text{subject to } &amp;&amp; {Ax = b} \\\\
+   &amp; &amp;&amp;{x ≥ 0} \\\
+\end{align}\]
+
+\[\text{for } c ∈R^n, A ∈R^{m×n}, b ∈R^m\]
+</blockquote>
+
+<p>위 primal LP 문제의 dual 문제는 아래와 같다.</p>
+<blockquote>
+\[\begin{align}
+   &amp;\max_{y,s}  &amp;&amp; {b^Ty} \\\\
+   &amp;\text{subject to } &amp;&amp; {A^Ty + s = c} \\\\
+   &amp; &amp;&amp;{s ≥ 0} \\\
+\end{align}\]
+</blockquote>
+
+<h2 id="optimality-conditions-and-central-path-equations">Optimality conditions and central path equations</h2>
+<p>다음은 이전 LP의 primal-dual problem에 대한 최적 조건(KKT Conditions)을 보여준다.</p>
+<blockquote>
+\[\begin{array}{rcl}
+A^Ty + s &amp; = &amp; c \\\
+Ax &amp; = &amp; b \\\
+XS\mathbb{1} &amp; = &amp; 0 \\\
+x,s  &amp; \succeq &amp; 0
+\end{array}\]
+</blockquote>
+
+<p>Central path equations</p>
+<blockquote>
+\[\begin{array}{rcl}
+A^Ty + s &amp; = &amp; c \\\
+Ax &amp; = &amp; b \\\
+XS\mathbb{1} &amp; = &amp; τ\mathbb{1} \\\
+x,s  &amp; &gt; &amp; 0
+\end{array}\]
+</blockquote>
+
+<h2 id="primal-dual-method-vs-barrier-method">Primal-dual method vs. barrier method</h2>
+<h4 id="newton-steps-for-primer-dual-method">Newton steps for primer-dual method</h4>
+<p>다음은 LP문제에 대한 primal-dual method의 Newton 방정식이다.</p>
+
+<blockquote>
+\[\begin{bmatrix}
+0 &amp; A^T &amp; I \\\
+A &amp; 0 &amp; 0 \\\
+S &amp; 0 &amp; X 
+\end{bmatrix}
+\begin{bmatrix}
+∆x \\\
+∆y \\\
+∆s 
+\end{bmatrix}= −
+\begin{bmatrix}
+A^Ty + s−c \\\
+Ax−b \\\
+XS\mathbb{1}−τ\mathbb{1} 
+\end{bmatrix}\]
+</blockquote>
+
+<p>Optimal condition에서 다음 관계를 알 수 있다.</p>
+
+\[XS\mathbb{1} = \tau \mathbb{1} \iff s = \tau X^{−1}\mathbb{1} \iff x = \tau S^{−1}\mathbb{1}\]
+
+<p>이에 따라 \(s\)를 제거하여 primal barrier problem에 대한 최적 조건을 얻거나, \(x\)를 제거하여 dual barrier problem에 대한 최적 조건을 얻을 수 있다.</p>
+
+<h4 id="newton-steps-for-barrier-problems">Newton steps for barrier problems</h4>
+<p>다음은 barrier problem에 대한 primal과 dual central path equation이다. (왼쪽이 primal 오른쪽이 dual)</p>
+<blockquote>
+\[\begin{array}{rcr}
+A^Ty + τX^{−1}1 &amp; = &amp; c &amp; \qquad \qquad &amp; A^Ty + s &amp; = &amp; c \\\
+Ax &amp; = &amp; b &amp; \qquad \qquad &amp; τAS^{−1}\mathbb{1} &amp; = &amp; b\\\
+x &amp; &gt; &amp; 0 &amp; \qquad \qquad &amp; s &amp; &gt; &amp; 0
+\end{array}\]
+
+</blockquote>
+
+<p>위의 central path equation으로 primal과 dual에 대한 Newton step을 구해보면 다음과 같다.</p>
+
+<p><strong>Primal Newton step</strong></p>
+<blockquote>
+\[\begin{bmatrix}
+τX^{−2} &amp; A^T \\\
+A &amp; 0
+\end{bmatrix}
+\begin{bmatrix}
+∆x \\\
+∆y
+\end{bmatrix}= −
+\begin{bmatrix}
+A^Ty + τX^{−1}\mathbb{1}−c \\\
+Ax−b 
+\end{bmatrix}\]
+</blockquote>
+
+<p><strong>Dual Newton step</strong></p>
+<blockquote>
+\[\begin{bmatrix}
+A^T &amp; I \\\
+0 &amp; τAS^{−2}
+\end{bmatrix}
+\begin{bmatrix}
+∆y \\\
+∆s
+\end{bmatrix}= −
+\begin{bmatrix}
+A^Ty + s −c \\\
+τAS^{−1}\mathbb{1}−b
+\end{bmatrix}\]
+</blockquote>
+
+<h2 id="example-barrier-versus-primal-dual">Example: barrier versus primal-dual</h2>
+<h4 id="standard-lp--n--50-m--100">Standard LP : \(n = 50\), \(m = 100\)</h4>
+<p>Primal-dual method의 성능을 확인하기 위해 변수가 \(n = 50\)이고 equality constraint가 \(m = 100\)인 표준 LP문제에 대한 예시를 살펴보자. (Example from B &amp; V 11.3.2 and 11.7.4)</p>
+
+<p>Barrier method는 다양한  \(\mu\)값(2, 50, 150)을 사용한 반면 primal-dual method에서는 \(\mu\)를 10으로 고정하였다.
+그리고 두 방법 모두 \(\alpha = 0.01, \beta = 0.5\)를 사용했다.</p>
+
+<figure class="image" style="align: center;">
+<p align="center">
+  <img src="/img/chapter_img/chapter17/barrier_vs_primal_dual.png" />
+  <figcaption style="text-align: center;">[Fig1] Duality gap (Barrier vs. Primal-dual) [1]</figcaption>
+</p>
+</figure>
+
+<p>그래프에서 보다시피 primal-dual은 빠르게 수렴하면서도 높은 정확도를 보인다.</p>
+
+<h4 id="sequence-of-problem--n--2m-and-n-growing">Sequence of problem : \(n = 2m\) and \(n\) growing.</h4>
+<p>이제 \(n = 2m\)이고 \(n\)이 점점 증가하는 일련의 문제에 대해 성능을 살펴보자.</p>
+
+<ul>
+  <li>Barrier method는 \(\mu = 100\)를 사용하였고 outer loop는 2회 정도만 수행되었다. (duality gap은 \(10^4\)로 감소하였다)</li>
+  <li>Primal-dual method는 \(\mu = 10\)를 사용하였고 duality gap과 feasibility gap이 거의 \(10^{−8}\)일 때 실행을 중단했다.</li>
+</ul>
+
+<figure class="image" style="align: center;">
+<p align="center">
+  <img src="/img/chapter_img/chapter17/barrier_vs_primal_dual2.png" />
+  <figcaption style="text-align: center;">[Fig2] Newton iteration (Barrier vs. Primal-dual) [1]</figcaption>
+</p>
+</figure>
+
+<p>위 그림에서 알 수 있듯이 Primal-dual 방법은 더 높은 정확도를 갖는 솔루션 찾지만 약간의 iteration이 추가적으로 필요하다.</p>]]></content><author><name>Kyeongmin Woo</name><email>wgm0601@gmail.com</email></author><category term="contents" /><category term="chapter17" /><summary type="html"><![CDATA[이 절에서는 LP(linear programming) 문제에 대한 Primer-Dual method의 예시를 살펴보자.]]></summary></entry><entry><title type="html">17-05 Optimality conditions for semideﬁnite programming</title><link href="https://convex-optimization-for-all.github.io/contents/chapter17/2021/05/01/17_05_optimality_conditions_for_semidefinite_programming/" rel="alternate" type="text/html" title="17-05 Optimality conditions for semideﬁnite programming" /><published>2021-05-01T00:00:00+00:00</published><updated>2021-05-01T00:00:00+00:00</updated><id>https://convex-optimization-for-all.github.io/contents/chapter17/2021/05/01/17_05_optimality_conditions_for_semidefinite_programming</id><content type="html" xml:base="https://convex-optimization-for-all.github.io/contents/chapter17/2021/05/01/17_05_optimality_conditions_for_semidefinite_programming/"><![CDATA[<p>이 절에서는 SDP(semideﬁnite programming) 문제에 대한 Primer-Dual method의 예시를 살펴보려고 한다.</p>
+
+<h2 id="sdp-semideﬁnite-programming">SDP (semideﬁnite programming)</h2>
+<p>SDP의 primal 문제는 다음과 같이 정의한다.</p>
+<blockquote>
+\[\begin{align}
+   &amp;\min_{x} &amp;&amp; {C \cdot X} \\\\
+   &amp;\text{subject to } &amp;&amp; {A_i \cdot X = b_i, i = 1,...,m} \\\\
+   &amp; &amp;&amp;{X \succeq 0}
+\end{align}\]
+</blockquote>
+
+<p>SDP의 dual 문제는 다음과 같이 정의한다.</p>
+<blockquote>
+\[\begin{align}
+   &amp;\max_{y} &amp;&amp; {b^Ty} \\\\
+   &amp;\text{subject to } &amp;&amp; {\sum^m_{X_i=1} y_iA_i + S = C} \\\\
+   &amp; &amp;&amp;{S \succeq 0}
+\end{align}\]
+</blockquote>
+
+<p>참고로 \(\mathbb{S}^n\)의 trace inner product는 다음과 같이 표기한다.</p>
+<blockquote>
+\[X \cdot S = \text{trace}(XS)\]
+</blockquote>
+
+<h2 id="optimality-conditions-for-sdp">Optimality conditions for SDP</h2>
+<p>SDP의 primal과 dual 문제는 다음과 같이 linear map을 이용해서 정의할 수 있다.</p>
+
+<blockquote>
+\[\begin{align}
+   &amp;\min_{x} &amp;&amp; {C \cdot X} &amp; \qquad \qquad \qquad &amp; \max_{y,S}  &amp;&amp; {b^Ty} \\\\
+   &amp;\text{subject to } &amp;&amp; {\mathcal{A}(X) = b} &amp; \qquad \qquad \qquad &amp; \text{subject to } &amp;&amp; {\mathcal{A}^{∗}(y) + S = C} \\\\\
+   &amp; &amp;&amp;{X \succeq 0} &amp; \qquad \qquad \qquad &amp; &amp;&amp;{S \succeq 0}
+\end{align}\]
+</blockquote>
+
+<p>여기서 \(\mathcal{A}: \mathbb{S}^n → \mathbb{R}^m\) 는 linear map을 의미한다.</p>
+
+<p>Strong duality를 만족한다고 가정했을 때,  \(X^{\star}\) 와 \((y^{\star}, S^{\star})\)는 \((X^{\star}, y^{\star}, S^{\star})\)의 솔루션은 primal과 dual의 최적 솔루션이며 그역도 성립한다.</p>
+
+<blockquote>
+\[\begin{array}{rcl}
+\mathcal{A}^∗(y) + S &amp; = &amp; C \\\
+\mathcal{A}(X) &amp; = &amp; b \\\
+XS &amp; = &amp; 0 \\\
+X,S &amp; \succeq &amp; 0
+\end{array}\]
+</blockquote>
+
+<h2 id="central-path-for-sdp">Central path for SDP</h2>
+<p><strong>Primal barrier problem</strong></p>
+<blockquote>
+\[\begin{align}
+   &amp;\min_{x} &amp;&amp; {C \cdot X−τ \log(det(X))} \\\\
+   &amp;\text{subject to } &amp;&amp; {A(X) = b} 
+\end{align}\]
+</blockquote>
+
+<p><strong>Dual barrier problem</strong></p>
+<blockquote>
+\[\begin{align}
+   &amp;\max_{y, S} &amp;&amp; {b^Ty + τ \log(det(S))} \\\\
+   &amp;\text{subject to } &amp;&amp; {\mathcal{A}^∗(y) + S = C} 
+\end{align}\]
+</blockquote>
+
+<p><strong>Primal &amp; dual을 위한 Optimality conditions</strong></p>
+<blockquote>
+\[\begin{array}{rcl}
+\mathcal{A}^∗(y) + S &amp; = &amp; C \\\
+\mathcal{A}(X) &amp; = &amp; b \\\
+XS &amp; = &amp; τI \\\
+X,S &amp; \succ &amp; 0
+\end{array}\]
+</blockquote>
+
+<h2 id="newton-step">Newton step</h2>
+<p>Primal central path equations</p>
+<blockquote>
+\[\begin{array}{rcl}
+\mathcal{A}^∗(y) + \tau X^{−1} &amp; = &amp; C \\\
+\mathcal{A}(X) &amp; = &amp; b \\\
+X &amp; \succ &amp; 0
+\end{array}\]
+</blockquote>
+
+<p>Newton equations</p>
+<blockquote>
+  <p>\(τX^{−1}\Delta XX^{−1} +\mathcal{A}^∗(\Delta y) = −(\mathcal{A}^∗(y) + \tau X^{−1} −C)\)
+\(\mathcal{A}(\Delta X) = −(\mathcal{A}(X)−b)\)</p>
+</blockquote>
+
+<p>Dual에 대한 central path equation과 Newton equation도 \((y,S)\)를 포함해서 이와 유사하게 정의된다.</p>
+
+<h2 id="primal-dual-newton-step">Primal-dual Newton step</h2>
+<p>Primal central path equations</p>
+<blockquote>
+\[\begin{bmatrix}
+\mathcal{A}^∗(y) + S - C  \\\
+\mathcal{A}(X) - b \\\
+XS
+\end{bmatrix} =
+\begin{bmatrix}
+0 \\\
+0 \\\
+τI
+\end{bmatrix}
+, X, S \succ 0\]
+</blockquote>
+
+<p>Newton step:</p>
+<blockquote>
+\[\begin{bmatrix}
+0 &amp; \mathcal{A}^∗ &amp; I \\\
+\mathcal{A} &amp; 0 &amp; 0 \\\
+S &amp; 0 &amp; X 
+\end{bmatrix}
+\begin{bmatrix}
+\Delta X \\\
+\Delta y \\\
+\Delta S
+\end{bmatrix}= −
+\begin{bmatrix}
+\mathcal{A}^∗(y) + s−c \\\
+\mathcal{A}(x) − b \\\
+XS − \tau I 
+\end{bmatrix}\]
+</blockquote>]]></content><author><name>Kyeongmin Woo</name><email>wgm0601@gmail.com</email></author><category term="contents" /><category term="chapter17" /><summary type="html"><![CDATA[이 절에서는 SDP(semideﬁnite programming) 문제에 대한 Primer-Dual method의 예시를 살펴보려고 한다.]]></summary></entry></feed>

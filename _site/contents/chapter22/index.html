@@ -1,0 +1,1015 @@
+<!DOCTYPE html>
+<html lang="en-us">
+
+  <head>
+  <link href="http://gmpg.org/xfn/11" rel="profile">
+  <meta http-equiv="content-type" content="text/html; charset=utf-8">
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
+
+  <style>
+    .MathJax {
+      padding: 2em 0.3em;
+      overflow-x: auto;
+      overflow-y: hidden;
+    }
+@media print {
+
+    .container {
+        padding: 0;
+        max-width: unset;
+        break-after: page;
+        break-before: page;
+    }
+    .content {
+        padding: 0;
+    }
+    .masthead {
+        display: none;
+    }
+    .sidebar-toggle {
+        display: none;
+    }
+
+
+}
+  </style>
+  <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js"></script>
+
+  <title>
+    
+      Conditional Gradient Method &middot; 모두를 위한 컨벡스 최적화
+    
+  </title>
+
+  <link rel="stylesheet" href="/public/css/poole.css">
+  <link rel="stylesheet" href="/public/css/syntax.css">
+  <link rel="stylesheet" href="/public/css/lanyon.css">
+  <link rel="stylesheet" href="/public/css/github-markdown.css">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=PT+Serif:400,400italic,700%7CPT+Sans:400">
+
+  <link rel="apple-touch-icon-precomposed" sizes="122x144" href="https://convex-optimization-for-all.github.io/public/logo.png">
+  <link rel="shortcut icon" href="https://convex-optimization-for-all.github.io/public/convex-logo-144x144.png">
+
+  <link rel="alternate" type="application/rss+xml" title="RSS" href="https://convex-optimization-for-all.github.io/atom.xml">
+
+  
+  <script>
+    (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+    (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+    m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+    })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+    ga('create', 'UA-189737072-1', 'auto');
+    ga('send', 'pageview');
+  </script>
+  
+</head>
+
+
+  <body class="sidebar-overlay">
+
+    <!-- Target for toggling the sidebar `.sidebar-checkbox` is for regular
+     styles, `#sidebar-checkbox` for behavior. -->
+<input type="checkbox" class="sidebar-checkbox" id="sidebar-checkbox">
+
+<!-- Toggleable sidebar -->
+<div class="sidebar" id="sidebar">
+  <div class="sidebar-item">
+    <p>모두를 위한 컨벡스 최적화</p>
+  </div>
+
+  <nav class="sidebar-nav">
+    <a class="sidebar-nav-item" href="https://convex-optimization-for-all.github.io/">Home</a>
+
+    
+
+    
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+        
+          <a class="sidebar-nav-item" href="https://convex-optimization-for-all.github.io/contents/chapter01/">01. Introduction</a>
+        
+      
+    
+      
+        
+          <a class="sidebar-nav-item" href="https://convex-optimization-for-all.github.io/contents/chapter02/">02. Convex Sets</a>
+        
+      
+    
+      
+        
+          <a class="sidebar-nav-item" href="https://convex-optimization-for-all.github.io/contents/chapter03/">03. Convex Functions</a>
+        
+      
+    
+      
+        
+          <a class="sidebar-nav-item" href="https://convex-optimization-for-all.github.io/contents/chapter04/">04. Convex Optimization Basis</a>
+        
+      
+    
+      
+        
+          <a class="sidebar-nav-item" href="https://convex-optimization-for-all.github.io/contents/chapter05/">05. Canonical Problems</a>
+        
+      
+    
+      
+        
+          <a class="sidebar-nav-item" href="https://convex-optimization-for-all.github.io/contents/chapter06/">06. Gradient Descent</a>
+        
+      
+    
+      
+        
+          <a class="sidebar-nav-item" href="https://convex-optimization-for-all.github.io/contents/chapter07/">07. Subgradient</a>
+        
+      
+    
+      
+        
+          <a class="sidebar-nav-item" href="https://convex-optimization-for-all.github.io/contents/chapter08/">08. Subgradient Method</a>
+        
+      
+    
+      
+        
+          <a class="sidebar-nav-item" href="https://convex-optimization-for-all.github.io/contents/chapter09/">09. Proximal Gradient Descent and Acceleration</a>
+        
+      
+    
+      
+        
+          <a class="sidebar-nav-item" href="https://convex-optimization-for-all.github.io/contents/chapter10/">10. Duality in Linear Programs</a>
+        
+      
+    
+      
+        
+          <a class="sidebar-nav-item" href="https://convex-optimization-for-all.github.io/contents/chapter11/">11. Duality in General Programs</a>
+        
+      
+    
+      
+        
+          <a class="sidebar-nav-item" href="https://convex-optimization-for-all.github.io/contents/chapter12/">12. KKT Conditions</a>
+        
+      
+    
+      
+        
+          <a class="sidebar-nav-item" href="https://convex-optimization-for-all.github.io/contents/chapter13/">13. Duality uses and correspondences</a>
+        
+      
+    
+      
+        
+          <a class="sidebar-nav-item" href="https://convex-optimization-for-all.github.io/contents/chapter14/">14. Newton's Method</a>
+        
+      
+    
+      
+        
+          <a class="sidebar-nav-item" href="https://convex-optimization-for-all.github.io/contents/chapter15/">15. Barrier Method</a>
+        
+      
+    
+      
+        
+          <a class="sidebar-nav-item" href="https://convex-optimization-for-all.github.io/contents/chapter16/">16. Duality Revisited</a>
+        
+      
+    
+      
+        
+          <a class="sidebar-nav-item" href="https://convex-optimization-for-all.github.io/contents/chapter17/">17. Primal-Dual Interior-Point Methods</a>
+        
+      
+    
+      
+        
+          <a class="sidebar-nav-item" href="https://convex-optimization-for-all.github.io/contents/chapter18/">18. Quasi-Newton Methods</a>
+        
+      
+    
+      
+        
+          <a class="sidebar-nav-item" href="https://convex-optimization-for-all.github.io/contents/chapter19/">19. Proximal Netwon Method</a>
+        
+      
+    
+      
+        
+          <a class="sidebar-nav-item" href="https://convex-optimization-for-all.github.io/contents/chapter20/">20. Dual Methods</a>
+        
+      
+    
+      
+        
+          <a class="sidebar-nav-item" href="https://convex-optimization-for-all.github.io/contents/chapter21/">21. Alternating Direction Method of Mulipliers</a>
+        
+      
+    
+      
+        
+          <a class="sidebar-nav-item active" href="https://convex-optimization-for-all.github.io/contents/chapter22/">22. Conditional Gradient Method</a>
+        
+      
+    
+      
+        
+          <a class="sidebar-nav-item" href="https://convex-optimization-for-all.github.io/contents/chapter23/">23. Coordinate Descent</a>
+        
+      
+    
+      
+        
+          <a class="sidebar-nav-item" href="https://convex-optimization-for-all.github.io/contents/chapter24/">24.  Mixed Integer Programming 1</a>
+        
+      
+    
+      
+        
+          <a class="sidebar-nav-item" href="https://convex-optimization-for-all.github.io/contents/chapter25/">25.  Mixed Integer Programming 2</a>
+        
+      
+    
+      
+        
+          <a class="sidebar-nav-item" href="https://convex-optimization-for-all.github.io/reference/">26. Reference</a>
+        
+      
+    
+
+    <span class="sidebar-nav-item">Currently v1.1.0</span>
+  </nav>
+
+  <div class="sidebar-item">
+    <p>
+      &copy; 2022. All rights reserved.
+    </p>
+  </div>
+</div>
+
+
+    <!-- Wrap is the content to shift when toggling the sidebar. We wrap the
+         content to avoid any CSS collisions with our real content. -->
+    <div class="wrap github-md-body">
+      <div class="masthead">
+        <div class="container">
+          <h3 class="masthead-title">
+            <a href="/" title="Home">모두를 위한 컨벡스 최적화</a>
+            <small></small>
+          </h3>
+          <a class="github-logo__wrapper" target="_blank" href="https://github.com/convex-optimization-for-all/convex-optimization-for-all.github.io" titltle="Github">
+           <svg class="github-logo" xmlns="http://www.w3.org/2000/svg"  viewBox="0 0 48 48"><linearGradient id="rL2wppHyxHVbobwndsT6Ca" x1="4" x2="44" y1="23.508" y2="23.508" gradientUnits="userSpaceOnUse"><stop offset="0" stop-color="#4c4c4c"/><stop offset="1" stop-color="#343434"/></linearGradient><path fill="url(#rL2wppHyxHVbobwndsT6Ca)" d="M24,4C12.954,4,4,12.954,4,24c0,8.887,5.801,16.411,13.82,19.016h12.36	C38.199,40.411,44,32.887,44,24C44,12.954,35.046,4,24,4z"/><path d="M30.01,41.996L30,36.198c0-0.939-0.22-1.856-0.642-2.687c5.641-1.133,8.386-4.468,8.386-10.177	c0-2.255-0.665-4.246-1.976-5.92c0.1-0.317,0.174-0.645,0.22-0.981c0.188-1.369-0.023-2.264-0.193-2.984l-0.027-0.116	c-0.186-0.796-0.409-1.364-0.418-1.388l-0.111-0.282l-0.111-0.282l-0.302-0.032l-0.303-0.032c0,0-0.199-0.021-0.501-0.021	c-0.419,0-1.04,0.042-1.627,0.241l-0.196,0.066c-0.74,0.249-1.439,0.485-2.417,1.069c-0.286,0.171-0.599,0.366-0.934,0.584	C27.334,12.881,25.705,12.69,24,12.69c-1.722,0-3.365,0.192-4.889,0.571c-0.339-0.22-0.654-0.417-0.942-0.589	c-0.978-0.584-1.677-0.819-2.417-1.069l-0.196-0.066c-0.585-0.199-1.207-0.241-1.626-0.241c-0.302,0-0.501,0.021-0.501,0.021	l-0.302,0.032l-0.3,0.031l-0.112,0.281l-0.113,0.283c-0.01,0.026-0.233,0.594-0.419,1.391l-0.027,0.115	c-0.17,0.719-0.381,1.615-0.193,2.983c0.048,0.346,0.125,0.685,0.23,1.011c-1.285,1.666-1.936,3.646-1.936,5.89	c0,5.695,2.748,9.028,8.397,10.17c-0.194,0.388-0.345,0.798-0.452,1.224c-0.197,0.067-0.378,0.112-0.538,0.137	c-0.238,0.036-0.487,0.054-0.739,0.054c-0.686,0-1.225-0.134-1.435-0.259c-0.313-0.186-0.872-0.727-1.414-1.518	c-0.463-0.675-1.185-1.558-1.992-1.927c-0.698-0.319-1.437-0.502-2.029-0.502c-0.138,0-0.265,0.01-0.376,0.028	c-0.517,0.082-0.949,0.366-1.184,0.78c-0.203,0.357-0.235,0.773-0.088,1.141c0.219,0.548,0.851,0.985,1.343,1.255	c0.242,0.133,0.765,0.619,1.07,1.109c0.229,0.368,0.335,0.63,0.482,0.992c0.087,0.215,0.183,0.449,0.313,0.732	c0.47,1.022,1.937,1.924,2.103,2.023c0.806,0.483,2.161,0.638,3.157,0.683l0.123,0.003c0,0,0.001,0,0.001,0	c0.24,0,0.57-0.023,1.004-0.071v2.613c0.002,0.529-0.537,0.649-1.25,0.638l0.547,0.184C19.395,43.572,21.645,44,24,44	c2.355,0,4.605-0.428,6.703-1.176l0.703-0.262C30.695,42.538,30.016,42.422,30.01,41.996z" opacity=".05"/><path d="M30.781,42.797c-0.406,0.047-1.281-0.109-1.281-0.795v-5.804c0-1.094-0.328-2.151-0.936-3.052	c5.915-0.957,8.679-4.093,8.679-9.812c0-2.237-0.686-4.194-2.039-5.822c0.137-0.365,0.233-0.75,0.288-1.147	c0.175-1.276-0.016-2.086-0.184-2.801l-0.027-0.116c-0.178-0.761-0.388-1.297-0.397-1.319l-0.111-0.282l-0.303-0.032	c0,0-0.178-0.019-0.449-0.019c-0.381,0-0.944,0.037-1.466,0.215l-0.196,0.066c-0.714,0.241-1.389,0.468-2.321,1.024	c-0.332,0.198-0.702,0.431-1.101,0.694C27.404,13.394,25.745,13.19,24,13.19c-1.762,0-3.435,0.205-4.979,0.61	c-0.403-0.265-0.775-0.499-1.109-0.699c-0.932-0.556-1.607-0.784-2.321-1.024l-0.196-0.066c-0.521-0.177-1.085-0.215-1.466-0.215	c-0.271,0-0.449,0.019-0.449,0.019l-0.302,0.032l-0.113,0.283c-0.009,0.022-0.219,0.558-0.397,1.319l-0.027,0.116	c-0.169,0.715-0.36,1.524-0.184,2.8c0.056,0.407,0.156,0.801,0.298,1.174c-1.327,1.62-1.999,3.567-1.999,5.795	c0,5.703,2.766,8.838,8.686,9.806c-0.395,0.59-0.671,1.255-0.813,1.964c-0.33,0.13-0.629,0.216-0.891,0.256	c-0.263,0.04-0.537,0.06-0.814,0.06c-0.69,0-1.353-0.129-1.69-0.329c-0.44-0.261-1.057-0.914-1.572-1.665	c-0.35-0.51-1.047-1.417-1.788-1.755c-0.635-0.29-1.298-0.457-1.821-0.457c-0.11,0-0.21,0.008-0.298,0.022	c-0.366,0.058-0.668,0.252-0.828,0.534c-0.128,0.224-0.149,0.483-0.059,0.708c0.179,0.448,0.842,0.85,1.119,1.002	c0.335,0.184,0.919,0.744,1.254,1.284c0.251,0.404,0.37,0.697,0.521,1.067c0.085,0.209,0.178,0.437,0.304,0.712	c0.331,0.719,1.353,1.472,1.905,1.803c0.754,0.452,2.154,0.578,2.922,0.612l0.111,0.002c0.299,0,0.8-0.045,1.495-0.135v3.177	c0,0.779-0.991,0.81-1.234,0.81c-0.031,0,0.503,0.184,0.503,0.184C19.731,43.64,21.822,44,24,44c2.178,0,4.269-0.36,6.231-1.003	C30.231,42.997,30.812,42.793,30.781,42.797z" opacity=".07"/><path fill="#fff" d="M36.744,23.334c0-2.31-0.782-4.226-2.117-5.728c0.145-0.325,0.296-0.761,0.371-1.309	c0.172-1.25-0.031-2-0.203-2.734s-0.375-1.25-0.375-1.25s-0.922-0.094-1.703,0.172s-1.453,0.469-2.422,1.047	c-0.453,0.27-0.909,0.566-1.27,0.806C27.482,13.91,25.785,13.69,24,13.69c-1.801,0-3.513,0.221-5.067,0.652	c-0.362-0.241-0.821-0.539-1.277-0.811c-0.969-0.578-1.641-0.781-2.422-1.047s-1.703-0.172-1.703-0.172s-0.203,0.516-0.375,1.25	s-0.375,1.484-0.203,2.734c0.077,0.562,0.233,1.006,0.382,1.333c-1.31,1.493-2.078,3.397-2.078,5.704	c0,5.983,3.232,8.714,9.121,9.435c-0.687,0.726-1.148,1.656-1.303,2.691c-0.387,0.17-0.833,0.33-1.262,0.394	c-1.104,0.167-2.271,0-2.833-0.333s-1.229-1.083-1.729-1.813c-0.422-0.616-1.031-1.331-1.583-1.583	c-0.729-0.333-1.438-0.458-1.833-0.396c-0.396,0.063-0.583,0.354-0.5,0.563c0.083,0.208,0.479,0.521,0.896,0.75	c0.417,0.229,1.063,0.854,1.438,1.458c0.418,0.674,0.5,1.063,0.854,1.833c0.249,0.542,1.101,1.219,1.708,1.583	c0.521,0.313,1.562,0.491,2.688,0.542c0.389,0.018,1.308-0.096,2.083-0.206v3.75c0,0.639-0.585,1.125-1.191,1.013	C19.756,43.668,21.833,44,24,44c2.166,0,4.243-0.332,6.19-0.984C29.585,43.127,29,42.641,29,42.002v-5.804	c0-1.329-0.527-2.53-1.373-3.425C33.473,32.071,36.744,29.405,36.744,23.334z M11.239,32.727c-0.154-0.079-0.237-0.225-0.185-0.328	c0.052-0.103,0.22-0.122,0.374-0.043c0.154,0.079,0.237,0.225,0.185,0.328S11.393,32.806,11.239,32.727z M12.451,33.482	c-0.081,0.088-0.255,0.06-0.389-0.062s-0.177-0.293-0.096-0.381c0.081-0.088,0.255-0.06,0.389,0.062S12.532,33.394,12.451,33.482z M13.205,34.732c-0.102,0.072-0.275,0.005-0.386-0.15s-0.118-0.34-0.016-0.412s0.275-0.005,0.386,0.15	C13.299,34.475,13.307,34.66,13.205,34.732z M14.288,35.673c-0.069,0.112-0.265,0.117-0.437,0.012s-0.256-0.281-0.187-0.393	c0.069-0.112,0.265-0.117,0.437-0.012S14.357,35.561,14.288,35.673z M15.312,36.594c-0.213-0.026-0.371-0.159-0.353-0.297	c0.017-0.138,0.204-0.228,0.416-0.202c0.213,0.026,0.371,0.159,0.353,0.297C15.711,36.529,15.525,36.62,15.312,36.594z M16.963,36.833c-0.227-0.013-0.404-0.143-0.395-0.289c0.009-0.146,0.2-0.255,0.427-0.242c0.227,0.013,0.404,0.143,0.395,0.289	C17.381,36.738,17.19,36.846,16.963,36.833z M18.521,36.677c-0.242,0-0.438-0.126-0.438-0.281s0.196-0.281,0.438-0.281	c0.242,0,0.438,0.126,0.438,0.281S18.762,36.677,18.521,36.677z"/></svg>
+          </a>
+        </div>
+      </div>
+
+      <div class="container content">
+        <h1>22. Conditional Gradient Method</h1>
+
+
+
+
+
+
+<!-- Get first post and show it -->
+
+<p>본 장에서는 1956 년에 Marguerite Frank와 Philip Wolfe에 의해 제안된 Frank-Wolfe알고리즘을 살펴 볼 것이다.</p>
+
+<p>Frank-Wolfe 알고리즘은 제약조건이 있는 볼록(convex) 최적화를 위한 반복적인 선형(first-order) 최적화 알고리즘으로 조건부 그레디언드 방법, 감소(reduced) 그레디언드 방법 그리고 컨벡스 컴비네이션 알고리즘이라고도 부른다.</p>
+
+<p>이 방법은 원래 1956 년에 Marguerite Frank와 Philip Wolfe에 의해 제안되었으며, Frank-Wolfe 알고리즘은 각 반복(iteration)에서 목적 함수의 선형 근사를 고려해 이 선형 함수의 mimimizer로 이동한다.</p>
+
+<p>[15] Wikipedia. <a href="https://en.wikipedia.org/wiki/Frank%E2%80%93Wolfe_algorithm">Frank–Wolfe algorithm</a></p>
+
+
+<!-- Remove first element from post_list which is already shown above. -->
+  
+
+<!-- List up the posts in the chapter -->
+<ul style="list-style: none;">
+
+  
+  
+  
+  
+    <li style="text-align:left; vertical-align: middle; margin-left: -2em; margin-top: 5px;" >
+      <a href="#_page_1">22-01 Last time: ADMM</a>
+    </li>
+  
+  
+
+  
+  
+  
+  
+    <li style="text-align:left; vertical-align: middle; margin-left: -2em; margin-top: 5px;" >
+      <a href="#_page_2">22-02 Conditional gradient method</a>
+    </li>
+  
+  
+
+  
+  
+  
+  
+    <li style="text-align:left; vertical-align: middle; margin-left: -2em; margin-top: 5px;" >
+      <a href="#_page_3">22-03 Convergence analysis</a>
+    </li>
+  
+  
+
+  
+  
+  
+  
+    <li style="text-align:left; vertical-align: middle; margin-left: -2em; margin-top: 5px;" >
+      <a href="#_page_4">22-04 Properties and variants</a>
+    </li>
+  
+  
+
+</ul>
+
+
+<main class="container">
+    <div class="content">
+        <article class="post-body">
+            <h1><a name="_page_1"></a>22-01 Last time: ADMM</h1>
+            <h2 id="last-time-admm">Last time: ADMM</h2>
+<p>다음과 같은 최적화 문제를 고려해보자</p>
+<blockquote>
+\[\begin{align}
+&amp;\min_{x,z} &amp;&amp;f(x) + g(z)\\\\
+&amp;\text{ subject to } &amp;&amp;Ax + Bz = c 
+\end{align}\]
+</blockquote>
+
+<p>이를 Augmented Lagrangian 형식으로 바꾸어 보면 아래와 같다. (for some \(ρ &gt; 0\))</p>
+<blockquote>
+\[L_ρ(x, z, u) = f(x) + g(z) + u^T(Ax + Bz − c) + \frac{ρ}{2} \| Ax + Bz − c \|^2_2\]
+</blockquote>
+
+<p>위 식은 \(\frac{ρ}{2} \| Ax + Bz − c \|^2_2\)가 추가 됨으로 Strongly Convex가 되며, 이를 다음 수식과 같이 병렬 처리에 유용한 형태로  바꿀 수 있다.</p>
+<ul>
+  <li>자세한 증명은 앞장의 내용을 참고하기 바란다.
+ADMM: for \(k = 1, 2, 3, . . .\)
+    <blockquote>
+      <p>\(x^{(k)} = argmin_{x} L_ρ(x, z^{(k−1)}, u^{(k−1)})\)
+\(z^{(k)} = argmin_{z} L_ρ(x^{(k)}  , z, u^{(k−1)})\)
+\(u^{(k)} = u^{(k−1)} + ρ(Ax^{(k)} + Bz^{(k)} − c)\)</p>
+    </blockquote>
+  </li>
+</ul>
+
+<h2 id="admm-in-scaled-form">ADMM in scaled form</h2>
+<p>dual variable \(u\)를 scaled variable \(w = u/ρ\)로 바꾸어 보자. 여기서 ADMM step은 다음과 같이 계산 가능하다.</p>
+
+<blockquote>
+  <p>\(x^{(k)} = argmin_{x} f(x) + \frac{ρ}{2} \| Ax + Bz^{(k−1)} − c + w^{(k−1)} \|^2_2\)
+\(z^{(k)} = argmin_{z} g(z) + \frac{ρ}{2} \| Ax^{(k)} + Bz − c + w^{(k−1)} \|^2_2\) 
+\(w^{(k)} = w^{(k−1)} + Ax^{(k)} + Bz^{(k)} − c\)</p>
+</blockquote>
+
+        </article>
+    </div>
+</main>
+
+<main class="container">
+    <div class="content">
+        <article class="post-body">
+            <h1><a name="_page_2"></a>22-02 Conditional gradient method</h1>
+            <h2 id="projected-gradient-descent">Projected Gradient Descent</h2>
+<p>아래와 같은 제약조건을 가진 문제를 고려해 보자.</p>
+
+<blockquote>
+\[\min_{x} f(x) \qquad \text{ subject to } x ∈ C\]
+</blockquote>
+
+<p>\(f\)가 convex이면서 smooth하고, \(C\) 또한 convex 이면,  <strong>projected gradient descent</strong> 방법을 이용할 수 있음을 앞에서 살펴보았다.
+\(P_{C}\)가 집합 \(C\)에 대한 projection operator 일 때, 선택한 초깃값 \(x^{(0)}\) 과 \(k = 1, 2, 3, . . .\)에 대해서 다음 식이 성립한다.</p>
+
+<blockquote>
+\[x^{(k)} = P_{C } \bigl( x^{(k−1)} − t_k∇f(x^{(k−1)} \bigr)\]
+</blockquote>
+
+<p>Projected Gradient Descent는 본질적으로 local quadratic expansion(2nd Taylor Expansion)에서의 \(y\)값이 다음 \(x^{(k)}\)이 된다는 것을 모티브로 하는, proximal gradient descent의 스페셜 케이스로 다음과 같이 나타낼 수도 있다.</p>
+
+<blockquote>
+\[x^{(k)} = P_{C} \Bigl( \arg\min_{y} ∇f(x^{(k−1)})^T(y − x^{(k−1)}) + \frac{1}{2t} \| y − x^{(k−1)} \|^2_ 2 \Bigr)\]
+</blockquote>
+
+<p>Projected Gradient Descent에 대한 좀 더 자세한 내용은 <a href="/contents/chapter09/2020/01/08/09_04_special_cases/">9-4</a>를  참고 하기 바란다.</p>
+
+<h2 id="conditional-gradient-frank-wolfe-method">Conditional gradient (Frank-Wolfe) method</h2>
+<p>여기서 2차 근사를 최소화 하는 대신, 더 간단한 무언가를  시도해 보자.
+먼저 집합 \(C\)에서 \(\nabla f(x)\)와 내적했을 때 값이 최소화되는 점을 살펴보도록 하자.</p>
+
+<p>근본적으로, Projection 대신 집합 \(C\) 안의 점에서 선형함수를 최소화하여 더 간편하고 효과적으로 문제를 해결할 수 있다. 여기서는 현재 포인트에서 최소점 사이에 convex combination을 활용하여 line search 방법을 적용해 나간다.</p>
+
+<p>다음 정형화된 방법을 살펴보자.</p>
+
+<p>초깃값 \(x^{(0)} ∈ C\)를 선택한다. \(k = 1, 2, 3, . . .\)</p>
+
+<blockquote>
+\[\begin{array}{rcl}
+s^{(k−1)} &amp; ∈ &amp; \arg\min_{s ∈ C} ∇f(x^{(k−1)})^Ts \\\
+x^{(k)} &amp; = &amp; (1 − γ_k)x^{(k−1)} + γ_ks^{(k−1)}
+\end{array}\]
+</blockquote>
+
+<h4 id="참고">[참고]</h4>
+<blockquote>
+  <p>\(f(y) \approx f(x) + \nabla f(x)(y-x)\)
+\(\arg\min_y = f(x) + \nabla f(x)(y-x)\)
+\(\equiv \arg\min_y f(x)y\)</p>
+</blockquote>
+
+<p>여기서, 이전과 다르게 Projection 과정을 거치지 않고 업데이트를 할 떄, 제약 조건 집합 \(C\)에 있는 점을 사용하여 문제를 풀어나간다.</p>
+
+<p>기본적으로 step size는 \(γ_k =  \frac{2}{(k + 1)}, k = 1, 2, 3, . . ..\)으로 설정된다.</p>
+
+<p>임의의 \(0 ≤ γ_k ≤ 1\)에서 convexity에 의해 \(x^{(k)} ∈ C\) 임을 보인다.</p>
+
+<p>또한 다음과 같은 식으로 업데이트가 진행되기도 한다.</p>
+<blockquote>
+\[x^{(k)} = x^{(k−1)} + γ_k\bigl( s^{(k−1)} − x^{(k−1)} \bigr)\]
+</blockquote>
+
+<p>즉, 알고리즘 수행됨에 따라 선형 minimizer 방향으로 점차적으로 조금씩 덜 이동하게 된다.
+대부분의 경우, co-ordinate descent의 스페셜 케이스인 Ball L1에 대해서 sub gradient 방식을 사용하는 것이 projection 방식을 사용하는 것 보다 문제를 해결하기 더 쉽다.</p>
+
+<h4 id="참고-1">[참고]</h4>
+<p>흥미로운 사실은, Frank와 Wolfe는 Tucker와 함께 일하던 post-doc 였다고 알려져 있으며. 그들은 먼저 첫번째로 이 알고리즘을 2 차 함수로 제안했다고 한다. 그리고 그 알고리즘은 1956년에 출판되고, 후에 논문으로도 발표되었다. 그리고 이 후로 오랫동안 더 이상 이에 대한 후속 논문은 전혀 나오지 못했다. 그러나 지난 몇년 동안 Jaggi의 통찰력에 힘임어 세상에 소개되면서 다시 주목을 받게 되었다.</p>
+
+<figure class="image" style="align: center;">
+<p align="center">
+  <img src="/img/chapter_img/chapter22/frank_wolfe.png" alt="[Fig 1] Conditional Gradient (Frank-Wolfe) method (From Jaggi 2011)[3]" />
+  <figcaption style="text-align: center;">[Fig 1] Conditional Gradient (Frank-Wolfe) method (From Jaggi 2011)[3]</figcaption>
+</p>
+</figure>
+<p><br /></p>
+
+<h2 id="norm-constraints">Norm constraints</h2>
+<p>norm \(\| · \|\)에 대해 \(C = \{x : \| x \| ≤ t \}\)일 때 무슨일이 발생할까?</p>
+
+<p>다음을 살펴보자</p>
+
+<blockquote>
+\[\begin{align}
+s &amp;∈ \arg\min_{\|s\|≤t} ∇f(x^{(k−1)})^Ts \\\
+&amp;= −t ·  \arg\max_{\|s\|≤1}  ∇f(x^{(k−1)})^Ts \\\
+&amp;= −t · ∂ \| ∇f(x^{(k−1)}) \|_{∗}
+\end{align}\]
+</blockquote>
+
+<p>여기서 \(\| · \|_{∗}\)는 dual norm을 의마한다.</p>
+
+<p>다시 말해, dual norm의 subgradient를 계산하는 방법을 안다면, Frank-Wolfe 단계를 쉽게 수행 할 수 있다는 뜻이다.</p>
+
+<p>Frank-Wolfe의 핵심은 \(C = \{x : \| x \| ≤ t \}\)에 projection 방법을 사용하는 것보다 더 간단하거나 낮은 비용으로 구할 수 있으며, 또한 때로는 \(\| · \|\)의 prox operator보다도 간단하거나 더 낮은 비용을 요한다는 것이다.</p>
+
+<h2 id="example-l_1-regularization">Example: \(l_1\) regularization</h2>
+<p>다음은 <strong>\(l_1\)-regularized</strong> 이다.</p>
+<blockquote>
+\[\min_x f(x) \qquad \text{ subject to } \| x \|_1 ≤ t\]
+</blockquote>
+
+<p>앞선 공식대로 전개하면, \(s^{(k−1)} ∈ −t∂ \|∇f(x^{(k−1)}) \|_∞\) 를 얻을 수 있다.</p>
+
+<p>Frank-Wolfe 방법은 다음의 과정을 통해 업데이트 된다.</p>
+<blockquote>
+\[\begin{array}{rcl}
+i_{k−1} &amp; ∈  &amp; \arg\max_{i=1,...p} ∇_i f(x^{(k−1)}) \\\
+x^{(k)}  &amp; = &amp; (1 − γ_k)x^{(k−1)} − γ_kt · sign ∇_{i_{k−1}} f(x^{(k−1)})· e_{i_{k−1}}
+\end{array}\]
+</blockquote>
+
+<p>이것은 coordinate descent의 일종이다(coordinate descent에 대해서는 나중에 자세히 살펴보자).<br />
+Note : 두 가지 모두 \(O(n)\)의 복잡도가 필요하지만 \(l1\) ball에 projection 하는 것보다 훨씬 간단하다.</p>
+
+<h2 id="example-l_p-regularization">Example: \(l_p\) regularization</h2>
+<p>다음은 \(l_p\)-regularized 문제다.</p>
+
+<blockquote>
+\[\min_{x}  f(x) \qquad \text{ subject to } \| x \|_{p} ≤ t\]
+</blockquote>
+
+<p>\(1 ≤ p ≤ ∞\)에서 p가 q의 dual일 때  \(s^{(k−1)} ∈ −t∂ \| ∇f(x^{(k−1)}) \|_{q}\) 이다. 즉, \(1/p + 1/q = 1\)이다.</p>
+
+<p>즉 다음과 같이 선택할 수 있다.</p>
+<blockquote>
+\[s_i^{(k−1)} = −α · sign ∇f_i(x^{(k−1)}) · \left| ∇f_i(x^{(k−1)}) \right|^{p/q}, i = 1, . . . n\]
+</blockquote>
+
+<p>여기서 \(α\)는 \(\| s^{(k-1)} \|_{q} = t\)와 같은 상수이고, Frank-Wolfe 업데이트도 동일하다.</p>
+
+<p>Note: 일반 \(p\)의 경우 <strong>p Ball에 Projection</strong>하는 것보다 훨씬 간단하다.<br />
+특별한 경우(\(p = 1, 2, ∞\))를 제외하고 이러한 projection은 직접 계산할 수 없다(최적화로 처리되어야 함).</p>
+
+<h2 id="example-trace-norm-regularization">Example: trace norm regularization</h2>
+<p><strong>trace-regularized</strong> 문제를 살펴보자</p>
+<blockquote>
+\[\min_{X} f(X) \qquad \text{ subject to } \| X \|_{tr} ≤ t\]
+</blockquote>
+
+<p>\(S^{(k−1)} ∈ −t· ∂\| ∇f(X(k−1)) \|_{op}.\) 이다.</p>
+
+<p>다음과 같이 \(S_i^{(k−1)}\)를 선택할 수 있다.</p>
+<blockquote>
+\[S_i^{(k−1)} = −t · uv^T\]
+</blockquote>
+
+<p>여기서 \(u, v\)는 \(∇f(X^{(k−1)})\)의 왼쪽, 오른쪽 singular 벡터이고, Frank-Wolfe 업데이트는 평소와 같다.</p>
+
+<p>Note: 이 방법은 특이 값 분해(SVD)가 가능하면, <strong>trace norm ball에 projection</strong>하는 것보다 훨씬 간단하고 효율적으로 해를 구할 수 있는 방법이다.</p>
+
+<h2 id="constrained-and-lagrange-forms">Constrained and Lagrange forms</h2>
+<p>제약 조건이 있는 문제의 solution을 다시 한번 상기해보자</p>
+<blockquote>
+\[\min_x f(x) \qquad \text{ subject to } \| x \| ≤ t\]
+</blockquote>
+
+<p>다음의 Lagrange 문제는 위 식과 동치이다.</p>
+<blockquote>
+\[\min_x f(x) + λ \| x \|\]
+</blockquote>
+
+<p>튜닝 파라미터 \(t\)와 \(λ\)는 [0,∞]구간에서 변한다. 또한 \(\| · \|\)의 Frank-Wolfe 업데이트를 \(\| · \|\)의  proximal 오퍼레이터와 비교해야 한다.</p>
+
+<p>• <strong>\(l_1\) norm</strong>: Frank-Wolfe 방법은 gradient의 최댓값을 스캔하여 업데이트 한다.
+proximal operator soft-threshold를 진행하면서 업데이트 한다. 두 단계 모두 \(O(n)\) flops을 사용 한다.</p>
+
+<p>• <strong>\(l_p\) norm</strong>: 프랭크-울프(Frank-Wolfe) 업데이트는 gradient의 각 항목마다 제곱하고 모두 합산하여 \(O(n)\) flop으로 증가시킨다. proximal operator는 일반적으로 직접 계산할 수 없다.</p>
+
+<p>• <strong>Trace norm</strong>: 프랭크-울프(Frank-Wolfe) 업데이트는 gradient의 상단 왼쪽 및 오른쪽 singular vector를 계산한다. proximal operator에서는 soft-thresholds gradient step을 진행하며, 특이값 분해(SVD)를 필요로 한다.</p>
+
+<p>다른 많은 regularizer들이 효율적인 Frank-Wolfe update를 도출하였다.
+예를 들면, special polyhedra 혹은 cone constraints, sum-of-norms (group-based) regularization, atomic norms. 같은 것들이다.</p>
+
+<p>Constrained Lasso에 대한 projectied gradient 기법과 conditional gradient 기법을 활용했을 때 성능을 비교하면 다음과 같다. (여기서 \(n=100, p = 500\))</p>
+
+<figure class="image" style="align: center;">
+<p align="center">
+  <img src="/img/chapter_img/chapter22/comparing_projected_and_conditional_gradient.png" alt="[Fig 2] Comparing projected and conditional gradient for constrained lasso
+problem [3]" />
+  <figcaption style="text-align: center;">[Fig 2] Comparing projected and conditional gradient for constrained lasso
+problem [3]</figcaption>
+</p>
+</figure>
+<p><br /></p>
+
+<p>프랭크-울프(Frank-Wolfe) 방법이 first-order method의 수렴율과 비슷한 양상을 띠고 있는 것을 확인할 수 있을 것이다. 그러나 실제로는 높은 정확도로 수렴하기 위해서는 속도가 더 느려질 수 있다. (참고: 여기서 fixed step size를 사용하지만, line search를 사용하여 수렴 속도를 향상시킬 수도 있다.)</p>
+
+<h2 id="duality-gap">Duality gap</h2>
+<p>프랭크-울프(Frank-Wolfe) iteration 과정에서 자연스럽게 duality gap 이 발생되며, 이는 실제로 suboptimality gap을 의미한다.</p>
+<blockquote>
+\[g(x^{(k-1)}) := \max_{s∈C} ∇f(x^{(k−1)})^T(x^{(k−1)} − s)\]
+</blockquote>
+
+<p>이것은 \(f(x^{(k−1)}) − f^{\star}\)의 upper bound 이다.</p>
+
+<h5 id="proof">[Proof]</h5>
+<p>convexity의 first-order condition을 이용해 증명할 수 있다.</p>
+<blockquote>
+\[f(s) ≥ f(x^{(k−1)}) + ∇f(x^{(k−1)})^T(s − x^{(k−1)})\]
+</blockquote>
+
+<p>모든 $s ∈ C$에 대해 양쪽을 최소화 한다.</p>
+<blockquote>
+\[f^{\star} ≥ f(x^{(k−1)}) + min_{s∈C} ∇f(x^{(k−1)})^T(s − x^{(k−1)})\]
+</blockquote>
+
+<p>최종적으로, 다시 정리하여 다음 식은 duality gap이 upper bound임을 보여 준다.</p>
+<blockquote>
+\[\max_{s∈C} ∇f(x^{(k−1)})^T(x^{(k−1)} − s) = ∇f(x^{(k−1)})^T(x^{(k−1)} − s^{(k−1)})\]
+</blockquote>
+
+<h5 id="note">[Note]</h5>
+<p>따라서 이 quantity는 Frank-Wolfe 업데이트에서 직접 나온 것이다.
+왜 우리는 이를 “duality gap”이라 부를까?</p>
+
+<p>original problem을 다시 써보면 아래와 같이 쓸 수있다.</p>
+<blockquote>
+\[\min_{x} f(x) + I_C(x)\]
+</blockquote>
+
+<p>여기서 \(I_C\)는 \(C\)의 indicator function을 의미한다. dual 문제는 아래와 같다.</p>
+<blockquote>
+\[\max_u −f^{*} (u) − I^{*}_C(−u)\]
+</blockquote>
+
+<p>\(I_C^{*}\)가 \(C\)의 support function을 의미한다. Indicator function의 conjuage는 support function 이 됨을 앞서 살펴보았다.</p>
+
+<h5 id="recall">[Recall]</h5>
+<blockquote>
+\[I_C (X) =  
+\begin{cases}
++&amp; \infty &amp;if &amp;x &amp;\notin; C \\\
+ &amp; 0      &amp;if &amp;x &amp;\in; C
+\end{cases}\]
+</blockquote>
+
+<blockquote>
+\[\begin{align}
+I_C^{*} &amp;= \max_{x} \{ &lt;s, x\&gt; - I_C(x)\} \\
+        &amp;= \max_{x \in C} &lt;s, x&gt; \\
+        &amp;= \text{Support function of } C \text{ at } S
+\end{align}\]
+</blockquote>
+
+<p>\(x = x ^ {(k-1)}, u = ∇f (x ^ {(k-1)})\) 일 때, \(x, u\)에서 발생하는 duality gap은 다음과 같다. (13-04 <a href="/contents/chapter13/2021/04/05/13_04_Conjugate_function/">Fenchel’s inequality</a> 로부터 유도되기도 한다.)</p>
+<blockquote>
+\[f(x) + f^{*}(u) + I^{*}_C(−u) ≥ x^Tu + I^{*}_C(−u)\]
+</blockquote>
+
+        </article>
+    </div>
+</main>
+
+<main class="container">
+    <div class="content">
+        <article class="post-body">
+            <h1><a name="_page_3"></a>22-03 Convergence analysis</h1>
+            <h2 id="convergence-analysis">Convergence analysis</h2>
+<p>Frank-Wolfe 방법의 수렴 특성을 알아내기 위해, 아래와 같이 \(C\)에 대한 \(f\)의 곡률 상수를 정의할 필요가 있다.[Jaggi (2011)]</p>
+<blockquote>
+  <p>\(M = \max_{x,s,y∈C, y = (1−γ)x+γs} \frac{2}{γ^2} \Bigl( f(y) − f(x) − ∇f(x)^T(y − x) \Bigr)\)
+\(γ ∈ [0, 1]\)</p>
+</blockquote>
+
+<p>M을 통해서 실제로 함수가 선형 근사(linear approximation)로부터 얼마나 먼 경향을 가지고 있는지를 측정할 수도 있다.
+여기서 \(M = 0\)은 \(f\)가 선형임을 나타낸다. \(f (y) - f (x) - ∇f (x)^T(y - x)\)는 \(f\)에 의해 정의 된 Bregman divergence 라 부른다.</p>
+
+<blockquote>
+  <p>Theorem: 고정 스텝 사이즈 \(γk = 2 / (k + 1), k = 1,2,3, ...\)를 이용한 조건부 그레디언드 방법(conditional gradient method)은 다음을 만족한다.
+ \(f(x^{(k)}) − f^{\star} ≤ \frac{2M}{k + 2}\)</p>
+</blockquote>
+
+<p>\(f(x^{(k)}) − f^{\star} ≤ \epsilon\)를 만족하기 위해 필요한 반복 횟수는 \(O(1/\epsilon)\)이다.</p>
+
+<p>이제 이 이론은 귀납법으로 증명해보고자 한다. 그러나 바로 증명으로 넘어가기전 짚고 넘어가야 할 개념을 하나 소개하고자 한다.</p>
+
+<h2 id="basic-inequality">Basic inequality</h2>
+<p>Frank-Wolfe 수렴 속도를 증명하는 데 사용되는 <strong>key inequality</strong>는 다음과 같다.</p>
+<blockquote>
+\[f(x^{(k)}) ≤  f(x^{(k−1)}) − γ_kg(x^{(k−1)}) + \frac{γ^2_k}{2}M\]
+</blockquote>
+
+<p>여기서 \(g(x) = \max_{s∈C} ∇f(x)^T(x − s)\)는 앞서 논의한 duality gap 을 의미하며, 귀납법에 따라 이 비율은  inequality를 따르게 된다.</p>
+
+<h4 id="proof">[Proof]</h4>
+<p>Basic inequality를 증명하기 위해 \(x^+ = x^{(k)}, x = x^{(k−1)}, s = s^{(k−1)}, γ = γ_k\) 를 지정한다. 그리고 다음과 같이 정리한다.</p>
+<blockquote>
+\[\begin{align}
+f(x^+) &amp;= f\bigl( x + γ(s − x) \bigr) \\\
+&amp;≤ f(x) + γ∇f(x)^T(s − x) + \frac{γ^2}{2}M \\\
+&amp;= f(x) − γg(x) + \frac{γ^2}{2}M
+\end{align}\]
+</blockquote>
+
+<p>위 수식에서 두 번째 줄은 \(M\)의 정의를 사용했고, 세 번째 줄은 \(g\)의 정의를 사용하였다.</p>
+
+<p>이제, basic inequality를 이용해, 우리는 convergence rate theorem을 증명하기 위해 귀납법을 사용한다.</p>
+
+<p>\(k=1\)의 경우, theorem이 만족함을 쉽게 확인할 수 있다.
+그리고 임의의 \(k &gt; 1\)일 경우, \(f(x^{(k−1)}) − f^{\star} ≤ 2M/(k + 1)\)를 만족함을 가정한다.</p>
+
+<p>앞서 언급한 duality gap \(g(x)\)를 다시 떠올려 보자.</p>
+<blockquote>
+  <p>\(g(x^{(k−1)}) ≤ f(x^{(k−1)}) − f^{\star}\)
+\(γ_k = 2/(k + 1)\)</p>
+</blockquote>
+
+<p>그리고 이제 basic inequality에 적용해 보자.</p>
+<blockquote>
+  <p>\(f(x^{(k)}) ≤ f(x^{(k−1)}) − 2(f(x^{(k−1)}) − f^{\star})/(k + 1) + 4M/2(k + 1)^2\)
+\(f(x^{(k)}) − f^{\star} ≤ (1 − 2/(k + 1))(f(x^{(k−1)}) − f^{\star}) + 2M/(k + 1)^2\)
+\(f(x^{(k)}) − f^{\star} ≤ (k − 1/k + 1) × 2M/(k + 1) + 2M/(k + 1)^2 ≤ 2M/(k + 2)\)</p>
+</blockquote>
+
+<p>이 증명 된 수렴 속도는 ∇f가 립시츠 (Lipschitz) 일 때 projected gradient descent의 알려진 속도와 일치한다.</p>
+
+<p>이제 이 가정 들을 비교해 보자.
+사실 만약 \(∇f\)가 상수 \(L\)을 가지는 Lipschitz라면 \(diam^2(C) = max_{x,s∈C} ||x − s||^2\)일 때 \(M ≤ diam^2(C) · L\)이다.</p>
+
+<p>이를 확인하기 위해 상수 \(L\)을 가지는 \(∇f\) Lipschitz 아래와 같다는 것을 상기할 필요가 있다.</p>
+<blockquote>
+\[f(y) − f(x) − ∇f(x)^T(y − x) ≤ \frac{L}{2} \| y − x \|^2_2\]
+</blockquote>
+
+<p>모든 \(y = (1-γ) x + γs\)를 최대화하여 \(\frac{2}{γ^2}\)를 곱하면 다음과 같다.</p>
+<blockquote>
+\[M ≤ \max_{x,s,y∈C, y=(1−γ)x+γs} \frac{2}{γ^2}·\frac{L}{2} \| y − x \|^2_2 = \max_{x,s∈C} L \| x − s \|^2_2\]
+</blockquote>
+
+<p>M의 경계가 결정되었다. 기본적으로 경계가 있는 곡률이 proximal gradient에 대해 가정한 곡률보다 크지 않다고 가정한다.</p>
+
+<h2 id="affine-invariance">Affine invariance</h2>
+<p>앞서 배운 개념들을 다시 생각해 보자.</p>
+
+<ul>
+  <li>Gradient Descent: \(x^+ = x − t∇f(x)\)</li>
+  <li>Pure Newton’s Method: \(x^+ = x − ∇^2f(x)^{−1}∇f(x)\)</li>
+</ul>
+
+<p>Gradient descent는 affine invariant하지 않다. 즉, coordinate들을 스케일링 함으로 gradient descent의 성능은 향상 된다. 반면, Newton’s method는 affine invariant하다. 즉, 이 알고리즘은 변수의 모든 affine transformation에서 동일하게 동작한다.</p>
+
+<p>그리고 Conditional gradient method는 gradient descent와 비슷하지만 affine invariant 하다.</p>
+
+<p>Frank-Wolfe의 중요한 속성 : 업데이트는 <strong>affine invariant</strong> 하다.
+Nonsingular \(A : \mathbb{R}^n → \mathbb{R}^n\)가 주어지면, \(x = Ax', h(x') = f(Ax')\)를 정의할 수 있다.
+그러면 \(h(x')\)에서의 Frank-Wolfe는 아래와 같이 계산 가능하다.</p>
+
+<blockquote>
+\[\begin{array}{rcl}
+s' &amp; = &amp; \arg\min_{z∈A^{−1}C} ∇h(x')^Tz \\\
+(x')^+ &amp; = &amp; (1 − γ)x' + γs'
+\end{array}\]
+</blockquote>
+
+<p>\(A\)로 곱하면 \(f (x)\)에서 수행되는 것과 동일한 Frank-Wolfe 업데이트가 나타난다.
+심지어 convergence analysis은 affine invariant이다.</p>
+
+<p>\(h\)의 곡률 상수 \(M\)은 다음과 같다.</p>
+<blockquote>
+\[M = \max_{x',s',y'∈A^{−1}C, y'=(1−γ)x'+γs'} \frac{2}{γ^2} \Bigl( h(y') − h(x') − ∇h(x')^T(y' − x') \Bigr)\]
+</blockquote>
+
+<p>\(∇h(x')T(y' − x') = ∇f(x)^T(y − x)\)이기 때문에 \(f\)와 일치한다.</p>
+
+<p>그러나, affine invariance는 M의 경계에서 직관적이지 않다.</p>
+
+<blockquote>
+\[M ≤ \max_{x,s∈C} L||x − s||^2_2\]
+</blockquote>
+
+<p>주어진 C의 지름이  affine invariance이 아니라면, 이것은 고민해 볼 가치가 있다.</p>
+
+<h2 id="inexact-updates">Inexact updates</h2>
+<p>정확하지 않은 Frank-Wolfe 업데이트를 분석하였다.[Jaggi (2011)]&lt;/br&gt;
+\(s^{(k−1)}\)를 선택한다.</p>
+<blockquote>
+\[∇f(x^{(k−1)})^Ts^{(k−1)} ≤ \min_{s∈C} ∇f(x^{(k−1)})^Ts + \frac{Mγ_k}{2} · δ\]
+</blockquote>
+
+<p>\(δ ≥ 0\)는 부정확한 파라미터이다. 이를 이용해  기본적으로 다음과 같은 비율을 얻게 된다.</p>
+
+<blockquote>
+  <p>Theorem: 고정 스텝 크기 \(γk=2/(k+1),k=1,2,3, ...\) 및 부정확한 파라미터 δ≥0을 이용한 Conditional gradient method을 사용하여, 다음을 만족한다.
+\(f(x^{(k)}) − f^{\star} ≤ \frac{2M}{k + 2} (1 + δ)\)</p>
+</blockquote>
+
+<p>Note: \(k\) 단계의 최적화 오차는 \(\frac{Mγ_k}{2} · δ.\) 이다. 여기서 \(γ_k → 0\)이므로 시간이 지날수록 오차가 사라지는 것을 의도로 한다.</p>
+
+        </article>
+    </div>
+</main>
+
+<main class="container">
+    <div class="content">
+        <article class="post-body">
+            <h1><a name="_page_4"></a>22-04 Properties and variants</h1>
+            <h2 id="some-variants">Some variants</h2>
+<p>일부 변종 conditional gradient 방법들을 살펴보자:<br />
+• <strong>Line search</strong>: \(γk=2/(k+1),k=1,2,3,...\)를 고정하는 대신 각 \(k = 1, 2, 3, . . .\) 스텝 사이즈에 대한 exact line search를 사용한다.</p>
+<blockquote>
+\[γ_k = \arg\min_{γ∈[0,1]} f\Bigl( x^{(k−1)} + γ\bigl(s^{(k−1)} − x^{(k−1)} \bigr) \Bigr)\]
+</blockquote>
+
+<p>그리고 백트레킹을 사용 할 수도 있다.</p>
+
+<p>• <strong>Fully corrective</strong>: 아래 식에 따라 직접 업데이트 한다.</p>
+<blockquote>
+\[x^{(k)} = \arg\min_y f(y) \: \text{ subject to } y ∈ conv\{ x^{(0)}, s^{(0)}, . . . s^{(k−1)} \}\]
+</blockquote>
+
+<p>이 방식은 훨씬 더 나은 진전을 이룰 수 있지만, Cost가 높다.</p>
+
+<figure class="image" style="align: center;">
+<p align="center">
+  <img src="/img/chapter_img/chapter22/away_steps.png" alt="[Fig 3] Away step motivation [3]" />
+  <figcaption style="text-align: center;">[Fig 3] Away step motivation [3]</figcaption>
+</p>
+</figure>
+<p><br /></p>
+
+<h2 id="another-variant-away-steps">Another variant: away steps</h2>
+<p>좀 더 빠른 이해를 위해,  [Fig 3]의 최소화 문제를 살펴 보자. 여기서 최적 해는 (0,0)이다. 그리고 conditional descent 방법은 초기 점 (0,1) 때문에 움직이기 어렵게 된다. 그러나 away step 이동으로 인해 Conditional gradient descent는 가능성 있는 지점으로 이동 할 뿐만 아니라 가능성이 없는 지점에서 벗어나게 된다.</p>
+
+<p>atoms \(A\) 집합에 대한 Convex hull \(C = conv(A)\)를 가정해 보자</p>
+
+<p>\(A\)에 속한 element의 convex combination으로 \(x∈C\)를 명시적으로 나타낼 수 있다.</p>
+<blockquote>
+\[x = \sum_{a∈A} λ_a(x)a\]
+</blockquote>
+
+<p>Away steps에서의 Conditional gradient: <br />
+\(\text{1. choose } x^{(0)} = a^{(0)} ∈ A\) <br />
+\(\text{2. for } k = 1, 2, 3, . . .\) <br />
+\(\qquad s^{(k−1)} ∈ \arg\min_{a∈A} ∇f(x^{(k−1)})^Ta,\)
+\(\qquad a^{(k−1)} ∈ \arg\max_{a∈A, λa(x(k−1))&gt;0} ∇f(x^{(k−1)})^Ta\)
+\(\qquad \text{choose } v = s^{(k−1)} − x^{(k−1)} or \quad v = x^{(k−1)} − a^{(k−1)}\)
+\(\qquad x^{(k)} = x^{(k−1)} + γ_kv\) <br />
+\(\text{3. end for}\)</p>
+
+<h2 id="linear-convergence">Linear convergence</h2>
+<p>다음의 제약 조건이 없는 문제를 고려해 보자.</p>
+<blockquote>
+\[\min_x f(x) \: \text{ subject to } x ∈ \mathbb{R}^n\]
+</blockquote>
+
+<p>여기서 \(f\) is µ-strongly convex이고 \(∇f\) 는 L-Lipschitz이다.</p>
+
+<p>\(t_k = 1/L\) 에 대해서 gradient descent \(x^{(k+1)} = x^{(k)} − t_k∇f(x^{(k)})\)를 반복하면서, 다음을 만족시킨다.</p>
+<blockquote>
+\[f(x^{(k)}) − f^{\star} ≤ \Bigl( 1 −\frac{µ}{L} \Bigr)^k \bigl( f(x^{(0)}) − f^{\star} \bigr)\]
+</blockquote>
+
+<p>이제 아래의 제약 조건이 있는 문제도 고려해 보자.</p>
+<blockquote>
+\[\min_x f(x) \: \text{ subject to } x ∈ conv(A) ⊆ \mathbb{R}^n\]
+</blockquote>
+
+<h3 id="theorem-lacoste-julien--jaggi-2013">[Theorem (Lacoste-Julien &amp; Jaggi 2013)]</h3>
+<p>\(f\)가 µ-strongly convexd이고, \(∇f\)는 L-Lipschitz 하며 \(A ⊆ \mathbb{R}^n\)는 유한 이라고 가정할 때</p>
+
+<p>적절한 \(γ_k\)에 대해, conditional gradient 알고리즘에 의해 생성 된 반복 스텝은 다음을 항상 만족한다.</p>
+<blockquote>
+  <p>\(f(x^{(k)}) − f^{\star} ≤ (1 − r)^{k/2}(f(x^{(0)}) − f^{\star}) \text { for } r = \frac{µ}{L}·\frac{Φ(A)^2}{4\text{diam}(A)^2}\)
+\(\text{where }Φ(A) = \min_{F ∈faces(conv(A))} dist(F, conv(A \ F))\)</p>
+</blockquote>
+
+<p>만약 polytope가 평면이면, \(Φ\)는 작고 알고리즘은 천천히 수렴한다.</p>
+
+<h2 id="path-following">Path following</h2>
+<p>다음 주어진 norm constrained 문제를 살펴보자</p>
+<blockquote>
+\[\min_x f(x) \: \text{ subject to } \| x \| ≤ t\]
+</blockquote>
+
+<p>Frank-Wolfe 알고리즘은  <strong>path following</strong>에 사용할 수 있다. 다시말해, (대략적인) 솔루션 경로 \(\hat{x}(t), t ≥ 0\)를 생성할 수 있다는 의미 이다.</p>
+
+<p>\(t_0 = 0\)와 \(x^{\star}(0) = 0\)에서 시작하여 매개변수 \(\epsilon, m &gt; 0\)을 수정한 다음 \(k=1,2,3,...\)에 대해 반복한다.</p>
+
+<ul>
+  <li>
+    <p>\(t_k = t_{k−1} + \frac{(1 − 1/m)\epsilon}{\| ∇f(\hat{x}(t_k−1))\|\_{∗}}\)를 계산하고, 모든 \(t ∈ (t_{k−1}, t_k)\)에 대해 \(\hat{x}(t) = \hat{x}(t_{k−1})\)를 설정한다.</p>
+  </li>
+  <li>
+    <p>\(t = t_k\) 에서 Frank-Wolfe를 실행하여 \(\hat{x}(t_k)\)를 계산하고 duality gap이 \(≤ \frac{\epsilon}{m}\) 인 경우 종료 한다.</p>
+  </li>
+</ul>
+
+<p>이것은 기존의 전략을 단순화 시킨 방법이다. [Giesen et al. (2012)]</p>
+
+<p>이 <strong>path following</strong> 전략을 통해, 방문하는 모든 $t$에 대해 다음을 보장할 수 있다.</p>
+<blockquote>
+\[f(\hat{x}(t)) − f(x^{\star}(t)) ≤ \epsilon\]
+</blockquote>
+
+<p>즉, 모든 \(t\)에 대해서 \(\epsilon\)에 의해 균일하게 경계가 정해진 suboptimality gap의 경로를 생성한다.</p>
+
+<p>아래의 수식에서 보듯 Frank-Wolfe duality gap을 다음과 같이 재정의 할 수 있다.</p>
+<blockquote>
+\[g_t(x) = \max_{\|s\|≤1} ∇f(x)^T(x − s) = ∇f(x)^Tx + t\|∇f(x)\|_{∗}\]
+</blockquote>
+
+<p>이것은$t$에 대한 선형 함수이다. 따라서 \(g_t(x) ≤ = \frac{\epsilon}{m}\)이면, 다음 수식에 의해서 \(t^+ = t + (1 − 1/m)\epsilon/\|∇f(x)\|_{∗}\)까지 \(t\)를 증가 시킬 수 있다.</p>
+
+<blockquote>
+\[g_t+ (x) = ∇f(x)^Tx + t\|∇f(x)\|_{∗} + \epsilon − \epsilon/m ≤ \epsilon\]
+</blockquote>
+
+<p>즉, duality gap은 동일한 \(x\)에 대해 \(t\)와 \(t^+\) 사이에서 \(≤ \epsilon\)로 유지된다.</p>
+
+
+        </article>
+    </div>
+</main>
+
+
+
+
+      </div>
+    </div>
+
+    <label for="sidebar-checkbox" class="sidebar-toggle"></label>
+
+    <script src='/public/js/script.js'></script>
+  </body>
+</html>

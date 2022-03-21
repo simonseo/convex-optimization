@@ -1,0 +1,1578 @@
+<!DOCTYPE html>
+<html lang="en-us">
+
+  <head>
+  <link href="http://gmpg.org/xfn/11" rel="profile">
+  <meta http-equiv="content-type" content="text/html; charset=utf-8">
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
+
+  <style>
+    .MathJax {
+      padding: 2em 0.3em;
+      overflow-x: auto;
+      overflow-y: hidden;
+    }
+@media print {
+
+    .container {
+        padding: 0;
+        max-width: unset;
+        break-after: page;
+        break-before: page;
+    }
+    .content {
+        padding: 0;
+    }
+    .masthead {
+        display: none;
+    }
+    .sidebar-toggle {
+        display: none;
+    }
+
+
+}
+  </style>
+  <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js"></script>
+
+  <title>
+    
+      Gradient Descent &middot; 모두를 위한 컨벡스 최적화
+    
+  </title>
+
+  <link rel="stylesheet" href="/public/css/poole.css">
+  <link rel="stylesheet" href="/public/css/syntax.css">
+  <link rel="stylesheet" href="/public/css/lanyon.css">
+  <link rel="stylesheet" href="/public/css/github-markdown.css">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=PT+Serif:400,400italic,700%7CPT+Sans:400">
+
+  <link rel="apple-touch-icon-precomposed" sizes="122x144" href="https://convex-optimization-for-all.github.io/public/logo.png">
+  <link rel="shortcut icon" href="https://convex-optimization-for-all.github.io/public/convex-logo-144x144.png">
+
+  <link rel="alternate" type="application/rss+xml" title="RSS" href="https://convex-optimization-for-all.github.io/atom.xml">
+
+  
+  <script>
+    (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+    (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+    m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+    })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+    ga('create', 'UA-189737072-1', 'auto');
+    ga('send', 'pageview');
+  </script>
+  
+</head>
+
+
+  <body class="sidebar-overlay">
+
+    <!-- Target for toggling the sidebar `.sidebar-checkbox` is for regular
+     styles, `#sidebar-checkbox` for behavior. -->
+<input type="checkbox" class="sidebar-checkbox" id="sidebar-checkbox">
+
+<!-- Toggleable sidebar -->
+<div class="sidebar" id="sidebar">
+  <div class="sidebar-item">
+    <p>모두를 위한 컨벡스 최적화</p>
+  </div>
+
+  <nav class="sidebar-nav">
+    <a class="sidebar-nav-item" href="https://convex-optimization-for-all.github.io/">Home</a>
+
+    
+
+    
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+        
+          <a class="sidebar-nav-item" href="https://convex-optimization-for-all.github.io/contents/chapter01/">01. Introduction</a>
+        
+      
+    
+      
+        
+          <a class="sidebar-nav-item" href="https://convex-optimization-for-all.github.io/contents/chapter02/">02. Convex Sets</a>
+        
+      
+    
+      
+        
+          <a class="sidebar-nav-item" href="https://convex-optimization-for-all.github.io/contents/chapter03/">03. Convex Functions</a>
+        
+      
+    
+      
+        
+          <a class="sidebar-nav-item" href="https://convex-optimization-for-all.github.io/contents/chapter04/">04. Convex Optimization Basis</a>
+        
+      
+    
+      
+        
+          <a class="sidebar-nav-item" href="https://convex-optimization-for-all.github.io/contents/chapter05/">05. Canonical Problems</a>
+        
+      
+    
+      
+        
+          <a class="sidebar-nav-item active" href="https://convex-optimization-for-all.github.io/contents/chapter06/">06. Gradient Descent</a>
+        
+      
+    
+      
+        
+          <a class="sidebar-nav-item" href="https://convex-optimization-for-all.github.io/contents/chapter07/">07. Subgradient</a>
+        
+      
+    
+      
+        
+          <a class="sidebar-nav-item" href="https://convex-optimization-for-all.github.io/contents/chapter08/">08. Subgradient Method</a>
+        
+      
+    
+      
+        
+          <a class="sidebar-nav-item" href="https://convex-optimization-for-all.github.io/contents/chapter09/">09. Proximal Gradient Descent and Acceleration</a>
+        
+      
+    
+      
+        
+          <a class="sidebar-nav-item" href="https://convex-optimization-for-all.github.io/contents/chapter10/">10. Duality in Linear Programs</a>
+        
+      
+    
+      
+        
+          <a class="sidebar-nav-item" href="https://convex-optimization-for-all.github.io/contents/chapter11/">11. Duality in General Programs</a>
+        
+      
+    
+      
+        
+          <a class="sidebar-nav-item" href="https://convex-optimization-for-all.github.io/contents/chapter12/">12. KKT Conditions</a>
+        
+      
+    
+      
+        
+          <a class="sidebar-nav-item" href="https://convex-optimization-for-all.github.io/contents/chapter13/">13. Duality uses and correspondences</a>
+        
+      
+    
+      
+        
+          <a class="sidebar-nav-item" href="https://convex-optimization-for-all.github.io/contents/chapter14/">14. Newton's Method</a>
+        
+      
+    
+      
+        
+          <a class="sidebar-nav-item" href="https://convex-optimization-for-all.github.io/contents/chapter15/">15. Barrier Method</a>
+        
+      
+    
+      
+        
+          <a class="sidebar-nav-item" href="https://convex-optimization-for-all.github.io/contents/chapter16/">16. Duality Revisited</a>
+        
+      
+    
+      
+        
+          <a class="sidebar-nav-item" href="https://convex-optimization-for-all.github.io/contents/chapter17/">17. Primal-Dual Interior-Point Methods</a>
+        
+      
+    
+      
+        
+          <a class="sidebar-nav-item" href="https://convex-optimization-for-all.github.io/contents/chapter18/">18. Quasi-Newton Methods</a>
+        
+      
+    
+      
+        
+          <a class="sidebar-nav-item" href="https://convex-optimization-for-all.github.io/contents/chapter19/">19. Proximal Netwon Method</a>
+        
+      
+    
+      
+        
+          <a class="sidebar-nav-item" href="https://convex-optimization-for-all.github.io/contents/chapter20/">20. Dual Methods</a>
+        
+      
+    
+      
+        
+          <a class="sidebar-nav-item" href="https://convex-optimization-for-all.github.io/contents/chapter21/">21. Alternating Direction Method of Mulipliers</a>
+        
+      
+    
+      
+        
+          <a class="sidebar-nav-item" href="https://convex-optimization-for-all.github.io/contents/chapter22/">22. Conditional Gradient Method</a>
+        
+      
+    
+      
+        
+          <a class="sidebar-nav-item" href="https://convex-optimization-for-all.github.io/contents/chapter23/">23. Coordinate Descent</a>
+        
+      
+    
+      
+        
+          <a class="sidebar-nav-item" href="https://convex-optimization-for-all.github.io/contents/chapter24/">24.  Mixed Integer Programming 1</a>
+        
+      
+    
+      
+        
+          <a class="sidebar-nav-item" href="https://convex-optimization-for-all.github.io/contents/chapter25/">25.  Mixed Integer Programming 2</a>
+        
+      
+    
+      
+        
+          <a class="sidebar-nav-item" href="https://convex-optimization-for-all.github.io/reference/">26. Reference</a>
+        
+      
+    
+
+    <span class="sidebar-nav-item">Currently v1.1.0</span>
+  </nav>
+
+  <div class="sidebar-item">
+    <p>
+      &copy; 2022. All rights reserved.
+    </p>
+  </div>
+</div>
+
+
+    <!-- Wrap is the content to shift when toggling the sidebar. We wrap the
+         content to avoid any CSS collisions with our real content. -->
+    <div class="wrap github-md-body">
+      <div class="masthead">
+        <div class="container">
+          <h3 class="masthead-title">
+            <a href="/" title="Home">모두를 위한 컨벡스 최적화</a>
+            <small></small>
+          </h3>
+          <a class="github-logo__wrapper" target="_blank" href="https://github.com/convex-optimization-for-all/convex-optimization-for-all.github.io" titltle="Github">
+           <svg class="github-logo" xmlns="http://www.w3.org/2000/svg"  viewBox="0 0 48 48"><linearGradient id="rL2wppHyxHVbobwndsT6Ca" x1="4" x2="44" y1="23.508" y2="23.508" gradientUnits="userSpaceOnUse"><stop offset="0" stop-color="#4c4c4c"/><stop offset="1" stop-color="#343434"/></linearGradient><path fill="url(#rL2wppHyxHVbobwndsT6Ca)" d="M24,4C12.954,4,4,12.954,4,24c0,8.887,5.801,16.411,13.82,19.016h12.36	C38.199,40.411,44,32.887,44,24C44,12.954,35.046,4,24,4z"/><path d="M30.01,41.996L30,36.198c0-0.939-0.22-1.856-0.642-2.687c5.641-1.133,8.386-4.468,8.386-10.177	c0-2.255-0.665-4.246-1.976-5.92c0.1-0.317,0.174-0.645,0.22-0.981c0.188-1.369-0.023-2.264-0.193-2.984l-0.027-0.116	c-0.186-0.796-0.409-1.364-0.418-1.388l-0.111-0.282l-0.111-0.282l-0.302-0.032l-0.303-0.032c0,0-0.199-0.021-0.501-0.021	c-0.419,0-1.04,0.042-1.627,0.241l-0.196,0.066c-0.74,0.249-1.439,0.485-2.417,1.069c-0.286,0.171-0.599,0.366-0.934,0.584	C27.334,12.881,25.705,12.69,24,12.69c-1.722,0-3.365,0.192-4.889,0.571c-0.339-0.22-0.654-0.417-0.942-0.589	c-0.978-0.584-1.677-0.819-2.417-1.069l-0.196-0.066c-0.585-0.199-1.207-0.241-1.626-0.241c-0.302,0-0.501,0.021-0.501,0.021	l-0.302,0.032l-0.3,0.031l-0.112,0.281l-0.113,0.283c-0.01,0.026-0.233,0.594-0.419,1.391l-0.027,0.115	c-0.17,0.719-0.381,1.615-0.193,2.983c0.048,0.346,0.125,0.685,0.23,1.011c-1.285,1.666-1.936,3.646-1.936,5.89	c0,5.695,2.748,9.028,8.397,10.17c-0.194,0.388-0.345,0.798-0.452,1.224c-0.197,0.067-0.378,0.112-0.538,0.137	c-0.238,0.036-0.487,0.054-0.739,0.054c-0.686,0-1.225-0.134-1.435-0.259c-0.313-0.186-0.872-0.727-1.414-1.518	c-0.463-0.675-1.185-1.558-1.992-1.927c-0.698-0.319-1.437-0.502-2.029-0.502c-0.138,0-0.265,0.01-0.376,0.028	c-0.517,0.082-0.949,0.366-1.184,0.78c-0.203,0.357-0.235,0.773-0.088,1.141c0.219,0.548,0.851,0.985,1.343,1.255	c0.242,0.133,0.765,0.619,1.07,1.109c0.229,0.368,0.335,0.63,0.482,0.992c0.087,0.215,0.183,0.449,0.313,0.732	c0.47,1.022,1.937,1.924,2.103,2.023c0.806,0.483,2.161,0.638,3.157,0.683l0.123,0.003c0,0,0.001,0,0.001,0	c0.24,0,0.57-0.023,1.004-0.071v2.613c0.002,0.529-0.537,0.649-1.25,0.638l0.547,0.184C19.395,43.572,21.645,44,24,44	c2.355,0,4.605-0.428,6.703-1.176l0.703-0.262C30.695,42.538,30.016,42.422,30.01,41.996z" opacity=".05"/><path d="M30.781,42.797c-0.406,0.047-1.281-0.109-1.281-0.795v-5.804c0-1.094-0.328-2.151-0.936-3.052	c5.915-0.957,8.679-4.093,8.679-9.812c0-2.237-0.686-4.194-2.039-5.822c0.137-0.365,0.233-0.75,0.288-1.147	c0.175-1.276-0.016-2.086-0.184-2.801l-0.027-0.116c-0.178-0.761-0.388-1.297-0.397-1.319l-0.111-0.282l-0.303-0.032	c0,0-0.178-0.019-0.449-0.019c-0.381,0-0.944,0.037-1.466,0.215l-0.196,0.066c-0.714,0.241-1.389,0.468-2.321,1.024	c-0.332,0.198-0.702,0.431-1.101,0.694C27.404,13.394,25.745,13.19,24,13.19c-1.762,0-3.435,0.205-4.979,0.61	c-0.403-0.265-0.775-0.499-1.109-0.699c-0.932-0.556-1.607-0.784-2.321-1.024l-0.196-0.066c-0.521-0.177-1.085-0.215-1.466-0.215	c-0.271,0-0.449,0.019-0.449,0.019l-0.302,0.032l-0.113,0.283c-0.009,0.022-0.219,0.558-0.397,1.319l-0.027,0.116	c-0.169,0.715-0.36,1.524-0.184,2.8c0.056,0.407,0.156,0.801,0.298,1.174c-1.327,1.62-1.999,3.567-1.999,5.795	c0,5.703,2.766,8.838,8.686,9.806c-0.395,0.59-0.671,1.255-0.813,1.964c-0.33,0.13-0.629,0.216-0.891,0.256	c-0.263,0.04-0.537,0.06-0.814,0.06c-0.69,0-1.353-0.129-1.69-0.329c-0.44-0.261-1.057-0.914-1.572-1.665	c-0.35-0.51-1.047-1.417-1.788-1.755c-0.635-0.29-1.298-0.457-1.821-0.457c-0.11,0-0.21,0.008-0.298,0.022	c-0.366,0.058-0.668,0.252-0.828,0.534c-0.128,0.224-0.149,0.483-0.059,0.708c0.179,0.448,0.842,0.85,1.119,1.002	c0.335,0.184,0.919,0.744,1.254,1.284c0.251,0.404,0.37,0.697,0.521,1.067c0.085,0.209,0.178,0.437,0.304,0.712	c0.331,0.719,1.353,1.472,1.905,1.803c0.754,0.452,2.154,0.578,2.922,0.612l0.111,0.002c0.299,0,0.8-0.045,1.495-0.135v3.177	c0,0.779-0.991,0.81-1.234,0.81c-0.031,0,0.503,0.184,0.503,0.184C19.731,43.64,21.822,44,24,44c2.178,0,4.269-0.36,6.231-1.003	C30.231,42.997,30.812,42.793,30.781,42.797z" opacity=".07"/><path fill="#fff" d="M36.744,23.334c0-2.31-0.782-4.226-2.117-5.728c0.145-0.325,0.296-0.761,0.371-1.309	c0.172-1.25-0.031-2-0.203-2.734s-0.375-1.25-0.375-1.25s-0.922-0.094-1.703,0.172s-1.453,0.469-2.422,1.047	c-0.453,0.27-0.909,0.566-1.27,0.806C27.482,13.91,25.785,13.69,24,13.69c-1.801,0-3.513,0.221-5.067,0.652	c-0.362-0.241-0.821-0.539-1.277-0.811c-0.969-0.578-1.641-0.781-2.422-1.047s-1.703-0.172-1.703-0.172s-0.203,0.516-0.375,1.25	s-0.375,1.484-0.203,2.734c0.077,0.562,0.233,1.006,0.382,1.333c-1.31,1.493-2.078,3.397-2.078,5.704	c0,5.983,3.232,8.714,9.121,9.435c-0.687,0.726-1.148,1.656-1.303,2.691c-0.387,0.17-0.833,0.33-1.262,0.394	c-1.104,0.167-2.271,0-2.833-0.333s-1.229-1.083-1.729-1.813c-0.422-0.616-1.031-1.331-1.583-1.583	c-0.729-0.333-1.438-0.458-1.833-0.396c-0.396,0.063-0.583,0.354-0.5,0.563c0.083,0.208,0.479,0.521,0.896,0.75	c0.417,0.229,1.063,0.854,1.438,1.458c0.418,0.674,0.5,1.063,0.854,1.833c0.249,0.542,1.101,1.219,1.708,1.583	c0.521,0.313,1.562,0.491,2.688,0.542c0.389,0.018,1.308-0.096,2.083-0.206v3.75c0,0.639-0.585,1.125-1.191,1.013	C19.756,43.668,21.833,44,24,44c2.166,0,4.243-0.332,6.19-0.984C29.585,43.127,29,42.641,29,42.002v-5.804	c0-1.329-0.527-2.53-1.373-3.425C33.473,32.071,36.744,29.405,36.744,23.334z M11.239,32.727c-0.154-0.079-0.237-0.225-0.185-0.328	c0.052-0.103,0.22-0.122,0.374-0.043c0.154,0.079,0.237,0.225,0.185,0.328S11.393,32.806,11.239,32.727z M12.451,33.482	c-0.081,0.088-0.255,0.06-0.389-0.062s-0.177-0.293-0.096-0.381c0.081-0.088,0.255-0.06,0.389,0.062S12.532,33.394,12.451,33.482z M13.205,34.732c-0.102,0.072-0.275,0.005-0.386-0.15s-0.118-0.34-0.016-0.412s0.275-0.005,0.386,0.15	C13.299,34.475,13.307,34.66,13.205,34.732z M14.288,35.673c-0.069,0.112-0.265,0.117-0.437,0.012s-0.256-0.281-0.187-0.393	c0.069-0.112,0.265-0.117,0.437-0.012S14.357,35.561,14.288,35.673z M15.312,36.594c-0.213-0.026-0.371-0.159-0.353-0.297	c0.017-0.138,0.204-0.228,0.416-0.202c0.213,0.026,0.371,0.159,0.353,0.297C15.711,36.529,15.525,36.62,15.312,36.594z M16.963,36.833c-0.227-0.013-0.404-0.143-0.395-0.289c0.009-0.146,0.2-0.255,0.427-0.242c0.227,0.013,0.404,0.143,0.395,0.289	C17.381,36.738,17.19,36.846,16.963,36.833z M18.521,36.677c-0.242,0-0.438-0.126-0.438-0.281s0.196-0.281,0.438-0.281	c0.242,0,0.438,0.126,0.438,0.281S18.762,36.677,18.521,36.677z"/></svg>
+          </a>
+        </div>
+      </div>
+
+      <div class="container content">
+        <h1>06. Gradient Descent</h1>
+
+
+
+
+
+
+<!-- Get first post and show it -->
+
+<p>이 장에서는 최적화 기법 중에 가장 기본적이고 중요한 기법인 <strong>Gradient Descent</strong>에 대해 살펴본다.</p>
+
+<p>최적화 기법에서 알고리즘의 수렴 여부와 수렴속도를 결정짓는 매우 중요한 요소가 search direction과 step size이다. Gradient descent 방식은 gradient의 음수 방향으로 직선 탐색을 하는 방식이다. 이때, step size는 고정 크기 방식과 곡면에 따라 적응적으로 선택하는 방식이 있는데 이 장에서는 두 방식에 대해 모두 살펴볼 것이다.</p>
+
+<p>Gradinet descent가 수렴하려면 몇 가지 전제 조건이 필요하다. 이런 전제 조건이 만족된다면 gradient descent가 얼마나 빠르게 수렴할 수 있는지 계산해 볼 수 있다. 또한, Strong Convexity를 만족하게 되면 수렴은 기하급수적으로 빨라지게 된다. 이 경우에 수렴 속도도 살펴볼 것이다.</p>
+
+<p>Gradient descent를 응용한 방법으로 gradient boosting과 stochastic gradient decent에 대해서도 살펴보도록 하겠다.</p>
+
+
+<!-- Remove first element from post_list which is already shown above. -->
+  
+
+<!-- List up the posts in the chapter -->
+<ul style="list-style: none;">
+
+  
+  
+  
+  
+    <li style="text-align:left; vertical-align: middle; margin-left: -2em; margin-top: 5px;" >
+      <a href="#_page_1">06-01 Gradient Descent</a>
+    </li>
+  
+  
+
+  
+  
+  
+  
+    <li style="text-align:left; vertical-align: middle; margin-left: -2em; margin-top: 5px;" >
+      <a href="#_page_2">06-02 How to choose step sizes</a>
+    </li>
+  
+  
+
+  
+  
+  
+  
+  
+    <li style="text-align:left; vertical-align: middle;  margin-left: 0em;" >
+      <a href="#_page_3"> 06-02-01 Fixed step size</a>
+    </li>
+  
+
+  
+  
+  
+  
+  
+    <li style="text-align:left; vertical-align: middle;  margin-left: 0em;" >
+      <a href="#_page_4"> 06-02-02 Backtracking line search</a>
+    </li>
+  
+
+  
+  
+  
+  
+  
+    <li style="text-align:left; vertical-align: middle;  margin-left: 0em;" >
+      <a href="#_page_5"> 06-02-03 Exact line search</a>
+    </li>
+  
+
+  
+  
+  
+  
+    <li style="text-align:left; vertical-align: middle; margin-left: -2em; margin-top: 5px;" >
+      <a href="#_page_6">06-03 Convergence analysis</a>
+    </li>
+  
+  
+
+  
+  
+  
+  
+  
+    <li style="text-align:left; vertical-align: middle;  margin-left: 0em;" >
+      <a href="#_page_7"> 06-03-01 Convergence analysis & Proof</a>
+    </li>
+  
+
+  
+  
+  
+  
+  
+    <li style="text-align:left; vertical-align: middle;  margin-left: 0em;" >
+      <a href="#_page_8"> 06-03-02 Convex function quardratic upper bound</a>
+    </li>
+  
+
+  
+  
+  
+  
+  
+    <li style="text-align:left; vertical-align: middle;  margin-left: 0em;" >
+      <a href="#_page_9"> 06-03-03 Convergence analysis for backtracking</a>
+    </li>
+  
+
+  
+  
+  
+  
+  
+    <li style="text-align:left; vertical-align: middle;  margin-left: 0em;" >
+      <a href="#_page_10"> 06-03-04 Convergence analysis under strong convexity</a>
+    </li>
+  
+
+  
+  
+  
+  
+  
+    <li style="text-align:left; vertical-align: middle;  margin-left: 0em;" >
+      <a href="#_page_11"> 06-03-05 A look at the conditions & Practicalities</a>
+    </li>
+  
+
+  
+  
+  
+  
+  
+    <li style="text-align:left; vertical-align: middle;  margin-left: 0em;" >
+      <a href="#_page_12"> 06-03-06 Can we do better?</a>
+    </li>
+  
+
+  
+  
+  
+  
+    <li style="text-align:left; vertical-align: middle; margin-left: -2em; margin-top: 5px;" >
+      <a href="#_page_13">06-04 Gradient boosting</a>
+    </li>
+  
+  
+
+  
+  
+  
+  
+    <li style="text-align:left; vertical-align: middle; margin-left: -2em; margin-top: 5px;" >
+      <a href="#_page_14">06-05 Stochastic gradient descent</a>
+    </li>
+  
+  
+
+</ul>
+
+
+<main class="container">
+    <div class="content">
+        <article class="post-body">
+            <h1><a name="_page_1"></a>06-01 Gradient Descent</h1>
+            <p>Gradient descent는 제약조건이 없는 convex이고 differentiable한 function의 최적화 문제를 풀기위한 가장 단순한 알고리즘이다.</p>
+
+<blockquote>
+  <p>\(\min_x f(x),\)
+\(f\) : differentiable with \(dom(f) = R^n\).</p>
+</blockquote>
+
+<p>참고로, optimal value는 \(f^{*} = min_x f(x)\)로 optimal은 \(x^{*}\)로 표기한다.</p>
+
+<h4 id="gradient-decent-method">Gradient decent method</h4>
+<p>Gradient descent는 초기 점 \(x^{(0)} \in R^n\)을 선택하고 다음 식을 반복적으로 실행해서 임의의 조건을 만족하면 종료하게 된다.</p>
+<blockquote>
+  <p>\(x^{(k)} = x^{(k-1)} - t_k \nabla f(x^{(k-1)}), k = 1, 2, 3, . . .\), \(t_k \gt 0\)</p>
+</blockquote>
+
+<p>이를 pseudocode로 정리해보면 다음과 같다.</p>
+
+<blockquote>
+  <p><strong>give a starting point</strong> x ,  \(x \in\) <strong>dom</strong> \(f\) <br />
+<strong>repeat</strong>  <br /></p>
+  <ol>
+    <li>Determine a descent direction \(\Delta x = -\nabla f(x)\). <br /></li>
+    <li>Line Search. Choose a step size \(t \gt 0\). <br /></li>
+    <li>Update \(x = x + t \Delta x\). <br />
+<strong>until</strong> stopping criteion is satisfied <br /></li>
+  </ol>
+</blockquote>
+
+<h4 id="examples">Examples</h4>
+
+<p>다음 그림에는 함수 \(f\)가 convex function일 때 gradient descent를 수행을 보여주고 있다. 이 경우, local minimum = global minimum에 도달할 수 있게 된다.</p>
+
+<figure class="image" style="align: center;">
+<p align="center">
+  <img src="/img/chapter_img/chapter06/06_01_gradientdescent1.png" alt="gradientdescent1" width="80%" height="80%" />
+  <figcaption style="text-align: center;">[Fig 1] Gradient descent in convex functions[3]</figcaption>
+</p>
+</figure>
+
+<p>반면 다음 그림에는 함수 \(f\)가 non-convex function일 때 gradient descent를 수행을 보여주고 있다. 이 경우 초기점이 어느 곳에 위치하느냐에 따라서 각각 다른 곳에 존재하는 local minimum으로 수렴한다.</p>
+
+<figure class="image" style="align: center;">
+<p align="center">
+  <img src="/img/chapter_img/chapter06/06_01_gradientdescent2.png" alt="gradientdescent2" width="80%" height="80%" />
+  <figcaption style="text-align: center;">[Fig 2] Gradient descent in non-convex functions[3]</figcaption>
+</p>
+</figure>
+
+<h2 id="gradient-decent-interpretation">Gradient decent interpretation</h2>
+<p>Gradient descent는 함수를 2차 식으로 근사한 후 함수의 최소 위치를 다음 위치로 선택하는 방법이다.</p>
+
+<p>이 과정을 보이기 위해 함수 \(f\)를 2차 Taylor 식으로 전개해보자.</p>
+<blockquote>
+  <p>\begin{align}
+f(y) \approx f(x) + \nabla f(x)^T (y - x) +  \frac{1}{2} \nabla^2 f(x)  \parallel y - x  \parallel_2 ^2
+\end{align}</p>
+</blockquote>
+
+<p>이때 2차 항에 있는 hessian \(\nabla^2 f(x)\)를 \(\frac{1}{t}I\)로 대체하면 다음과 같이 표현된다. 여기서 \(t\)는 step size이다.</p>
+<blockquote>
+  <p>\begin{align}
+f(y) \approx f(x) + \nabla f(x)^T (y - x) +  \frac{1}{2t}  \parallel y - x  \parallel_2 ^2
+\end{align}</p>
+</blockquote>
+
+<p>따라서, gradient descent에서는 step size의 역수가 eigenvalue인 hessian 행렬을 2차 항의 계수로 갖는 2차식으로 함수를 근사했다고 볼 수 있다. 또한, 이 식에서 \(f(x) + \nabla f(x)^T (y - x)\)는 \(f\)에 대한 선형 근사로 볼 수 있으며, \(\frac{1}{2t}  \parallel y - x  \parallel_2^2\)는 \(x\)에 대한 proximity term으로 볼 수 있다. Proximity term은 \(x\)에서 \(y\)가 얼마나 가까운지를 나타낸다.</p>
+
+<p>이렇게 근사된 함수의 2차식을 최소화하는 위치를 다음 위치로 선택하게 된다.  그러기 위해 \(f(y)\)의 gradient를 0으로 두고 다음 위치인 \(y = x^+\)를 구하면 다음과 같은 식을 얻게 된다.</p>
+
+<blockquote>
+\[x^+ = x - t \nabla f(x)\]
+</blockquote>
+
+<p>아래 그림에서 파란색 점은 현재 위치 \(x\)를 나타내며 빨간색 점은s 다음 위치 \(y\)를 나타낸다. 아래쪽에 있는 곡선은 실제 함수 \(f\)의 곡선이며 윗쪽에 있는 곡선은 함수 \(f\)의 2차 근사 곡선이라고 볼 수 있다. 따라서, 빨간색 점은 2차 근사식에 대한 최소 지점을 나타낸다.</p>
+
+<figure class="image" style="align: center;">
+<p align="center">
+  <img src="/img/chapter_img/chapter06/06_01_gradientdescent3.png" alt="gradientdescent3" width="80%" height="80%" />
+  <figcaption style="text-align: center;">$$ \text{[Fig 3] Gradient descent algorithm : red dot is } x^+ \text{ and blue dot } x \text{ [3]} $$</figcaption>
+</p>
+</figure>
+
+<p>현재 위치 \(x\)에서 다음 위치 \(y\)가 얼마나 가까운지는 proximity term의 weight \(\frac{1}{2t}\)에 따라 달라진다. 만약 \(t\) 값이 작다면, proximity term의 weight는 커지게 되고 스텝은 작아지게 될 것이다. 이러한 과정은 다음 수식으로 표현된다.</p>
+
+<blockquote>
+  <p>\begin{align}
+x^+ = \underset{y}{\arg \min} \ f(x) + \nabla f(x)^T (y - x) + \frac{1}{2t} \parallel y - x \parallel_2^2
+\end{align}</p>
+</blockquote>
+
+        </article>
+    </div>
+</main>
+
+<main class="container">
+    <div class="content">
+        <article class="post-body">
+            <h1><a name="_page_2"></a>06-02 How to choose step sizes</h1>
+            <p>Gradient descent를 반복할 때, <strong>step size</strong>는 \(x\) 값을 갱신하며 그 값에 따라 optimal로 수렴하는 속도를 달라지게 만들거나 혹은 발산하게 한다. 이 절에서는 step size 값을 적절하게 도출하는 방법을 다음 세가지로 제시하면서 gradient descent 기법 안에서 더 빠르게 optimal 값을 찾을 수 있도록 한다.</p>
+
+<ul>
+  <li>Fixed step size</li>
+  <li>Backtracking line search</li>
+  <li>Exact line search</li>
+</ul>
+
+        </article>
+    </div>
+</main>
+
+<main class="container">
+    <div class="content">
+        <article class="post-body">
+            <h1><a name="_page_3"></a>06-02-01 Fixed step size</h1>
+            <p>Gradient decent에서 step size를 찾는 가장 단순한 방법은 모든 반복에서 t를 고정하는 것이다.  하지만 step size \(t_k = t\), \(k = 1, 2, 3, ...\)의 크기에 따라 수렴할 수도 있으고 발산할 수도 있다.</p>
+
+<p>예를 들어 아래 그림을 보면 함수 \(f(x) = (10 x_1^2 + x_2^2) / 2\)에 대해 gradient descent를 수행을 보여주고 있다.</p>
+
+<figure class="image" style="align: center;">
+<p align="center">
+  <img src="/img/chapter_img/chapter06/06_02_01_gradientdescent4.png" alt="gradientdescent4" width="100%" height="100%" />
+  <figcaption style="text-align: center;">[Fig 1] Step size different scenarios [3]</figcaption>
+</p>
+</figure>
+
+<ul>
+  <li>A의 경우 step size \(t\)가 매우 큰 경우로 8 step 이후  발산하였다. 이 경우 절대로 minimum값에 도달할 수 없다.</li>
+  <li>반면 그림 B와 같이  step size \(t\)가 아주 작으면 수렴의 속도가 매우 느려져서 100 step에서도 수렴하지 못한다. 즉, 최소에 가까워질수록 \(\nabla f(x)\)가 0에 가까워지므로 step \(t \nabla f(x)\)도 아주 작아져서 진행이 점점 느려지게 된다.</li>
+  <li>(시행착오에 의해 발견한) \(t\)값이 “적절한 값”이라면 C와 같이 잘 수렴하게 된다. 이 때는 40 정도 진행한 상황이다. (이 “적절한 값”은 수렴 분석을 통해 찾을 수 있으며 이 장의 뒷부분에서 소개한다.)</li>
+</ul>
+
+        </article>
+    </div>
+</main>
+
+<main class="container">
+    <div class="content">
+        <article class="post-body">
+            <h1><a name="_page_4"></a>06-02-02 Backtracking line search</h1>
+            <p>Gradient descent에서 고정 step size를 사용하게 되면 진행 속도가 항상 동일하기 때문에, 경사가 가파른 구간에서는 최적점을 지나쳐서 진동할 수 있으며  경사가 평평한 구간에서는 진행이 느려질 수가 있다. 따라서, 곡면의 특성에 맞춰 속도를 조절하면서 진행해야 수렴도 보장되고 수렴 속도도 높아진다. 이와 같이 곡면의 특성에 맞춰 step size를 적응적으로 선택하는 방법 중 하나가 <strong>backtracking line search</strong>이다.</p>
+
+<h4 id="backtracking-line-search-방법이란">Backtracking line search 방법이란?</h4>
+<p>이 방법은 다음 위치를 결정할 때 현재 위치에서 한 step을 가보고 너무 많이 갔다고 판단하면 다시 되돌아 오는 방법이다. 다음 그림은 <strong>backtracking line search</strong>로 다음 step을 결정하는 방식을 보여준다.</p>
+
+<figure class="image" style="align: center;">
+<p align="center">
+  <img src="/img/chapter_img/chapter06/06_02_02_Backtracking_Line_Search.png" alt="backtrackinglinesearch1" width="100%" height="100%" />
+  <figcaption style="text-align: center;">[Fig1] Backtracking Line Search [3]</figcaption>
+</p>
+</figure>
+
+<p>곡면 \(f\)에서 탐색 범위는 직선으로 제한된다. 아래쪽 점선은 현재 위치 \(x\)에서 접선 방향으로 한 step 간 경우이다. 이 경우  \(f\)가 항상 직선보다 위쪽에 있으므로 많이 간 것인지  적당히 간 것인지 자세히 판단하기가 어렵다.</p>
+
+<p><strong>Backtracking line search</strong>에서는 위쪽 점선을 사용한다. 위쪽 점선은 접선의 기울기에 \(\alpha\)를 곱한 방향으로 한 step 간 경우이다. 이때, 직선은 항상 \(f(x+t\Delta x)\)와 교차하므로,  한 step 간 지점에서 \(f(x+t\Delta x)\)의 위치가 점선 위에 있으면 너무 많이 갔다고 판단하고 \(f(x+t\Delta x)\)의 위치가 점선 아래에 있으면 적당히 잘 갔다고 판단한다.</p>
+
+<p>너무 많이 간 경우에는 되돌아 오기 위해 \(t\)를 줄이고 \(f\)가 점선 아래로 오게 만든다. 이때 \(t\)의 위치는 \(0 \le t \le t_0\)구간 안으로 들어온다.</p>
+
+<h4 id="backtracking-line-search-알고리즘">Backtracking line search 알고리즘</h4>
+<p>이 내용을 알고리즘으로 정리하면 다음과 같다. (단, \(\Delta x = - \nabla f(x)\))</p>
+
+<ol>
+  <li>파라미터를 초기화한다. (\(0 \lt \beta \lt 1\), \(0 \lt \alpha \le 1/2\))</li>
+  <li>각 반복에서 \(t = t_{init}\)로 초기화 한다. (\(t_{init} = 1\))</li>
+  <li>조건 \(f(x - t \nabla f(x) ) \gt f(x) - \alpha t \lVert \nabla f(x) \rVert_2^2\)을 만족하면 \(t = \beta t\)로 줄인다. 이 조건이 만족되는 동안 3을 반복한다.</li>
+  <li>Gradient descent update \(x^+ = x - t \nabla f(x)\)를 실행한다.</li>
+  <li>종료 조건을 만족하지 않으면 2로 간다.</li>
+</ol>
+
+<p><strong>Backtracking line search</strong>은 단순하지만 매우 잘 실행된다. 
+파라미터 \(\alpha\)는 다음 step의 방향을 결정하며, \(\beta\)는 다음 step을 얼마나 되돌아 올 지 결정한다.  \(\beta\) 값이 작으면 크게 되돌아 오기 때문에 3번 반복 회수는 적어지지만 step size가 작아져서 한번에 멀리 가지는 못한다. 실제 파라미터 선정은 알고리즘의 성능에 크게 영향을 주지 않으며, 대부분 \(\alpha = 1/2\)로 \(\beta\)는 1에 가까운 값으로 선정한다.</p>
+
+<h4 id="backtracking-line-search-수렴-예시">Backtracking line search 수렴 예시</h4>
+<p>Backtracking 방식으로 adaptive하게 step size를 선정하게 되면 fixed step size로 100 step만에 수렴했던 예제가 12 step만에 수렴한다 (\(\alpha = \beta = 1/2\)). 내부 backtracking step까지 포함해도 총 40 step만에 수렴한다.</p>
+
+<figure class="image" style="align: center;">
+<p align="center">
+  <img src="/img/chapter_img/chapter06/06_02_02_Convergence.png" alt="backtrackinglinesearch1" width="70%" height="70%" />
+  <figcaption style="text-align: center;">[Fig2] Convergence [3]</figcaption>
+</p>
+</figure>
+
+<h4 id="the-intuition-of-backtracking-line-search">The intuition of Backtracking line search</h4>
+
+<blockquote>
+  <p>함수 \(f\)에 대한 quadratic approximatior는 다음과 같이 정의된다.
+\(f(y) \approx f(x) + \nabla f(x)^T(y-x) + \frac{1}{2t} \vert \vert  y - x \vert \vert_2^2\)
+이때, \(y = x - t \nabla f(x)\)라 하면,
+\(\begin{align}
+f(x - t \nabla f(x)) &amp;\approx f(x) + \nabla f(x)^T (x - t \nabla f(x) - x) + \frac{1}{2t} \vert \vert  x - t \nabla f(x) - x \vert \vert_2^2 \\
+&amp;= f(x) - t \vert \vert  \nabla f(x) \vert \vert_2^2 + \frac{1}{2t} \vert \vert  -t \nabla f(x) \vert \vert_2^2 \\
+&amp;= f(x) - t \vert \vert  \nabla f(x) \vert \vert_2^2 + \frac{1}{2}t \vert \vert  \nabla f(x) \vert \vert_2^2 \\
+&amp;= f(x) - \frac{1}{2}t \vert \vert  \nabla f(x) \vert \vert_2^2
+\end{align}\)</p>
+</blockquote>
+
+<p>즉, \(f(x) - \frac{1}{2}t \vert \vert  \nabla f(x) \vert \vert_2^2\)는 \(f(x - t \nabla f(x))\)의 quadratic approximator이다. 이 두 함수 사이의 부등호 방향에 따른 기하학적인 의미를 살펴보자.
+(빨간선: \(f(x - t \nabla f(x))\), 파란선: \(f(x) - \frac{1}{2}t \vert \vert  \nabla f(x) \vert \vert_2^2\))</p>
+
+<p><strong>(1) \(f(x - t \nabla f(x)) &lt; f(x) - \frac{1}{2}t \vert \vert  \nabla f(x) \vert \vert_2^2\)</strong></p>
+
+<figure class="image" style="align: center;">
+<p align="center">
+  <img src="/img/chapter_img/chapter06/06_02_02_f_leq_app.png" alt="f_leq_app" width="60%" height="60%" />
+  <figcaption style="text-align: center;">[Fig 3] f is less than the approximation of the next step</figcaption>
+</p>
+</figure>
+
+<p>Quadratic approximator가 \(x - t \nabla f(x)\)에서 더 위에 위치하는 형태이다. Quadratic approximatior의 solution에 접근하면 \(f(x)\)의 solution에 더 가까이 접근할 수 있음이 보장된다.</p>
+
+<p><strong>(2) \(f(x - t \nabla f(x)) &gt; f(x) - \frac{1}{2}t \vert \vert  \nabla f(x) \vert \vert_2^2\)</strong></p>
+
+<figure class="image" style="align: center;">
+<p align="center">
+  <img src="/img/chapter_img/chapter06/06_02_02_f_geq_app.png" alt="f_geq_app" width="60%" height="60%" />
+  <figcaption style="text-align: center;">[Fig 4] f is greater than the approximation of the next step</figcaption>
+</p>
+</figure>
+
+<p>(1)의 경우와는 반대되는 양상을 보인다. Quadratic approximatior의 solution을 통해 \(f(x)\)의 solution에 더욱 접근할 수 있음이 보장되지 않는다.</p>
+
+<p><strong>결론:</strong> 매 스텝에서 t 값을 잘 조정하여 항상 \(f(x - t \nabla f(x)) \leq f(x) - \frac{1}{2}t \vert \vert  \nabla f(x) \vert \vert_2^2\)를 만족하도록 하면 훨씬 효과적으로 \(f(x)\)의 solution에 접근할 수 있다.</p>
+
+        </article>
+    </div>
+</main>
+
+<main class="container">
+    <div class="content">
+        <article class="post-body">
+            <h1><a name="_page_5"></a>06-02-03 Exact line search</h1>
+            <p>Gradient descent에서 곡면의 특성에 맞춰 step size를 적응적으로 선택하는 방법 중 또 다른 하나가  <strong>exact line search</strong>이다.</p>
+
+<h4 id="exact-line-search-방법이란">Exact line search 방법이란?</h4>
+<p><strong>Exact line search</strong> 방법에서는 gradient 음수 방향의 직선을 따라가며 가장 좋은 step size를 선택한다.</p>
+
+<p>다음 식에서 알 수 있듯이 \(s\)는 0보다 큰 값으로 \(s\)를 키우면 다음 step 위치인 \(x - s \nabla f(x)\)도 현재 위치에서 멀어진다. 따라서, \(s\)를 키우면서 \(f\)가 최소가 되는 지점의 step size \(t\)를 찾을 수 있다.</p>
+
+<blockquote>
+  <p>\(t = argmin_{s \ge 0}\) \(f(x - s \nabla f(x) )\)</p>
+</blockquote>
+
+<p><strong>Exact line search</strong> 방법은 변수가 하나인 최소화 문제를 푸는 비용이 검색 방향을 계산하는 비용보다 저렴할 때 사용될 수 있지만, step size를 exhaustive하게 탐색하는 방식때문에 실용적이진 않다. 실제 <strong>backtracking</strong> 방법보다 효율적이지 않으며 잘 사용되지 않는다.</p>
+
+        </article>
+    </div>
+</main>
+
+<main class="container">
+    <div class="content">
+        <article class="post-body">
+            <h1><a name="_page_6"></a>06-03 Convergence analysis</h1>
+            <p>이 절에서는 <strong>Gradient descent</strong>의 수렴을 분석하려고 한다. 수렴을 위한 오차 상한은 fixed step size의 경우와 backtracking의 경우에 대해서 각각 살펴볼 것이다. 또한, Strong convexity를 만족할 때에 오차 상한에 대해서도 분석할 것이다.</p>
+
+        </article>
+    </div>
+</main>
+
+<main class="container">
+    <div class="content">
+        <article class="post-body">
+            <h1><a name="_page_7"></a>06-03-01 Convergence analysis & Proof</h1>
+            <p>\(f\)는 convex이고 differentiable하며 <strong>dom</strong> \(f = R^n\)일 때 다음 식을 만족한다고 하자.</p>
+
+<blockquote>
+  <p>\(\lVert \nabla f(x) - \nabla f(y) \rVert_2 \le L \lVert x - y \rVert_2\)  for any \(x, y\) and \(L \gt 0\) <br /></p>
+</blockquote>
+
+<p>\(\nabla f\)는 Lipschitz constant \(L\)에 대해  Lipschitz continuous하다고 말할 수 있다.</p>
+
+<p>참고 : [<a href="https://en.wikipedia.org/wiki/Lipschitz_continuity">(Wikipedia) Lipschitz continuity</a>]</p>
+
+<h2 id="convergence-theorem">Convergence Theorem</h2>
+<blockquote>
+  <p><strong>Gradient descent</strong>는 fixed step size \(t \le 1/L\)에 대해 다음 식을 만족한다. 
+\(\begin{align}
+f(x^{(k)}) - f^{*} \le  \frac{ \lVert x^{(0)} - x^{*} \rVert^2_2 }{2tk}
+\end{align}\)</p>
+</blockquote>
+
+<p>Gradient decent가 fixed step size일때 convergence rate \(O(1/k)\)가 된다. 또한, \(f(x^{(k)}) - f^{*} \le \epsilon\)라면 \(O(1/\epsilon)\)의 반복이 필요하다.</p>
+
+<h2 id="proof">Proof</h2>
+
+<p>\(\nabla f\)는 Lipschitz continuous하며 \(f\)는 Lipschitz constant \(L\)을 계수로 하는 2차 항으로 된 quadratic upper bound를 갖는다. (Upper bound의 증명은  <a href="/contents/chapter06/2021/03/20/06_03_02_convex_function_quardratic_upper_bound/">06-03-02</a> 절을 참조)</p>
+
+<blockquote>
+\[\begin{align}
+f(y) \le f(x) + \nabla f(x)^T (y-x) + \frac{L}{2} \lVert y - x \rVert^2_2  \space \space \forall x, y
+\end{align}\]
+</blockquote>
+
+<p>Gradient descent를 현재 위치 \(x\)에서 다음 위치 \(x^+ = x - t \nabla f(x)\)로 진행한다고 해보자. 위의 식에서 \(y = x^+\)라고 하고 전개해보자.</p>
+
+<blockquote>
+\[\begin{align}
+f(x^+) &amp; \le f(x) +  \nabla f(x)^T (x^+ - x) + \frac{L}{2} \lVert x^+ - x \rVert^2_2 \\\
+&amp; = f(x) +  \nabla f(x)^T (x - t \nabla f(x) - x) + \frac{L}{2} \lVert x - t \nabla f(x) - x \rVert^2_2 \\\
+&amp; = f(x) - t \nabla f(x)^T (\nabla f(x)) + \frac{L}{2} \lVert t \nabla f(x) \rVert^2_2 \\\
+&amp; =  f(x) - t \lVert \nabla f(x)) \rVert^2_2 + \frac{Lt^2}{2} \lVert \nabla f(x) \rVert^2_2 \\\
+&amp; =  f(x) - t ( 1 - \frac{Lt}{2} )\lVert \nabla f(x) \rVert^2_2 \\\
+&amp; \le f(x) -  \frac{t}{2} \lVert \nabla f(x) \rVert^2_2 \\\
+\end{align}\]
+</blockquote>
+
+<p>마지막 라인은 \(t \le 1/L\)이기 때문에 \(Lt/2 \lt 1/2\)이 된다. 따라서 다음과 같이 정리될 수 있으며 \(f(x^+) \lt f(x)\)임을 알 수 있다.</p>
+
+<blockquote>
+\[\begin{align}
+f(x^+) &amp; \le f(x) -  \frac{t}{2} \lVert \nabla f(x) \rVert^2_2 \\\
+\end{align}\]
+</blockquote>
+
+<p>\(f\)는 convex이기 때문에 다음과 같이 1차 미분의 특성을 만족한다. (즉, \(f\)는 convex이기 때문에 \(x\)에서의 접선보다 항상 윗쪽에 존재한다.)</p>
+
+<blockquote>
+\[\begin{align}
+f(y)  \ge f(x) + \nabla f(x)^T (y-x) \space \space \forall x,y \in \text{dom} (f) \\\
+\end{align}\]
+</blockquote>
+
+<p>이 식에서 \(y = x^{*}\)라고 하면 다음과 같이 정리된다.</p>
+
+<blockquote>
+\[\begin{align}
+f(x)  \le f(x^{*}) + \nabla f(x)^T (x-x^{*}) \\\
+\end{align}\]
+</blockquote>
+
+<p>이 convexity를 \(f(x^+)\) 식과 합쳐서 전개해보자.</p>
+
+<blockquote>
+\[\begin{align}
+f(x^+) &amp; \le f(x) -  \frac{t}{2} \lVert \nabla f(x) \rVert^2_2 \\\
+&amp; \le f(x^{*}) + \nabla f(x)^T (x-x^{*}) - \frac{t}{2} \lVert \nabla f(x) \rVert^2_2 \\\
+&amp; = f(x^{*}) + \frac{1}{2t} ( \lVert x - x^{*} \rVert^2_2 -  \lVert x - x^{*} \rVert^2_2 - t^2 \lVert \nabla f(x) \rVert^2_2 + 2t \nabla f(x)^T (x - x^{*}) )  \\\
+&amp; = f(x^{*}) + \frac{1}{2t} ( \lVert x - x^{*} \rVert^2_2 -  (x - x^{*})^T (x - x^{*}) - t^2 \nabla f(x)^T  \nabla f(x) + 2t \nabla f(x)^T (x - x^{*}) )  \\\
+&amp; = f(x^{*}) + \frac{1}{2t} ( \lVert x - x^{*} \rVert^2_2 -  [(x - x^{*})^T (x - x^{*}) + t^2 \nabla f(x)^T  \nabla f(x) - 2t \nabla f(x)^T (x - x^{*})] )  \\\
+&amp;= f(x^{*}) + \frac{1}{2t} ( \lVert x - x^{*} \rVert^2_2 -  [(x - t \nabla f(x)^T - x^{*})^T (x - t \nabla f(x)^T - x^{*})] )  \\\
+&amp; = f(x^{*}) + \frac{1}{2t} ( \lVert x - x^{*} \rVert^2_2 -  \lVert  x - t \nabla f(x)^T - x^{*} \rVert^2_2 )  \\\
+&amp; = f(x^{*}) + \frac{1}{2t} ( \lVert x - x^{*} \rVert^2_2 -  \lVert  x^+ - x^{*} \rVert^2_2 )  \\\
+\end{align}\]
+</blockquote>
+
+<p>마지막 단계는 \(x^+ = x - t \nabla f(x)\)이기 때문이다. 단계 \(i\)에 이 결과를 적용해 보면 다음과 같아진다.</p>
+<blockquote>
+\[\begin{align}
+f(x^{(i)}) - f(x^{*}) &amp; \le \frac{1}{2t} ( \lVert x^{(i-1)}  - x^{*} \rVert^2_2 -  \lVert  x^{(i)} - x^{*} \rVert^2_2 )  \\\
+\end{align}\]
+</blockquote>
+
+<p>따라서, 위의 식을 \(i = 1\)에서 \(k\)까지 더하면 다음과 같이 된다.</p>
+
+<blockquote>
+\[\begin{align}
+\sum_{i=1}^k f(x^{(i)}) - f(x^{*}) &amp; \le \sum_{i=1}^k \frac{1}{2t} ( \lVert x^{(i-1)}  - x^{*} \rVert^2_2 -  \lVert  x^{(i)} - x^{*} \rVert^2_2 )  \\\
+&amp; = \frac{1}{2t} ( \lVert x^{(0)}  - x^{*} \rVert^2_2 -  \lVert  x^{(k)} - x^{*} \rVert^2_2 )  \\\
+&amp; \le \frac{1}{2t} ( \lVert x^{(0)}  - x^{*} \rVert^2_2 )  \\\
+\end{align}\]
+</blockquote>
+
+<p>마지막 단계에서 각 \(i\)의 첫번째 항은 \(i-1\)의 두번째 항으로 소거되어 최종적으로 첫번째 항과 마지막 항만 남게 된다. \(f(x^{(k)})\)가 non-increasing임을 적용하여 정리해 보면 다음과 같다.</p>
+
+<blockquote>
+\[\begin{align}
+\frac{1}{k} \sum_{i=1}^k f(x^{(i)}) - f(x^{*}) \ge  \frac{1}{k} \sum_{i=1}^k f(x^{(k)}) - f(x^{*}) = f(x^{(k)}) - f(x^{*})
+\end{align}\]
+</blockquote>
+
+<p>이에 따라 최종 결과는 다음과 같다.</p>
+
+<blockquote>
+\[\begin{align}
+f(x^{(k)}) - f(x^{*}) \le \frac{1}{2tk} ( \lVert x^{(0)}  - x^{*} \rVert^2_2 )  \\\
+\end{align}\]
+</blockquote>
+
+<p>이로써 Gradient descent의 Convergence Theorm이 증명되었다.</p>
+
+        </article>
+    </div>
+</main>
+
+<main class="container">
+    <div class="content">
+        <article class="post-body">
+            <h1><a name="_page_8"></a>06-03-02 Convex function quardratic upper bound</h1>
+            <h2 id="quardratic-upper-bound">Quardratic upper bound</h2>
+<p>함수 \(f\)가 convex이고 \(\nabla f\)는 Lipschitz continuous하면 다음과 같은 quadratic upper bound를 갖는다. (단, \(L\)은 Lipschitz constant이다.)</p>
+
+<blockquote>
+\[\begin{align}
+f(y) &amp; \le f(x) + \nabla f(x)^T (y-x) + \frac{L}{2} \lVert y - x \rVert^2_2  \space \space \forall x, y
+\end{align}\]
+</blockquote>
+
+<p>또한, 다음 함수 \(g\)가 convex이면 함수 \(f\)는 quadratic upper bound를 갖는다.</p>
+
+<blockquote>
+\[\begin{align}
+g(x) &amp; = \frac{L}{2} \lVert x \rVert^2_2 - f(x) \space \text{is convex, } \space \forall x \space \space \text{with dom g = dom f }\\\
+\end{align}\]
+</blockquote>
+
+<h2 id="proof">Proof</h2>
+
+<h4 id="monotone-operator">Monotone Operator</h4>
+<p>함수 \(f\)는 convex이므로 다음과 같이 \(\nabla f(x)\)에 대한 monotone operator를 갖는다.</p>
+
+<blockquote>
+\[(\nabla f(y) - \nabla f(x))^T (y-x) \ge 0\]
+</blockquote>
+
+<p>[참고] Vector space \(X\)에서 operator \(T : X \to X^{*}\)가 다음 조건을 만족하면 monotone operator라고 한다.</p>
+
+<blockquote>
+  <p>\((Tu - Tv, u-v) \ge 0\), \(\forall u. v \in X\)</p>
+</blockquote>
+
+<h4 id="lipschitz-continuous">Lipschitz continuous</h4>
+<p>\(\nabla f\)는 다음과 같이 Lipschitz constant \(L\)에 대해  Lipschitz continuous하다.</p>
+
+<blockquote>
+  <p>\(\lVert \nabla f(x) - \nabla f(y) \rVert_2 \le L \lVert x - y \rVert_2\)  for any \(x, y\) and \(L \gt 0\)</p>
+</blockquote>
+
+<h4 id="g가-convex임을-증명">\(g\)가 convex임을 증명</h4>
+<p>이제 \(g(x) = \frac{L}{2} \lVert x \rVert^2_2 - f(x)\)가 convex임을 보이도록 하자.</p>
+
+<p>함수 \(f\)가 convex이고 \(\nabla f\)는 Lipschitz continuous이므로 Cauchy-Schwarz inequality를 적용해서 다음과 같이 식을 전개해 볼 수 있다.</p>
+
+<blockquote>
+
+\[\begin{align}
+(\nabla f(x) - \nabla f(y))^T (x-y) &amp; \le \lVert \nabla f(x) - \nabla f(y) \rVert \lVert x - y \rVert \le L \lVert x - y \rVert^2
+\end{align}\]
+</blockquote>
+
+<p>\(\nabla g(x) = Lx - \nabla f(x)\)이므로 위의 식에 \(\nabla f(x)\) 대신 \(Lx - \nabla g(x)\)를 대입해보자.</p>
+
+<blockquote>
+
+\[\begin{align}
+(Lx - \nabla g(x) - Ly + \nabla g(y))^T (x-y) &amp; = L(x-y)^T (x-y) - (\nabla g(x)  - \nabla g(y))^T (x-y) 
+ \le L \lVert x - y \rVert^2 \\\
+\end{align}\]
+</blockquote>
+
+<p>이제 이 식에서 \(\nabla g\)가 monotone operator가 되도록 좌변과 우변의 항들을 정리해보자.</p>
+
+<blockquote>
+
+\[\begin{align}
+L(x-y)^T (x-y) -  L \lVert x - y \rVert^2  &amp;\le (\nabla g(x)  - \nabla g(y))^T (x-y) \\\
+\end{align}\]
+</blockquote>
+
+<p>이 식의 좌변을 정리하면 다음과 같이 0이 된다.</p>
+<blockquote>
+
+\[\begin{align}
+L(x-y)^T (x-y) -  L \lVert x - y \rVert^2 &amp; = L(x-y)^T (x-y)  - L(x-y)^T (x-y)  = 0 
+\end{align}\]
+</blockquote>
+
+<p>따라서, \(\nabla g\)는 monotone operator이며 이에 따라 \(g\)는 convex라고 할 수 있다.</p>
+<blockquote>
+
+\[\begin{align}
+(\nabla g(x)  - \nabla g(y))^T (x-y) \ge 0
+\end{align}\]
+</blockquote>
+
+<h4 id="g가-convex일때-f가-quadratic-upper-bound를-가짐을-증명">\(g\)가 convex일때 \(f\)가 quadratic upper bound를 가짐을 증명</h4>
+<p>\(g\)가 convex이므로 다음과 같이 first order convexity 성질을 만족한다.</p>
+<blockquote>
+
+\[\begin{align}
+g(y) \gt g(x) + \nabla g(x)^T (y - x)
+\end{align}\]
+</blockquote>
+
+<p>\(g(x)\)를 좌변으로 넘기고 \(g(x) = \frac{L}{2} \lVert x \rVert^2_2 - f(x)\)와 \(\nabla g(x) = Lx - \nabla f(x)\)를 대입해보자.</p>
+<blockquote>
+
+\[\begin{align}
+\frac{L}{2} y^Ty - \frac{L}{2} x^Tx + f(x) - f(y) &amp; \ge (Lx - \nabla f(x))^T (y - x) \\
+&amp; = Lx^Ty - Lx^Tx - \nabla f(x)^T (y - x) \\
+\end{align}\]
+</blockquote>
+
+<p>\(f(y)\)를 우변으로 옮기고 나머지 항들을 좌변으로 옮겨보자.</p>
+
+<blockquote>
+
+\[\begin{align}
+\frac{L}{2}  (y^Ty  - 2 x^Ty + x^T x) + f(x) + \nabla f(x)^T (y - x)  \ge f(y) \\\
+\end{align}\]
+</blockquote>
+
+<p>이 식을 정리해 보면 다음과 같이 된다.</p>
+
+<blockquote>
+\[\begin{align}
+f(y) &amp; \le f(x) + \nabla f(x)^T (y-x) + \frac{L}{2} \lVert y - x \rVert^2_2  \space \space \forall x, y
+\end{align}\]
+</blockquote>
+
+<p>이로써 함수 \(f\)가 convex이고 \(\nabla f\)는 Lipschitz continuous하면 quadratic upper bound를 갖는다는 것이 증명되었다.</p>
+
+        </article>
+    </div>
+</main>
+
+<main class="container">
+    <div class="content">
+        <article class="post-body">
+            <h1><a name="_page_9"></a>06-03-03 Convergence analysis for backtracking</h1>
+            <p>\(f\)는 convex이고 differentiable하며 <strong>dom</strong> \(f = \mathbb{R}^n\)일 때 다음 식을 만족한다고 하자.</p>
+
+<blockquote>
+  <p>\(\lVert \nabla f(x) - \nabla f(y) \rVert_2 \le L \lVert x - y \rVert_2\)  for any \(x, y\) and \(L \gt 0\)</p>
+</blockquote>
+
+<p>\(\nabla f\)는 Lipschitz constant \(L\)에 대해  Lipschitz continuous하다고 말할 수 있다.[<a href="https://en.wikipedia.org/wiki/Lipschitz_continuity">(Wikipedia) Lipschitz continuity</a>]</p>
+<h2 id="convergence-theorem">Convergence Theorem</h2>
+
+<p><strong>Gradient descent</strong>는 backtracking line search에 대해 다음 식을 만족한다. Step size는 \(t_{\min} = \min\{1,β/L\}\)이다.</p>
+
+<blockquote>
+\[\begin{align}
+f(x^{(k)})−f^{\star} ≤ \frac{\lVert x^{(0)} − x^{\star} \rVert_{2}^{2}}{2 t_{\min}k}, \space t_{\min} = \min \{ 1,β/L \}
+\end{align}\]
+</blockquote>
+
+<p>Backtracking line search의 수렴 식은 fixsd step size 식과 거의 동일하여 분모의 step size인 \(t\)가 \(t_{\min}\)으로 대체되었다고 보면 된다. 만일 \(β\)가 너무 작지만 않다면 fixsd step size와 비교해서 성능 차이는 크지 않다. \((β/L\) vs. \(1/L)\)</p>
+
+        </article>
+    </div>
+</main>
+
+<main class="container">
+    <div class="content">
+        <article class="post-body">
+            <h1><a name="_page_10"></a>06-03-04 Convergence analysis under strong convexity</h1>
+            <p>함수 \(f\)가 다음 조건을 만족하게 되면 strongly convex하다고 할 수 있다. (단, \(f\)는 2번 미분가능해야 하며 상수 \(m\)은 양수이어야 한다.)</p>
+
+<blockquote>
+\[\begin{align}
+f(y) &amp;  \ge f(x) + \nabla f(x)^T(y−x) + \frac{m}{2} \lVert y−x \rVert_2^2, \space \forall x, y
+\end{align}\]
+</blockquote>
+
+<p>이 조건에서 함수 \(f\)가 2차 lower bound를 갖는다는 것을 알 수 있다. 이때,  2차 항의 계수는 상수 \(m\)으로 결정된다. (상수 m은 함수 \(f\)의 2차 미분 계수인 hessian의 최소 engenvalue이다.)</p>
+
+<p>다음과 같이 함수 \(g\)가 convex라면 함수 \(f\)를 strong-convex function이라고 할 수 있다. 이 조건은 위의 조건과 동치이다.</p>
+
+<blockquote>
+\[\begin{align}
+g(x) &amp; = f(x) − \frac{m}{2} \lVert x \rVert_2^2  \space \space \text{is convex} , \space \forall x \space  \text{and}  \space  m \gt 0  \\\
+\end{align}\]
+</blockquote>
+
+<h2 id="convergence-theorem">Convergence Theorem</h2>
+<p>Lipschitz continuous와 strong convexity 가정에 의하여 다음의 theorem이 성립한다. (이때, 상수 \(L\)은 Lipschitz constant이며 상수 \(m\)은 strong convexity를 만족할 때 quadratic term의 계수이다.)</p>
+
+<blockquote>
+  <p><strong>Gradient descent</strong>는 fixed step size(\(t ≤ 2/(m + L)\)) 또는 backtracking line search에 대해 다음 식을 만족한다.
+\(\begin{align}
+f(x^{(k)}) − f^{\star} ≤ c^k \frac{L}{2} \lVert x^{(0)} −x^{\star} \rVert_2^2, \text{where} \space  c = (1 - \frac{m}{L}), \space 0 \lt c \lt 1
+\end{align}\)</p>
+  <h2 id="proof">Proof</h2>
+  <p>\(\nabla f\)는 Lipschitz continuous하며 \(f\)는 Lipschitz constant \(L\)을 계수로 하는 2차 항으로 된 quadratic upper bound를 갖는다. (Upper bound의 증명은 <a href="/contents/chapter06/2021/03/20/06_03_02_convex_function_quardratic_upper_bound/">06-03-02</a> 절을 참조)</p>
+</blockquote>
+
+<blockquote>
+\[\begin{align}
+f(y) \le f(x) + \nabla f(x)^T (y-x) + \frac{L}{2} \lVert y - x \rVert^2_2  \space \space \forall x, y
+\end{align}\]
+</blockquote>
+
+<p>Gradient descent를 현재 위치 \(x\)에서 다음 위치 \(x^+ = x - t \nabla f(x)\)로 진행한다고 해보자. 위의 식에서 \(y = x^+\)라고 하고 전개해보자.</p>
+
+<blockquote>
+\[\begin{align}
+f(x^+) &amp; \le f(x) +  \nabla f(x)^T (x^+ - x) + \frac{L}{2} \lVert x^+ - x \rVert^2_2 \\\
+&amp; = (x) +  \nabla f(x)^T (x - t \nabla f(x) - x) + \frac{L}{2} \lVert x - t \nabla f(x) - x \rVert^2_2 \\\
+&amp; = f(x) - t \nabla f(x)^T (\nabla f(x)) + \frac{L}{2} \lVert t \nabla f(x) \rVert^2_2 \\\
+&amp; =  f(x) - t \lVert \nabla f(x)) \rVert^2_2 + \frac{Lt^2}{2} \lVert \nabla f(x) \rVert^2_2 \\\
+\end{align}\]
+</blockquote>
+
+<p>이 식을 \(t\)에 대해 미분을 해보면 \(t = 1/L\)일때 최소가 된다. 따라서, 이 식에 \(t = 1/L\)을 대입하면 다음 식을 얻게 된다.</p>
+
+<blockquote>
+\[\begin{align}
+f(x^+) &amp; \le f(x) -  \frac{1}{2L} \lVert \nabla f(x) \rVert^2_2 \\\
+\end{align}\]
+</blockquote>
+
+<p>양변에서 \(f(x^{*})\)을 빼보자.</p>
+
+<blockquote>
+\[\begin{align}
+f(x^+) - f(x^{*}) &amp; \le f(x) - f(x^{*}) -  \frac{1}{2L} \lVert \nabla f(x) \rVert^2_2 \\\
+\end{align}\]
+</blockquote>
+
+<p>Gradient Descent는 아래 조건을 만족하므로 이 조건을 \(2m(f(x) - f(x^{*})) \le \lVert \nabla f(x) \rVert^2_2\)와 같이 정리해서 위의 식에 대입한다.</p>
+<blockquote>
+\[\begin{align}
+f(x) - f(x^{*}) \le \frac{1}{2m} \lVert \nabla f(x) \rVert^2_2 \\\
+\end{align}\]
+</blockquote>
+
+<p>그러면 다음 식과 같이 정리가 되며 이때 \(c = (1 - \frac{m}{L})\)라고 하자.</p>
+<blockquote>
+\[\begin{align}
+f(x^+) - f(x^{*}) &amp; \le f(x) - f(x^{*}) -  \frac{m}{L} ( f(x) - f(x^{*}) ) \\\
+&amp; =  (1 -  \frac{m}{L} ) ( f(x) - f(x^{*}) ) \\\
+&amp; = c  ( f(x) - f(x^{*}) ) \\\
+\end{align}\]
+</blockquote>
+
+<p>이 식을 반복하게 되면  다음의 관계를 얻을 수 있다.</p>
+
+<blockquote>
+\[\begin{align}
+f(x^{(k)}) - f(x^{*}) &amp; \le c^k ( f(x^{(0)}) - f(x^{*}) ) \\\
+\end{align}\]
+</blockquote>
+
+<p>다음 함수의 Taylor 식에 \(y = x^{(0)}\)을 \(x = x^{*}\)을 대입해 보자.</p>
+
+<blockquote>
+\[\begin{align}
+f(y) \le f(x) + \nabla f(x)^T (y-x) + \frac{L}{2} \lVert y - x \rVert^2_2  \space \space \forall x, y
+\end{align}\]
+</blockquote>
+
+<p>함수가 Convex이므로 \(\nabla f(x^{*})\)는 0이 되며 식은 다음과 같이 정리된다.</p>
+
+<blockquote>
+\[\begin{align}
+f(x^{(0)}) &amp; \le f(x^{*}) + \nabla f(x^{*})^T (x^{(0)}- x^{*} ) + \frac{L}{2} \lVert x^{(0)} - x^{*} \rVert^2_2 \\\\
+&amp; =  f(x^{*}) + \frac{L}{2} \lVert x^{(0)} - x^{*} \rVert^2_2 \\\\
+\end{align}\]
+</blockquote>
+
+<p>\(f(x^{*})\)를 좌변으로 넘기면 다음과 같이 정리된다.</p>
+
+<blockquote>
+\[\begin{align}
+f(x^{(0)}) - f(x^{*}) &amp; \le \frac{L}{2} \lVert x^{(0)} - x^{*} \rVert^2_2 \\\\
+\end{align}\]
+</blockquote>
+
+<p>이 식를 위의 식에 대입해 보자.</p>
+
+<blockquote>
+\[\begin{align}
+f(x^{(k)}) - f(x^{*}) &amp; \le c^k \frac{L}{2} \lVert x^{(0)} - x^{*} \rVert^2_2  \\\
+\end{align}\]
+</blockquote>
+
+<p>이로써 Strong Convexity를 만족할 때 Gradient descent의 Convergence Theorm이 증명되었다.</p>
+
+<h2 id="linear-convergence">Linear convergence</h2>
+<p>\(f\)가 strongly convex일 경우 convergence rate는 (\(O(c^k)\))가 되어 기하급수적으로 빨라진다. 
+또한, \(f(x^{(k)}) - f^{*} \le \epsilon\)라면 \(O(\log(1/\epsilon)\)의 반복이 필요하다. 
+(\(f\)가 strongly convex가 아닐 경우 \(O(1/\epsilon)\) 반복이 필요했다.)</p>
+
+<p>수렴 속도 \(O(c^k)\)는 아래 그림과 같이 semi-log plot에서 선형처럼 보이므로 선형적 수렴(linear convergence)이라고도 부른다.</p>
+
+<figure class="image" style="align: center;">
+<p align="center">
+  <img src="/img/chapter_img/chapter06/06.03_01_01_Line_Convergence.png" alt="Line_Convergence" width="60%" height="60%" />
+  <figcaption style="text-align: center;">[Fig 1] Linear convergence [1]</figcaption>
+</p>
+</figure>
+
+<p>\(O(c^k)\)에서 상수 c는 \(1 - \frac{m}{L}\)로 condition number \(L/m\)에 따라 달라진다. Condition number가 커질수록 속도가 느려진다. (Condition number = largest engenvalue / smallest engenvalue이다.)</p>
+
+
+        </article>
+    </div>
+</main>
+
+<main class="container">
+    <div class="content">
+        <article class="post-body">
+            <h1><a name="_page_11"></a>06-03-05 A look at the conditions & Practicalities</h1>
+            <h2 id="lipschitz-continuity--strong-convexity-conditions">Lipschitz continuity &amp; Strong convexity conditions</h2>
+<p>\(f(β) = \frac{1}{2} \lVert y−Xβ \rVert_2^2\)를 예로 Lipschitz continuity와 Strong convexity에 대한 조건을 살펴보자</p>
+
+<h4 id="lipschitz-continuity-of-f-">Lipschitz continuity of \(∇f\) :</h4>
+<ul>
+  <li>\(\nabla^2f(x) \preceq LI\)를 의미한다. <br /></li>
+  <li>\(∇^2f(β) = X^TX\)이므로 \(L = \sigma^2_{max}(X)\) 이다.<br /></li>
+</ul>
+
+<h4 id="strong-convexity-of-f-">Strong convexity of \(f\) :</h4>
+<ul>
+  <li>\(\nabla^2f(x) \succeq mI\)를 의미한다.<br /></li>
+  <li>\(\nabla^2f(β) = X^TX\)이므로, \(m = \sigma_{min}^2(X)\)이다.<br /></li>
+  <li>만약 \(X\)가 \(n \times p\) 행렬일 때 \(p &gt; n\)이면 \(\sigma_{min}(X) = 0\)이 되어, \(f\)는 strongly convex일 수 없다.<br /></li>
+  <li>\(\sigma_{min}(X) &gt; 0\)이더라도 condition number \(L/m = \sigma_{max}^2(X)/\sigma_{min}^2(X)\)가 매우 클 수 있다.</li>
+</ul>
+
+<p>함수 \(f\)가 strongly convex하고 Lipschitz gradient를 갖는다면 다음을 만족한다. \(f\)가 두 2차 방정식 사이에 있다고 생각하면 된다.</p>
+
+<blockquote>
+  <p>\(mI \preceq \nabla^2f(x) \preceq LI \text{ for all } x ∈ \mathbb{R}^n\) and \(L &gt; m &gt; 0\)</p>
+</blockquote>
+
+<p>모든 \(x\)에 대해 두 조건을 만족한다는 것은 매우 강력한 것일 수 있다. 하지만 좀 더 고민해보면 다음의 sublevel set에 대해서만 이 조건이 필요하다는 것을 알 수 있다.</p>
+
+<blockquote>
+\[S = {x : f(x) \leq f(x^{(0)})}\]
+</blockquote>
+
+<h2 id="practicalities">Practicalities</h2>
+<h4 id="stopping-rule-lvert-fx-rvert_2가-작을-때-종료한다">Stopping rule: \(\lVert ∇f(x) \rVert_2\)가 작을 때 종료한다.</h4>
+<p>\(x^{\star}\)가 해라면 \(\nabla f(x^{\star}) = 0\)이다. 만약  \(f\)가 strong convex라면 다음과 같다.</p>
+<blockquote>
+  <p>\(\lVert \nabla f(x) \rVert_2 ≤ \sqrt{2m \epsilon} ⇒ f(x)−f^{\star} ≤ \epsilon\) &lt;/br&gt;</p>
+</blockquote>
+
+<h4 id="참고-유도과정">[참고] 유도과정</h4>
+<p>위의 식이 도출되는 과정은 다음과 같다.
+\(f\)가 Strong Convexity를 만족하므로 다음과 같은 상수 \(m \ge 0\)이 존재한다.</p>
+<blockquote>
+\[\begin{align}
+\nabla^2 f(x) \succeq mI \\
+\end{align}\]
+</blockquote>
+
+<p>함수 \(f\)를 2차 Talyor 식으로 전개해보자.</p>
+<blockquote>
+\[\begin{align}
+f(y) = f(x) + \nabla f(x)^T(y−x) + \frac{1}{2} (y−x)^T \nabla^2 f(x) (y−x), \space \forall x, y
+\end{align}\]
+</blockquote>
+
+<p>그러면, 위의 \(\nabla f(x) \succeq mI\)에 따라 마지막 항을 lower bound 조건으로 정리할 수 있다.</p>
+<blockquote>
+\[\begin{align}
+f(y) &amp;  \ge f(x) + \nabla f(x)^T(y−x) + \frac{m}{2} \lVert y−x \rVert_2^2, \space \forall x, y
+\end{align}\]
+</blockquote>
+
+<p>\(f(y)\)를 \(y\)에 대해서 미분을 하면 \(\tilde{y} = x - (1/m) \nabla f(x)\)가 된다. \(\tilde{y}\)를 Tayor 전개에 대입해 보면 다음과 같다.</p>
+
+<blockquote>
+\[\begin{align}
+f(y) &amp;  \ge f(x) + \nabla f(x)^T(\tilde{y}−x) + \frac{m}{2} \lVert \tilde{y}−x \rVert_2^2 \\
+&amp;  = f(x) - \frac{1}{2m} \lVert \nabla f(x) \rVert_2^2
+\end{align}\]
+</blockquote>
+
+<p>따라서, \(f(y)\)를 \(f^{*}\)로 대체하면 다음과 같이 정리될 수 있다.</p>
+<blockquote>
+\[\begin{align}
+ f^{*}  \ge f(x) - \frac{1}{2m} \lVert \nabla f(x) \rVert_2^2
+\end{align}\]
+</blockquote>
+
+<p>위의 Stopping rule이 다음과 같이 도출되었다.</p>
+
+<blockquote>
+\[\begin{align}
+f(x) - f^{*} \le \frac{1}{2m} \lVert \nabla f(x) \rVert^2_2 &amp; \le \epsilon \\
+\lVert \nabla f(x) \rVert^2_2 &amp; \le 2m\epsilon \\
+\lVert \nabla f(x) \rVert_2 &amp; \le \sqrt{2m\epsilon} \\
+\end{align}\]
+</blockquote>
+
+<h3 id="gradient-descent의-장단점">Gradient descent의 장단점</h3>
+
+<h4 id="pros">Pros</h4>
+<ul>
+  <li>알고리즘이 단순하며 iteration의 비용이 낮다.</li>
+  <li>Well-conditioned, strongly convex 문제에 대해서는 매우 빠르다.</li>
+</ul>
+
+<h4 id="cons">Cons</h4>
+<ul>
+  <li>많은 문제가 strongly convex이거나 well-conditioned가 아니기 때문에 일반적으로 느리다.</li>
+  <li>미분 불가 함수는 다룰 수 없다.</li>
+</ul>
+
+        </article>
+    </div>
+</main>
+
+<main class="container">
+    <div class="content">
+        <article class="post-body">
+            <h1><a name="_page_12"></a>06-03-06 Can we do better?</h1>
+            <p>Gradient descent는 Lipschitz gradients를 가지며 convex이고 differentiable한 함수로 표현되는 문제에 대해 \(O(1/\epsilon)\) 수렴 속도를 갖는다. Gradient descent보다 더 빠른 first-order method가 있을까?</p>
+
+<h4 id="first-order-method">First-order method</h4>
+<p>First-order method는 \(x^{(k)}\)번째 반복에서 다음과 같이 변경을 표현할 수 있다. 따라서, \(x^{(k)}\)번째 반복에서의 변경은 초기 위치 \(x^{(0)}\)와 \(x^{(0)}\)에서 \(x^{(k−1)}\)까지의 gradient span으로 표현된다.</p>
+
+<blockquote>
+  <p>\(x^{(0)} +\) <strong>span</strong>\(\{∇f(x^{(0)}),∇f(x^{(1)}),...,∇f(x^{(k−1)})\}\)</p>
+</blockquote>
+
+<h4 id="theorem-nesterov">Theorem (Nesterov)</h4>
+<p>Nesterov theorem은 first-order method의 수렴에 대한 lower bound를 제시한다.</p>
+
+<blockquote>
+  <p><strong>Nesterov Theorem</strong> 임의의 \(k ≤ (n−1)/2\)와 시작점 \(x^{(0)}\)에 대해, 임의의 first-order method가 다음 조건을 만족하게 하는 함수 \(f\)가 존재한다. (\(n\)은 차원을 의미한다.)<br />
+\begin{align}
+f(x^{(k)})−f^{\star} ≥ \frac{3L \lVert x^{(0)} −x^{\star} \rVert_2^2}{32(k + 1)^2 }\<br />
+\end{align}</p>
+</blockquote>
+
+<p>Nesterov theorem의 lower bound의 분모에 \(k^2\)이 있으므로 수렴 속도 \(O(1/k^2)\)가 된다. 그리고, 반복 회수는 \(O(1/\sqrt{\epsilon})\)가 된다. 이에 대한 내용은 나중에 자세히 살펴볼 것이다.</p>
+
+        </article>
+    </div>
+</main>
+
+<main class="container">
+    <div class="content">
+        <article class="post-body">
+            <h1><a name="_page_13"></a>06-04 Gradient boosting</h1>
+            <h1 id="gradient-boosting">Gradient boosting</h1>
+
+<p><strong>Gradient boosting</strong>은 여러 트리로 구성된 앙상블 모델로 결과를 예측하려고 할 때,  gradient descent를 이용해서 순차적으로 트리를 만들어가며 이전 트리의 오차를 보완하는 방식으로 boosting을 하는 방법이다. <strong>Gradient Boosting</strong>은 회귀와 분류에 모두 사용할 수 있다.</p>
+
+<ul>
+  <li>자세한 내용은 <a href="https://medium.com/mlreview/gradient-boosting-from-scratch-1e317ae4587d">Gradient Boosting from scratch</a> 블로그 참조</li>
+</ul>
+
+<h4 id="참고-functional-gradient-descent-알고리즘">[참고] Functional gradient descent 알고리즘</h4>
+<p><strong>Gradient boosting</strong>은 Llew Mason, Jonathan Baxter, Peter Bartlett and Marcus Frean에 의해 functional gradient descent 알고리즘으로 소개되었다.  Functional gradient descent 알고리즘은 함수 공간에 대해서 loss function을 최적화하는 알고리즘으로 gradient의 음수 방향을 갖는 함수를 반복적으로 선택함으로써 gradient decent를 수행한다.</p>
+
+<ul>
+  <li>자세한 내용은 <a href="https://en.wikipedia.org/wiki/Gradient_boosting">Gradient Boosting</a> 참조</li>
+</ul>
+
+<h4 id="참고-boosting과-bagging">[참고] Boosting과 Bagging</h4>
+<p><strong>Boosting</strong>은 weak learner를 순차적으로 생성해서 결과를 예측하는 앙상블 기법이다. 이전 단계의 learner가 잘못 예측한 데이터를 다음 단계의 learner가 학습해서 순차적으로 생성된 learner들의 결과를 취합해서 최종 결과로 만든다.</p>
+
+<p><strong>Bagging</strong>은 weak learner를 서로 독립적으로 생성해서 결과를 예측하는 앙상블 기법이다. 따라서, 각 learner들은 병렬적으로 실행이 되고 그 결과를 취합해서 최종 결과로 만든다.</p>
+
+<ul>
+  <li>자세한 내용은 <a href="https://quantdare.com/what-is-the-difference-between-bagging-and-boosting/">What is the difference between Bagging and Boosting?</a>  블로그 참조
+    <h2 id="gradient-boosting-1">Gradient Boosting</h2>
+    <p><strong>Gradient Boosting</strong>이 어떻게 만들어지게 되었는지 그 배경에 대해 살펴보도록 하자.</p>
+  </li>
+</ul>
+
+<p>트리로 구성된 앙상블 모델이 있고 분류에 사용한다고 가정해 보자. 이 모델은 관측값과의 오차가 최소화 되는 결과를 예측하고자 할 것이다. 관측값은 \(y_i\), \(i=1,\dots,n\)로, 입력 데이터는 \(x_i, i=1,\dots,n\)로, 예측값은 \(u_i\), \(i=1,\dots,n\)라고 하자.</p>
+
+<p>아래 그림과 같이 앙상블에 소속된 각 트리는 \(x_i \in R^p\)를 입력으로 받아 트리의 노드에 있는 분기 조건에 따라 결과를 출력하게 된다.</p>
+
+<figure class="image" style="align: center;">
+<p align="center">
+  <img src="/img/chapter_img/chapter06/06_04_tree_O9zyAlk.png" alt="tree_O9zyAlk" width="80%" height="80%" />
+  <figcaption style="text-align: center;">$$\text{[Fig 1] Example of Tree }T_j\text{ [3]}$$</figcaption>
+</p>
+</figure>
+
+<p>앙상블 모델의 예측값 \(u_i\)는 각 트리의 결과를 가중 합산해서 계산할 수 있다. (여기서 \(T_j(x_i)\)는 트리 \(j\)가 \(x_i\)를 입력으로 받아 출력한 결과이다.)</p>
+
+<blockquote>
+
+\[\begin{equation}
+u_i = \sum_{j=1}^M \beta_j T_j(x_i) 
+\end{equation}\]
+</blockquote>
+
+<p>Loss 함수의 경우 관측값과 예측값의 오차가 최소화되도록 오차 제곱의 합 형태인 \(L=(y_i,u_i)=(y_i - u_i)^2\)로 정의할 수 있다.</p>
+<blockquote>
+
+\[\begin{equation}
+\min_{\beta} \sum_{i=1}^n L\left(y_i, \sum_{j=1}^M \beta_j T_j(x_i)\right)
+\end{equation}\]
+</blockquote>
+
+<p>일반적으로 앙상블 모델에서 트리 구성을 할 때는 고정 depth를 갖는 작은 트리를 아주 여러개 만든다. 왜냐하면 트리를 작게 하면 메모리도 적게 사용하고 예측도 빠르게 할 수 으며 트리의 개수가 많아질 수록 앙상블의 성능은 좋아지게 되기 때문이다. 일반적으로 트리의 depth는 5이하로 고정한다.</p>
+
+<p>따라서, 이 문제의 경우 각 트리에 정의된 노드 조건이 매우 다양하고 아주 많은 트리의 결과가 선형 결합되기 때문에 트리 공간이 상당히 크다. 따라서, 최적화를 하기가 매우 어려운 문제라고 할 수 있다.</p>
+
+<p>이 문제를 풀려면 최적화 문제를 좀 더 쉬운 문제로 바꿔야 한다. 원래 최적화 문제는 Loss 함수를 최소화하는 \(M\)개의 가중치 \(\beta_j\)를 찾는 문제이다. 이 문제를 예측값 \(u\)에 대한 함수 \(f(u)\)를 최소화 문제 \(\min_{u} f(u)\)로 생각해 보자. 함수 \(f(u)\)가 Loss 함수 \(L(y,u)\)라고 하면 Loss 함수를 최소화 하는 \(u\)를 찾는 것이 쉽게 재정의된 문제라고 할 수 있다. (여기서 \(n\)은 데이터 개수이다.)</p>
+
+<p><strong>Gradient boosting</strong>는 \(\min_{u} f(u)\)로 재정의된 최소화 문제를 gradient descent를 이용해서 풀는  기법을 말한다.</p>
+
+<h2 id="algorithm">Algorithm</h2>
+<p><strong>Gradient boosting</strong> 알고리즘은 \(\min_u L(y, u)\)의 최적해 \(u^*\)를 찾기 위해 다음과 같은 방식으로 gradient descent를 수행한다.</p>
+
+<ol>
+  <li>
+    <p>초기 값은 임의의 트리의 결과 값으로 \(u^{(0)}=T_0\)와 같이 설정한다. 그리고, 다음의 2~4 단계를 반복한다.</p>
+  </li>
+  <li>\(n\)개의 데이터의 가장 최근의 예측값인 \(u^{(k-1)}\)에 대한 음수 gradient를 계산한다.
+    <blockquote>
+
+\[\begin{equation}
+d_i = - \left . \left[ \frac{\partial L(y_i,u_i)}{\partial u_i} \right] \right|_{u_i = u_i^{(k-1)}}, i=1,\dots,n
+\end{equation}\]
+    </blockquote>
+  </li>
+  <li>\(n\)개 데이터에 대한 gradient \(d_i\)와 트리의 결과 \(T(x_i)\)가 가장 비슷한 트리 \(T_k\)를 찾는다.
+    <blockquote>
+
+\[\begin{equation}
+\min_{\text{trees } T} \sum_{i=1}^n (d_i-T(x_i))^2
+\end{equation}\]
+    </blockquote>
+  </li>
+  <li>Step size \(a_k\)를 계산하고 위에서 찾은 \(T_k\)를 이용하여 예측값을 업데이트한다.
+    <blockquote>
+
+\[u^{(k)}=u^{(k-1)} + \alpha_k T_k\]
+    </blockquote>
+  </li>
+</ol>
+
+<p>이 알고리즘은 gradient descent로 최적해 \(u^*\)를 찾기 위해 \(u\)에 대한 gradient \(d\)를 구하고, \(d\)에 가장 가까운 \(T_k\)를 찾아서 업데이트 식에 gradient 대신 \(T_k\)를 대입해서 다음 위치를 구한다.</p>
+
+<p>이렇게 해서 구한 최종 예측값 \(u^*\)는 앞에서 정의했던 트리 결과의 가중 합산과 동일해짐을 알 수 있다. (즉, 재귀식 형태의 업데이트 식 \(u^{(k)}=u^{(k-1)} + \alpha_k T_k\)을 \(k=0\)까지 풀어보면 \(u^* = \sum_{k=1}^n \alpha_k T_k\)가 되어 트리 결과의 가중 합산 형태로 만들 수 있다. )</p>
+
+
+        </article>
+    </div>
+</main>
+
+<main class="container">
+    <div class="content">
+        <article class="post-body">
+            <h1><a name="_page_14"></a>06-05 Stochastic gradient descent</h1>
+            <p>다음과 같이 함수의 합을 최소화하는 문제를 고려해보자.</p>
+<blockquote>
+
+\[\begin{equation}
+\min_x \sum_{i=1}^m f_i(x)
+\end{equation}\]
+</blockquote>
+
+<p>이 문제에 gradient descent를 적용한다면 각 함수 \(f_i\)에 대해 gradient를 구해서 합산을 해야 한다. (즉,  함수의 합에 대한 gradient는 각 함수의 gradient의 합과 같다.)</p>
+<blockquote>
+
+\[\nabla \sum_{i=1}^m f_i(x) = \sum_{i=1}^m \nabla f_i(x)\]
+</blockquote>
+
+<p>이 결과를 다음 식에 적용해서 다음 위치로 이동한다. 따라서, 한 step을 이동할 때마다 전체 함수에 대해 gradient를 구해야 한다는 것을 알 수 있다.</p>
+<blockquote>
+
+\[\begin{equation}
+x^{(k)} = x^{(k-1)} - t_k \cdot \sum_{i=1}^{m} \nabla f_i (x^{(k-1)}), \,  k=1,2,3,\dots
+\end{equation}\]
+</blockquote>
+
+<p>Gradient descent는 모든 함수들의 gradient를 구한 후에 한번에 업데이트를 수행하게 된다. 이런 이유로 gradient descent는 배치 업데이트(batch update) 방식이라고 부른다. 배치 업데이트의 경우 함수의 개수 많아질수록 계산 오버헤드가 크게 증가하는 단점이 있다.</p>
+
+<h2 id="stochastic-gradient-descent">Stochastic gradient descent</h2>
+<p>이에 반해, <strong>Stochastic gradient descent (SGD)</strong> 방식은 다음 위치를 찾을 때 한 함수의 gradient만을 구해서 찾는다. 다음 식에서와 같이 SGD에서는 \(k\)번째 iteration에서 하나의 함수 인덱스 \(i_k\)를 선택해서 업데이트를 한다.</p>
+<blockquote>
+
+\[\begin{equation}
+x^{(k)} = x^{(k-1)} - t_k \cdot \nabla f_{i_k} (x^{(k-1)}), \, i_k \in \{1,2,\dots,m\}
+\end{equation}\]
+</blockquote>
+
+<p>함수 인덱스 \(i_k\)는 다음 두 가지 방식으로 선택할 수 있다.</p>
+
+<ul>
+  <li><strong>순환 업데이트 (Cyclic rule)</strong>: 모든 함수의 인덱스를 동일한 순서로 주기적으로 반복해서 선택하는 방법 \(i_k = 1,2,\dots,m, 1,2,\dots,m, ...\)</li>
+  <li><strong>랜덤 업데이트 (Randomized rule)</strong>: 함수의 인덱스를 균등하게 랜덤하게 선택하는 방법 \(i_k \in \{1,2,\dots,m\}\)</li>
+</ul>
+
+<p>일반적으로 랜덤 업데이트 방식을 더 많이 사용한다.</p>
+
+<h2 id="convergence-of-stochastic-gradient-descent">Convergence of stochastic gradient descent</h2>
+
+<p><strong>Gradient descent (GD)</strong>와 <strong>Stochastic gradient descent (SGD)</strong> 방식은 어떤 차이가 있을까? 계산적으로 보면 GD는 배치 방식으로 한번에 업데이트를 하는 반면, SGD 방식에서는 \(m\)번의 업데이트를 하게 된다. 즉, m stochastic steps \(\approx\) one batch step이 된다.</p>
+
+<p>그렇다면 업데이트 진행 과정에서는 어떤 차이가 있을까?</p>
+
+<p>SGD의 경우 \(k\) step에서 \(k+m\) step으로 m번의 업데이트를 했을 경우 다음과 같이 진행이 된다.</p>
+<blockquote>
+
+\[\begin{equation}
+\text{SGD Cycle rule : } \quad x^{(k+m)} = x^{(k)} - t_k \cdot \sum_{i=1}^{m} \nabla f_i (x^{(k+i-1)})
+\end{equation}\]
+</blockquote>
+
+<p>GD의 경우 \(k\) step에서 \(k+1\) step으로 한번의 업데이트를 했을 경우 다음과 같이 진행이 된다.</p>
+
+<blockquote>
+
+\[\begin{equation}
+\text{GD Batch : } \quad x^{(k+1)} = x^{(k)} - t_k \cdot \sum_{i=1}^{m} \nabla f_i (x^{(k)})
+\end{equation}\]
+</blockquote>
+
+<p>따라서, 두 업데이트 방식으로 최적값을 탐색할 경우 방향은 아래와 같은 차이를 보이게 된다.</p>
+<blockquote>
+
+\[\begin{equation}
+\sum_{i=1}^{m}[ \nabla f_i (x^{(k+i-1)}) - \nabla f_i (x^{(k)})]
+\end{equation}\]
+</blockquote>
+
+<p>만일 각  \(\nabla f_i(x)\)가 \(x\)에 대해서 크게 변하지 않는다면 즉, Lipschitz continuous하다면 SGD는 수렴하게 되며 결과적으로 위의 두 방식은 동일한 최적해로 수렴하게 된다.</p>
+
+<p>경험적으로 SGD 방식은 최적점에서 멀리 떨어져 있을 때는 효과적으로 동작하지만 최적점에 가깝게 왔을 때는 수렴에 어려움을 겪는 것으로 알려져 있다.</p>
+
+        </article>
+    </div>
+</main>
+
+
+
+
+      </div>
+    </div>
+
+    <label for="sidebar-checkbox" class="sidebar-toggle"></label>
+
+    <script src='/public/js/script.js'></script>
+  </body>
+</html>
