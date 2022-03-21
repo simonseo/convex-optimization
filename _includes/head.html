@@ -10,6 +10,26 @@
       overflow-x: auto;
       overflow-y: hidden;
     }
+@media print {
+
+    .container {
+        padding: 0;
+        max-width: unset;
+        break-after: page;
+        break-before: page;
+    }
+    .content {
+        padding: 0;
+    }
+    .masthead {
+        display: none;
+    }
+    .sidebar-toggle {
+        display: none;
+    }
+
+
+}
   </style>
   <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js"></script>
 
