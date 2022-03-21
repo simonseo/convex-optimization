@@ -1,6 +1,1449 @@
----
-layout: page
-title: "Convex Functions"
-chapter: "03"
-owner: "Kyeongmin Woo"
----
+<!DOCTYPE html>
+<html lang="en-us">
+
+  <head>
+  <link href="http://gmpg.org/xfn/11" rel="profile">
+  <meta http-equiv="content-type" content="text/html; charset=utf-8">
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
+
+  <style>
+    .MathJax {
+      padding: 2em 0.3em;
+      overflow-x: auto;
+      overflow-y: hidden;
+    }
+@media print {
+
+    .container {
+        padding: 0;
+        max-width: unset;
+        break-after: page;
+        break-before: page;
+    }
+    .content {
+        padding: 0;
+    }
+    .masthead {
+        display: none;
+    }
+    .sidebar-toggle {
+        display: none;
+    }
+
+
+}
+  </style>
+  <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js"></script>
+
+  <title>
+    
+      Convex Functions &middot; 모두를 위한 컨벡스 최적화
+    
+  </title>
+
+  <link rel="stylesheet" href="/public/css/poole.css">
+  <link rel="stylesheet" href="/public/css/syntax.css">
+  <link rel="stylesheet" href="/public/css/lanyon.css">
+  <link rel="stylesheet" href="/public/css/github-markdown.css">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=PT+Serif:400,400italic,700%7CPT+Sans:400">
+
+  <link rel="apple-touch-icon-precomposed" sizes="122x144" href="https://convex-optimization-for-all.github.io/public/logo.png">
+  <link rel="shortcut icon" href="https://convex-optimization-for-all.github.io/public/convex-logo-144x144.png">
+
+  <link rel="alternate" type="application/rss+xml" title="RSS" href="https://convex-optimization-for-all.github.io/atom.xml">
+
+  
+  <script>
+    (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+    (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+    m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+    })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+    ga('create', 'UA-189737072-1', 'auto');
+    ga('send', 'pageview');
+  </script>
+  
+</head>
+
+
+  <body class="sidebar-overlay">
+
+    <!-- Target for toggling the sidebar `.sidebar-checkbox` is for regular
+     styles, `#sidebar-checkbox` for behavior. -->
+<input type="checkbox" class="sidebar-checkbox" id="sidebar-checkbox">
+
+<!-- Toggleable sidebar -->
+<div class="sidebar" id="sidebar">
+  <div class="sidebar-item">
+    <p>모두를 위한 컨벡스 최적화</p>
+  </div>
+
+  <nav class="sidebar-nav">
+    <a class="sidebar-nav-item" href="https://convex-optimization-for-all.github.io/">Home</a>
+
+    
+
+    
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+        
+          <a class="sidebar-nav-item" href="https://convex-optimization-for-all.github.io/contents/chapter01/">01. Introduction</a>
+        
+      
+    
+      
+        
+          <a class="sidebar-nav-item" href="https://convex-optimization-for-all.github.io/contents/chapter02/">02. Convex Sets</a>
+        
+      
+    
+      
+        
+          <a class="sidebar-nav-item active" href="https://convex-optimization-for-all.github.io/contents/chapter03/">03. Convex Functions</a>
+        
+      
+    
+      
+        
+          <a class="sidebar-nav-item" href="https://convex-optimization-for-all.github.io/contents/chapter04/">04. Convex Optimization Basis</a>
+        
+      
+    
+      
+        
+          <a class="sidebar-nav-item" href="https://convex-optimization-for-all.github.io/contents/chapter05/">05. Canonical Problems</a>
+        
+      
+    
+      
+        
+          <a class="sidebar-nav-item" href="https://convex-optimization-for-all.github.io/contents/chapter06/">06. Gradient Descent</a>
+        
+      
+    
+      
+        
+          <a class="sidebar-nav-item" href="https://convex-optimization-for-all.github.io/contents/chapter07/">07. Subgradient</a>
+        
+      
+    
+      
+        
+          <a class="sidebar-nav-item" href="https://convex-optimization-for-all.github.io/contents/chapter08/">08. Subgradient Method</a>
+        
+      
+    
+      
+        
+          <a class="sidebar-nav-item" href="https://convex-optimization-for-all.github.io/contents/chapter09/">09. Proximal Gradient Descent and Acceleration</a>
+        
+      
+    
+      
+        
+          <a class="sidebar-nav-item" href="https://convex-optimization-for-all.github.io/contents/chapter10/">10. Duality in Linear Programs</a>
+        
+      
+    
+      
+        
+          <a class="sidebar-nav-item" href="https://convex-optimization-for-all.github.io/contents/chapter11/">11. Duality in General Programs</a>
+        
+      
+    
+      
+        
+          <a class="sidebar-nav-item" href="https://convex-optimization-for-all.github.io/contents/chapter12/">12. KKT Conditions</a>
+        
+      
+    
+      
+        
+          <a class="sidebar-nav-item" href="https://convex-optimization-for-all.github.io/contents/chapter13/">13. Duality uses and correspondences</a>
+        
+      
+    
+      
+        
+          <a class="sidebar-nav-item" href="https://convex-optimization-for-all.github.io/contents/chapter14/">14. Newton's Method</a>
+        
+      
+    
+      
+        
+          <a class="sidebar-nav-item" href="https://convex-optimization-for-all.github.io/contents/chapter15/">15. Barrier Method</a>
+        
+      
+    
+      
+        
+          <a class="sidebar-nav-item" href="https://convex-optimization-for-all.github.io/contents/chapter16/">16. Duality Revisited</a>
+        
+      
+    
+      
+        
+          <a class="sidebar-nav-item" href="https://convex-optimization-for-all.github.io/contents/chapter17/">17. Primal-Dual Interior-Point Methods</a>
+        
+      
+    
+      
+        
+          <a class="sidebar-nav-item" href="https://convex-optimization-for-all.github.io/contents/chapter18/">18. Quasi-Newton Methods</a>
+        
+      
+    
+      
+        
+          <a class="sidebar-nav-item" href="https://convex-optimization-for-all.github.io/contents/chapter19/">19. Proximal Netwon Method</a>
+        
+      
+    
+      
+        
+          <a class="sidebar-nav-item" href="https://convex-optimization-for-all.github.io/contents/chapter20/">20. Dual Methods</a>
+        
+      
+    
+      
+        
+          <a class="sidebar-nav-item" href="https://convex-optimization-for-all.github.io/contents/chapter21/">21. Alternating Direction Method of Mulipliers</a>
+        
+      
+    
+      
+        
+          <a class="sidebar-nav-item" href="https://convex-optimization-for-all.github.io/contents/chapter22/">22. Conditional Gradient Method</a>
+        
+      
+    
+      
+        
+          <a class="sidebar-nav-item" href="https://convex-optimization-for-all.github.io/contents/chapter23/">23. Coordinate Descent</a>
+        
+      
+    
+      
+        
+          <a class="sidebar-nav-item" href="https://convex-optimization-for-all.github.io/contents/chapter24/">24.  Mixed Integer Programming 1</a>
+        
+      
+    
+      
+        
+          <a class="sidebar-nav-item" href="https://convex-optimization-for-all.github.io/contents/chapter25/">25.  Mixed Integer Programming 2</a>
+        
+      
+    
+      
+        
+          <a class="sidebar-nav-item" href="https://convex-optimization-for-all.github.io/reference/">26. Reference</a>
+        
+      
+    
+
+    <span class="sidebar-nav-item">Currently v1.1.0</span>
+  </nav>
+
+  <div class="sidebar-item">
+    <p>
+      &copy; 2022. All rights reserved.
+    </p>
+  </div>
+</div>
+
+
+    <!-- Wrap is the content to shift when toggling the sidebar. We wrap the
+         content to avoid any CSS collisions with our real content. -->
+    <div class="wrap github-md-body">
+      <div class="masthead">
+        <div class="container">
+          <h3 class="masthead-title">
+            <a href="/" title="Home">모두를 위한 컨벡스 최적화</a>
+            <small></small>
+          </h3>
+          <a class="github-logo__wrapper" target="_blank" href="https://github.com/convex-optimization-for-all/convex-optimization-for-all.github.io" titltle="Github">
+           <svg class="github-logo" xmlns="http://www.w3.org/2000/svg"  viewBox="0 0 48 48"><linearGradient id="rL2wppHyxHVbobwndsT6Ca" x1="4" x2="44" y1="23.508" y2="23.508" gradientUnits="userSpaceOnUse"><stop offset="0" stop-color="#4c4c4c"/><stop offset="1" stop-color="#343434"/></linearGradient><path fill="url(#rL2wppHyxHVbobwndsT6Ca)" d="M24,4C12.954,4,4,12.954,4,24c0,8.887,5.801,16.411,13.82,19.016h12.36	C38.199,40.411,44,32.887,44,24C44,12.954,35.046,4,24,4z"/><path d="M30.01,41.996L30,36.198c0-0.939-0.22-1.856-0.642-2.687c5.641-1.133,8.386-4.468,8.386-10.177	c0-2.255-0.665-4.246-1.976-5.92c0.1-0.317,0.174-0.645,0.22-0.981c0.188-1.369-0.023-2.264-0.193-2.984l-0.027-0.116	c-0.186-0.796-0.409-1.364-0.418-1.388l-0.111-0.282l-0.111-0.282l-0.302-0.032l-0.303-0.032c0,0-0.199-0.021-0.501-0.021	c-0.419,0-1.04,0.042-1.627,0.241l-0.196,0.066c-0.74,0.249-1.439,0.485-2.417,1.069c-0.286,0.171-0.599,0.366-0.934,0.584	C27.334,12.881,25.705,12.69,24,12.69c-1.722,0-3.365,0.192-4.889,0.571c-0.339-0.22-0.654-0.417-0.942-0.589	c-0.978-0.584-1.677-0.819-2.417-1.069l-0.196-0.066c-0.585-0.199-1.207-0.241-1.626-0.241c-0.302,0-0.501,0.021-0.501,0.021	l-0.302,0.032l-0.3,0.031l-0.112,0.281l-0.113,0.283c-0.01,0.026-0.233,0.594-0.419,1.391l-0.027,0.115	c-0.17,0.719-0.381,1.615-0.193,2.983c0.048,0.346,0.125,0.685,0.23,1.011c-1.285,1.666-1.936,3.646-1.936,5.89	c0,5.695,2.748,9.028,8.397,10.17c-0.194,0.388-0.345,0.798-0.452,1.224c-0.197,0.067-0.378,0.112-0.538,0.137	c-0.238,0.036-0.487,0.054-0.739,0.054c-0.686,0-1.225-0.134-1.435-0.259c-0.313-0.186-0.872-0.727-1.414-1.518	c-0.463-0.675-1.185-1.558-1.992-1.927c-0.698-0.319-1.437-0.502-2.029-0.502c-0.138,0-0.265,0.01-0.376,0.028	c-0.517,0.082-0.949,0.366-1.184,0.78c-0.203,0.357-0.235,0.773-0.088,1.141c0.219,0.548,0.851,0.985,1.343,1.255	c0.242,0.133,0.765,0.619,1.07,1.109c0.229,0.368,0.335,0.63,0.482,0.992c0.087,0.215,0.183,0.449,0.313,0.732	c0.47,1.022,1.937,1.924,2.103,2.023c0.806,0.483,2.161,0.638,3.157,0.683l0.123,0.003c0,0,0.001,0,0.001,0	c0.24,0,0.57-0.023,1.004-0.071v2.613c0.002,0.529-0.537,0.649-1.25,0.638l0.547,0.184C19.395,43.572,21.645,44,24,44	c2.355,0,4.605-0.428,6.703-1.176l0.703-0.262C30.695,42.538,30.016,42.422,30.01,41.996z" opacity=".05"/><path d="M30.781,42.797c-0.406,0.047-1.281-0.109-1.281-0.795v-5.804c0-1.094-0.328-2.151-0.936-3.052	c5.915-0.957,8.679-4.093,8.679-9.812c0-2.237-0.686-4.194-2.039-5.822c0.137-0.365,0.233-0.75,0.288-1.147	c0.175-1.276-0.016-2.086-0.184-2.801l-0.027-0.116c-0.178-0.761-0.388-1.297-0.397-1.319l-0.111-0.282l-0.303-0.032	c0,0-0.178-0.019-0.449-0.019c-0.381,0-0.944,0.037-1.466,0.215l-0.196,0.066c-0.714,0.241-1.389,0.468-2.321,1.024	c-0.332,0.198-0.702,0.431-1.101,0.694C27.404,13.394,25.745,13.19,24,13.19c-1.762,0-3.435,0.205-4.979,0.61	c-0.403-0.265-0.775-0.499-1.109-0.699c-0.932-0.556-1.607-0.784-2.321-1.024l-0.196-0.066c-0.521-0.177-1.085-0.215-1.466-0.215	c-0.271,0-0.449,0.019-0.449,0.019l-0.302,0.032l-0.113,0.283c-0.009,0.022-0.219,0.558-0.397,1.319l-0.027,0.116	c-0.169,0.715-0.36,1.524-0.184,2.8c0.056,0.407,0.156,0.801,0.298,1.174c-1.327,1.62-1.999,3.567-1.999,5.795	c0,5.703,2.766,8.838,8.686,9.806c-0.395,0.59-0.671,1.255-0.813,1.964c-0.33,0.13-0.629,0.216-0.891,0.256	c-0.263,0.04-0.537,0.06-0.814,0.06c-0.69,0-1.353-0.129-1.69-0.329c-0.44-0.261-1.057-0.914-1.572-1.665	c-0.35-0.51-1.047-1.417-1.788-1.755c-0.635-0.29-1.298-0.457-1.821-0.457c-0.11,0-0.21,0.008-0.298,0.022	c-0.366,0.058-0.668,0.252-0.828,0.534c-0.128,0.224-0.149,0.483-0.059,0.708c0.179,0.448,0.842,0.85,1.119,1.002	c0.335,0.184,0.919,0.744,1.254,1.284c0.251,0.404,0.37,0.697,0.521,1.067c0.085,0.209,0.178,0.437,0.304,0.712	c0.331,0.719,1.353,1.472,1.905,1.803c0.754,0.452,2.154,0.578,2.922,0.612l0.111,0.002c0.299,0,0.8-0.045,1.495-0.135v3.177	c0,0.779-0.991,0.81-1.234,0.81c-0.031,0,0.503,0.184,0.503,0.184C19.731,43.64,21.822,44,24,44c2.178,0,4.269-0.36,6.231-1.003	C30.231,42.997,30.812,42.793,30.781,42.797z" opacity=".07"/><path fill="#fff" d="M36.744,23.334c0-2.31-0.782-4.226-2.117-5.728c0.145-0.325,0.296-0.761,0.371-1.309	c0.172-1.25-0.031-2-0.203-2.734s-0.375-1.25-0.375-1.25s-0.922-0.094-1.703,0.172s-1.453,0.469-2.422,1.047	c-0.453,0.27-0.909,0.566-1.27,0.806C27.482,13.91,25.785,13.69,24,13.69c-1.801,0-3.513,0.221-5.067,0.652	c-0.362-0.241-0.821-0.539-1.277-0.811c-0.969-0.578-1.641-0.781-2.422-1.047s-1.703-0.172-1.703-0.172s-0.203,0.516-0.375,1.25	s-0.375,1.484-0.203,2.734c0.077,0.562,0.233,1.006,0.382,1.333c-1.31,1.493-2.078,3.397-2.078,5.704	c0,5.983,3.232,8.714,9.121,9.435c-0.687,0.726-1.148,1.656-1.303,2.691c-0.387,0.17-0.833,0.33-1.262,0.394	c-1.104,0.167-2.271,0-2.833-0.333s-1.229-1.083-1.729-1.813c-0.422-0.616-1.031-1.331-1.583-1.583	c-0.729-0.333-1.438-0.458-1.833-0.396c-0.396,0.063-0.583,0.354-0.5,0.563c0.083,0.208,0.479,0.521,0.896,0.75	c0.417,0.229,1.063,0.854,1.438,1.458c0.418,0.674,0.5,1.063,0.854,1.833c0.249,0.542,1.101,1.219,1.708,1.583	c0.521,0.313,1.562,0.491,2.688,0.542c0.389,0.018,1.308-0.096,2.083-0.206v3.75c0,0.639-0.585,1.125-1.191,1.013	C19.756,43.668,21.833,44,24,44c2.166,0,4.243-0.332,6.19-0.984C29.585,43.127,29,42.641,29,42.002v-5.804	c0-1.329-0.527-2.53-1.373-3.425C33.473,32.071,36.744,29.405,36.744,23.334z M11.239,32.727c-0.154-0.079-0.237-0.225-0.185-0.328	c0.052-0.103,0.22-0.122,0.374-0.043c0.154,0.079,0.237,0.225,0.185,0.328S11.393,32.806,11.239,32.727z M12.451,33.482	c-0.081,0.088-0.255,0.06-0.389-0.062s-0.177-0.293-0.096-0.381c0.081-0.088,0.255-0.06,0.389,0.062S12.532,33.394,12.451,33.482z M13.205,34.732c-0.102,0.072-0.275,0.005-0.386-0.15s-0.118-0.34-0.016-0.412s0.275-0.005,0.386,0.15	C13.299,34.475,13.307,34.66,13.205,34.732z M14.288,35.673c-0.069,0.112-0.265,0.117-0.437,0.012s-0.256-0.281-0.187-0.393	c0.069-0.112,0.265-0.117,0.437-0.012S14.357,35.561,14.288,35.673z M15.312,36.594c-0.213-0.026-0.371-0.159-0.353-0.297	c0.017-0.138,0.204-0.228,0.416-0.202c0.213,0.026,0.371,0.159,0.353,0.297C15.711,36.529,15.525,36.62,15.312,36.594z M16.963,36.833c-0.227-0.013-0.404-0.143-0.395-0.289c0.009-0.146,0.2-0.255,0.427-0.242c0.227,0.013,0.404,0.143,0.395,0.289	C17.381,36.738,17.19,36.846,16.963,36.833z M18.521,36.677c-0.242,0-0.438-0.126-0.438-0.281s0.196-0.281,0.438-0.281	c0.242,0,0.438,0.126,0.438,0.281S18.762,36.677,18.521,36.677z"/></svg>
+          </a>
+        </div>
+      </div>
+
+      <div class="container content">
+        <h1>03. Convex Functions</h1>
+
+
+
+
+
+
+<!-- Get first post and show it -->
+
+<p>이 장에서는 Convex function의 정의, 예시, 주요 속성 및 Convexity를 유지하는 연산에 대해 살펴볼 것이다.</p>
+
+
+<!-- Remove first element from post_list which is already shown above. -->
+  
+
+<!-- List up the posts in the chapter -->
+<ul style="list-style: none;">
+
+  
+  
+  
+  
+    <li style="text-align:left; vertical-align: middle; margin-left: -2em; margin-top: 5px;" >
+      <a href="#_page_1">03-01 Basic properties and examples</a>
+    </li>
+  
+  
+
+  
+  
+  
+  
+  
+    <li style="text-align:left; vertical-align: middle;  margin-left: 0em;" >
+      <a href="#_page_2"> 03-01-01 Definition</a>
+    </li>
+  
+
+  
+  
+  
+  
+  
+    <li style="text-align:left; vertical-align: middle;  margin-left: 0em;" >
+      <a href="#_page_3"> 03-01-02 Examples of convex functions</a>
+    </li>
+  
+
+  
+  
+  
+  
+  
+    <li style="text-align:left; vertical-align: middle;  margin-left: 0em;" >
+      <a href="#_page_4"> 03-01-03 Key properties of convex functions</a>
+    </li>
+  
+
+  
+  
+  
+  
+    <li style="text-align:left; vertical-align: middle; margin-left: -2em; margin-top: 5px;" >
+      <a href="#_page_5">03-02 Operations that preserve convexity</a>
+    </li>
+  
+  
+
+  
+  
+  
+  
+    <li style="text-align:left; vertical-align: middle; margin-left: -2em; margin-top: 5px;" >
+      <a href="#_page_6">03-03 The conjugate function</a>
+    </li>
+  
+  
+
+  
+  
+  
+  
+    <li style="text-align:left; vertical-align: middle; margin-left: -2em; margin-top: 5px;" >
+      <a href="#_page_7">03-04 Quasiconvex functions</a>
+    </li>
+  
+  
+
+  
+  
+  
+  
+  
+    <li style="text-align:left; vertical-align: middle;  margin-left: 0em;" >
+      <a href="#_page_8"> 03-04-01 Definition and examples</a>
+    </li>
+  
+
+  
+  
+  
+  
+  
+    <li style="text-align:left; vertical-align: middle;  margin-left: 0em;" >
+      <a href="#_page_9"> 03-04-02 Basic properties</a>
+    </li>
+  
+
+  
+  
+  
+  
+  
+    <li style="text-align:left; vertical-align: middle;  margin-left: 0em;" >
+      <a href="#_page_10"> 03-04-03 Differentiable quasiconvex functions</a>
+    </li>
+  
+
+  
+  
+  
+  
+  
+    <li style="text-align:left; vertical-align: middle;  margin-left: 0em;" >
+      <a href="#_page_11"> 03-04-04 Operations that preserve quasiconvexity</a>
+    </li>
+  
+
+  
+  
+  
+  
+    <li style="text-align:left; vertical-align: middle; margin-left: -2em; margin-top: 5px;" >
+      <a href="#_page_12">03-05 Log-concave and log-convex functions</a>
+    </li>
+  
+  
+
+  
+  
+  
+  
+    <li style="text-align:left; vertical-align: middle; margin-left: -2em; margin-top: 5px;" >
+      <a href="#_page_13">03-06 Convexity with respect to generalized inequalities</a>
+    </li>
+  
+  
+
+</ul>
+
+
+<main class="container">
+    <div class="content">
+        <article class="post-body">
+            <h1><a name="_page_1"></a>03-01 Basic properties and examples</h1>
+            <p>이 절에서는 Convex function의 정의와 대표적인 Convex 함수의 종류들을 살펴본다. 또한 convex함수의 특성들을 살펴본다.</p>
+
+        </article>
+    </div>
+</main>
+
+<main class="container">
+    <div class="content">
+        <article class="post-body">
+            <h1><a name="_page_2"></a>03-01-01 Definition</h1>
+            <h2 id="convex-function">Convex function</h2>
+
+<p>함수 \(f:\mathbb{R}^n \rightarrow \mathbb{R}\)의 정의역이 convex set이고, 임의의 두점 \(x, y ∈dom\) \(f\)를 잇는 선분 위의 모든 점들이 함수 \(f\) 위의 점들보다 위에 있다면 그 함수 \(f\)는 convex 이다.</p>
+
+<blockquote>
+  <p>\(f(\theta x+(1− \theta)y) \le \theta f(x)+(1−\theta)f(y)\),</p>
+
+  <p>with \(\theta \le \theta \le 1\), for all \(x,y \in dom\) \(f\)</p>
+</blockquote>
+
+<p>위의 식은 기하학적으로 [Fig1]에서 보는 것처럼 함수 \(f\)상에 존재하는 임의의 점 \(x\)와 점\(y\)를 잇는 선분이 함수 \(f\)의 그래프 위에 존재하는 것을 의미한다. 즉, 두 점 \(x,y\)의 convex combination에서의 \(f\)의 값은 \(f(x), f(y)\)의 convex combination의 값보다 작거나 같다.</p>
+
+<figure class="image" style="align: center;">
+<p align="center">
+ <img src="/img/chapter_img/chapter03/convex_function01.png" alt="" width="70%" height="70%" />
+ <figcaption style="text-align: center;">[Fig1] Convex Function [2]</figcaption>
+</p>
+</figure>
+
+<h2 id="strictly-convex">Strictly convex</h2>
+<p>함수 \(f:\mathbb{R}^n \rightarrow \mathbb{R}\)가 임의의 서로 다른 두 점 \(x, y ∈dom\) \(f\) 과 \(0&lt;θ&lt;1\)에 대해 다음의 조건을 만족하면 이를 strictly convex 이라 한다.</p>
+
+<blockquote>
+  <p>\(f(\theta x+(1−\theta)y)&lt;\theta f(x)+(1−\theta)f(y)\),</p>
+
+  <p>with \(0&lt;\theta&lt;1\), \(x \neq y\), for all \(x, y \in dom\) \(f\)</p>
+</blockquote>
+
+<h2 id="strongly-convex">Strongly convex</h2>
+<p>\(f − {m \over 2}\left \lVert x \right \rVert_{2}^{2}\), with \(m &gt; \theta\) 가 convex 이면 \(f\)는 strongly convex이다.</p>
+
+<h3 id="note-strongly-convex--strictly-convex--convex">[Note] strongly convex ⇒ strictly convex ⇒ convex</h3>
+
+<h2 id="concave-function">Concave function</h2>
+<p>함수 \(-f\)가 convex이면, \(f\)는 concave라고 한다.</p>
+
+<p>Linear 함수를 포함한 모든 affine 함수 \(f(x) = a^T x+b\) 는 다음 식을 만족한다.</p>
+<blockquote>
+  <p>\(\begin{aligned}
+f(\theta x+(1−\theta)y) &amp;= a^T (\theta x+(1−\theta)y) +b \\
+&amp;= \theta a^T x + (1−\theta) a^T y + \theta b + (1−\theta) b \\
+&amp;= \theta f(x)+(1−\theta)f(y) \\\\
+\end{aligned}\)
+\(\text{for all } x,y \in \text{dom } f, \text{with} \theta \le \theta \le 1\)</p>
+</blockquote>
+
+<p>즉, affine 함수는 항상 convex이며, 동시에 concave 이다.</p>
+
+        </article>
+    </div>
+</main>
+
+<main class="container">
+    <div class="content">
+        <article class="post-body">
+            <h1><a name="_page_3"></a>03-01-02 Examples of convex functions</h1>
+            <p>이 절에서는 대표적인 convex function에 대해 살펴본다. Convex fnuction에는 다음과 같은 것들이 있다.</p>
+
+<ul>
+  <li>Exponential function</li>
+  <li>Power function</li>
+  <li>affine</li>
+  <li>quadratic</li>
+  <li>least squares loss</li>
+  <li>norm</li>
+  <li>indicator function</li>
+  <li>support function</li>
+  <li>max function</li>
+</ul>
+
+<h2 id="univariate-function">Univariate function</h2>
+<ul>
+  <li>Exponential function: 
+임의의 실수 \(a\)에 대해서, \(e^{ax}\) 는 convex 이다.<br />
+    <blockquote>
+      <p>\(e^{ax}\) is convex for any \(a \in \mathbb{R}\)</p>
+    </blockquote>
+  </li>
+  <li>Power function: 
+음수가 아닌 실수 \(x, a \in \mathbb{R}_{+}\) 에 대해서, \(a\)가 속한 구간에 따라 \(x^a\)는 convex 혹은 concave이다. <br />
+    <blockquote>
+      <p>\(x^{a}\) is convex on \(\mathbb{R}_{+}\) for any \(a \geq 1\) or \(a \leq 0\)
+\(x^{a}\) is concave on \(\mathbb{R}_{+}\)f for any \(0 \leq a \leq 1\)</p>
+    </blockquote>
+  </li>
+</ul>
+
+<h2 id="aﬃne-function">Aﬃne function</h2>
+<p><a href="/contents/chapter03/2021/02/12/03_01_01_convex_functions_definition/">03-01-01</a> 절에서 언급한 바와 같이 모든 affine function은 convex이면서 동시에 concave 이다.</p>
+
+<ul>
+  <li>on \(\mathbb{R}\) and \(\mathbb{R}^n\) <br />
+    <blockquote>
+      <p>\(a^Tx + b\) is convex and concave</p>
+    </blockquote>
+  </li>
+  <li>on \(\mathbb{R}^{m \times n}\) <br />
+    <blockquote>
+      <p>\(\text{tr}(A^TX) + b = \sum_{i=1}^m\sum_{j=1}^n A_{ij}X_{ij} + b\) is convex and concave</p>
+    </blockquote>
+  </li>
+</ul>
+
+<h2 id="quadratic-function">Quadratic function</h2>
+<p>이차 함수 \(f(x)={1\over 2}x^TPx+q^Tx+r\)를 살펴보면, \(∇f(x)= Px+q\) 이고 \(∇^2f(x) = P\) 이다. 만일 \(P\)가 positive semideﬁnite이면 \(f(x)\)는 convex이다.
+주어진 \(P \succeq 0\) 에 대해</p>
+<blockquote>
+  <p>\(f(x)={1\over 2}x^TPx+q^Tx+r\) is convex with \(P \in \mathbb{S}^n, q \in \mathbb{R}^n, r \in \mathbb{R}\)</p>
+</blockquote>
+
+<p><strong>Q : \(P\)가 positive semideﬁnite이면 왜 \(f(x)\)는 convex인가?</strong> <br />
+A : 2차 함수에서 2차항의 계수는 함수의 2차 미분인 Hessian matrix이다. 
+Hessian matrix는 함수의 곡률(curvature)을 결정하며 positive semidefinite이면 함수가 아래로 볼록하다는 의미이다. (즉, Hessian matrix의 eigen vector 방향으로의 곡률이 0이상이 된다.) 
+따라서 2차 함수에서 2차항의 계수가 positive semidefinite이면 함수는 convex이다.</p>
+<h2 id="least-squares-loss">Least squares loss</h2>
+<p>임의의 \(A\)에 대하여 \(A^TA\)는 항상 positive semideﬁnite이므로 \(\left \| Ax - b \right \|_{2}^{2}\) 는 언제나 convex 이다.</p>
+
+<blockquote>
+  <p>\(f(x) = \left \lVert Ax - b \right \Vert_{2}^{2}\) is convex for any \(A\)</p>
+</blockquote>
+
+<h2 id="norm">Norm</h2>
+<p>모든 \(\mathbb{R}^n\) 상의 Norm은 Convex 이다. 
+\(f:\mathbb{R}^n -&gt; \mathbb{R}\)를 norm이라 하고 정의에 의해</p>
+
+<blockquote>
+  <p>\(\begin{aligned}
+f(\theta x+(1−\theta)y) \le \theta f(x)+(1−\theta)f(y), \text{  with } \theta \le \theta \le 1, \text{ for all } x,y \in dom f,\\
+\end{aligned}\)
+\(\begin{aligned}
+\|x\|_{p} = (\sum_{i=1}^{n} x_i^p)^{1/p} \text{ for } p ≥ 1, \|x\| = max_{i=1,.., n} |x_i|\\
+\end{aligned}\)</p>
+</blockquote>
+
+<h2 id="indicator-function">Indicator function</h2>
+<p>임의의 집합 \(C\)가 convex이면 이에 해당하지 않는 \(x\)에 대해 무한대(\(∞\))로 정의한 indicator 함수도 convex 이다.</p>
+
+<p>즉. 정의 되지 않는 부분을 정의된 부분보다 항상 크게하여 convex의 성질을 가지게 한다.</p>
+
+<blockquote>
+\[I_{C} (x) =
+\begin{cases}
+0, &amp; \text{x ∈ C}\\
+∞, &amp; \text{x ∉ C}\\
+\end{cases}\]
+</blockquote>
+
+<h2 id="support-function">Support function</h2>
+<p>임의의 집합 \(C\)가 있다고 가정하자. 집합 \(C\)가 Convex 이건 아니건 상관 없이 \(C\)의 support 함수는 convex 이다</p>
+<blockquote>
+  <p>\(I_{C}^{*} (x)\) = \(\max_{y∈C} x^Ty\) is convex</p>
+</blockquote>
+
+<p>Support function의 정의는 <a href="https://en.wikipedia.org/wiki/Support_function">Wikipedia 정의</a>를 참고하라.</p>
+
+<h2 id="max-function">Max function</h2>
+<p>연속된 Convex 함수들의 Max 함수는 Convex 이다.
+즉, 연속된 Convex 함수들의 최댓값들을 이은 외각은 Convex가 된다.</p>
+<blockquote>
+  <p>\(f(x) = \max \{x_1,..., x_n\}\) is convex</p>
+</blockquote>
+
+        </article>
+    </div>
+</main>
+
+<main class="container">
+    <div class="content">
+        <article class="post-body">
+            <h1><a name="_page_4"></a>03-01-03 Key properties of convex functions</h1>
+            <h2 id="epigraph-characterization">Epigraph characterization</h2>
+<p>앞 1.2절에서 살펴본 바와 같이 \(f\)가 convex 이면 그 epigraph는 convex set이고, 그 역도 성립한다.</p>
+
+<blockquote>
+  <p>\(f\) is convex \(\Leftrightarrow epi(f) = \{(x,t) \in \mathbb{R}^{n+1} \vert x \in dom f, f(x) ≤ t \}\) is a convex set</p>
+</blockquote>
+
+<h2 id="convex-sublevel-sets">Convex sublevel sets</h2>
+<p>함수 \(f\)가 convex이면, 그 sublevel set 도 convex 이다.</p>
+
+<blockquote>
+  <p>\(\{x \in dom f: f(x) \leq t\}\), for all \(t \in \mathbb{R}\)</p>
+</blockquote>
+
+<h3 id="참고-sublevel-set">[참고] Sublevel set</h3>
+<p>함수의 \(f:\mathbb{R}^n → \mathbb{R}\)에 대한 \(C_α = \{x ∈ dom\) \(f | f(x) ≤ α\}\)를 <em>α-sublevel set</em> 이라고 한다.<br /></p>
+
+<h2 id="first-order-characterization">First-order characterization</h2>
+<p>함수 \(f\)가 미분가능하다고 가정하면, 다음이 성립한다.<br />
+함수 \(f\)의 도메인 \(dom\) \(f\)가 convex이고, 함수 \(f\)의 도메인에 속하는 임의의 \(x, y\) 에 대하여 \(f(y) ≥ f(x) +∇f(x)^T(y−x)\) 가 성립하면 함수 \(f\)는 convex 이며 그 역도 성립한다.</p>
+
+<blockquote>
+  <p>\(f\)is convex \(\iff dom\) \(f\) is convex, and \(f(y) ≥ f(x) +∇f(x)^T(y−x)\) for all \(x,y ∈ dom\) \(f\)</p>
+</blockquote>
+
+<p>아래 그림은 미분 가능한 convex function \(f\)에 관한 1차 테일러 다항식의 그래프이다.
+임의의 \(x, y \in dom\) \(f\)에 대해서 \(f(y) \geq f(x) + \nabla f(x)^T(y-x)\) 임을 만족하는 것을 보여준다.</p>
+
+<figure class="image" style="align: center;">
+<p align="center">
+ <img src="/img/chapter_img/chapter03/1st_order_condition.png" alt="" width="70%" height="70%" />
+ <figcaption style="text-align: center;">[Fig1] Convex Function [1]</figcaption>
+</p>
+</figure>
+
+<h2 id="second-order-characterization">Second-order characterization</h2>
+<p>함수 \(f\)가 두번 미분가능할 때 함수 \(f\)는 다음과 같은 성질을 가진다.</p>
+
+<p>• 정의역이 convex 인 함수 \(f\)의 2차 미분이 0보다 크거나 같을 경우, 함수 \(f\)는 convex 이며, 그 역 또한 성립한다. <br /></p>
+<blockquote>
+  <p>\(f\) is convex \(\iff ∇^2f(x) \succeq 0\) for all \(x ∈ dom f, dom f\): convex <br /></p>
+</blockquote>
+
+<p>• 함수 \(f\)의 2차 미분이 0보다 클 경우, 함수 \(f\)는 strictly convex 이다.<br /></p>
+<blockquote>
+  <p>if \(∇^2f(x) \succ 0\) for all \(x ∈ dom f\), then \(f\) is strictly convex</p>
+</blockquote>
+
+<ul>
+  <li>즉 기울기의 변화가 항상 양수가 됨을 의미한다.</li>
+</ul>
+
+<h2 id="jensens-inequality">Jensen’s inequality</h2>
+<p>함수 \(f\)가 convex 이고 \(n\)개의 양수 \(w_1, ..., w_n\)에 대하여 \(\sum_{i=1}^{n} w_i = 1\) 이라 하자. 이 때 다음이 성립한다.</p>
+
+<p>\(\sum_{i=1}^{n} w_i f(x_i) ≥ f \left ( \sum_{i=1}^{n} w_i x_i \right )\)<br /><br /></p>
+
+<p>함수 \(f\)가 convex 이면 다음 부등식을 만족한다.</p>
+<blockquote>
+\[f(tx_1 + (1 − t)x_2) \le tf(x_1) + (1 − t)f(x_2) \text{ for } 0 \le t \le 1\]
+</blockquote>
+
+<blockquote>
+  <p><em>Extension</em>:<br />
+\(X\) is a random variable supported on \(\text{dom } f\), then \(f(E[X]) \le E[f(X)]\)</p>
+</blockquote>
+
+<figure class="image" style="align: center;">
+<p align="center">
+ <img src="/img/chapter_img/chapter03/jensen_inequality.png" alt="" width="70%" height="70%" />
+ <figcaption style="text-align: center;">[Fig2] Jensen's Inequality [2]</figcaption>
+</p>
+</figure>
+
+        </article>
+    </div>
+</main>
+
+<main class="container">
+    <div class="content">
+        <article class="post-body">
+            <h1><a name="_page_5"></a>03-02 Operations that preserve convexity</h1>
+            <p>이 절에서는 convex function 의 convexity를 유지하는 연산에 대해 살펴본다. 
+Convex fnuction의 Convexity를 유지하는 연산에는 다음과 같은 것들이 있다.</p>
+
+<ul>
+  <li>Nonnegative linear combination</li>
+  <li>Composition (Affine/General/Vector)</li>
+  <li>Pointwise maximum and supremum</li>
+  <li>Minimization function</li>
+  <li>Perspective function</li>
+</ul>
+
+<h2 id="nonnegative-linear-combination">Nonnegative linear combination</h2>
+<p>Convex 함수는 상수곱과 덧셈에 대하여 아래와 같은 성질을 가진다.<br /></p>
+
+<p>• Convex 함수 \(f\)가 존재할 때, 여기에 음수가 아닌 임의의 수를 곱하여도 여전히 함수 \(f\)는 Convex 이다.<br /></p>
+<blockquote>
+  <p>\(f\) is convex \(\Rightarrow \alpha f\) is convex</p>
+</blockquote>
+
+<p>• Convex인 두 함수(\(f_1, f_2\))이 존재할 때, 이 두 함수를 합하여도 그 결과는 여전히 convex 이다.<br /></p>
+<blockquote>
+  <p>\(f_1, f_2\) are convex \(\Rightarrow f_1 + f_2\) is convex</p>
+</blockquote>
+
+<p>• Convex \(f_1, ..., f_m\)에 음수가 아닌 \(\alpha\)에 대한 선형 조합 \(\alpha_1f_1 + ... + \alpha_nf_n\)은 convex 이다.<br /></p>
+<blockquote>
+  <p>\(f_1, ..., f_n\) are convex \(\Rightarrow \alpha_1f_1 + ... + \alpha_nf_n\) is convex, \(\alpha_1, ..., \alpha_n \ge 0\)</p>
+</blockquote>
+
+<h2 id="composition">Composition</h2>
+<h3 id="1-affine-composition">1. Affine composition<br /></h3>
+<p>함수 \(f\)가 convex 이면 \(f(Ax + b)\) 또한 convex 이다.</p>
+<blockquote>
+  <p>\(f\) is convex \(\Rightarrow f(Ax + b)\) is convex</p>
+</blockquote>
+
+<h3 id="2-general-composition-">2. General composition <br /></h3>
+<p>\(n\)차원에서 1차원으로 매핑하는 함수 \(g\)와 1차원에서 1차원으로 매핑하는 함수 \(h\)가 있다고 가정하자. <br />
+이 두 함수의 합성함수 \(f(x)=h(g(x))\)는 다음의 경우 convex이거나 concave 이다.</p>
+
+<blockquote>
+  <p>composition of \(g:\mathbb{R}^n→\mathbb{R}\) and \(h:\mathbb{R}→\mathbb{R}\): <br />
+\(f(x)=h(g(x))\)</p>
+</blockquote>
+
+<p>• \(g\)가 convex이고 \(h\)가 convex이며 \(h\)가 감소하지 않으면 (nondecreasing) \(f\)는 convex 이다. <br />
+• \(g\)가 concave이고 \(h\)가 convex이며 \(h\)가 증가하지 않으면 (nonincreasing) \(f\)는 convex 이다. <br />
+• \(g\)가 concave이고 \(h\)가 concave이며 \(h\)가 감소하지 않으면 (nondecreasing) \(f\)는 concave 이다. <br />
+• \(g\)가 convex이고 \(h\)가 concave이며 \(h\)가 증가하지 않으면 (nonincreasing) \(f\)는 concave 이다. <br /></p>
+
+<h4 id="proof">Proof</h4>
+<p>• for \(n=1\) diﬀerentiable \(g,h\)</p>
+<blockquote>
+\[f''(x)=h''(g(x))g'(x)^2+h'(g(x))g''(x)\]
+</blockquote>
+
+<h4 id="note">[note]</h4>
+<p>extended-value extension \({h}\)에 대한 단조성(monotonicity)은 반드시 유지되어야 한다.</p>
+
+<h4 id="example">Example</h4>
+<p>• \(g\)가 convex이면, \(\exp g(x)\)는 convex 이다. <br />
+• \(g\)가 concave이고 positive 하면, \(1/g(x)\)는 convex 이다.
+<br /><br /></p>
+
+<h3 id="3-vector-composition-">3. Vector composition <br /></h3>
+<p>\(n\)차원에서 \(k\) 차원으로 매핑하는 함수 \(g\)와 다시 \(k\)차원에서 1차원으로 매핑하는 함수 \(h\)가 있다고 가정하자. <br />
+그러면 이 두 함수의 합성함수 \(f(x)=h(g(x))=h(g_1(x),g_2(x),...,g_k(x))\)는 다음의 경우 convex 이거나 concave 이다.</p>
+
+<blockquote>
+  <p>composition of \(g:\mathbb{R}^n→\mathbb{R}^k\) and \(h:\mathbb{R}^k→\mathbb{R}\): <br />
+\(f(x)=h(g(x))=h(g_1(x),g_2(x),...,g_k(x))\)<br /></p>
+</blockquote>
+
+<p>• \(g\)가 convex이고 \(h\)는 convex 일때, \(h\)가 각 인수에 대해 감소하지 않으면, \(f\)는 convex 이다.<br />
+• \(g\)가 convex이고 \(h\)는 concave 일때, \(h\)가 각 인수에 대해 증가하지 않으면, \(f\)는 concave 이다.<br /></p>
+
+<h4 id="proof-1">Proof</h4>
+<p>• for \(n=1\) ,diﬀerentiable \(g,h\)<br /></p>
+<blockquote>
+\[f''(x)=g'(x)^T∇^2h(g(x))g'(x)+∇h(g(x))^Tg''(x)\]
+</blockquote>
+
+<h4 id="example-1">Example</h4>
+<p>• \(g_i\)가 concave이고 positive 하면, \(\sum_{i=1}^{m} \log g_i(x)\)는 concave 이다.<br />
+• \(g_i\)가 convex 이면, \(\log \sum_{i=1}^{m} \exp g_i(x)\)는 convex 이다.</p>
+
+<h2 id="pointwise-maximum-and-supremum">Pointwise maximum and supremum</h2>
+<p>함수의 Pointwise maximum은 다음과 같이 정의 되며, 이는 convex이다.</p>
+<h3 id="1-pointwise-maximum">1. Pointwise maximum</h3>
+<blockquote>
+  <p>\(f_1, f_2\) are convex functions \(\Rightarrow f(x) = \max \{ f_1(x), f_2(x) \}, dom f = dom f_1 \cap dom\) \(f_2\) is convex</p>
+</blockquote>
+
+<h3 id="2-pointwise-supremum">2. Pointwise supremum<br /></h3>
+<p>만약 \(f (x, y)\)가 각각의 \(y ∈ A\) 에 대하여 \(x\)에 볼록하다면, \(g(x) = sup_{y∈A} f(x, y)\) 는 convex 이다.</p>
+
+<blockquote>
+  <p>\(f(x, y)\) is convex in \(x\) for each \(y ∈ A\) <br />
+\(\Rightarrow g(x) = \sup_{y∈A} f(x, y)\) with \(dom\) \(g = \{x | (x, y) \in dom\) f for all y \(\in\) A, sup &lt; ∞ } is convex in \(x\)</p>
+</blockquote>
+
+<h2 id="minimization">Minimization</h2>
+<p>Convex function의 임의의 함수족들의 minimum과 infimum은 convex function 이다.</p>
+
+<blockquote>
+  <p>\(f\) is convex in \((x, y) \Rightarrow g(x)=\inf_{y∈C} f(x,y)\) with \(dom\) \(g = \{ x | (x, y) \in dom\) \(f\) for some \(y \in C \}\) is convex in \(x\)<br />
+\(C\): A convex set</p>
+</blockquote>
+
+<h4 id="example-2">Example</h4>
+<blockquote>
+  <p>• \(f(x,y)=x^TAx+2x^TBy+y^TCy\) with<br /></p>
+</blockquote>
+
+<blockquote>
+  <p>\(\begin{bmatrix}
+A &amp; B \\\
+B^T &amp; C
+\end{bmatrix} \succeq 0,\) \(C \succ 0\)</p>
+</blockquote>
+
+<blockquote>
+  <p>minimizing over \(y\) gives \(g(x)=\inf_y f(x,y)=x^T(A−BC^{−1}B^T)x\)
+\(g\) is convex, hence Schur complement \(A−BC^{−1} B^T \succeq 0\)</p>
+</blockquote>
+
+<blockquote>
+  <p>• distance to a set : \(dist(x,S)= \inf_{y ∈ S} \lVert x−y \rVert\) is convex if \(S\) is convex</p>
+</blockquote>
+
+<h2 id="perspective">Perspective</h2>
+<p>함수 \(f: \mathbb{R}^n \rightarrow \mathbb{R}\) 가 convex \(\Rightarrow\) the perspective of \(g: \mathbb{R}^{n+1} → \mathbb{R}\) 연산은 convexity를 유지 시키는 함수이다.</p>
+
+<p>함수 \(f: \mathbb{R}^n→\mathbb{R}\)의 perspective 함수 \(g: \mathbb{R}^n×\mathbb{R}→\mathbb{R}\)는,
+\(g(x,t) = tf({x \over t})\), \(dom\) \(g = \{(x,t) | {x \over t} ∈ dom\) \(f, t&gt;0 \}\)<br />
+일때, 함수 \(f\)가 convex 이면 \(g\)또한 convex 이다.</p>
+
+<h4 id="example-3">Example</h4>
+<p>•\(t\)가 양수일때, \(g(x,t)=x^Tx/t\)는 convex면, \(f(x)=x^Tx\)는 convex이다.</p>
+
+<p>• Negative logarithm<br />
+Relative entropy \(g(x,t) =t\log t − t\log x\)가 \(R_{++}^2\)에서 convex 일때, \(f(x)=−\log x\)는 convex 이다.</p>
+
+<p>• \(f\)가 convex이면, \(g(x)=(cTx+d)f((Ax+b)/(cTx+d))\)는 아래와 같은 조건에서 convex이다. <br /></p>
+<blockquote>
+  <p>\(\{x \vert c^Tx+d&gt;0, (Ax+b)/(c^Tx+d) ∈ dom\) \(f\}\)</p>
+</blockquote>
+
+        </article>
+    </div>
+</main>
+
+<main class="container">
+    <div class="content">
+        <article class="post-body">
+            <h1><a name="_page_6"></a>03-03 The conjugate function</h1>
+            <p>Conjugate 함수에 대해 알아보자</p>
+
+<p>Conjugate function은 뒷장에서 다룰 Lagrange Dual에서 최적화 문제를 상응하는 Dual problem으로 변환하는 데 사용된다. Lagrange Dual에서 미분을 할 때, 직접 미분하지 않고 Conjugate function을 이용해 바로 대입할 수 있다. <br /></p>
+
+<p>함수 \(f\)의 conjugate 는 아래와 같다.</p>
+
+<figure class="image" style="align: center;">
+<p align="center">
+ <img src="/img/chapter_img/chapter03/conjugate_function.png" alt="" width="70%" height="70%" />
+ <figcaption style="text-align: center;">[Fig1] Conjugate function [2]</figcaption>
+</p>
+</figure>
+
+<p>•\(f\)가 convex가 아니어도 \(f^∗\) 는 convex이다.</p>
+
+<h4 id="example">Example</h4>
+<blockquote>
+  <p>• <em>Negative logarithm</em> \(f(x)=−\log x\)</p>
+</blockquote>
+
+<blockquote>
+  <p>\(f∗(y)=\sup_{x&gt;0} (xy+logx)\) 
+\(=
+\begin{cases}
+-1-\log(-y), &amp; y &lt; 0 \\ 
+∞, &amp; \text{ otherwise}
+\end{cases}\)</p>
+</blockquote>
+
+<blockquote>
+  <p>• <em>Strictly convex quadratic</em> \(f(x) = (1/2)x^TQx\) with \(Q∈S_{++}^n\)</p>
+</blockquote>
+
+<blockquote>
+\[\begin{align}
+f∗(y)=\sup_{x} (y^Tx−(1/2)x^TQx)
+&amp; = {1 \over 2}y^TQ^−1y 
+\end{align}\]
+</blockquote>
+
+<p>이는 13장에서 좀 더 상세히 다루도록 한다.</p>
+
+
+        </article>
+    </div>
+</main>
+
+<main class="container">
+    <div class="content">
+        <article class="post-body">
+            <h1><a name="_page_7"></a>03-04 Quasiconvex functions</h1>
+            <p>Quasiconvex function은 임의의 구간에서 정의되는 함수 혹은 real vector space의 convex subset에서 정의된 real-value로 이뤄진 함수로,
+\((-\infty, a)\)에서의 역 이미지(inverse image ; \(x\)구간) 가 convex set이 된다.
+quasiconvex 함수의 음수는 quasiconcave 라고 불리운다 <a href="https://en.wikipedia.org/wiki/Quasiconvex_function">[9]</a>.
+이 장에서는 quasiconvex 함수 및 quasiconcave 함수의 특성에 대해 알아볼 수 있다.</p>
+
+        </article>
+    </div>
+</main>
+
+<main class="container">
+    <div class="content">
+        <article class="post-body">
+            <h1><a name="_page_8"></a>03-04-01 Definition and examples</h1>
+            <h2 id="definition">Definition</h2>
+
+<p>함수 \(f : R^n \rightarrow R\)가 도메인 <strong>dom</strong> \(f\)와 모든 sublevel set \(S_{\alpha}\)(<a href="/contents/chapter03/2021/02/12/03_01_03_key_properties_of_convex_functions/">03-01-03</a> 참고)이 convex라면 이 함수를 <strong>quasiconvex</strong> (or <strong>unimodal</strong>)이라고 한다.</p>
+
+<blockquote>
+  <p>\(f : R^n \rightarrow R\) is quasiconvex if dom \(f\) and 
+\(S_{\alpha} =\) {\(x \in dom\) \(f \mid f(x) \leq \alpha\)} for \(\alpha \in R\) are convex.</p>
+</blockquote>
+
+<p>만약 함수 -\(f\)가 quasiconvex라면, \(f\)는 <strong>quasiconcave</strong> 라고 불린다.<br /></p>
+<blockquote>
+  <p>\(f : R^n \rightarrow R\) is quasiconcave if dom \(f\) and 
+\(S_{\alpha} =\) { \(x \in dom\) \(f \mid f(x) \geq \alpha\)} for \(\alpha \in R\)<br /></p>
+</blockquote>
+
+<p>\(f\)가 quasiconvex이고 qausiconcave일 때, 이를 <strong>quasilinear</strong>라고 하고, 함수의 도메인과 모든 level set에서 {\(x \mid f(x)=\alpha\)}는 convex가 된다. 다음 그림은 quasiconvex function의 예를 보여준다.<br /><br /></p>
+
+<figure class="image" style="align: center;">
+<p align="center">
+ <img src="/img/chapter_img/chapter03/Fig3.9_quasiconvex_ftn_cAsoUpr.PNG" alt="" width="70%" height="70%" />
+ <figcaption style="text-align: center;">[Fig1] quasiconvex function on R [1]</figcaption>
+</p>
+</figure>
+
+<p>\(\alpha\)에 대하여, \(\alpha\)-sublevel set \(S_{\alpha}\)는 convex, 즉 interval [\(a,b\)]이다. \(\beta\)-sublevel set \(S_{\beta}\)는 interval (\(-\infty,c\)]을 갖는다. <strong>Convex function은 convex sublevel set을 가지며, quasiconvex가 성립하지만, 그 역은 성립하지 않는다.</strong></p>
+<blockquote>
+  <p>\(f\) : convex \(\Longrightarrow\) \(f\) : quasiconvex</p>
+</blockquote>
+
+<p><br /></p>
+<h2 id="examples">Examples</h2>
+
+<p>Quasiconvex에서의 다양한 예제를 살펴보자.</p>
+
+<h4 id="logarithm">Logarithm</h4>
+<p>\(R_{++}\)공간에서의 \(\log x\)는 quasiconvex이다. (또한 quasiconcave이므로, quasilinear의 성질을 갖는다.)</p>
+<blockquote>
+  <p>\(log x\) on R
+<br /></p>
+</blockquote>
+
+<h4 id="celing-function">Celing function</h4>
+<p>Celing function은 quasiconvex이다. (또한 quasiconcave 이다.)</p>
+<blockquote>
+  <p>\(ceil(x) = inf\){\(z \in Z \mid z \geq x\)} 
+<br /></p>
+</blockquote>
+
+<h4 id="length-of-vector">Length of vector</h4>
+<p>\(x \in R^n\)의 길이를 nonzero component의 가장 큰 index 값으로 놓는다면,</p>
+<blockquote>
+  <p>\(f(x) = max\){\(i \mid x_i \neq 0\)}.<br /></p>
+</blockquote>
+
+<p>이 성립하며, <br /></p>
+
+<blockquote>
+  <p>\(f(x) \leq \alpha \Longleftrightarrow x_i = 0\) for \(i = \lfloor\alpha\rfloor + 1,...,n.\) on \(R^n\)<br /></p>
+</blockquote>
+
+<p>의 subspace를 만족하므로, quasiconvex이다.<br />
+(※ subspace : subspace 내에 있는 모든 원소들은 덧셈, 곱셈에 대해 닫혀있다. \(R^n\)의 subspace도 convex set 이다.)<br /></p>
+
+<h4 id="linear-fractional-function">Linear-fractional function</h4>
+<p>다음 조건에서, function \(f\) 는 quasiconvex이자 quasiconcave, 즉 quasilinear이다.<br /></p>
+<blockquote>
+  <p>\(f(x) = \frac{a^Tx+b}{c^Tx+d}\) with \(dom\) \(f =\) {\(x \mid c^Tx + d &gt; 0\)}<br /></p>
+</blockquote>
+
+<h4 id="distance-ratio-function">Distance ratio function</h4>
+<p>\(a, b \in R^n\)이고, function \(f\)를 다음과 같이 정의할 때,즉, x와 a 간의 유클리디안 거리와 x와 b 간의 유클리디안 거리의 비율을 나타내는 function \(f\)에서,
+\(f\)는 halfspace {\(x \mid \parallel x - a \parallel_2 \leq \parallel x - b \parallel_2\)} 상에서 quasiconvex이다.</p>
+
+<blockquote>
+  <p>\(f(x) = \frac{ \parallel x - a \parallel_2 }{ \parallel x - b \parallel_2 }\)<br /></p>
+</blockquote>
+
+<p>\(\alpha \leq 1\) 조건에서, 이는 유클리디안 ball 형태의 convex set이 되므로 \(f\)는 quasiconvex가 된다.</p>
+
+        </article>
+    </div>
+</main>
+
+<main class="container">
+    <div class="content">
+        <article class="post-body">
+            <h1><a name="_page_9"></a>03-04-02 Basic properties</h1>
+            <p>Quasiconvex는 convex function의 일반화라는 것을 앞 절의 예에서 살펴보았다. 이런 관점에서, 이 절에서는 convex function에서의 성질이 quasiconvex function에서도 유지되는지에 관하여 살펴본다.</p>
+
+<h2 id="modified-jensens-inequality">Modified Jensen’s inequality</h2>
+<p>Quasiconvex는 Jensen’s inequality 를 통해 다음과 같이 정의된다.</p>
+<blockquote>
+  <p>\(f(\theta x + (1 - \theta)y) \leq max\){\(f(x), f(y)\)} for all \(x, y \in dom\) \(f, 0 \leq \theta \leq 1\)</p>
+</blockquote>
+
+<p>아래 그림은 함수 \(f\)가 quasiconvex 이면, 두 점에서 그은 선분 사이의 \(f\)값이 각 끝점에서의 \(f\)의 maximum을 넘지 않는다는 것을 보여준다.
+<br /><br /></p>
+
+<figure class="image" style="align: center;">
+<p align="center">
+ <img src="/img/chapter_img/chapter03/Fig.3.10_quasiconvex_function_on_R_4uChnEm.PNG" alt="" width="70%" height="70%" />
+ <figcaption style="text-align: center;">[Fig1]</figcaption>
+</p>
+</figure>
+<p><strong>quasiconvex function on R. x와 y 사이의 f값은 max{f(x), f(y)} 보다 작다.</strong></p>
+
+<p><br /></p>
+<h2 id="quasiconvex-function-on-r">Quasiconvex function on R</h2>
+<p>연속함수 \(f : R \longrightarrow R\)가 quasiconvex라는 것은 다음과 같은 조건 중 적어도 하나를 만족한다는 것을 의미한다.<br /></p>
+
+<p>• \(f\) is nondecreasing<br />
+• \(f\) is nonincreasing<br />
+• 도메인 상의 특정 한 점, \(c \in dom\) \(f\)을 기준으로, \(t \leq c(t \in dom\) \(f)\)에 대해서, \(f\)는 nonincreasing하고, \(t \geq c(t \in dom\) \(f)\)에 대해서 \(f\)는 nondecreasing하다.<br /><br /></p>
+
+<figure class="image" style="align: center;">
+<p align="center">
+ <img src="/img/chapter_img/chapter03/Fig.3.11_quasiconvex_function_on_R_2_PPQpNiU.PNG" alt="" width="70%" height="70%" />
+ <figcaption style="text-align: center;">[Fig2]</figcaption>
+</p>
+</figure>
+<p><strong>quasiconvex function on R. t ≤ c(t ∈ dom f)에서는 nonincreasing, t ≥ c(t ∈ dom f)에서는 nondecreasing 하다.</strong></p>
+
+        </article>
+    </div>
+</main>
+
+<main class="container">
+    <div class="content">
+        <article class="post-body">
+            <h1><a name="_page_10"></a>03-04-03 Differentiable quasiconvex functions</h1>
+            <p>Quasiconvex function이 미분가능할 때, First-order conditions, Second-order conditions을 만족하게 된다. 다음을 살펴보자.</p>
+
+<h2 id="first-order-conditions">First-order conditions</h2>
+<p>\(f : R^n \rightarrow R\)가 미분 가능 함수라고 하자. \(dom\) \(f\)가 convex 이고, 다음 조건을 만족하면 \(f\)는 quasiconvex 이다.</p>
+<blockquote>
+  <p>\(f\) is quasiconvex \(\Longleftrightarrow\) \(f(y) \preceq f(x) , \nabla f(x)^T(y-x) \leq 0.\) for all \(x, y \in dom\) \(f\)</p>
+</blockquote>
+
+<figure class="image" style="align: center;">
+<p align="center">
+ <img src="/img/chapter_img/chapter03/3.12_Three_level_curves_OV6vtPq.PNG" alt="" width="70%" height="70%" />
+ <figcaption style="text-align: center;">[Fig1]</figcaption>
+</p>
+</figure>
+<p><strong>quasiconvex function f 안에서 3개의 level curve를 보여준다. \(\nabla f(x)\)는 \(x\)에서의 sublevel set {\(z \mid f(z) \leq f(x)\)}의 supporting hyperplane을 정의하는 normal vector가 된다.</strong></p>
+
+<p>Quasiconvexity의 First-order condition이 convexity의 First-order characterization (<a href="/contents/chapter03/2021/02/12/03_01_03_key_properties_of_convex_functions/">03-01-03 </a>참조)과 유사해 보이지만, 중요한 차이가 존재한다. 예를 들면, \(f\)가 convex이고, \(\nabla f(x) = 0\)이라면, \(x\)는 \(f\)의 global minimizer라는 것이 성립하지만, quasiconvex function에서는 항상 성립하지 않는다.</p>
+
+<p><br /></p>
+<h2 id="second-order-conditions">Second-order conditions</h2>
+
+<p>\(f\)가 두번 미분 가능할 때, Second-order conditions가 적용된다. 만약 \(f\)가 quasiconvex라면, 모든 \(x \in dom\) \(f\) 그리고 모든 \(y \in R^n\)에 대하여, 다음 식이 성립한다.</p>
+<blockquote>
+  <p>\(f\) is quasiconvex, \(y^T \nabla f(x) = 0 \Longrightarrow y^T \nabla^2 f(x)y \geq 0\) for all \(x \in dom\) \(f\), all \(y \in R^n\) <br /></p>
+</blockquote>
+
+<p>\(R\)에서 quasiconvex일 때,</p>
+
+<blockquote>
+  <p>\(f\) is quasiconvex, \(f'(x) = 0 \Longrightarrow f''(x) \geq 0\)</p>
+</blockquote>
+
+<p>즉, zero slope를 갖는 임의의 포인트가 존재한다면, 2차 미분 값은 non-negative가 된다. 다시 \(R^n\)으로 돌아와서, Second-order condition은 다음과 같은 성질 또한 만족한다. <br /></p>
+
+<p>1) \(\nabla f(x) = 0\)일 때, 항상 \(\nabla^2f(x) \succeq 0\)이 만족되어야 한다. <br />
+2) \(\nabla f(x) \neq 0\)이라면, \(y^T \nabla f(x) = 0 \Longrightarrow y^T \nabla^2 f(x)y \geq 0\) 에서 \(\nabla^2 f(x)\) 가 헤시안 행렬로 작용하여, \((n\)-\(1)\)-\(dimensional\) \(subspace \nabla f(x)^\perp\)에서 positive semidefinite이 된다.</p>
+
+<p>(\((n\)-\(1)\)-\(dimensional\) \(subspace \nabla f(x)^\perp\)은 \(\nabla f(x)\)와 직교하는 (n-1) 차원의 subspace를 의미한다. (n-1)차원인 이유는 \(\nabla f(x)\)가 n차원 함수 \(f\)를 미분했기 떄문에 차원이 하나 줄었기 때문이다.)</p>
+
+        </article>
+    </div>
+</main>
+
+<main class="container">
+    <div class="content">
+        <article class="post-body">
+            <h1><a name="_page_11"></a>03-04-04 Operations that preserve quasiconvexity</h1>
+            <p>이 절에서는 quasiconvexity를 유지하는 연산에 대해 살펴본다.</p>
+
+<h2 id="nonnegative-weighted-maximum">Nonnegative weighted maximum</h2>
+
+<p>\(f\)가 quasiconvex function일 때, nonnegative weighted maximum \(f\)는 quasiconvex 이다.</p>
+<blockquote>
+  <p>\(f = max\){\(w_1f_1, ... ,w_mf_m\)} with \(w_i \geq 0\) is quasiconvex</p>
+</blockquote>
+
+<p>이 개념은 다음과 같이 확장될 수 있다.</p>
+<blockquote>
+  <p>\(f(x) = sup_{y \in C}(w(y)g(x,y))\) with \(w(y) \geq 0\), 
+where \(g(x,y)\) is quasiconvex in \(x\) for each \(y\).<br /></p>
+</blockquote>
+
+<p><br /></p>
+
+<h2 id="composition">Composition</h2>
+
+<p>만약 \(g : R^n \rightarrow R\)가 quasiconvex이고, \(h : R \rightarrow R\)이 nondecreasing이면, 합성곱 f는 quasiconvex를 만족한다.</p>
+<blockquote>
+  <p>\(f = h \circ g\) is quasiconvex if h is non-decreasing, g is quasiconvex.</p>
+</blockquote>
+
+<p>Quasiconvex function과 affine 또는 linear-fractional 변환을 합성하면 quasiconvex function이 된다.
+만약 \(f\)가 quasiconvex라면, \(g(x) = f(Ax + b)\) 역시 quasiconvex가 되고, \(\tilde{g}(x) = f((Ax + b)/(c^Tx + d))\)도 set {\(x \mid c^Tx + d &gt; 0, (Ax + b)/(c^Tx + d) \in dom\) \(f\)}에서 quasiconvex가 된다.</p>
+
+<p><br /></p>
+
+<h2 id="minimization">Minimization</h2>
+
+<p>만약 \(f(x, y)\)가 quasiconvex를 만족하고, \(C\)가 convex set일 때, 다음 조건이 성립한다.</p>
+<blockquote>
+  <p>\(g(x) = inf_{y \in C} f(x,y)\) is quasiconvex if f is quasiconvex in x, y, and C is convex set.</p>
+</blockquote>
+
+<p><br /></p>
+
+<h2 id="representation-via-family-of-convex-functions">Representation via family of convex functions</h2>
+
+<p>Quasiconvex function f의 sublevel set을 convex function의 부등식으로 표현할 수 있다. Convex function의 family는 \(t \in R\)에 대해 \(\phi_t : R^n \rightarrow R\)이고, 다음과 같이 정의된다.</p>
+<blockquote>
+\[f(x) \leq t \Longleftrightarrow \phi_t(x) \leq 0\]
+</blockquote>
+
+<p>즉, quasiconvex function \(f(x)\)의 t-sublevel set은 convex function \(\phi_t\)의 0-sublevel set이 된다. 이 때, t는 convex function \(\phi\) 의 index를 나타낸다. 그리고, 모든 \(x \in R^n\)에 대해 다음을 만족한다.</p>
+<blockquote>
+\[\phi_t(x) \leq 0 \Longrightarrow \phi_s(x) \leq 0 \text{ for } s \geq t\]
+</blockquote>
+
+
+        </article>
+    </div>
+</main>
+
+<main class="container">
+    <div class="content">
+        <article class="post-body">
+            <h1><a name="_page_12"></a>03-05 Log-concave and log-convex functions</h1>
+            <p>Log-concave &amp; log-convex function에 대해 알아보자.</p>
+
+<h2 id="definition">Definition</h2>
+
+<p>Log-concave와 log-convex의 정의는 다음과 같다.</p>
+
+<h4 id="f--rn-rightarrow-r-is-logarithmically-concave-or-log-concave">\(f : R^n \rightarrow R\) is Logarithmically concave or log-concave</h4>
+<p>만약 모든 \(x \in dom\) \(f\)에 대해서 \(f(x) &gt; 0\)이고, \(log f\)가 concave라면, \(f : R^n \rightarrow R\)는 logarithmically concave 혹은 log-concave라고 부른다.</p>
+<blockquote>
+  <p>\(f\) is log-concave for \(f(x) &gt; 0\) for all x \(\in dom\) \(f\) : <br />
+\(f(\theta x + (1 - \theta) y) \geq f(x)^\theta f(y)^{1-\theta}\) for \(0 \leq \theta \leq 1\).</p>
+</blockquote>
+
+<h4 id="f--rn-rightarrow-r-is-logarithmically-convex-or-log-convex">\(f : R^n \rightarrow R\) is Logarithmically convex or log-convex</h4>
+<p>만약 모든 \(x \in dom\) \(f\)에 대해서 \(f(x) &gt; 0\)이고, \(log f\)가 convex라면, \(f : R^n \rightarrow R\)는 logarithmically convex 혹은 log-convex라고 부른다. 따라서 \(f\)가 log-convex라면, \(1/f\)는 log-concave가 된다.</p>
+<blockquote>
+  <p>\(f\) is log-convex for \(f(x) &gt; 0\) for all x \(\in dom\) \(f\) \(\Longleftrightarrow \frac{1}{f}\) is log-concave.</p>
+</blockquote>
+
+<p>\(f\)값이 0이 되도록 허용하는 것이 편리할 때가 있는데, 이 경우 \(log f(x) = -\infty\)가 된다. 이런 경우, extended-value function \(log f\)가 concave라면, \(f\)는 log-concave라고 부를 수 있다.</p>
+
+<p><strong>Log-convex function과 log-concave function은 각각 quasiconvex, quasiconcave가 된다. logarithm은 단조 증가하기 때문이다.</strong></p>
+
+<h2 id="examples">Examples</h2>
+<h4 id="affine-function">Affine function</h4>
+<p>\(f\)가 다음과 같이 정의되면, log-concave이다.</p>
+<blockquote>
+  <p>\(f(x) = a^Tx + b\) on {\(x \mid a^Tx + b &gt; 0\)}</p>
+</blockquote>
+
+<h4 id="powers">Powers</h4>
+<p>\(f(x) = x^a\)는 \(R_{++}\)에서 \(a \leq 0\)일 때 log-convex이고, \(a \geq 0\)일 때 log-concave이다.</p>
+
+<h4 id="exponentials">Exponentials</h4>
+<p>\(f(x) = e^{ax}\)는 log-convex이자 log-concave이다.</p>
+
+<h4 id="the-cumulative-distribution-function-of-a-gaussian-density">The cumulative distribution function of a Gaussian density</h4>
+<p>\(\Phi(x) = \frac{1}{ \sqrt{2 \pi } }  \int_ {-\infty} ^x e^{-u^2/2} du\) 는 log-concave이다.</p>
+
+<h4 id="gamma-function">Gamma function</h4>
+<p>\(\Gamma (x) = \int_0^\infty u^{x-1}e^{-u} du\)
+는 \(x \geq 1\)에서 log-convex이다.</p>
+
+<h4 id="determinant">Determinant</h4>
+<p>\(det X\)는 \(S^n_{++}\)에서 log concave이다.</p>
+
+<h4 id="determinant-over-trace">Determinant over trace</h4>
+<p>\(det X\) / \(tr X\)는 \(S^n_{++}\)에서 log concave이다.</p>
+
+<p><br /></p>
+<h2 id="properties">Properties</h2>
+
+<h4 id="twice-differentiable-log-convex--concave-functions">Twice differentiable log-convex / concave functions</h4>
+<p>\(f\)가 두번 미분 가능하고, \(dom\) \(f\)가 convex하다면, 다음 식이 성립한다.<br /></p>
+<blockquote>
+\[\nabla ^2logf(x) = \frac{1}{f(x)} \nabla ^2f(x) - \frac{1}{f(x)^2}\nabla f(x) \nabla f(x)^T\]
+</blockquote>
+
+<p>\(f\)가 log-convex \(\Longleftrightarrow\) 모든 \(x \in dom\) \(f\)에 대해 \(f(x) \nabla ^2 f(x) \succeq \nabla f(x)\nabla f(x)^T\) 이고, <br />
+\(f\)가 log-concave \(\Longleftrightarrow\) 모든 \(x \in dom\) \(f\)에 대해 \(f(x) \nabla ^2 f(x) \preceq \nabla f(x)\nabla f(x)^T\)이다.</p>
+
+<p><br /></p>
+<h4 id="multiplication">Multiplication</h4>
+<p>Log-convexity와 log-concavity는 곱셈(multiplication)과 양의 배수(positive scaling)를 곱하는 것에서 닫혀있다(closed). 
+만약, \(f\)와 \(g\)가 log-concave라면, pointwise product \(h(x) = f(x)g(x)\) 역시 log-concave하다. 
+왜냐하면, \(\log h(x) = \log f(x) + \log g(x)\)이고, 각각의 \(\log f(x)\)와 \(\log g(x)\)는 concave function이기 때문이다.</p>
+
+<h4 id="addition-and-integration">Addition and Integration</h4>
+<p>일반적으로, log-concave function의 합은 log-concave가 되지 않는다. 하지만, log-convexity는 합에 의해서는 보존된다.
+예를 들어, \(f\)와 \(g\)를 log-convex function, 즉, \(F = \log f\) 그리고 \(G = \log g\)가 convex하다고 하자.
+convex function의 합성 법칙(composition rules)에 의해, 다음을 만족한다.<br /></p>
+
+<blockquote>
+\[\log(exp F + exp G) = \log(f + g)\]
+</blockquote>
+
+<p>이는 convex가 된다. (좌변이 convex인 이유는 1. log-convex는 convex이고 2. convex에 지수함수를 적용해도 convex이며 3. convex의 합과 4. convex의 log도 convex이다.
+따라서, 전체 결과는 convex이다.) 결론적으로, 두 log-convex function의 합은 log-convex이다.</p>
+
+<p>이를 일반화하면 각 \(y \in C\)에 대해 \(f(x, y)\)가 log-convex이면 \(g(x)\)는 log-convex이다.</p>
+<blockquote>
+\[g(x) = \int_C^{} f(x,y) dy\]
+</blockquote>
+
+<h4 id="integration-of-log-concave-functions">Integration of log-concave functions</h4>
+<p>특정 경우에 log-concavity 또한 integration에 의해 보존된다. 만약, \(f : R^n \times R^m \longrightarrow R\)가 log-concave이면, \(g(x)\) 는 \(x \in R^n\)에서 log-concave function이다.</p>
+<blockquote>
+  <p>\(f : R^n \rightarrow R\) is log-concave \(\Longrightarrow\) \(g(x) = \int_{}^{} f(x,y) dy\) is log-concave , \(x \in R^n\) for each \(y \in C\).</p>
+</blockquote>
+
+<p>이를 토대로, log-concave probability density의 marginal distribution이 log-concave라는 것을 확인할 수 있다.<br /></p>
+
+<p>Convolution 연산에서도 log-concavity는 닫혀있다(closed). 만약, \(f\)와 \(g\)가 \(R^n\)상에서 log-concave하다면, convolution 역시 log-concave이다.</p>
+<blockquote>
+  <p>\(f\), \(g\) are log-concave on \(R^n\) \(\Longrightarrow\) \((f \ast g)(x) = \int_{}^{} f(x-y)g(y) dy\) is log-concave.<br /></p>
+</blockquote>
+
+        </article>
+    </div>
+</main>
+
+<main class="container">
+    <div class="content">
+        <article class="post-body">
+            <h1><a name="_page_13"></a>03-06 Convexity with respect to generalized inequalities</h1>
+            <p>\(R\) 공간 이외의 공간에서는 \(R\) 공간에서 통상적으로 사용되는 ordering 개념에서 확장된, 일반화된 inequality 표현을 할 때 Cone의 정의를 활용한다. (<a href="/contents/chapter02/2021/02/08/02_01_04_Convex_cone/">02-01-04</a> 참고) 이번 절에서는 Cone의 개념을 활용하여, \(R\)공간 이외에서도 확장되는 monotonicity와 convexity의 개념을 살펴본다.</p>
+
+<h2 id="monotonicity-with-respect-to-a-generalized-inequality">Monotonicity with respect to a generalized inequality</h2>
+
+<p>\(K \subseteq R^n\)이 \(\preceq_K\)로 나타나는 proper cone이라 가정하자. Convex cone \(K \subseteq R^n\)에 대해 다음과 같은 조건을 만족하면 <strong>proper cone</strong>이다.</p>
+
+<p>• \(K\) is closed. (contains its boudary)<br />
+• \(K\) is solid (has nonempty interior)<br />
+• \(K\) is pointed (contains no line)<br /></p>
+
+<p><strong>\(K\)-nondecreasing</strong>를 다음과 같이 정의한다.</p>
+<blockquote>
+  <p>\(f : R \rightarrow R\) is K-nondecreasing if \(x \preceq_K y \Longrightarrow f(x) \leq f(y)\)</p>
+</blockquote>
+
+<p>또한, 다음 조건을 만족할 때, <strong>\(K\)-increasing</strong>하다고 이야기 한다.</p>
+<blockquote>
+  <p>\(f : R \rightarrow R\) is K-increasing if \(x \preceq_K y, x \neq y \Longrightarrow f(x) &lt; f(y)\)</p>
+</blockquote>
+
+<h4 id="gradient-conditions-for-monotonicity">Gradient conditions for monotonicity</h4>
+
+<p>어떤 미분 가능한 function \(f : R \rightarrow R\)이 convex (즉, interval) domain 상에서 nondecreasing 하다는 것은, 모든 \(x \in dom\) \(f\)에서 \(f'(x) \geq 0\)이라는 뜻이며, 모든 \(x \in dom\) \(f\)에서 \(f'(x) &gt; 0\)이면, increasing 하다는 것이다. 이와 유사하게 generalized inequality에서도 확장된 개념으로써, monotonicity를 표현할 수 있다.</p>
+
+<p>도메인이 Convex일 때 미분가능한 function \(f\)가 K-nondecreasing하다는 것은 다음과 식을 만족한다는 의미이다. 잘 살펴보면 단순한 scalar와는 달리 gradient \(\nabla f(x)\)는 dual inequality에서 nonnegative이어야만 한다.</p>
+<blockquote>
+  <p>A differentiable function \(f\) is K-nondecreasing \(\Longleftrightarrow\) \(\nabla f(x) \succeq_{K^*} 0\) for all \(x \in dom\) \(f\)</p>
+</blockquote>
+
+<p>다음 조건을 만족하면, \(f\)는 <strong>\(K\)-increasing</strong> 이라고 부른다. Scalar일 때와 같이 역은 성립하지 않는다.</p>
+<blockquote>
+  <p>\(\nabla f(x) \succ_{K^*} 0\) for all \(x \in dom\) \(f\) \(\Longrightarrow\) \(f\) is K-incerasing.</p>
+</blockquote>
+
+<h4 id="convexity-with-respect-to-generalized-inequality">Convexity with respect to generalized inequality</h4>
+
+<p>\(K \subseteq R^m\)를 generalized inequality \(\preceq_K\)와 연관된 proper cone이라고 하자.<br />
+이때, \(f : R^n \rightarrow R^m\)을 모든 \(x, y\), 그리고 \(0 \leq \theta \leq 1\)에서 <strong>\(K\)-convex</strong>라고 하면, 다음과 같은 부등식이 성립한다.</p>
+<blockquote>
+  <p>\(f : R^n \rightarrow R^m\) is K-convex \(\Longrightarrow\) \(f(\theta x + (1 - \theta) y) \preceq_K \theta f(x) + (1 - \theta) f(y)\) with \(0 &lt; \theta &lt; 1\) for all x, y.</p>
+</blockquote>
+
+<p>또한, <strong>strictly \(K\)-convex</strong>의 조건은 다음과 같다.</p>
+<blockquote>
+  <p>\(f(\theta x + (1 - \theta) y) \prec_K \theta f(x) + (1 - \theta) f(y)\) for all \(x \neq y\) and \(0 &lt; \theta &lt; 1\).</p>
+</blockquote>
+
+<p>m = 1이고 K = \(R_+\) 일 때가, 앞서 이야기해왔던 일반적인 convexity를 만족하는 부등식이 된다.</p>
+
+<h4 id="dual-characterization-of-k-convexity">Dual characterization of \(K\)-convexity</h4>
+
+<p>\(f\)가 \(K\)-convex하다는 것은, 모든 \(w \succeq_K * 0\)에 대하여 (real-valued) function \(w^T f\)가 convex라는 것이다. \(f\)가 strictly convex 하다는 것은 모든 \(w \succeq_{K*} 0\) 에 대하여 (real-valued) function \(w^T f\)가 strictly convex 라는 것이다. 이는 dual inequality의 정의 및 성질을 따른다.</p>
+
+<p><br /></p>
+<h4 id="differentiable-k-convex-functions">Differentiable K-convex functions</h4>
+
+<p>미분가능한 함수 \(f\)가 \(K\)-convex라면 함수 도메인이 convex일 때 다음 식이 성립한다.</p>
+<blockquote>
+  <p>\(f(y) \succeq_K f(x) + Df(x)(y - x)\) with all \(x, y \in dom\) \(f\)</p>
+</blockquote>
+
+<p>여기서 \(Df(x) \in R^{m \times n}\)는 derivative 혹은 점 \(x\)에서 \(f\)의 Jacobian matrix 이다.<br /></p>
+
+<p>\(f\)가 strictly \(K\)-convex 라면 함수 도메인이 convex일 때 다음 식이 성립한다.</p>
+<blockquote>
+  <p>\(f(y) \succ_K f(x) + Df(x)(y - x)\) with all \(x, y \in dom\) \(f\), \(x \neq y\)</p>
+</blockquote>
+
+<h4 id="composition-theorem">Composition theorem</h4>
+
+<p>Composition 의 결과로 나타나는 많은 것들은 \(K\)-convexity 로 일반화 될 수 있다.<br />
+예를 들면, 만약 \(g : R^n \rightarrow R^P\) 가 \(K\)-convex 이고, \(h : R^P \rightarrow R\) 이 convex, 
+그리고 \(h\)의 extended-value extension \(\widetilde{h}\) 가 \(K\)-nondecreasing이면, \(h \circ g\)는 convex이다. 이는 convex function의 nondecreasing convex function은 convex 임을 일반화한다.<br />
+(\(\widetilde{h}\)가 \(K\)-nondecreasing이라는 조건이 의미하는 것은 \(dom\) \(h\) - \(K\) = \(dom\) \(h\)이다.)</p>
+
+        </article>
+    </div>
+</main>
+
+
+
+
+      </div>
+    </div>
+
+    <label for="sidebar-checkbox" class="sidebar-toggle"></label>
+
+    <script src='/public/js/script.js'></script>
+  </body>
+</html>

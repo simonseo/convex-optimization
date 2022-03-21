@@ -1,6 +1,1122 @@
----
-layout: page
-title: "Duality uses and correspondences"
-chapter: "13"
-owner: "Kyeongmin Woo"
----
+<!DOCTYPE html>
+<html lang="en-us">
+
+  <head>
+  <link href="http://gmpg.org/xfn/11" rel="profile">
+  <meta http-equiv="content-type" content="text/html; charset=utf-8">
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
+
+  <style>
+    .MathJax {
+      padding: 2em 0.3em;
+      overflow-x: auto;
+      overflow-y: hidden;
+    }
+@media print {
+
+    .container {
+        padding: 0;
+        max-width: unset;
+        break-after: page;
+        break-before: page;
+    }
+    .content {
+        padding: 0;
+    }
+    .masthead {
+        display: none;
+    }
+    .sidebar-toggle {
+        display: none;
+    }
+
+
+}
+  </style>
+  <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js"></script>
+
+  <title>
+    
+      Duality uses and correspondences &middot; 모두를 위한 컨벡스 최적화
+    
+  </title>
+
+  <link rel="stylesheet" href="/public/css/poole.css">
+  <link rel="stylesheet" href="/public/css/syntax.css">
+  <link rel="stylesheet" href="/public/css/lanyon.css">
+  <link rel="stylesheet" href="/public/css/github-markdown.css">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=PT+Serif:400,400italic,700%7CPT+Sans:400">
+
+  <link rel="apple-touch-icon-precomposed" sizes="122x144" href="https://convex-optimization-for-all.github.io/public/logo.png">
+  <link rel="shortcut icon" href="https://convex-optimization-for-all.github.io/public/convex-logo-144x144.png">
+
+  <link rel="alternate" type="application/rss+xml" title="RSS" href="https://convex-optimization-for-all.github.io/atom.xml">
+
+  
+  <script>
+    (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+    (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+    m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+    })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+    ga('create', 'UA-189737072-1', 'auto');
+    ga('send', 'pageview');
+  </script>
+  
+</head>
+
+
+  <body class="sidebar-overlay">
+
+    <!-- Target for toggling the sidebar `.sidebar-checkbox` is for regular
+     styles, `#sidebar-checkbox` for behavior. -->
+<input type="checkbox" class="sidebar-checkbox" id="sidebar-checkbox">
+
+<!-- Toggleable sidebar -->
+<div class="sidebar" id="sidebar">
+  <div class="sidebar-item">
+    <p>모두를 위한 컨벡스 최적화</p>
+  </div>
+
+  <nav class="sidebar-nav">
+    <a class="sidebar-nav-item" href="https://convex-optimization-for-all.github.io/">Home</a>
+
+    
+
+    
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+        
+          <a class="sidebar-nav-item" href="https://convex-optimization-for-all.github.io/contents/chapter01/">01. Introduction</a>
+        
+      
+    
+      
+        
+          <a class="sidebar-nav-item" href="https://convex-optimization-for-all.github.io/contents/chapter02/">02. Convex Sets</a>
+        
+      
+    
+      
+        
+          <a class="sidebar-nav-item" href="https://convex-optimization-for-all.github.io/contents/chapter03/">03. Convex Functions</a>
+        
+      
+    
+      
+        
+          <a class="sidebar-nav-item" href="https://convex-optimization-for-all.github.io/contents/chapter04/">04. Convex Optimization Basis</a>
+        
+      
+    
+      
+        
+          <a class="sidebar-nav-item" href="https://convex-optimization-for-all.github.io/contents/chapter05/">05. Canonical Problems</a>
+        
+      
+    
+      
+        
+          <a class="sidebar-nav-item" href="https://convex-optimization-for-all.github.io/contents/chapter06/">06. Gradient Descent</a>
+        
+      
+    
+      
+        
+          <a class="sidebar-nav-item" href="https://convex-optimization-for-all.github.io/contents/chapter07/">07. Subgradient</a>
+        
+      
+    
+      
+        
+          <a class="sidebar-nav-item" href="https://convex-optimization-for-all.github.io/contents/chapter08/">08. Subgradient Method</a>
+        
+      
+    
+      
+        
+          <a class="sidebar-nav-item" href="https://convex-optimization-for-all.github.io/contents/chapter09/">09. Proximal Gradient Descent and Acceleration</a>
+        
+      
+    
+      
+        
+          <a class="sidebar-nav-item" href="https://convex-optimization-for-all.github.io/contents/chapter10/">10. Duality in Linear Programs</a>
+        
+      
+    
+      
+        
+          <a class="sidebar-nav-item" href="https://convex-optimization-for-all.github.io/contents/chapter11/">11. Duality in General Programs</a>
+        
+      
+    
+      
+        
+          <a class="sidebar-nav-item" href="https://convex-optimization-for-all.github.io/contents/chapter12/">12. KKT Conditions</a>
+        
+      
+    
+      
+        
+          <a class="sidebar-nav-item active" href="https://convex-optimization-for-all.github.io/contents/chapter13/">13. Duality uses and correspondences</a>
+        
+      
+    
+      
+        
+          <a class="sidebar-nav-item" href="https://convex-optimization-for-all.github.io/contents/chapter14/">14. Newton's Method</a>
+        
+      
+    
+      
+        
+          <a class="sidebar-nav-item" href="https://convex-optimization-for-all.github.io/contents/chapter15/">15. Barrier Method</a>
+        
+      
+    
+      
+        
+          <a class="sidebar-nav-item" href="https://convex-optimization-for-all.github.io/contents/chapter16/">16. Duality Revisited</a>
+        
+      
+    
+      
+        
+          <a class="sidebar-nav-item" href="https://convex-optimization-for-all.github.io/contents/chapter17/">17. Primal-Dual Interior-Point Methods</a>
+        
+      
+    
+      
+        
+          <a class="sidebar-nav-item" href="https://convex-optimization-for-all.github.io/contents/chapter18/">18. Quasi-Newton Methods</a>
+        
+      
+    
+      
+        
+          <a class="sidebar-nav-item" href="https://convex-optimization-for-all.github.io/contents/chapter19/">19. Proximal Netwon Method</a>
+        
+      
+    
+      
+        
+          <a class="sidebar-nav-item" href="https://convex-optimization-for-all.github.io/contents/chapter20/">20. Dual Methods</a>
+        
+      
+    
+      
+        
+          <a class="sidebar-nav-item" href="https://convex-optimization-for-all.github.io/contents/chapter21/">21. Alternating Direction Method of Mulipliers</a>
+        
+      
+    
+      
+        
+          <a class="sidebar-nav-item" href="https://convex-optimization-for-all.github.io/contents/chapter22/">22. Conditional Gradient Method</a>
+        
+      
+    
+      
+        
+          <a class="sidebar-nav-item" href="https://convex-optimization-for-all.github.io/contents/chapter23/">23. Coordinate Descent</a>
+        
+      
+    
+      
+        
+          <a class="sidebar-nav-item" href="https://convex-optimization-for-all.github.io/contents/chapter24/">24.  Mixed Integer Programming 1</a>
+        
+      
+    
+      
+        
+          <a class="sidebar-nav-item" href="https://convex-optimization-for-all.github.io/contents/chapter25/">25.  Mixed Integer Programming 2</a>
+        
+      
+    
+      
+        
+          <a class="sidebar-nav-item" href="https://convex-optimization-for-all.github.io/reference/">26. Reference</a>
+        
+      
+    
+
+    <span class="sidebar-nav-item">Currently v1.1.0</span>
+  </nav>
+
+  <div class="sidebar-item">
+    <p>
+      &copy; 2022. All rights reserved.
+    </p>
+  </div>
+</div>
+
+
+    <!-- Wrap is the content to shift when toggling the sidebar. We wrap the
+         content to avoid any CSS collisions with our real content. -->
+    <div class="wrap github-md-body">
+      <div class="masthead">
+        <div class="container">
+          <h3 class="masthead-title">
+            <a href="/" title="Home">모두를 위한 컨벡스 최적화</a>
+            <small></small>
+          </h3>
+          <a class="github-logo__wrapper" target="_blank" href="https://github.com/convex-optimization-for-all/convex-optimization-for-all.github.io" titltle="Github">
+           <svg class="github-logo" xmlns="http://www.w3.org/2000/svg"  viewBox="0 0 48 48"><linearGradient id="rL2wppHyxHVbobwndsT6Ca" x1="4" x2="44" y1="23.508" y2="23.508" gradientUnits="userSpaceOnUse"><stop offset="0" stop-color="#4c4c4c"/><stop offset="1" stop-color="#343434"/></linearGradient><path fill="url(#rL2wppHyxHVbobwndsT6Ca)" d="M24,4C12.954,4,4,12.954,4,24c0,8.887,5.801,16.411,13.82,19.016h12.36	C38.199,40.411,44,32.887,44,24C44,12.954,35.046,4,24,4z"/><path d="M30.01,41.996L30,36.198c0-0.939-0.22-1.856-0.642-2.687c5.641-1.133,8.386-4.468,8.386-10.177	c0-2.255-0.665-4.246-1.976-5.92c0.1-0.317,0.174-0.645,0.22-0.981c0.188-1.369-0.023-2.264-0.193-2.984l-0.027-0.116	c-0.186-0.796-0.409-1.364-0.418-1.388l-0.111-0.282l-0.111-0.282l-0.302-0.032l-0.303-0.032c0,0-0.199-0.021-0.501-0.021	c-0.419,0-1.04,0.042-1.627,0.241l-0.196,0.066c-0.74,0.249-1.439,0.485-2.417,1.069c-0.286,0.171-0.599,0.366-0.934,0.584	C27.334,12.881,25.705,12.69,24,12.69c-1.722,0-3.365,0.192-4.889,0.571c-0.339-0.22-0.654-0.417-0.942-0.589	c-0.978-0.584-1.677-0.819-2.417-1.069l-0.196-0.066c-0.585-0.199-1.207-0.241-1.626-0.241c-0.302,0-0.501,0.021-0.501,0.021	l-0.302,0.032l-0.3,0.031l-0.112,0.281l-0.113,0.283c-0.01,0.026-0.233,0.594-0.419,1.391l-0.027,0.115	c-0.17,0.719-0.381,1.615-0.193,2.983c0.048,0.346,0.125,0.685,0.23,1.011c-1.285,1.666-1.936,3.646-1.936,5.89	c0,5.695,2.748,9.028,8.397,10.17c-0.194,0.388-0.345,0.798-0.452,1.224c-0.197,0.067-0.378,0.112-0.538,0.137	c-0.238,0.036-0.487,0.054-0.739,0.054c-0.686,0-1.225-0.134-1.435-0.259c-0.313-0.186-0.872-0.727-1.414-1.518	c-0.463-0.675-1.185-1.558-1.992-1.927c-0.698-0.319-1.437-0.502-2.029-0.502c-0.138,0-0.265,0.01-0.376,0.028	c-0.517,0.082-0.949,0.366-1.184,0.78c-0.203,0.357-0.235,0.773-0.088,1.141c0.219,0.548,0.851,0.985,1.343,1.255	c0.242,0.133,0.765,0.619,1.07,1.109c0.229,0.368,0.335,0.63,0.482,0.992c0.087,0.215,0.183,0.449,0.313,0.732	c0.47,1.022,1.937,1.924,2.103,2.023c0.806,0.483,2.161,0.638,3.157,0.683l0.123,0.003c0,0,0.001,0,0.001,0	c0.24,0,0.57-0.023,1.004-0.071v2.613c0.002,0.529-0.537,0.649-1.25,0.638l0.547,0.184C19.395,43.572,21.645,44,24,44	c2.355,0,4.605-0.428,6.703-1.176l0.703-0.262C30.695,42.538,30.016,42.422,30.01,41.996z" opacity=".05"/><path d="M30.781,42.797c-0.406,0.047-1.281-0.109-1.281-0.795v-5.804c0-1.094-0.328-2.151-0.936-3.052	c5.915-0.957,8.679-4.093,8.679-9.812c0-2.237-0.686-4.194-2.039-5.822c0.137-0.365,0.233-0.75,0.288-1.147	c0.175-1.276-0.016-2.086-0.184-2.801l-0.027-0.116c-0.178-0.761-0.388-1.297-0.397-1.319l-0.111-0.282l-0.303-0.032	c0,0-0.178-0.019-0.449-0.019c-0.381,0-0.944,0.037-1.466,0.215l-0.196,0.066c-0.714,0.241-1.389,0.468-2.321,1.024	c-0.332,0.198-0.702,0.431-1.101,0.694C27.404,13.394,25.745,13.19,24,13.19c-1.762,0-3.435,0.205-4.979,0.61	c-0.403-0.265-0.775-0.499-1.109-0.699c-0.932-0.556-1.607-0.784-2.321-1.024l-0.196-0.066c-0.521-0.177-1.085-0.215-1.466-0.215	c-0.271,0-0.449,0.019-0.449,0.019l-0.302,0.032l-0.113,0.283c-0.009,0.022-0.219,0.558-0.397,1.319l-0.027,0.116	c-0.169,0.715-0.36,1.524-0.184,2.8c0.056,0.407,0.156,0.801,0.298,1.174c-1.327,1.62-1.999,3.567-1.999,5.795	c0,5.703,2.766,8.838,8.686,9.806c-0.395,0.59-0.671,1.255-0.813,1.964c-0.33,0.13-0.629,0.216-0.891,0.256	c-0.263,0.04-0.537,0.06-0.814,0.06c-0.69,0-1.353-0.129-1.69-0.329c-0.44-0.261-1.057-0.914-1.572-1.665	c-0.35-0.51-1.047-1.417-1.788-1.755c-0.635-0.29-1.298-0.457-1.821-0.457c-0.11,0-0.21,0.008-0.298,0.022	c-0.366,0.058-0.668,0.252-0.828,0.534c-0.128,0.224-0.149,0.483-0.059,0.708c0.179,0.448,0.842,0.85,1.119,1.002	c0.335,0.184,0.919,0.744,1.254,1.284c0.251,0.404,0.37,0.697,0.521,1.067c0.085,0.209,0.178,0.437,0.304,0.712	c0.331,0.719,1.353,1.472,1.905,1.803c0.754,0.452,2.154,0.578,2.922,0.612l0.111,0.002c0.299,0,0.8-0.045,1.495-0.135v3.177	c0,0.779-0.991,0.81-1.234,0.81c-0.031,0,0.503,0.184,0.503,0.184C19.731,43.64,21.822,44,24,44c2.178,0,4.269-0.36,6.231-1.003	C30.231,42.997,30.812,42.793,30.781,42.797z" opacity=".07"/><path fill="#fff" d="M36.744,23.334c0-2.31-0.782-4.226-2.117-5.728c0.145-0.325,0.296-0.761,0.371-1.309	c0.172-1.25-0.031-2-0.203-2.734s-0.375-1.25-0.375-1.25s-0.922-0.094-1.703,0.172s-1.453,0.469-2.422,1.047	c-0.453,0.27-0.909,0.566-1.27,0.806C27.482,13.91,25.785,13.69,24,13.69c-1.801,0-3.513,0.221-5.067,0.652	c-0.362-0.241-0.821-0.539-1.277-0.811c-0.969-0.578-1.641-0.781-2.422-1.047s-1.703-0.172-1.703-0.172s-0.203,0.516-0.375,1.25	s-0.375,1.484-0.203,2.734c0.077,0.562,0.233,1.006,0.382,1.333c-1.31,1.493-2.078,3.397-2.078,5.704	c0,5.983,3.232,8.714,9.121,9.435c-0.687,0.726-1.148,1.656-1.303,2.691c-0.387,0.17-0.833,0.33-1.262,0.394	c-1.104,0.167-2.271,0-2.833-0.333s-1.229-1.083-1.729-1.813c-0.422-0.616-1.031-1.331-1.583-1.583	c-0.729-0.333-1.438-0.458-1.833-0.396c-0.396,0.063-0.583,0.354-0.5,0.563c0.083,0.208,0.479,0.521,0.896,0.75	c0.417,0.229,1.063,0.854,1.438,1.458c0.418,0.674,0.5,1.063,0.854,1.833c0.249,0.542,1.101,1.219,1.708,1.583	c0.521,0.313,1.562,0.491,2.688,0.542c0.389,0.018,1.308-0.096,2.083-0.206v3.75c0,0.639-0.585,1.125-1.191,1.013	C19.756,43.668,21.833,44,24,44c2.166,0,4.243-0.332,6.19-0.984C29.585,43.127,29,42.641,29,42.002v-5.804	c0-1.329-0.527-2.53-1.373-3.425C33.473,32.071,36.744,29.405,36.744,23.334z M11.239,32.727c-0.154-0.079-0.237-0.225-0.185-0.328	c0.052-0.103,0.22-0.122,0.374-0.043c0.154,0.079,0.237,0.225,0.185,0.328S11.393,32.806,11.239,32.727z M12.451,33.482	c-0.081,0.088-0.255,0.06-0.389-0.062s-0.177-0.293-0.096-0.381c0.081-0.088,0.255-0.06,0.389,0.062S12.532,33.394,12.451,33.482z M13.205,34.732c-0.102,0.072-0.275,0.005-0.386-0.15s-0.118-0.34-0.016-0.412s0.275-0.005,0.386,0.15	C13.299,34.475,13.307,34.66,13.205,34.732z M14.288,35.673c-0.069,0.112-0.265,0.117-0.437,0.012s-0.256-0.281-0.187-0.393	c0.069-0.112,0.265-0.117,0.437-0.012S14.357,35.561,14.288,35.673z M15.312,36.594c-0.213-0.026-0.371-0.159-0.353-0.297	c0.017-0.138,0.204-0.228,0.416-0.202c0.213,0.026,0.371,0.159,0.353,0.297C15.711,36.529,15.525,36.62,15.312,36.594z M16.963,36.833c-0.227-0.013-0.404-0.143-0.395-0.289c0.009-0.146,0.2-0.255,0.427-0.242c0.227,0.013,0.404,0.143,0.395,0.289	C17.381,36.738,17.19,36.846,16.963,36.833z M18.521,36.677c-0.242,0-0.438-0.126-0.438-0.281s0.196-0.281,0.438-0.281	c0.242,0,0.438,0.126,0.438,0.281S18.762,36.677,18.521,36.677z"/></svg>
+          </a>
+        </div>
+      </div>
+
+      <div class="container content">
+        <h1>13. Duality uses and correspondences</h1>
+
+
+
+
+
+
+<!-- Get first post and show it -->
+
+<p>우리는 앞 장에서 Duality와 KKT 조건에 대해 살펴보았다. 
+이 장에서는 Duality의 사용 예와 더불어 관련성에 대해 알아보고자 한다.</p>
+
+<h4 id="notice">[Notice]</h4>
+<p>본 장에서는 \(x\)의 optimal solution \(x^{\star}\)와 \(x\)의 conjugate을 \(x^{*}\)로 구분지어 표기한다.</p>
+
+
+<!-- Remove first element from post_list which is already shown above. -->
+  
+
+<!-- List up the posts in the chapter -->
+<ul style="list-style: none;">
+
+  
+  
+  
+  
+    <li style="text-align:left; vertical-align: middle; margin-left: -2em; margin-top: 5px;" >
+      <a href="#_page_1">13-01 Uses of duality</a>
+    </li>
+  
+  
+
+  
+  
+  
+  
+    <li style="text-align:left; vertical-align: middle; margin-left: -2em; margin-top: 5px;" >
+      <a href="#_page_2">13-02 Solving the primal via the dual</a>
+    </li>
+  
+  
+
+  
+  
+  
+  
+    <li style="text-align:left; vertical-align: middle; margin-left: -2em; margin-top: 5px;" >
+      <a href="#_page_3">13-03 Dual norms</a>
+    </li>
+  
+  
+
+  
+  
+  
+  
+    <li style="text-align:left; vertical-align: middle; margin-left: -2em; margin-top: 5px;" >
+      <a href="#_page_4">13-04 Conjugate function</a>
+    </li>
+  
+  
+
+  
+  
+  
+  
+  
+    <li style="text-align:left; vertical-align: middle;  margin-left: 0em;" >
+      <a href="#_page_5"> 13-04-01 Example lasso dual</a>
+    </li>
+  
+
+  
+  
+  
+  
+  
+    <li style="text-align:left; vertical-align: middle;  margin-left: 0em;" >
+      <a href="#_page_6"> 13-04-02 Conjugates and dual problems</a>
+    </li>
+  
+
+  
+  
+  
+  
+  
+    <li style="text-align:left; vertical-align: middle;  margin-left: 0em;" >
+      <a href="#_page_7"> 13-04-03 Shifting linear transformations</a>
+    </li>
+  
+
+  
+  
+  
+  
+    <li style="text-align:left; vertical-align: middle; margin-left: -2em; margin-top: 5px;" >
+      <a href="#_page_8">13-05 Dual cones</a>
+    </li>
+  
+  
+
+  
+  
+  
+  
+    <li style="text-align:left; vertical-align: middle; margin-left: -2em; margin-top: 5px;" >
+      <a href="#_page_9">13-06 Dual subtleties & Double dual</a>
+    </li>
+  
+  
+
+</ul>
+
+
+<main class="container">
+    <div class="content">
+        <article class="post-body">
+            <h1><a name="_page_1"></a>13-01 Uses of duality</h1>
+            <h3 id="two-key-uses-of-duality">Two key uses of duality</h3>
+<p>앞서 11장에서 다룬 duality의 두가지 핵심적인 특징에 대해 다시 살펴보자.</p>
+
+<p>• \(x\)가 primal feasible 이고 \(u,v\)가 dual feasible 일 때, primal 문제 \(f(x)\)와 dual 문제 \(g(u,v)\) 간의 차이를 \(x\)와 \(u,v\)간의 <strong>duality gap</strong>이라 부른다.</p>
+<blockquote>
+\[f(x)-f^{\star}  \le f(x)-g(u, v)\]
+</blockquote>
+
+<p>duality gap이 0일 때 이를 zero duality gap이라 하며 이는 dual 문제의 해가 optimal임을 의미 한다.
+또한 upper bound인 \(g(u, v)\)는 최적값인 \(f^{\star}\)보다는 항상 작거나 같다. 자세한 이유는 앞의 <a href="/contents/chapter11/2021/03/24/11_00_Duality_in_General_Programs/">[11장]</a>의 내용을 참고하기 바란다.
+따라서 아래와 같이 유도가 가능하다.</p>
+
+<h5 id="proof">[Proof]</h5>
+<blockquote>
+\[\begin{align*}
+f^{\star} &amp;\ge g(u, v) \\
+-f^{\star} &amp;\le -g(u, v) \\
+f(x)-f^{\star} &amp;\le \underbrace{f(x)-g(u, v)}_{\text{dualityh gap}}\\
+also, \\
+g^{\star}-g(x) &amp;\le \underbrace{f(x)-g(u, v)}_{\text{dualityh gap}}\\
+\end{align*}\]
+</blockquote>
+
+<p>그리고, duality gap은 알고리즘의 중지 기준(stopping criterion)으로 사용될 수도 있다.</p>
+
+<p>• Dual optimal \(u^{\star}, v^{\star}\)이 주어졌을 때 Strong duality의 조건하에서, primal solution은 모든 \(x\)에 대해 라그랑지안 \(L (x, u^{\star}, v^{\star})\)을 최소화 시킨다. (즉, stationarity condition을 만족시킨다).</p>
+
+<p>이를 primal solution 계산에 이용할 수 있다.</p>
+
+        </article>
+    </div>
+</main>
+
+<main class="container">
+    <div class="content">
+        <article class="post-body">
+            <h1><a name="_page_2"></a>13-02 Solving the primal via the dual</h1>
+            <h3 id="an-important-consequence-of-stationarity">An important consequence of stationarity</h3>
+<p>Strong duality의 조건하에서 Dual solution \(u^{\star}, v^{\star}\)가 주어졌을 때, primal solution \(x^{\star}\)으로 다음의 라그랑지안을 풀 수 있다.</p>
+
+<blockquote>
+\[\min_x f(x) + \sum_{i=1}^m u_i^{\star} h_i(x) + \sum_{j=1}^r v^{\star}_i l_j(x)\]
+</blockquote>
+
+<p>종종 이러한 제약 없는 문제(unconstrained problem)의 솔루션은 dual solution을 통해 primal solution의 특징을 명시적으로 가져다 씀으로써 나타낼 수 있다.</p>
+
+<p>게다가, 이 문제의 해가 유일하다면, dual solution이 primal solution \(x^{\star}\)가 된다.
+즉, primal 문제를 직접 풀 때보다 dual 문제로 푸는 것이 더 쉬울 때 매우 유용하다.</p>
+
+<h3 id="example-from-b--v-page-249">Example from B &amp; V page 249:</h3>
+<blockquote>
+\[\min_x \sum_{i=1}^n f_i(x_i) \qquad \text{ subject to }\qquad a^Tx = b\]
+</blockquote>
+
+<p>각각의 \(f_i : \mathbb{R} → \mathbb{R}\) 가 smooth하고, strictly convex이면 Dual function은 아래와 같다.</p>
+
+<blockquote>
+\[\begin{align}
+g(v) &amp;= \min_x \sum_{i=1}^n f_i(x_i) + v(b−a^Tx) \\\
+&amp;= bv + \min_x \sum_{i=1}^n f_i(x_i) −va^Tx \\\
+&amp;= bv + \min_x \sum_{i=1}^n f_i(x_i) −v \sum_{i=1}^n a_ix_i \\\
+&amp;= bv + \sum_{i=1}^n (\underbrace{\min_{x_i} \{ f_i(x_i) − a_ivx_i \}}_{-f^{*}_i(a_iv)}) \\\
+&amp;= bv − \sum_{i=1}^n f^{*}_i (a_iv)
+\end{align}\]
+</blockquote>
+
+<p>여기서 \(f^{*}\)는 \(f_i\)의 conjugate를 의미 한다.</p>
+
+<p>그러므로 dual problem은 다음과 같이 나타낼 수 있다.</p>
+<blockquote>
+\[\max_v bv − \sum^n_{i=1} f^{*}_i (a_iv)\]
+</blockquote>
+
+<p>또한 마이너스(-)를 곱해 maximum 문제를 다음과 minimum 문제로 나타낼 수도 있다.</p>
+<blockquote>
+\[\min_v \sum^n_{i=1} f^{*}_i (a_iv) − bv\]
+</blockquote>
+
+<p>이것은 스칼라 변수의 볼록 최소화 (convex minimization) 문제로 primal 문제보다 훨씬 쉽게 풀 수 있다.</p>
+
+<p>\(v^{\star}\)가 주어졌을 때 primal solution \(x^{\star}\)은 아래와 같이 풀 수 있다.</p>
+<blockquote>
+\[\min_{x} \sum^n_{i=1} (f_i(x_i) − a_iv^{\star}x_i)\]
+</blockquote>
+
+<p>각 \(f_i\)의 Strict convexity는 이것이 유일한 솔루션을 가진다는 것을 의미한다.
+즉, \(x^{\star}\)는 각 \(i\)에 대해 \(∇f_i(x_i) = a_iv^{\star}\)의 계산을 통해 얻어진다.</p>
+
+
+        </article>
+    </div>
+</main>
+
+<main class="container">
+    <div class="content">
+        <article class="post-body">
+            <h1><a name="_page_3"></a>13-03 Dual norms</h1>
+            <p>임의의 <strong>norm</strong> \(\| x \|\)를 살펴보자</p>
+
+<blockquote>
+\[l_p \text{ norm: } \lVert x \rVert_p = (\sum^n_{i=1} \rVert x_i \rVert_p)^{1/p}, \text{ for } p ≥ 1\]
+
+\[\text{Trace norm: } \lVert X \rVert_{tr} = \sum^r_{i=1} σ_i(X)\]
+</blockquote>
+
+<p>norm \(\lVert x \rVert\)의 <strong>dual norm</strong>은 \(\lVert x \rVert_{∗}\)와 같이 나타내며 다음과 같다.</p>
+<blockquote>
+\[\lVert x \rVert_{∗} = \max_{\lVert z \rVert ≤1} z^Tx\]
+</blockquote>
+
+<p>여기서 어떤 임의의 \(y\)가 있다고 가정해보자. 그려면 \(\frac{y}{\rVert y \rVert}\)를 \(z\)라고 할때 \(\rVert z \rVert = 1\)이 된다. 또한 \(\rVert z^Tx \rVert \le \rVert x \rVert_{*}\)이 되며,
+그러므로 <em>Cauchy-Schwartz inequality</em>와 유사한 형태의 \(\rVert y^Tx \rVert \le \rVert y \rVert \rVert x \rVert_{*}\)가 성립한다.</p>
+
+<p>특정 조건에서의 Dual Norm의 예제를 살펴보자.</p>
+<blockquote>
+\[l_p \text{ norm dual: } (\lVert x \rVert_p)_{*} = \lVert x \rVert_{q}, \text{ where } 1/p + 1/q = 1\]
+
+\[\text{Trace norm dual: } (\lVert X \rVert_{tr})_{*} = \lVert X \rVert_{op}) = σ_1(X)\]
+</blockquote>
+
+<h5 id="proof">[Proof]</h5>
+<blockquote>
+  <p>\(l_p\) norm dual에서 다음이 성립함을 증명해보자</p>
+
+\[(\lVert x \rVert_p)_{*} = \lVert x \rVert_{q}, \text{ where } 1/p + 1/q = 1 \qquad \text{(1)}\]
+
+  <p><em>Proof</em></p>
+
+\[(\lVert x \rVert_p)_{*} = \sup \{ z^Tx : x \in \mathbb{R}^n, \rVert x \rVert_q \le 1 \} \qquad  \text{(2)}\]
+
+  <p>한편, Holder inequality에 의해서, 다음이 성립한다</p>
+
+\[z^T x ≤ \rVert z^tx \rVert 1 ≤ \rVert z \rVert_p \rVert x \rVert_q (\text{ where }, 1/p + 1/q = 1)\qquad \text{(3)}\]
+
+  <p>위 (1)은 아래와 같은 관계가 성립한다.</p>
+
+\[(\rVert z \rVert_q)_∗ ≤ \rVert z \rVert_p\qquad \text{(4)}\]
+
+  <p>따라서, \(\rVert x \rVert_q ≤ 1\) 이면서,  \(z^Tx\)가 \(\rVert z \rVert_p\) 을 만족시키는 \(x\)를 찾으면 \((\rVert z \rVert_q)_∗ = \rVert z \rVert\rVert_p\) 가 성립함을 알 수 있다.</p>
+
+  <p>한편, \(y := sign(z) \rVert z\rVert^{p−1} \left( y_i = sign(z_i)\rVert z_i\rVert^{p−1} \right)\)로 놓고, \(x = y\) 로 놓으면, \(\rVert y \rVert_q\)
+\(\rVert x \rVert_q =1\)을 만족하고, \(z^Tx = \rVert z \rVert_p\) 임을확인할수있다.</p>
+
+  <p>따라서,다음이성립된다.</p>
+
+\[( \rVert z \rVert_ q)_∗ = \rVert z \rVert_p, (1/p+1/q=1)\qquad \text{(5)}\]
+</blockquote>
+
+<p>Dual norm의 dual norm은 다시 orignal norm이 된다.</p>
+<blockquote>
+\[\lVert x \rVert_{**} = \lVert x \rVert\]
+</blockquote>
+
+<p>다음 문제를 살펴보자.</p>
+<blockquote>
+\[\min_y \lVert y \rVert \qquad \text{ subject to } y = x\]
+</blockquote>
+
+<p>Optimal value가 \(\rVert x \rVert\) 라고 할때, 라그랑지안은 다음과 같이 표현 된다.</p>
+
+<blockquote>
+\[L(y,u) = \rVert y \rVert+ u^T(x−y) = \rVert y \rVert − y^Tu + x^Tu\]
+</blockquote>
+
+<p>Dual norm \((\lVert · \rVert_{∗})\)으로 나타내면, 다음과 같다.</p>
+<blockquote>
+\[\text{If } \rVert u \rVert_{∗} ≤ 1,\text{ then}  \qquad \min_y \{ \rVert y \rVert − y^Tu \} = 0\]
+
+\[\text{If } \rVert u \rVert_{∗} &gt; 1, \text{ then}  \qquad \min_y \{ \rVert y \rVert − y^Tu \} = −∞\]
+</blockquote>
+
+<h4 id="note">[Note]</h4>
+<blockquote>
+\[\text{If } \rVert u \rVert_{∗} ≤ 1, \text{ then}  \qquad \min_y \{ \rVert y \rVert − y^Tu \} = 0\]
+
+\[\max_y (y^Tu - \rVert y \rVert ) = 0\]
+
+\[y^Tu \le \rVert y \rVert \rVert u \rVert_* \le \rVert y \rVert\]
+
+\[\text{If } \rVert u \rVert_{∗} &gt; 1, \text{ then}  \qquad \min_y \{ \rVert y \rVert − y^Tu \} = −∞\]
+
+  <p>\(\text{Can always find} \qquad\) \(z\)  with \(\rVert z \rVert = 1 \qquad \text{ subject to }\qquad z^Tu = \rVert u \rVert_{*} \qquad ( argmax_{\rVert z \rVert \le 1}  z^Tu )\)</p>
+
+  <p>\(\text{take}\) \(y = t \cdot z, \qquad t &gt; 0\)</p>
+
+\[y^Tu = t \cdot \rVert u \rVert_{*}\]
+
+\[\text{ for this } y, \qquad y^Tu - \rVert y \rVert = t \cdot \rVert u \rVert_{*} - t \rightarrow ∞ \text{ as } t \rightarrow ∞\]
+
+\[\text{ so therefore }  g(u) = \min_y L(y, u) = x^Tu - I(\rVert u \rVert_{*} \le 1)\]
+
+  <p>dual problem</p>
+
+\[\max_u g(u) \iff \max_{\rVert u \rVert_{*} \le 1} x^Tu\]
+</blockquote>
+
+<p>그러므로 Lagrange dual 문제는 다음과 같다.</p>
+
+<blockquote>
+\[\max_u u^Tx \qquad \text{ subject to }\qquad \rVert u \rVert_{∗} ≤ 1\]
+</blockquote>
+
+<p>Inequality constraint 가 존재하지 않기 때문에, Slater’s condition을 만족하며, Strong duality에 따라서 \(f^{\star} = g^{\star}\)가 된다.
+즉, \(\rVert x \rVert = \rVert x \rVert_{∗∗}\) 이다.</p>
+
+        </article>
+    </div>
+</main>
+
+<main class="container">
+    <div class="content">
+        <article class="post-body">
+            <h1><a name="_page_4"></a>13-04 Conjugate function</h1>
+            <p>주어진 함수 \(f : \mathbb{R}^n → \mathbb{R}\), 에 대하여 conjugate \(f^{∗} : \mathbb{R}^n → \mathbb{R}\)는 다음과 같이 정의 한다.</p>
+
+<blockquote>
+\[f^{∗}(y) = \max_x y^Tx−f(x)\]
+</blockquote>
+
+<figure class="image" style="align: center;">
+<p align="center">
+ <img src="/img/chapter_img/chapter13/conjugate_function.png" alt="" width="70%" height="70%" />
+ <figcaption style="text-align: center;">[Fig1] Illustration of conjgate function [1]</figcaption>
+</p>
+</figure>
+
+<h4 id="note">[Note]</h4>
+<p>\(f^{∗}\)는 convex(affine) 함수  \(y^Tx - f(x)\)의 pointwise maximum이므로 항상 convex이다.
+(여기서 \(f\)는 반드시 convex일 필요는 없다.)</p>
+
+<p>\(f^{∗}(y)\)는 선형 함수 \(y^Tx\)와 \(f(x)\) 간의 maximum gap이다.
+(From B &amp; V page 91)</p>
+
+<p>미분 가능한 \(f\)에 대한 conjuagation을 Legendre 변환이라고 부른다.</p>
+
+<h5 id="properties">Properties:</h5>
+<p>• Fenchel’s inequality: for any \(x,y, f(x) + f^{∗}(y) ≥ x^Ty\)</p>
+<blockquote>
+  <p>\(f(x) + f^{∗}(y) ≥ x^Ty \iff f^{*}(y) \ge x^Ty - f(x)\)
+\(f^{*}(y) = \max_z z^Ty - f(x)\)</p>
+</blockquote>
+
+<p>• conjugate의 conjugate은 \(f^{∗∗}\)이므로 \(f^{∗∗} ≤ f\) 가 성립한다.<br />
+• 여기서 만약\(f\)가 closed이고 convex 이면, \(f^{∗∗} = f\)과 같다. <br />
+•\(f\)가 closed이고 convex 이면, 모든 \(x,y\)에 대해 다음이 성립한다.<br /></p>
+<blockquote>
+\[\begin{align}
+x ∈ ∂f^{∗}(y) &amp;\iff y ∈ ∂f(x) \\\
+&amp;\iff f(x) + f^{∗}(y) = x^Ty \\\
+\end{align}\]
+</blockquote>
+
+<p>• \(f(u,v) = f_1(u) + f_2(v)\)이면, \(f^{∗}(w,z) = f_1^{∗}(w) + f_2^{∗}(z)\)이 성립한다.</p>
+
+<h5 id="examples">Examples:</h5>
+<p>• \(f(x)\)가 아래와 같은 Simple quadratic일 경우를 살펴보자</p>
+<blockquote>
+  <p>\(f(x) = \frac{1}{2}x^TQx\), where \(Q \succ 0\)</p>
+</blockquote>
+
+<p>그러면 \(y^Tx− \frac{1}{2}x^TQx\)는 \(y\)에 strictly concave이고,  \(x = Q^{−1}y\) 에서 최대가 된다. 즉 \(f^{∗}(y) = \frac{1}{2}y^TQ^{−1}y\)</p>
+
+<h4 id="proof">[Proof]</h4>
+<blockquote>
+\[\begin{align}
+f^{*}(y) &amp; =  \max_x \left( y^Tx -\frac{1}{2}x^TQx \right) \\\
+&amp; = -\min_x \left(\frac{1}{2}x^TQx- y^Tx \right), x^{\star} = Q^{-1}y  \\\
+&amp; = -\frac{1}{2}y^TQ^{-1}QQ^{-1}y + y^TQ^{-1}y \\\
+&amp; = \frac{1}{2}y^TQ^{-1}y  \\\
+\end{align}\]
+</blockquote>
+
+<blockquote>
+  <p>Fenchel’s inequality: for any \(x, y\)
+\(\frac{1}{2} x^TQx + \frac{1}{2} y^TQ^{-1}y \ge x^Ty\)</p>
+</blockquote>
+
+<p>• Indicator function: \(f(x) = I_C(x)\)이면, 그 conjugate 은 다음과 같다.</p>
+
+<blockquote>
+  <p>\(f^{∗}(y) = I^{∗}_C(y) = \max_{x ∈ C} y^Tx\) called the <strong>support function</strong> of \(C\)</p>
+</blockquote>
+
+<p>• Norm: \(f(x) =  x \rVert\)이면, 그 conjugate은 다음과 같다.</p>
+<blockquote>
+  <p>\(f^{∗}(y) = I_{\\{ z : \rVert z \rVert_{∗} ≤ 1 \\}}(y)\) where \(\rVert · \rVert_{∗}\) is the dual norm of \(\rVert · \rVert\)</p>
+</blockquote>
+
+
+        </article>
+    </div>
+</main>
+
+<main class="container">
+    <div class="content">
+        <article class="post-body">
+            <h1><a name="_page_5"></a>13-04-01 Example lasso dual</h1>
+            <p>\(y ∈ \mathbb{R}^n, X ∈ \mathbb{R}^{n×p}\)인 lasso 문제를 다시 살펴보자</p>
+
+<blockquote>
+\[\min_β \frac{1}{2} \rVert y−Xβ \rVert^2_2 + λ\rVert β \rVert_1\]
+
+\[f(β) = \frac{1}{2} \rVert y - Xβ \rVert^2_2 +  λ\rVert β \rVert_1\]
+
+\[L(β) = f(β)\\\]
+
+\[\min_β L(β) = f^{\star}\\\]
+</blockquote>
+
+<p>위 수식의 dual 함수는 constant 이다. (= \(f^{*}\)). 
+그러므로 primal 문제를 다음과 같이 변형할 수 있다.</p>
+
+<blockquote>
+\[\min_{β,z} \frac{1}{2} \rVert y−z \rVert^2_2 + λ \rVert β \rVert_1 \text{ subject to } z = Xβ\]
+</blockquote>
+
+<p>변형된 dual 함수는 아래와 같다.</p>
+<blockquote>
+\[\begin{align}
+g(u) &amp;= \min_{β,z} \frac{1}{2} \rVert y−z \rVert^2_2 + λ \rVert β \rVert_1 + u^T(z−Xβ) \\\
+&amp;= \frac{1}{2} \rVert y\rVert^2_2 - \frac{1}{2} \rVert y−u \rVert^2_2 − I_{\{ v : \rVert v \rVert_∞ ≤ 1 \}}(X^Tu/λ) \\\
+\end{align}\]
+
+</blockquote>
+
+<h5 id="proof">[Proof]</h5>
+<blockquote>
+\[\begin{align}
+g(u) &amp;= \min_{β,z} \frac{1}{2} \rVert y−z \rVert^2_2 + λ \rVert β \rVert_1 + u^T(z−Xβ) \\\
+&amp;= \underbrace{ \left( \min_z \frac{1}{2} \rVert y - z \rVert^2_2 + u^Tz \right)}_{①} + \underbrace{\left( \min_β  λ \rVert β \rVert_1 + u^TXβ \right)}_{②} \\\
+\end{align}\]
+
+\[z^{\star} = y - u\]
+
+  <p>\(\begin{align}
+\text{①} \cdots \left( \min_z \frac{1}{2} \rVert y - z \rVert^2_2 + u^Tz \right)
+&amp;= \frac{1}{2} \rVert u \rVert^2_2 + u^T(y - u) \\\
+&amp;= -\frac{1}{2} \rVert y - u \rVert^2_2 + \frac{1}{2} \rVert y \rVert^2_2 \\\
+\end{align}\)
+\(\begin{align}
+\text{②} \cdots \left( \min_β  λ \rVert β \rVert_1 + u^TXβ \right) 
+&amp;= - λ \max_β \frac{u^Tx}{λ} β - \rVert β \rVert_2 \\\
+&amp;= - λ \left( \lVert \frac{u^Tx}{λ} \rVert_∞ ≤ 1 \right) \\\
+&amp;= - λ \left( \lVert u^Tx \rVert_∞ ≤ λ \right) \\\
+\end{align}\)
+\(\begin{align}
+\therefore g(u) &amp;= -\frac{1}{2} \rVert y - u \rVert^2_2 + \frac{1}{2} \rVert y \rVert^2_2 + - λ \left( \lVert u^Tx \rVert_∞ ≤ λ \right) \\\
+&amp;= \frac{1}{2} \rVert y \rVert^2_2 - \frac{1}{2} \rVert y−u \rVert^2_2 − I_{\{ v : \rVert v \rVert_∞ ≤ 1 \}}(X^Tu/λ) \\\
+\end{align}\)</p>
+</blockquote>
+
+<p>따라서, lasso dual 문제는 아래와 같다.</p>
+
+<blockquote>
+\[\max_u \frac{1}{2} \left( \rVert y \rVert^2_2 − \rVert y−u \rVert^2_2 \right) \text{ subject to } \rVert X^Tu \rVert_∞ ≤ λ\]
+</blockquote>
+
+<p>다음은 위식과 동치이다.</p>
+
+<blockquote>
+\[\min_u \rVert y−u \rVert^2_2 \text{ subject to } \rVert X^Tu \rVert_∞ ≤ λ\]
+</blockquote>
+
+<h4 id="check">[Check]</h4>
+<p>Slater’s condition을 을 충족하여 strong duality를 만족한다.</p>
+<blockquote>
+\[\text{strong duality } \implies (β^{\star}, z^{\star})\]
+
+\[\text{ must minimize  } L( β, z, u^{\star} ) \text{ over } -u, β, z\]
+</blockquote>
+
+<h4 id="note">[note]</h4>
+<p>지난 문제에서의 최적값(optimal value)은 optimal lasso objective 값이 아니었다.
+게다가, 주어진 dual solution \(u\)와 lasso solution \(β\)는 \(Xβ = y−u\)를 만족한다.</p>
+
+<p>이는 KKT stationarity condition을 통해 만족한다.
+\(z (즉, z−y + β = 0)\).</p>
+
+<p>따라서 lasso는 dual residual을 만족한다.</p>
+
+<figure class="image" style="align: center;">
+<p align="center">
+ <img src="/img/chapter_img/chapter13/Conjugate_LassoDual_Example.png" alt="" width="70%" height="70%" />
+ <figcaption style="text-align: center;">[Fig2] Lasso Dual [1]</figcaption>
+</p>
+</figure>
+
+        </article>
+    </div>
+</main>
+
+<main class="container">
+    <div class="content">
+        <article class="post-body">
+            <h1><a name="_page_6"></a>13-04-02 Conjugates and dual problems</h1>
+            <p>다음과 같은 Lagrangian의 최소화 문제의 Dual 문제 유도를 통해 종종 Conjuagte를 나타낼 수 있다.</p>
+
+<blockquote>
+\[−f^{∗}(u) = \min_x f(x)−u^Tx\]
+</blockquote>
+
+<p>예를 들면, 다음과 같은 수식을 고려해 보자</p>
+
+<blockquote>
+\[\min_x  f(x) + g(x)\]
+</blockquote>
+
+<p>다음 수식은 위 수식에 제약 조건이 추가되었으며 위식과 동치이다.</p>
+
+<blockquote>
+\[\min_{x,z} f(x) + g(z) \text{ subject to } x = z\]
+</blockquote>
+
+<p>이를 라그랑지 듀얼 함수로 바꾸면 아래와 같다.</p>
+
+<blockquote>
+\[g(u) = \min_{x,z} f(x) + g(z) + u^T(z−x) = −f^{∗}(u)−g^{∗}(−u)\]
+</blockquote>
+
+<p>따라서 처음 수식의 dual 문제는 아래와 같이 정의 할 수 있다.</p>
+<blockquote>
+\[\max_u −f^{∗}(u)−g^{∗}(−u)\]
+</blockquote>
+
+<h5 id="examples">[Examples]</h5>
+<p>• Indicator function: \(\min_x f(x) + I_C(x)\)의 dual은 다음과 같다.</p>
+<blockquote>
+\[\max_u −f^{∗}(u)−I^{∗}_C(−u)\]
+
+  <p>where \(I^{∗}_C\) is the support function of \(C\)</p>
+</blockquote>
+
+<p>• Norms:</p>
+
+<p>\(\min_x f(x) + \rVert x \rVert \text{의 dual은 다음과 같다.}\)
+\(\max_u −f^{∗}(u) \text{ subject to } \rVert u \rVert^{∗} ≤ 1 \text{ where } \rVert · \rVert_{∗} \text{ is the dual norm of } \rVert · \rVert\)</p>
+
+        </article>
+    </div>
+</main>
+
+<main class="container">
+    <div class="content">
+        <article class="post-body">
+            <h1><a name="_page_7"></a>13-04-03 Shifting linear transformations</h1>
+            <p>Dual formulation은 목적 함수의 일부와 또 다른 영역 사이의 선형 변환의 shifting으로 도움이 된다.</p>
+
+<p>다음을 살펴보자</p>
+<blockquote>
+\[\min_x f(x) + g(Ax)\]
+</blockquote>
+
+<p>아래 수식은 위의 식과 동치 이다.</p>
+<blockquote>
+\[min_{x,z} f(x) + g(z) \text { subject to } Ax = z\]
+</blockquote>
+
+<p>이는 다음의 유도 과정을 거친다.</p>
+<blockquote>
+  <p>\(\text {g(u)} = \min_{x,z} f(x) + g(z) + u^T(z - Ax)\)
+\(\qquad  = -\max_{x} (A^T u)^T x - f(x) - \max_{z} (-u)^T z - g(z)\)
+\(\qquad = -\ f^{∗} (A^T u) - g^{∗} (-u)\)</p>
+</blockquote>
+
+<p>그리고 dual은 다음과 같다.</p>
+<blockquote>
+\[\max_u −f^{∗}(A^Tu) − g^{∗}(−u)\]
+</blockquote>
+
+<h5 id="example">[Example]</h5>
+<p>norm과 그 norm의 dual norm은 다음의 관계에 있다. \(\rVert · \rVert, \rVert · \rVert_{∗}\), the problems</p>
+
+<blockquote>
+\[\min_x f(x) +\rVert Ax \rVert\]
+
+\[\max_u −f^{*}(A^Tu) \text{ subject to } \rVert u \rVert_{∗} ≤ 1\]
+</blockquote>
+
+<p>첫번째 수식은 primal이며 두번째 수식은 dual로, 쌍으로 나타내어 질 수 있다.</p>
+
+        </article>
+    </div>
+</main>
+
+<main class="container">
+    <div class="content">
+        <article class="post-body">
+            <h1><a name="_page_8"></a>13-05 Dual cones</h1>
+            <h2 id="dual-cones">Dual cones</h2>
+<p>Cone \(K ⊆ \mathbb{R}^n\) 가 존재 한다.
+(앞서 <a href="/contents/chapter02/2021/02/11/02_06_01_Dual_cones/">02-06-01</a>에서 다루었던 내용을 다시 되짚어 보면 그 뜻은 \(x \in K, t ≥ 0 \to tx \in K\)와 같다.)</p>
+
+<blockquote>
+\[K∗ = \{ y : y^Tx ≥ 0 \text{ for all } x \in K \}\]
+</blockquote>
+
+<p>이를 일컬어 <strong>dual cone</strong> 이라 하며, 이는 항상 convex cone이다.  (심지어 \(K\) 가 convex가 아니어도 성립한다.)</p>
+
+<figure class="image" style="align: center;">
+<p align="center">
+ <img src="/img/chapter_img/chapter13/dual_cone.png" alt="" width="70%" height="70%" />
+ <figcaption style="text-align: center;">[Fig3] Dual Cones [1]</figcaption>
+</p>
+</figure>
+
+<h6 id="주의">[주의]</h6>
+<p>\(y \in K∗ \iff \text{ the halfspace } \{ x : y^Tx ≥ 0 \} \text { contains } K\)
+(From B &amp; V page 52)</p>
+
+<p>여기서 중요한 성질은 \(K\)가 closed이고 convex cone이면 \(K^{∗∗} = K\)이다.</p>
+
+<h5 id="examples">Examples:</h5>
+<p>• Linear subspace의 dual cone \(V\)는 \(V^{⊥}\)이다. 즉,  orthogonal complement이다.
+E.g., \((row(A))^{∗} = null(A)\)</p>
+
+<p>• Norm cone의 dual cone \(K = \{ (x,t) \in \mathbb{R}^n+1 : \| x \|≤ t \}\)은 그 dual norm \(K^{∗} = \{ (y,s) \in \mathbb{R}^{n+1} : \| y \|_{∗} ≤ s \}\)의 norm cone 이다.</p>
+
+<p>• Positive semideﬁnite cone \(\mathbb{S}^n_+\)은 self-dual의 convex cone 이다. 즉\((\mathbb{S}^n_+)^{∗} = \mathbb{S}^n_+\)라는 뜻이다.</p>
+
+<p>과연 왜 그럴까? 확인해보자</p>
+<blockquote>
+\[Y \succeq 0 \iff tr(Y X) ≥ 0 \text{ for all } X \succeq 0\]
+</blockquote>
+
+<p>\(X\)의 eigenvalue decomposition</p>
+
+<h2 id="dual-cones-and-dual-problems">Dual cones and dual problems</h2>
+<p>Consider the cone constrained problem
+제약 조건이 있는 cone을 살펴보자.</p>
+
+<blockquote>
+\[\min_x f(x) \text{ subject to } Ax \in K\]
+</blockquote>
+
+<p>\(I^{∗}_K(y) = \max_{z\in K} z^Ty\)가 \(K\)의 support function 일때
+위 수식의 dual problem은 다음과 같다.</p>
+<blockquote>
+\[\max_u −f^∗(A^Tu)−I^∗_K(−u)\]
+</blockquote>
+
+<p>여기서 \(K\)가 cone일 경우 다음 처럼 쉽게 정의 할 수 있다.</p>
+<blockquote>
+\[\max_u −f^∗(A^Tu) \text{ subject to } u \in K^{∗}\]
+</blockquote>
+
+<p>여기서 \(K^{∗}\)는 \(K\)의 dual cone 이다. because \(= I_K^{*}(-u) \ I_{K^{*}}(−u)\)</p>
+
+<p>많은 다른 유형의 제약 조건이 cone의 제약 조건으로 나타날 수 있기 때문에 이것은 꽤 유용하다.</p>
+
+
+        </article>
+    </div>
+</main>
+
+<main class="container">
+    <div class="content">
+        <article class="post-body">
+            <h1><a name="_page_9"></a>13-06 Dual subtleties & Double dual</h1>
+            <h2 id="dual-subtleties">Dual subtleties</h2>
+<p>• 때로는 우리는 dual 문제를 동치의 문제로 바꿀 수 있고 이를 여전히 dual 문제라 부른다. 또한 Strong Duality에서, Primal 솔루션의 특징 분석이나 계산을 위해 변형된 dual 문제의 솔루션을 사용할 수 있다.</p>
+
+<h5 id="주의">[주의]</h5>
+<p>변형된 dual 문제의 최적값은 반드시 primal의 최적값은 아니다.</p>
+
+<p>• 제약 조건이 없는 문제에 대해 dual 문제를 유도하는 일반적인 방법은 먼저 더미 변수와 equality 제약 조건을 추가함으로써 primal을 변형시키는 것이다.</p>
+
+<p>일반적으로 이것을 어떻게 하는지는 모호하다. 다양한 선택으로 다른 dual 문제들을 이끌어 낼 수 있다.</p>
+
+<h2 id="double-dual">Double dual</h2>
+<p>선형 제약 조건에서 일반적인 최소화 문제를 고려해보자</p>
+
+<blockquote>
+\[\min_x f(x) \text{ subject to } Ax ≤ b, Cx = d\]
+</blockquote>
+
+<p>라그랑지안은 다음과 같다.</p>
+<blockquote>
+\[L(x,u,v) = f(x) + (A^Tu + C^Tv)^Tx−b^Tu−d^Tv\]
+</blockquote>
+
+<p>그러므로 dual 문제는 다음과 같다.</p>
+
+<blockquote>
+\[\max_{u,v} −f^∗(−A^Tu−C^Tv)−b^Tu−d^Tv \text{ subject to } u ≥ 0\]
+</blockquote>
+
+<h5 id="recall-property">Recall property</h5>
+<p>만약 \(f\)가 closed이고 convex라면, 이 경우에 dual의 dual은 primal임을 앞서 설명하였다.(\(f^{∗∗} = f\))</p>
+
+<p>실제로, 선형 제약 조건을 넘어(dual과 dual의 conjugate 사이의)연결이 이보다 훨씬 더 깊다.
+다음을 살펴보자</p>
+
+<blockquote>
+\[\begin{align}
+&amp; \min_x &amp;&amp; f(x) \\
+&amp;\text{ subject to } &amp;&amp; h_i(x) ≤ 0, i = 1,...m \\
+&amp;&amp;&amp;l_j(x) = 0, j = 1,...r
+\end{align}\]
+</blockquote>
+
+<p>\(f\)와 \(h_1,...h_m\)가 closed이고 convex이고, \(1,...r\) 은 aﬃne이면, then dual의 dual은 primal이다.</p>
+
+<p>이것은 bifunction의 관점에서 최소화 문제로 제공되어 진다.
+이 프레임 워크에서 dual 함수는이 dual 함수의 conjugate에 해당 한다.</p>
+
+<p>(for more, read Chapters 29 and 30 of Rockafellar)</p>
+
+        </article>
+    </div>
+</main>
+
+
+
+
+      </div>
+    </div>
+
+    <label for="sidebar-checkbox" class="sidebar-toggle"></label>
+
+    <script src='/public/js/script.js'></script>
+  </body>
+</html>

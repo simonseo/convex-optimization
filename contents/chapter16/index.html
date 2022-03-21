@@ -1,6 +1,989 @@
----
-layout: page
-title: "Duality Revisited"
-chapter: "16"
-owner: "Kyeongmin Woo"
----
+<!DOCTYPE html>
+<html lang="en-us">
+
+  <head>
+  <link href="http://gmpg.org/xfn/11" rel="profile">
+  <meta http-equiv="content-type" content="text/html; charset=utf-8">
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
+
+  <style>
+    .MathJax {
+      padding: 2em 0.3em;
+      overflow-x: auto;
+      overflow-y: hidden;
+    }
+@media print {
+
+    .container {
+        padding: 0;
+        max-width: unset;
+        break-after: page;
+        break-before: page;
+    }
+    .content {
+        padding: 0;
+    }
+    .masthead {
+        display: none;
+    }
+    .sidebar-toggle {
+        display: none;
+    }
+
+
+}
+  </style>
+  <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js"></script>
+
+  <title>
+    
+      Duality Revisited &middot; 모두를 위한 컨벡스 최적화
+    
+  </title>
+
+  <link rel="stylesheet" href="/public/css/poole.css">
+  <link rel="stylesheet" href="/public/css/syntax.css">
+  <link rel="stylesheet" href="/public/css/lanyon.css">
+  <link rel="stylesheet" href="/public/css/github-markdown.css">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=PT+Serif:400,400italic,700%7CPT+Sans:400">
+
+  <link rel="apple-touch-icon-precomposed" sizes="122x144" href="https://convex-optimization-for-all.github.io/public/logo.png">
+  <link rel="shortcut icon" href="https://convex-optimization-for-all.github.io/public/convex-logo-144x144.png">
+
+  <link rel="alternate" type="application/rss+xml" title="RSS" href="https://convex-optimization-for-all.github.io/atom.xml">
+
+  
+  <script>
+    (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+    (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+    m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+    })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+    ga('create', 'UA-189737072-1', 'auto');
+    ga('send', 'pageview');
+  </script>
+  
+</head>
+
+
+  <body class="sidebar-overlay">
+
+    <!-- Target for toggling the sidebar `.sidebar-checkbox` is for regular
+     styles, `#sidebar-checkbox` for behavior. -->
+<input type="checkbox" class="sidebar-checkbox" id="sidebar-checkbox">
+
+<!-- Toggleable sidebar -->
+<div class="sidebar" id="sidebar">
+  <div class="sidebar-item">
+    <p>모두를 위한 컨벡스 최적화</p>
+  </div>
+
+  <nav class="sidebar-nav">
+    <a class="sidebar-nav-item" href="https://convex-optimization-for-all.github.io/">Home</a>
+
+    
+
+    
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+        
+          <a class="sidebar-nav-item" href="https://convex-optimization-for-all.github.io/contents/chapter01/">01. Introduction</a>
+        
+      
+    
+      
+        
+          <a class="sidebar-nav-item" href="https://convex-optimization-for-all.github.io/contents/chapter02/">02. Convex Sets</a>
+        
+      
+    
+      
+        
+          <a class="sidebar-nav-item" href="https://convex-optimization-for-all.github.io/contents/chapter03/">03. Convex Functions</a>
+        
+      
+    
+      
+        
+          <a class="sidebar-nav-item" href="https://convex-optimization-for-all.github.io/contents/chapter04/">04. Convex Optimization Basis</a>
+        
+      
+    
+      
+        
+          <a class="sidebar-nav-item" href="https://convex-optimization-for-all.github.io/contents/chapter05/">05. Canonical Problems</a>
+        
+      
+    
+      
+        
+          <a class="sidebar-nav-item" href="https://convex-optimization-for-all.github.io/contents/chapter06/">06. Gradient Descent</a>
+        
+      
+    
+      
+        
+          <a class="sidebar-nav-item" href="https://convex-optimization-for-all.github.io/contents/chapter07/">07. Subgradient</a>
+        
+      
+    
+      
+        
+          <a class="sidebar-nav-item" href="https://convex-optimization-for-all.github.io/contents/chapter08/">08. Subgradient Method</a>
+        
+      
+    
+      
+        
+          <a class="sidebar-nav-item" href="https://convex-optimization-for-all.github.io/contents/chapter09/">09. Proximal Gradient Descent and Acceleration</a>
+        
+      
+    
+      
+        
+          <a class="sidebar-nav-item" href="https://convex-optimization-for-all.github.io/contents/chapter10/">10. Duality in Linear Programs</a>
+        
+      
+    
+      
+        
+          <a class="sidebar-nav-item" href="https://convex-optimization-for-all.github.io/contents/chapter11/">11. Duality in General Programs</a>
+        
+      
+    
+      
+        
+          <a class="sidebar-nav-item" href="https://convex-optimization-for-all.github.io/contents/chapter12/">12. KKT Conditions</a>
+        
+      
+    
+      
+        
+          <a class="sidebar-nav-item" href="https://convex-optimization-for-all.github.io/contents/chapter13/">13. Duality uses and correspondences</a>
+        
+      
+    
+      
+        
+          <a class="sidebar-nav-item" href="https://convex-optimization-for-all.github.io/contents/chapter14/">14. Newton's Method</a>
+        
+      
+    
+      
+        
+          <a class="sidebar-nav-item" href="https://convex-optimization-for-all.github.io/contents/chapter15/">15. Barrier Method</a>
+        
+      
+    
+      
+        
+          <a class="sidebar-nav-item active" href="https://convex-optimization-for-all.github.io/contents/chapter16/">16. Duality Revisited</a>
+        
+      
+    
+      
+        
+          <a class="sidebar-nav-item" href="https://convex-optimization-for-all.github.io/contents/chapter17/">17. Primal-Dual Interior-Point Methods</a>
+        
+      
+    
+      
+        
+          <a class="sidebar-nav-item" href="https://convex-optimization-for-all.github.io/contents/chapter18/">18. Quasi-Newton Methods</a>
+        
+      
+    
+      
+        
+          <a class="sidebar-nav-item" href="https://convex-optimization-for-all.github.io/contents/chapter19/">19. Proximal Netwon Method</a>
+        
+      
+    
+      
+        
+          <a class="sidebar-nav-item" href="https://convex-optimization-for-all.github.io/contents/chapter20/">20. Dual Methods</a>
+        
+      
+    
+      
+        
+          <a class="sidebar-nav-item" href="https://convex-optimization-for-all.github.io/contents/chapter21/">21. Alternating Direction Method of Mulipliers</a>
+        
+      
+    
+      
+        
+          <a class="sidebar-nav-item" href="https://convex-optimization-for-all.github.io/contents/chapter22/">22. Conditional Gradient Method</a>
+        
+      
+    
+      
+        
+          <a class="sidebar-nav-item" href="https://convex-optimization-for-all.github.io/contents/chapter23/">23. Coordinate Descent</a>
+        
+      
+    
+      
+        
+          <a class="sidebar-nav-item" href="https://convex-optimization-for-all.github.io/contents/chapter24/">24.  Mixed Integer Programming 1</a>
+        
+      
+    
+      
+        
+          <a class="sidebar-nav-item" href="https://convex-optimization-for-all.github.io/contents/chapter25/">25.  Mixed Integer Programming 2</a>
+        
+      
+    
+      
+        
+          <a class="sidebar-nav-item" href="https://convex-optimization-for-all.github.io/reference/">26. Reference</a>
+        
+      
+    
+
+    <span class="sidebar-nav-item">Currently v1.1.0</span>
+  </nav>
+
+  <div class="sidebar-item">
+    <p>
+      &copy; 2022. All rights reserved.
+    </p>
+  </div>
+</div>
+
+
+    <!-- Wrap is the content to shift when toggling the sidebar. We wrap the
+         content to avoid any CSS collisions with our real content. -->
+    <div class="wrap github-md-body">
+      <div class="masthead">
+        <div class="container">
+          <h3 class="masthead-title">
+            <a href="/" title="Home">모두를 위한 컨벡스 최적화</a>
+            <small></small>
+          </h3>
+          <a class="github-logo__wrapper" target="_blank" href="https://github.com/convex-optimization-for-all/convex-optimization-for-all.github.io" titltle="Github">
+           <svg class="github-logo" xmlns="http://www.w3.org/2000/svg"  viewBox="0 0 48 48"><linearGradient id="rL2wppHyxHVbobwndsT6Ca" x1="4" x2="44" y1="23.508" y2="23.508" gradientUnits="userSpaceOnUse"><stop offset="0" stop-color="#4c4c4c"/><stop offset="1" stop-color="#343434"/></linearGradient><path fill="url(#rL2wppHyxHVbobwndsT6Ca)" d="M24,4C12.954,4,4,12.954,4,24c0,8.887,5.801,16.411,13.82,19.016h12.36	C38.199,40.411,44,32.887,44,24C44,12.954,35.046,4,24,4z"/><path d="M30.01,41.996L30,36.198c0-0.939-0.22-1.856-0.642-2.687c5.641-1.133,8.386-4.468,8.386-10.177	c0-2.255-0.665-4.246-1.976-5.92c0.1-0.317,0.174-0.645,0.22-0.981c0.188-1.369-0.023-2.264-0.193-2.984l-0.027-0.116	c-0.186-0.796-0.409-1.364-0.418-1.388l-0.111-0.282l-0.111-0.282l-0.302-0.032l-0.303-0.032c0,0-0.199-0.021-0.501-0.021	c-0.419,0-1.04,0.042-1.627,0.241l-0.196,0.066c-0.74,0.249-1.439,0.485-2.417,1.069c-0.286,0.171-0.599,0.366-0.934,0.584	C27.334,12.881,25.705,12.69,24,12.69c-1.722,0-3.365,0.192-4.889,0.571c-0.339-0.22-0.654-0.417-0.942-0.589	c-0.978-0.584-1.677-0.819-2.417-1.069l-0.196-0.066c-0.585-0.199-1.207-0.241-1.626-0.241c-0.302,0-0.501,0.021-0.501,0.021	l-0.302,0.032l-0.3,0.031l-0.112,0.281l-0.113,0.283c-0.01,0.026-0.233,0.594-0.419,1.391l-0.027,0.115	c-0.17,0.719-0.381,1.615-0.193,2.983c0.048,0.346,0.125,0.685,0.23,1.011c-1.285,1.666-1.936,3.646-1.936,5.89	c0,5.695,2.748,9.028,8.397,10.17c-0.194,0.388-0.345,0.798-0.452,1.224c-0.197,0.067-0.378,0.112-0.538,0.137	c-0.238,0.036-0.487,0.054-0.739,0.054c-0.686,0-1.225-0.134-1.435-0.259c-0.313-0.186-0.872-0.727-1.414-1.518	c-0.463-0.675-1.185-1.558-1.992-1.927c-0.698-0.319-1.437-0.502-2.029-0.502c-0.138,0-0.265,0.01-0.376,0.028	c-0.517,0.082-0.949,0.366-1.184,0.78c-0.203,0.357-0.235,0.773-0.088,1.141c0.219,0.548,0.851,0.985,1.343,1.255	c0.242,0.133,0.765,0.619,1.07,1.109c0.229,0.368,0.335,0.63,0.482,0.992c0.087,0.215,0.183,0.449,0.313,0.732	c0.47,1.022,1.937,1.924,2.103,2.023c0.806,0.483,2.161,0.638,3.157,0.683l0.123,0.003c0,0,0.001,0,0.001,0	c0.24,0,0.57-0.023,1.004-0.071v2.613c0.002,0.529-0.537,0.649-1.25,0.638l0.547,0.184C19.395,43.572,21.645,44,24,44	c2.355,0,4.605-0.428,6.703-1.176l0.703-0.262C30.695,42.538,30.016,42.422,30.01,41.996z" opacity=".05"/><path d="M30.781,42.797c-0.406,0.047-1.281-0.109-1.281-0.795v-5.804c0-1.094-0.328-2.151-0.936-3.052	c5.915-0.957,8.679-4.093,8.679-9.812c0-2.237-0.686-4.194-2.039-5.822c0.137-0.365,0.233-0.75,0.288-1.147	c0.175-1.276-0.016-2.086-0.184-2.801l-0.027-0.116c-0.178-0.761-0.388-1.297-0.397-1.319l-0.111-0.282l-0.303-0.032	c0,0-0.178-0.019-0.449-0.019c-0.381,0-0.944,0.037-1.466,0.215l-0.196,0.066c-0.714,0.241-1.389,0.468-2.321,1.024	c-0.332,0.198-0.702,0.431-1.101,0.694C27.404,13.394,25.745,13.19,24,13.19c-1.762,0-3.435,0.205-4.979,0.61	c-0.403-0.265-0.775-0.499-1.109-0.699c-0.932-0.556-1.607-0.784-2.321-1.024l-0.196-0.066c-0.521-0.177-1.085-0.215-1.466-0.215	c-0.271,0-0.449,0.019-0.449,0.019l-0.302,0.032l-0.113,0.283c-0.009,0.022-0.219,0.558-0.397,1.319l-0.027,0.116	c-0.169,0.715-0.36,1.524-0.184,2.8c0.056,0.407,0.156,0.801,0.298,1.174c-1.327,1.62-1.999,3.567-1.999,5.795	c0,5.703,2.766,8.838,8.686,9.806c-0.395,0.59-0.671,1.255-0.813,1.964c-0.33,0.13-0.629,0.216-0.891,0.256	c-0.263,0.04-0.537,0.06-0.814,0.06c-0.69,0-1.353-0.129-1.69-0.329c-0.44-0.261-1.057-0.914-1.572-1.665	c-0.35-0.51-1.047-1.417-1.788-1.755c-0.635-0.29-1.298-0.457-1.821-0.457c-0.11,0-0.21,0.008-0.298,0.022	c-0.366,0.058-0.668,0.252-0.828,0.534c-0.128,0.224-0.149,0.483-0.059,0.708c0.179,0.448,0.842,0.85,1.119,1.002	c0.335,0.184,0.919,0.744,1.254,1.284c0.251,0.404,0.37,0.697,0.521,1.067c0.085,0.209,0.178,0.437,0.304,0.712	c0.331,0.719,1.353,1.472,1.905,1.803c0.754,0.452,2.154,0.578,2.922,0.612l0.111,0.002c0.299,0,0.8-0.045,1.495-0.135v3.177	c0,0.779-0.991,0.81-1.234,0.81c-0.031,0,0.503,0.184,0.503,0.184C19.731,43.64,21.822,44,24,44c2.178,0,4.269-0.36,6.231-1.003	C30.231,42.997,30.812,42.793,30.781,42.797z" opacity=".07"/><path fill="#fff" d="M36.744,23.334c0-2.31-0.782-4.226-2.117-5.728c0.145-0.325,0.296-0.761,0.371-1.309	c0.172-1.25-0.031-2-0.203-2.734s-0.375-1.25-0.375-1.25s-0.922-0.094-1.703,0.172s-1.453,0.469-2.422,1.047	c-0.453,0.27-0.909,0.566-1.27,0.806C27.482,13.91,25.785,13.69,24,13.69c-1.801,0-3.513,0.221-5.067,0.652	c-0.362-0.241-0.821-0.539-1.277-0.811c-0.969-0.578-1.641-0.781-2.422-1.047s-1.703-0.172-1.703-0.172s-0.203,0.516-0.375,1.25	s-0.375,1.484-0.203,2.734c0.077,0.562,0.233,1.006,0.382,1.333c-1.31,1.493-2.078,3.397-2.078,5.704	c0,5.983,3.232,8.714,9.121,9.435c-0.687,0.726-1.148,1.656-1.303,2.691c-0.387,0.17-0.833,0.33-1.262,0.394	c-1.104,0.167-2.271,0-2.833-0.333s-1.229-1.083-1.729-1.813c-0.422-0.616-1.031-1.331-1.583-1.583	c-0.729-0.333-1.438-0.458-1.833-0.396c-0.396,0.063-0.583,0.354-0.5,0.563c0.083,0.208,0.479,0.521,0.896,0.75	c0.417,0.229,1.063,0.854,1.438,1.458c0.418,0.674,0.5,1.063,0.854,1.833c0.249,0.542,1.101,1.219,1.708,1.583	c0.521,0.313,1.562,0.491,2.688,0.542c0.389,0.018,1.308-0.096,2.083-0.206v3.75c0,0.639-0.585,1.125-1.191,1.013	C19.756,43.668,21.833,44,24,44c2.166,0,4.243-0.332,6.19-0.984C29.585,43.127,29,42.641,29,42.002v-5.804	c0-1.329-0.527-2.53-1.373-3.425C33.473,32.071,36.744,29.405,36.744,23.334z M11.239,32.727c-0.154-0.079-0.237-0.225-0.185-0.328	c0.052-0.103,0.22-0.122,0.374-0.043c0.154,0.079,0.237,0.225,0.185,0.328S11.393,32.806,11.239,32.727z M12.451,33.482	c-0.081,0.088-0.255,0.06-0.389-0.062s-0.177-0.293-0.096-0.381c0.081-0.088,0.255-0.06,0.389,0.062S12.532,33.394,12.451,33.482z M13.205,34.732c-0.102,0.072-0.275,0.005-0.386-0.15s-0.118-0.34-0.016-0.412s0.275-0.005,0.386,0.15	C13.299,34.475,13.307,34.66,13.205,34.732z M14.288,35.673c-0.069,0.112-0.265,0.117-0.437,0.012s-0.256-0.281-0.187-0.393	c0.069-0.112,0.265-0.117,0.437-0.012S14.357,35.561,14.288,35.673z M15.312,36.594c-0.213-0.026-0.371-0.159-0.353-0.297	c0.017-0.138,0.204-0.228,0.416-0.202c0.213,0.026,0.371,0.159,0.353,0.297C15.711,36.529,15.525,36.62,15.312,36.594z M16.963,36.833c-0.227-0.013-0.404-0.143-0.395-0.289c0.009-0.146,0.2-0.255,0.427-0.242c0.227,0.013,0.404,0.143,0.395,0.289	C17.381,36.738,17.19,36.846,16.963,36.833z M18.521,36.677c-0.242,0-0.438-0.126-0.438-0.281s0.196-0.281,0.438-0.281	c0.242,0,0.438,0.126,0.438,0.281S18.762,36.677,18.521,36.677z"/></svg>
+          </a>
+        </div>
+      </div>
+
+      <div class="container content">
+        <h1>16. Duality Revisited</h1>
+
+
+
+
+
+
+<!-- Get first post and show it -->
+
+<p>이번 장에서는 Primal-Dual Interior-Point method를 다루기에 앞서 duality에 대한 필수적인 사전지식을 정리한다. Primal-Dual Interior-Point method는 Barrier method의 확장판이라 볼 수 있으며, 내용을 풀어가는 과정에서 duality의 개념이 핵심적인 주제로 등장한다.</p>
+
+<h2 id="references-and-further-readings">References and further readings</h2>
+
+<ul>
+  <li>O. Guler (2010), “Foundations of Optimization”, Chapter 11.</li>
+  <li>J. Renegar (2001), “A mathematical view of interior-point methods in convex optimization,” Chapters 2 and 3.</li>
+  <li>S. Wright (1997), “Primal-dual interior-point methods”, Chapters 5 and 6.</li>
+</ul>
+
+
+<!-- Remove first element from post_list which is already shown above. -->
+  
+
+<!-- List up the posts in the chapter -->
+<ul style="list-style: none;">
+
+  
+  
+  
+  
+    <li style="text-align:left; vertical-align: middle; margin-left: -2em; margin-top: 5px;" >
+      <a href="#_page_1">16-01 Lagrangian duality revisited</a>
+    </li>
+  
+  
+
+  
+  
+  
+  
+    <li style="text-align:left; vertical-align: middle; margin-left: -2em; margin-top: 5px;" >
+      <a href="#_page_2">16-02 Optimality conditions</a>
+    </li>
+  
+  
+
+  
+  
+  
+  
+    <li style="text-align:left; vertical-align: middle; margin-left: -2em; margin-top: 5px;" >
+      <a href="#_page_3">16-03 Fenchel duality</a>
+    </li>
+  
+  
+
+</ul>
+
+
+<main class="container">
+    <div class="content">
+        <article class="post-body">
+            <h1><a name="_page_1"></a>16-01 Lagrangian duality revisited</h1>
+            <script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+    displayAlign: "center"
+});
+</script>
+
+<p>이번 절에서는 Lagrangian을 이용하여 primal problem과 dual problem을 정의할 수 있음을 보이고, 이 정의를 이용하여 standard form의 linear programming 및 quadratic programming의 dual problem을 유도해볼 것이다. 나아가 barrier problem이 적용된 linear programming의 dual problem을 유도해봄으로써, 그 형태가 linear programming의 dual problem에 대한 barrier problem과 같음을 보일 것이다.</p>
+
+<p><br />
+우선 primal problem과 Lagrangian을 다음과 같이 정의해보자.</p>
+
+<h4 id="primal-problem">Primal problem</h4>
+<blockquote>
+\[\begin{align}
+   \mathop{\text{minimize}}_x &amp;\quad f(x) \\\\
+   \text{subject to} &amp;\quad h_i(x) \leq 0, i = 1, \ldots, m \\\\
+   &amp;\quad l_j(x) = 0, j = 1, \ldots, r
+\end{align}\]
+</blockquote>
+
+<h4 id="lagrangian">Lagrangian</h4>
+<blockquote>
+\[L(x,u,v) = f(x) + \sum_{i=1}^m u_i h_i (x) + \sum_{j=1}^r v_j l_j (x)\]
+</blockquote>
+
+<p><br />
+이때 primal problem과 dual problem은 Lagrangian에 대한 문제로 재정의할 수 있다.</p>
+
+<h4 id="rewrited-primal-problem">Rewrited primal problem</h4>
+<blockquote>
+\[\min_x \mathop{\max_{u,v}}_{u \geq 0} L(x,u,v)\]
+</blockquote>
+
+<p>재정의된 primal problem은 제약조건을 명시하고 있지 않지만, 제약조건을 위반하는 임의의 infeasible \(x\)에 대해 indicator function처럼 동작하는 효과가 있다.</p>
+
+<ol>
+  <li>어떤 \(i \in [1, m]\)에 대해 \(h_i(\hat{x}) \gt 0\)이면 \(\hat{x}\)는 infeasible point다. 이때 \(\max_{u,v}\)에 의해 \(u_i h_i(\hat{x})\)는 \(\infty\)로 발산하므로 inequality constraint를 위반하는 임의의 \(\hat{x}\)에 대해 indicator function으로 동작한다.</li>
+  <li>어떤 \(i \in [1, r]\)에 대해 \(l_i(\hat{x}) \neq 0\)이면 \(\hat{x}\)는 infeasible point다. 이때 \(\max_{u,v}\)에 의해 \(v_i l_i(\hat{x})\)는 \(\infty\)로 발산하므로 equality constraint를 위반하는 임의의 \(\hat{x}\)에 대해 indicator function으로 동작한다.</li>
+</ol>
+
+<h4 id="rewrited-dual-problem">Rewrited dual problem</h4>
+<blockquote>
+\[\mathop{\max_{u,v}}_{u \geq 0} \min_x L(x,u,v)\]
+</blockquote>
+
+<p>Dual problem에서는 정의역에 대한 relaxation이 필요하므로 primal problem의 제약조건에 대해 indicator function으로 동작해서는 안된다. 고정된 \(u, v\)에 대해 \(\min_x\)를 하는 것으로는 primal problem의 제약조건을 강제할 수 없기 때문에 재정의된 dual problem에서 또한 정의역을 relaxation하는 효과가 있다. (참고: <a href="/contents/chapter11/2021/03/24/11_02_Lagrange_dual_function/">11-02 Lagrange dual function</a>)</p>
+
+<h2 id="weak-and-strong-duality">Weak and strong duality</h2>
+<p>Weak duality와 strong duality에 대해 다시 살펴보도록 한다.</p>
+
+<h4 id="theorem-weak-duality">Theorem: weak duality</h4>
+<p>\(p\)와 \(d\)가 primal problem과 dual problem에 대한 각각의 optimal value라고 할때, 항상 다음을 만족한다.</p>
+
+\[p \ge d\]
+
+<h4 id="theorem-strong-duality-refined-slaters-condition">Theorem: strong duality (refined Slater’s condition)</h4>
+<p>정의역 집합 \(D\)에 대해, \(f, h_1, \dots, h_p\)가 convex이고 \(h_{p+1}, \dots, h_m, l_1, \dots, l_r\)이 affine이라고 가정해보자. 만약 다음을 만족하는 \(\hat{x} \in \text{relint}(D)\)가 존재하면,</p>
+<blockquote>
+\[\begin{align}
+h_i(\hat{x}) \ &amp; \lt 0, \ &amp;&amp; i=1, \dots, p \\
+h_i(\hat{x}) \ &amp; \le 0, \ &amp;&amp; i=p+1, \dots, m \\
+l_j(\hat{x}) \ &amp; = 0, \ &amp;&amp; j = 1, \dots, r
+\end{align}\]
+</blockquote>
+
+<p>primal problem과 dual problem의 optimal value \(p, d\)에 대해 \(p = d\)가 보장된다.</p>
+
+<h2 id="example-linear-programming">Example: linear programming</h2>
+<p>앞서 정의한 dual problem을 이용하여 linear programming의 dual problem을 유도해보자.</p>
+
+<h4 id="primal-problem-of-lp-in-standard-form">Primal problem of LP in standard form</h4>
+<blockquote>
+\[\begin{align}
+   \mathop{\text{minimize}}_x &amp;\quad c^Tx \\\\
+   \text{subject to} &amp;\quad Ax = b \\\\
+   &amp;\quad x \ge 0
+\end{align}\]
+</blockquote>
+
+<p>앞선 정의에 따라 위 문제의 dual problem은 다음과 같다.</p>
+
+\[\mathop{\max_{s,y}}_{s\ge0} \min_{x} \: L(x,s,y) = \mathop{\max_{s,y}}_{s\ge0} \min_{x} \: c^Tx - s^Tx + (b-Ax)^T y\]
+
+<p>\(\nabla_x L = 0\)을 정리하여 얻은 관계식 \(c=A^Ty +s\)를 dual problem에 대입한다.</p>
+
+\[\mathop{\max_{s,y}}_{s\ge0} \: (A^Ty + s)^Tx - s^Tx + (b-Ax)^Ty \quad \text{ s.t. } c=A^Ty +s\]
+
+<p>이는 아래와 같이 정리된다.</p>
+
+<h4 id="dual-problem-of-lp">Dual problem of LP</h4>
+<blockquote>
+\[\begin{align}
+   \mathop{\text{maximize}}_{s,y} &amp;\quad b^Ty \\\\
+   \text{subject to} &amp;\quad A^Ty +  s = 0 \\\\
+   &amp;\quad s \ge 0
+\end{align}\]
+</blockquote>
+
+<h2 id="example-convex-quadratic-programming">Example: convex quadratic programming</h2>
+<p>이번엔 앞서 정의한 dual problem을 이용하여 quadratic programming의 dual problem을 유도해보겠다.</p>
+
+<h4 id="primal-problem-of-qp-in-standard-form">Primal problem of QP in standard form</h4>
+<blockquote>
+\[\begin{align}
+   \mathop{\text{minimize}}_x &amp;\quad \frac{1}{2} x^T Q x + c^Tx \\
+   \text{subject to} &amp;\quad Ax = b \\
+   &amp;\quad x \ge 0, \\
+
+\end{align}\]
+
+\[\text{where } Q \text{ is symmetric and positive semidefinite.}\]
+</blockquote>
+
+<p>앞선 정의에 따라 위 문제의 dual problem은 다음과 같다.</p>
+
+\[\mathop{\max_{s,y}}_{s\ge0} \min_{x} \: L(x,s,y) = \mathop{\max_{s,y}}_{s\ge0} \min_{x} \:  \frac{1}{2} x^T Q x + c^Tx - s^Tx + (b-Ax)^T y\]
+
+<p>\(\nabla_x L = 0\)을 정리하여 얻은 관계식 \(Qx = A^Ty +s - c\)를 dual problem에 대입한다.</p>
+
+\[\begin{align}
+&amp;\mathop{\max_{s,y,x}}_{s\ge0} \: \frac{1}{2} x^T (A^Ty +s - c) + c^Tx - s^Tx + (b-Ax)^T y \quad \text{ s.t. } Qx = A^Ty +s - c\\\\
+&amp;= \mathop{\max_{s,y,x}}_{s\ge0} \: x^T (A^Ty +s - c) + c^Tx - s^Tx + (b-Ax)^T y -  \frac{1}{2} x^T (A^Ty +s - c) \quad \text{ s.t. } Qx = A^Ty +s - c\\\\
+&amp;= \mathop{\max_{s,y,x}}_{s\ge0}  \: b^Ty - \frac{1}{2} x^T (A^Ty +s - c) \quad  \text{ s.t. } Qx = A^Ty +s - c\\\\
+&amp;= \mathop{\max_{s,y,x}}_{s\ge0}  \: b^Ty - \frac{1}{2} x^T Q x \quad \text{ s.t. } Qx = A^Ty +s - c
+\end{align}\]
+
+<p>이는 아래와 같이 정리된다.</p>
+
+<h4 id="dual-problem-of-qp">Dual problem of QP</h4>
+<blockquote>
+\[\begin{align}
+   \mathop{\text{maximize}}_{s,y,x} &amp;\quad b^Ty - \frac{1}{2} x^T Q x\\\\
+   \text{subject to} &amp;\quad A^Ty +  s - c = Qx \\\\
+   &amp;\quad s \ge 0
+\end{align}\]
+</blockquote>
+
+<p>Quadratic 문제의 dual problem은 또한 quadratic 문제가 된다.</p>
+
+<h2 id="example-barrier-problem-for-linear-programming">Example: barrier problem for linear programming</h2>
+<p>Linear programming에 대한 barrier problem은 다음과 같이 정의한다.</p>
+
+<h4 id="barrier-problem-for-lp">Barrier problem for LP</h4>
+<blockquote>
+\[\begin{align}
+   \mathop{\text{minimize}}_x &amp;\quad c^Tx - \tau \sum_{i=1}^n \log(x_i)\\
+   \text{subject to} &amp;\quad Ax = b, \\
+\end{align}\]
+
+\[\text{where }\tau &gt; 0.\]
+</blockquote>
+
+<p>앞선 정의에 따라 위 문제의 dual problem은 다음과 같다.
+\(\begin{align}
+\max_{y} \min_{x} \: L(x,y) &amp;= \max_{y} \min_{x} \:  c^Tx - \tau \sum_{i=1}^n \log(x_i) + (b-Ax)^T y\\\\
+&amp;=  \max_{y} \min_{x} \:  \underbrace{(c-A^Ty)}_{s \doteq c-A^Ty}x - \tau \sum_{i=1}^n \log(x_i) + b^Ty\\\\
+&amp;= \max_{y} \min_{x} \: \sum_{i=1}^n \big( s_i^Tx_i - \tau  \log(x_i) \big) + b^Ty  \quad \text{ s.t. } A^Ty +s = c
+\end{align}\)</p>
+
+<p>여기서 \(\sum_{i=1}^n \big( s_i^Tx_i - \tau  \log(x_i) \big) + b^Ty\)는 \(x_i = \frac{\tau}{s_i}\)일때 최소화될 것이다. 그러므로 \(\frac{\tau}{s_i}\)를 dual problem의 \(x_i\)에 대입해보자.</p>
+
+\[\begin{align}
+&amp;\max_{s,y} \: b^Ty + n\tau - \tau \sum_{i=1}^n log(\frac{\tau}{s_i}) \quad \text{ s.t. } A^Ty +s = c\\\\
+&amp;= \max_{s,y} \: b^Ty + \tau \sum_{i=1}^n log(s_i) + n\tau - n\tau\log(\tau) \quad \text{ s.t. } A^Ty +s = c\\\\
+\end{align}\]
+
+<p>\(n\tau - n\tau\log(\tau)\)는 문제에서 생략되어도 무방하므로, dual problem은 다음과 같이 정리된다.</p>
+
+<h4 id="dual-problem-of-barrier-problem-for-lp">Dual problem of Barrier problem for LP</h4>
+<blockquote>
+\[\begin{align}
+   \mathop{\text{maximize}}_{s,y} &amp;\quad b^Ty + \tau \sum_{i=1}^n log(s_i)\\\\
+   \text{subject to} &amp;\quad A^Ty +  s = c \\\\
+\end{align}\]
+</blockquote>
+
+<p>Linear programming의 dual problem에 대한 barrier problem과 문제가 동일함을 알 수 있다.</p>
+
+        </article>
+    </div>
+</main>
+
+<main class="container">
+    <div class="content">
+        <article class="post-body">
+            <h1><a name="_page_2"></a>16-02 Optimality conditions</h1>
+            <script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+    displayAlign: "center"
+});
+</script>
+
+<p>이번 절에서는 primal problem과 barrier problem에 대한 KKT optimality conditions를 각각 살펴보고 나아가 둘의 차이점을 비교해보도록 한다.
+<br /></p>
+
+<h2 id="kkt-optimality-conditions">KKT optimality conditions</h2>
+
+<p>12장에서 다루어 보았던 KKT conditions를 다시 한 번 정리해보도록 하겠다. KKT conditions는 optimality를 판정하는 조건으로써 사용된다.</p>
+
+<h4 id="primal-problem">Primal problem</h4>
+<blockquote>
+\[\begin{align}
+   \mathop{\text{minimize}}_x &amp;\quad f(x) \\\\
+   \text{subject to} &amp;\quad h_i(x) \leq 0, i = 1, \ldots, m \\\\
+   &amp;\quad l_j(x) = 0, j = 1, \ldots, r
+\end{align}\]
+</blockquote>
+
+<p>주어진 primal problem이 convex일때, KKT conditions는 primal &amp; dual optimal에 대한 충분조건이 된다. 즉, \(f, h_1, \dots, h_m\)가 convex이고 \(l_1, \dots, l_r\)가 affine일때, \(x^\star, u^\star, v^\star\)가 다음의 KKT conditions를 만족한다면 \(x^\star\)와 \((u^\star, v^\star)\)는 zero duality gap인 primal &amp; dual optimal이다. (\(f, h_1, \dots, h_m, l_1, \dots, l_r\)는 미분 가능하다고 가정한다.) <br /></p>
+
+<ul>
+  <li>참고: <a href="/contents/chapter12/2021/04/02/12_00_KKT_conditions/">12-01 KKT conditions</a></li>
+</ul>
+
+<h4 id="kkt-conditions-for-the-given-primal-problem">KKT conditions for the given primal problem</h4>
+<blockquote>
+\[\begin{align}
+l_i &amp;= 0, \quad i=1, \dots, r\\\\
+u_i^\star, -h_i(x^\star) &amp;\ge 0, \quad i=1, \dots, m\\\\
+u_i^\star h_i(x^\star) &amp;= 0, \quad i=1, \dots, m\\\\
+\nabla f(x^\star) + \sum_{i=1}^m \nabla h_i(x^\star) u^\star_i + \sum_{i=1}^r \nabla l_i(x^\star) v_i^\star &amp;= 0.\\\\
+\end{align}\]
+</blockquote>
+
+<h2 id="central-path-equations">Central path equations</h2>
+
+<p>Barrier problem의 optimality를 판정하는 조건 또한 살펴보도록 하자.</p>
+
+<h4 id="barrier-problem">Barrier problem</h4>
+
+<blockquote>
+\[\begin{align}
+    \mathop{\text{minimize}}_x &amp;\quad f(x) + \tau \phi(x) \\\\
+    &amp;\quad l_j(x) = 0, j = 1, \ldots, r  \\\\
+\end{align}\]
+
+\[\text{where } \phi(x) = - \sum_{i=1}^m \log \big( -h_i(x) \big).\]
+</blockquote>
+
+<p>Barrier problem에 대한 KKT conditions를 정리하면 아래와 같은 optimality conditions를 유도할 수 있다. 앞서 살펴본 primal problem에 대한 KKT optimality conditions의 inequality constraint, complementary slackness 조건에 대해 차이가 있는 것을 주목하자. (참고: <a href="/contents/chapter15/2021/03/28/15_03_01_perturbed_kkt_conditions/">15-03-01 Perturbed KKT conditions</a>)</p>
+
+<h4 id="optimality-conditions-for-barrier-problem-and-its-dual">Optimality conditions for barrier problem (and its dual)</h4>
+
+<blockquote>
+\[\begin{align}
+l_i &amp;= 0, \quad i=1, \dots, r\\\\
+u_i(t), -h_i(x^\star(t)) &amp;\gt 0, \quad i=1, \dots, m\\\\
+u_i(t) h_i(x^\star(t)) &amp;= -\tau, \quad i=1, \dots, m\\\\
+\nabla f(x^\star(t)) + \sum_{i=1}^m \nabla h_i(x^\star(t)) u_i(t) + \sum_{i=1}^r \nabla l_i(x^\star(t)) \hat{v}_i^\star &amp;= 0,\\\\
+\end{align} \\\\\]
+
+\[\text{where } \tau = \frac{1}{t}, u_i(t) = - \frac{1}{t h_i(x^\star(t))}, \quad \hat{v} = \frac{1}{t}v.\]
+</blockquote>
+
+<h2 id="special-case-linear-programming">Special case: linear programming</h2>
+
+<h4 id="recall-primal-problem-of-lp-in-standard-form">Recall: Primal problem of LP in standard form</h4>
+<blockquote>
+\[\begin{align}
+   \mathop{\text{minimize}}_x &amp;\quad c^Tx \\\\
+   \text{subject to} &amp;\quad Ax = b \\\\
+   &amp;\quad x \ge 0
+\end{align}\]
+</blockquote>
+
+<h4 id="recall-dual-problem-of-lp">Recall: Dual problem of LP</h4>
+<blockquote>
+\[\begin{align}
+   \mathop{\text{maximize}}_{s,y} &amp;\quad b^Ty \\\\
+   \text{subject to} &amp;\quad A^Ty +  s = c \\\\
+   &amp;\quad s \ge 0
+\end{align}\]
+</blockquote>
+
+<p>Linear programming은 inequality constraint가 affine이므로 refined Slater’s condition에 의해 항상 strong duality를 만족하는 좋은 성질을 지니고 있다. LP에 대한 optimality conditions는 다음과 같다.</p>
+
+<blockquote>
+\[\begin{align}
+A^T y^\star + s^\star &amp;= c\\\\
+Ax^\star &amp;= b\\\\
+X S \mathbb{1} &amp;= 0\\\\
+x^\star, s^\star &amp;\ge 0,\\\\
+\end{align}\]
+
+\[text{where }X = Diag(x^\star), S = Diag(s^\star)\]
+</blockquote>
+
+<p>참고로 \(X S \mathbb{1} = 0\)는 \(Xs^\star=(x_1^\star s_1^\star, \dots, x_n^\star s_n^\star)=0\)와 같다. 차후 소개될 알고리즘에서의 편의성을 위해 \(X, S\)를 사용하여 표현하였다.</p>
+
+<h4 id="algorithms-for-linear-programming">Algorithms for linear programming</h4>
+
+<p>Optimality conditions를 이용하여 LP를 푸는 대표적인 두 가지 방식을 소개한다.</p>
+
+<ol>
+  <li>Simplex: 1,2,3번째 조건을 유지하면서 4번째 조건을 차츰 만족하도록 하는 방식.</li>
+  <li>Interior-point methods: 4번째 조건을 유지하면서 1,2,3번째 조건을 점차 만족하도록 하는 방식. 다음 챕터에서 다루게 될 것이다.</li>
+</ol>
+
+<h2 id="central-path-for-linear-programming">Central path for linear programming</h2>
+
+<h4 id="recall-barrier-problem-for-lp">Recall: Barrier problem for LP</h4>
+<blockquote>
+\[\begin{align}
+    \mathop{\text{minimize}}_x &amp;\quad c^Tx - \tau \sum_{i=1}^n \log(x_i)\\\\
+    \text{subject to} &amp;\quad Ax = b, \\\\
+    \text{where}  &amp;\quad \tau &gt; 0
+\end{align}\]
+</blockquote>
+
+<h4 id="recall-dual-problem-of-barrier-problem-for-lp">Recall: Dual problem of Barrier problem for LP</h4>
+<blockquote>
+\[\begin{align}
+   \mathop{\text{maximize}}_{s,y} &amp;\quad b^Ty + \tau \sum_{i=1}^n log(s_i)\\\\
+   \text{subject to} &amp;\quad A^Ty +  s = c \\\\
+\end{align}\]
+</blockquote>
+
+<p>LP의 barrier problem에 대한 optimality conditions는 다음과 같다.</p>
+
+<blockquote>
+\[\begin{align}
+A^T y^\star + s^\star &amp;= c\\\\
+Ax^\star &amp;= b\\\\
+X S \mathbb{1} &amp;= \tau \mathbb{1}\\\\
+x^\star, s^\star &amp;\gt 0,\\\\
+\text{where} &amp;\quad X = Diag(x^\star), S = Diag(s^\star)
+\end{align}\]
+</blockquote>
+
+<p>3, 4번째 조건에서 primal LP의 KKT conditions와 차이를 보인다.</p>
+
+        </article>
+    </div>
+</main>
+
+<main class="container">
+    <div class="content">
+        <article class="post-body">
+            <h1><a name="_page_3"></a>16-03 Fenchel duality</h1>
+            <script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+    displayAlign: "center"
+});
+</script>
+
+<p><a href="/contents/chapter13/2021/04/05/13_04_Conjugate_function/">13-04 Conjugate function</a>에서 conjugate function을 이용해 dual problem를 유도하는 방법에 대해 알아보았다. Fenchel duality는 conjugate function으로 유도되는 dual problem 중에서도 아래의 형태를 한 것을 지칭한다.</p>
+
+\[\max_{v} -f^*(A^Tv) - g^*(-v)\]
+
+<p>이 형태의 문제가 어디서부터 유도되는 것인지 알아보도록 하자.</p>
+
+<h4 id="primal-problem">Primal problem</h4>
+
+<blockquote>
+\[\min_{x} \quad f(x) + g(Ax)\]
+</blockquote>
+
+<p>주어진 문제는 equality constraint가 추가된 형태로 재정의 할 수 있다.</p>
+
+<h4 id="primal-problem-rewrited">Primal problem rewrited</h4>
+<blockquote>
+
+\[\begin{align}
+ &amp;\min_{x,z} \        &amp;&amp; f(x) + g(z)\\
+ &amp;\text{subject to} \ &amp;&amp; Ax = z.
+ \end{align}\]
+</blockquote>
+
+<p>Conjugate function을 이용하여 재정의한 primal problem의 dual problem을 유도해보자. <br /></p>
+
+<ul>
+  <li><strong>Recall:</strong> \(f^*(s) \doteq  \max_{x} \big( s^Tx - f(x) \big) = \min_{x} \big( f(x) - s^Tx \big)\)</li>
+</ul>
+
+<p><br />
+\(\begin{align}
+&amp;\max_{v} \min_{x, z} \quad L(x,z,v)\\\\
+= &amp;\max_{v} \min_{x, z} \quad f(x) + g(z) + v^T (z - Ax) \\\\
+= &amp;\max_{v} \min_{x, z} \quad v^Tz + g(z) - (A^Tv)^Tx + f(x)\\\\
+= &amp;\max_{v} \quad  -f^*(A^Tv) - g^*(-v)\\\\
+\end{align}\)</p>
+
+<h4 id="fenchel-duality">Fenchel duality</h4>
+<blockquote>
+\[\max_{v} -f^*(A^Tv) - g^*(-v)\]
+</blockquote>
+
+<ul>
+  <li><strong>Nice Property:</strong> \(f, g\)가 convex이고 닫혀있으면(closed), dual의 dual은 다시 primal이 된다. (Symmetric)</li>
+</ul>
+
+<h2 id="example-conic-programming">Example: conic programming</h2>
+
+<h4 id="primal-problem-of-cp-in-standard-form">Primal problem of CP in standard form</h4>
+<blockquote>
+\[\begin{align}
+    \mathop{\text{minimize}}_x &amp;\quad c^Tx \\\\
+    \text{subject to} &amp;\quad Ax = b \\\\
+    &amp;\quad x \in K
+\end{align}\]
+</blockquote>
+
+<p>위 문제는 두 함수 \(f(x) = c^Tx + I_K(x)\)와 \(g(z) = I_{\{b\}}(z)\)를 이용하여 재정의할 수 있다.<br /></p>
+
+<ul>
+  <li><strong>Note:</strong> \(\begin{equation}
+  f(x) + g(Ax) = 
+  \begin{cases}
+    0, &amp; \text{if}\ Ax=b, x \in K \\\\
+    \infty, &amp; \text{otherwise}
+  \end{cases}
+\end{equation}\)</li>
+</ul>
+
+<h4 id="primal-problem-of-cp-rewrited">Primal problem of CP rewrited</h4>
+<blockquote>
+\[\begin{align}
+&amp;\min_{x, z}       \ &amp;&amp;  f(x) + g(z)\\\
+&amp;\text{subject to} \ &amp;&amp; z  =Ax \\\
+\end{align}\]
+</blockquote>
+
+<h4 id="deriving-dual-problem-of-cp">Deriving dual problem of CP</h4>
+
+<p>재정의된 CP의 primal problem으로부터 dual problem을 유도해보자. 우선 함수 \(f\)와 \(g\)를 전개하면 아래와 같다.</p>
+<blockquote>
+\[\begin{align}
+&amp; \min_{x, z} &amp;&amp; \; c^Tx + I_K(x) + I_{\{b\}}(z)  \\\
+&amp;\text{subject to} &amp;&amp; \;  z   =Ax \\
+\end{align}\]
+</blockquote>
+
+<p>Dual problem의 정의로부터 conjugate function을 이용하여 문제를 전개해보자.</p>
+
+<blockquote>
+\[\begin{align}
+&amp; \max_{y} \; \min_{x, z} \;  L(x, z, y) \\\
+= \; &amp; \max_{y} \; \min_{x, z} \;  c^Tx + I_K(x) + I_{\{b\}}(z) + y^T(z-Ax) \\\
+= \; &amp; \max_{y}  \;\min_{x, z} \; (c - A^Ty)^Tx  + I_K(x) \;+ \;  y^Tz + I_{\{b\}}(z) \\\
+= \; &amp; \max_{y} \;  \min_{x, z} \; -( (A^Ty - c)^Tx  - I_K(x)) \;  - \; ( - y^Tz - I_{\{b\}}(z) ) \\\
+= \; &amp; \max_{y} \; - I_K^*(A^Ty - c)  -  I_{\{b\}}^*(-y)  \\\
+= \; &amp; \max_{y} \; - I_{-K^*}(A^Ty - c)  - I_{\{b\}}^*(-y)  \\
+\end{align}\]
+</blockquote>
+
+<p>\(I_{-K^*}(A^Ty - c)\)는 constraint로 표현될 수 있다.</p>
+
+<blockquote>
+\[\begin{align}
+A^Ty - c &amp; = -s, \; -s \in -K^* \\\
+\Leftrightarrow A^Ty + s &amp; = c, \; s \in K^* \\\
+\end{align}\]
+</blockquote>
+
+<p>\(I_{\{b\}}^*(-y) = \max_{b} -b^Ty - I_{\{b\}}(b)\)이므로 문제는 다음과 같이 정리된다.</p>
+<blockquote>
+\[\begin{align}
+&amp;\max_{y, s} \ &amp;&amp; -(-b^Ty - I_{\{b\}}(b)) \\\
+&amp;\text{subject to} \ &amp;&amp; y^TA + s = c \\\
+&amp;  \; s \in K^* \\
+\end{align}\]
+</blockquote>
+
+<p>\(I_{\{b\}}(b) = 0\)이므로 문제에서 제거할 수 있다.</p>
+
+<h4 id="dual-problem-of-cp">Dual problem of CP</h4>
+
+<blockquote>
+\[\begin{align}
+&amp;\max_{y, s} \ &amp;&amp;  \;  b^Ty  \\\
+&amp;\text{subject to} \ &amp;&amp; y^TA + s = c \\\
+&amp;  \; s \in K^* \\
+\end{align}\]
+</blockquote>
+
+<ul>
+  <li>Primal problem과 dual problem중 하나라도 strictly feasible하다면 strong duality를 만족한다.</li>
+  <li>Primal problem과 dual problem 둘 다 strictly feasible하다면 strong duality를 만족하고 primal &amp; dual optima가 존재한다.</li>
+</ul>
+
+<h2 id="example-semidefinite-programming">Example: semidefinite programming</h2>
+<p>SDP에 대한 primal &amp; dual problem과 SDP의 barrier problem에 대한 primal &amp; dual problem의 형태를 살펴보도록 하자.</p>
+
+<h4 id="primal-problem-of-sdp">Primal problem of SDP</h4>
+<blockquote>
+\[\begin{align}
+   &amp;\mathop{\text{minimize}}_{X} &amp;&amp;{tr(CX)} \\\\
+   &amp;\text{subject to } &amp;&amp;{tr(A_iX) = b_i, \phantom{5} i=1,\dotsc,p} \\\\
+   &amp; &amp;&amp;{X \succeq 0},\\\\
+\end{align}\]
+
+\[\text{where } C, A_1, \dotsc, A_p \in \mathbb{S}^n.\]
+</blockquote>
+
+<ul>
+  <li><strong>Recall:</strong> \(tr(CX) = \sum_{i,j=1}^n C_{ij}X_{ij}\)</li>
+  <li><strong>Note:</strong> SDP는 LP와 달리 항상 strong duality를 만족하는 것은 아님을 유의하자.</li>
+</ul>
+
+<h4 id="dual-problem-of-sdp">Dual problem of SDP</h4>
+<blockquote>
+\[\begin{align}
+   &amp;\mathop{\text{minimize}}_{y} &amp;&amp;{b^Ty} \\\\
+   &amp;\text{subject to } &amp;&amp;{\sum_{i=1}^m y_i A_i + S = C} \\\\
+   &amp; &amp;&amp;{S \succeq 0}.\\\\
+\end{align}\]
+</blockquote>
+
+<ul>
+  <li><strong>Note:</strong> Positive semidefinite cone은 self-dual cone이다. (\((\mathbb{S}_{+}^n)^* = \mathbb{S}_{+}^n\))</li>
+</ul>
+
+<h4 id="primal-problem-of-barrier-problem-for-sdp">Primal problem of Barrier problem for SDP</h4>
+<blockquote>
+\[\begin{align}
+   &amp;\mathop{\text{minimize}}_{X} &amp;&amp;{tr(CX) - \tau \log \big( det(X) \big)} \\\\
+   &amp;\text{subject to } &amp;&amp;{tr(A_iX) = b_i, \phantom{5} i=1,\dotsc,p} \\\\
+\end{align}\]
+
+\[\text{where } C, A_1, \dotsc, A_p \in \mathbb{S}^n.\]
+</blockquote>
+
+<h4 id="dual-problem-of-barrier-problem-for-sdp">Dual problem of Barrier problem for SDP</h4>
+<blockquote>
+\[\begin{align}
+   &amp;\mathop{\text{minimize}}_{y, S} &amp;&amp;{b^Ty +  \tau \log \big( det(S) \big)} \\\\
+   &amp;\text{subject to } &amp;&amp;{\sum_{i=1}^m y_i A_i + S = C}.
+\end{align}\]
+</blockquote>
+
+        </article>
+    </div>
+</main>
+
+
+
+
+      </div>
+    </div>
+
+    <label for="sidebar-checkbox" class="sidebar-toggle"></label>
+
+    <script src='/public/js/script.js'></script>
+  </body>
+</html>

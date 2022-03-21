@@ -1,6 +1,1176 @@
----
-layout: page
-title: "Duality in Linear Programs"
-chapter: "10"
-owner: "Kyeongmin Woo"
----
+<!DOCTYPE html>
+<html lang="en-us">
+
+  <head>
+  <link href="http://gmpg.org/xfn/11" rel="profile">
+  <meta http-equiv="content-type" content="text/html; charset=utf-8">
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
+
+  <style>
+    .MathJax {
+      padding: 2em 0.3em;
+      overflow-x: auto;
+      overflow-y: hidden;
+    }
+@media print {
+
+    .container {
+        padding: 0;
+        max-width: unset;
+        break-after: page;
+        break-before: page;
+    }
+    .content {
+        padding: 0;
+    }
+    .masthead {
+        display: none;
+    }
+    .sidebar-toggle {
+        display: none;
+    }
+
+
+}
+  </style>
+  <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js"></script>
+
+  <title>
+    
+      Duality in Linear Programs &middot; 모두를 위한 컨벡스 최적화
+    
+  </title>
+
+  <link rel="stylesheet" href="/public/css/poole.css">
+  <link rel="stylesheet" href="/public/css/syntax.css">
+  <link rel="stylesheet" href="/public/css/lanyon.css">
+  <link rel="stylesheet" href="/public/css/github-markdown.css">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=PT+Serif:400,400italic,700%7CPT+Sans:400">
+
+  <link rel="apple-touch-icon-precomposed" sizes="122x144" href="https://convex-optimization-for-all.github.io/public/logo.png">
+  <link rel="shortcut icon" href="https://convex-optimization-for-all.github.io/public/convex-logo-144x144.png">
+
+  <link rel="alternate" type="application/rss+xml" title="RSS" href="https://convex-optimization-for-all.github.io/atom.xml">
+
+  
+  <script>
+    (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+    (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+    m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+    })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+    ga('create', 'UA-189737072-1', 'auto');
+    ga('send', 'pageview');
+  </script>
+  
+</head>
+
+
+  <body class="sidebar-overlay">
+
+    <!-- Target for toggling the sidebar `.sidebar-checkbox` is for regular
+     styles, `#sidebar-checkbox` for behavior. -->
+<input type="checkbox" class="sidebar-checkbox" id="sidebar-checkbox">
+
+<!-- Toggleable sidebar -->
+<div class="sidebar" id="sidebar">
+  <div class="sidebar-item">
+    <p>모두를 위한 컨벡스 최적화</p>
+  </div>
+
+  <nav class="sidebar-nav">
+    <a class="sidebar-nav-item" href="https://convex-optimization-for-all.github.io/">Home</a>
+
+    
+
+    
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+        
+          <a class="sidebar-nav-item" href="https://convex-optimization-for-all.github.io/contents/chapter01/">01. Introduction</a>
+        
+      
+    
+      
+        
+          <a class="sidebar-nav-item" href="https://convex-optimization-for-all.github.io/contents/chapter02/">02. Convex Sets</a>
+        
+      
+    
+      
+        
+          <a class="sidebar-nav-item" href="https://convex-optimization-for-all.github.io/contents/chapter03/">03. Convex Functions</a>
+        
+      
+    
+      
+        
+          <a class="sidebar-nav-item" href="https://convex-optimization-for-all.github.io/contents/chapter04/">04. Convex Optimization Basis</a>
+        
+      
+    
+      
+        
+          <a class="sidebar-nav-item" href="https://convex-optimization-for-all.github.io/contents/chapter05/">05. Canonical Problems</a>
+        
+      
+    
+      
+        
+          <a class="sidebar-nav-item" href="https://convex-optimization-for-all.github.io/contents/chapter06/">06. Gradient Descent</a>
+        
+      
+    
+      
+        
+          <a class="sidebar-nav-item" href="https://convex-optimization-for-all.github.io/contents/chapter07/">07. Subgradient</a>
+        
+      
+    
+      
+        
+          <a class="sidebar-nav-item" href="https://convex-optimization-for-all.github.io/contents/chapter08/">08. Subgradient Method</a>
+        
+      
+    
+      
+        
+          <a class="sidebar-nav-item" href="https://convex-optimization-for-all.github.io/contents/chapter09/">09. Proximal Gradient Descent and Acceleration</a>
+        
+      
+    
+      
+        
+          <a class="sidebar-nav-item active" href="https://convex-optimization-for-all.github.io/contents/chapter10/">10. Duality in Linear Programs</a>
+        
+      
+    
+      
+        
+          <a class="sidebar-nav-item" href="https://convex-optimization-for-all.github.io/contents/chapter11/">11. Duality in General Programs</a>
+        
+      
+    
+      
+        
+          <a class="sidebar-nav-item" href="https://convex-optimization-for-all.github.io/contents/chapter12/">12. KKT Conditions</a>
+        
+      
+    
+      
+        
+          <a class="sidebar-nav-item" href="https://convex-optimization-for-all.github.io/contents/chapter13/">13. Duality uses and correspondences</a>
+        
+      
+    
+      
+        
+          <a class="sidebar-nav-item" href="https://convex-optimization-for-all.github.io/contents/chapter14/">14. Newton's Method</a>
+        
+      
+    
+      
+        
+          <a class="sidebar-nav-item" href="https://convex-optimization-for-all.github.io/contents/chapter15/">15. Barrier Method</a>
+        
+      
+    
+      
+        
+          <a class="sidebar-nav-item" href="https://convex-optimization-for-all.github.io/contents/chapter16/">16. Duality Revisited</a>
+        
+      
+    
+      
+        
+          <a class="sidebar-nav-item" href="https://convex-optimization-for-all.github.io/contents/chapter17/">17. Primal-Dual Interior-Point Methods</a>
+        
+      
+    
+      
+        
+          <a class="sidebar-nav-item" href="https://convex-optimization-for-all.github.io/contents/chapter18/">18. Quasi-Newton Methods</a>
+        
+      
+    
+      
+        
+          <a class="sidebar-nav-item" href="https://convex-optimization-for-all.github.io/contents/chapter19/">19. Proximal Netwon Method</a>
+        
+      
+    
+      
+        
+          <a class="sidebar-nav-item" href="https://convex-optimization-for-all.github.io/contents/chapter20/">20. Dual Methods</a>
+        
+      
+    
+      
+        
+          <a class="sidebar-nav-item" href="https://convex-optimization-for-all.github.io/contents/chapter21/">21. Alternating Direction Method of Mulipliers</a>
+        
+      
+    
+      
+        
+          <a class="sidebar-nav-item" href="https://convex-optimization-for-all.github.io/contents/chapter22/">22. Conditional Gradient Method</a>
+        
+      
+    
+      
+        
+          <a class="sidebar-nav-item" href="https://convex-optimization-for-all.github.io/contents/chapter23/">23. Coordinate Descent</a>
+        
+      
+    
+      
+        
+          <a class="sidebar-nav-item" href="https://convex-optimization-for-all.github.io/contents/chapter24/">24.  Mixed Integer Programming 1</a>
+        
+      
+    
+      
+        
+          <a class="sidebar-nav-item" href="https://convex-optimization-for-all.github.io/contents/chapter25/">25.  Mixed Integer Programming 2</a>
+        
+      
+    
+      
+        
+          <a class="sidebar-nav-item" href="https://convex-optimization-for-all.github.io/reference/">26. Reference</a>
+        
+      
+    
+
+    <span class="sidebar-nav-item">Currently v1.1.0</span>
+  </nav>
+
+  <div class="sidebar-item">
+    <p>
+      &copy; 2022. All rights reserved.
+    </p>
+  </div>
+</div>
+
+
+    <!-- Wrap is the content to shift when toggling the sidebar. We wrap the
+         content to avoid any CSS collisions with our real content. -->
+    <div class="wrap github-md-body">
+      <div class="masthead">
+        <div class="container">
+          <h3 class="masthead-title">
+            <a href="/" title="Home">모두를 위한 컨벡스 최적화</a>
+            <small></small>
+          </h3>
+          <a class="github-logo__wrapper" target="_blank" href="https://github.com/convex-optimization-for-all/convex-optimization-for-all.github.io" titltle="Github">
+           <svg class="github-logo" xmlns="http://www.w3.org/2000/svg"  viewBox="0 0 48 48"><linearGradient id="rL2wppHyxHVbobwndsT6Ca" x1="4" x2="44" y1="23.508" y2="23.508" gradientUnits="userSpaceOnUse"><stop offset="0" stop-color="#4c4c4c"/><stop offset="1" stop-color="#343434"/></linearGradient><path fill="url(#rL2wppHyxHVbobwndsT6Ca)" d="M24,4C12.954,4,4,12.954,4,24c0,8.887,5.801,16.411,13.82,19.016h12.36	C38.199,40.411,44,32.887,44,24C44,12.954,35.046,4,24,4z"/><path d="M30.01,41.996L30,36.198c0-0.939-0.22-1.856-0.642-2.687c5.641-1.133,8.386-4.468,8.386-10.177	c0-2.255-0.665-4.246-1.976-5.92c0.1-0.317,0.174-0.645,0.22-0.981c0.188-1.369-0.023-2.264-0.193-2.984l-0.027-0.116	c-0.186-0.796-0.409-1.364-0.418-1.388l-0.111-0.282l-0.111-0.282l-0.302-0.032l-0.303-0.032c0,0-0.199-0.021-0.501-0.021	c-0.419,0-1.04,0.042-1.627,0.241l-0.196,0.066c-0.74,0.249-1.439,0.485-2.417,1.069c-0.286,0.171-0.599,0.366-0.934,0.584	C27.334,12.881,25.705,12.69,24,12.69c-1.722,0-3.365,0.192-4.889,0.571c-0.339-0.22-0.654-0.417-0.942-0.589	c-0.978-0.584-1.677-0.819-2.417-1.069l-0.196-0.066c-0.585-0.199-1.207-0.241-1.626-0.241c-0.302,0-0.501,0.021-0.501,0.021	l-0.302,0.032l-0.3,0.031l-0.112,0.281l-0.113,0.283c-0.01,0.026-0.233,0.594-0.419,1.391l-0.027,0.115	c-0.17,0.719-0.381,1.615-0.193,2.983c0.048,0.346,0.125,0.685,0.23,1.011c-1.285,1.666-1.936,3.646-1.936,5.89	c0,5.695,2.748,9.028,8.397,10.17c-0.194,0.388-0.345,0.798-0.452,1.224c-0.197,0.067-0.378,0.112-0.538,0.137	c-0.238,0.036-0.487,0.054-0.739,0.054c-0.686,0-1.225-0.134-1.435-0.259c-0.313-0.186-0.872-0.727-1.414-1.518	c-0.463-0.675-1.185-1.558-1.992-1.927c-0.698-0.319-1.437-0.502-2.029-0.502c-0.138,0-0.265,0.01-0.376,0.028	c-0.517,0.082-0.949,0.366-1.184,0.78c-0.203,0.357-0.235,0.773-0.088,1.141c0.219,0.548,0.851,0.985,1.343,1.255	c0.242,0.133,0.765,0.619,1.07,1.109c0.229,0.368,0.335,0.63,0.482,0.992c0.087,0.215,0.183,0.449,0.313,0.732	c0.47,1.022,1.937,1.924,2.103,2.023c0.806,0.483,2.161,0.638,3.157,0.683l0.123,0.003c0,0,0.001,0,0.001,0	c0.24,0,0.57-0.023,1.004-0.071v2.613c0.002,0.529-0.537,0.649-1.25,0.638l0.547,0.184C19.395,43.572,21.645,44,24,44	c2.355,0,4.605-0.428,6.703-1.176l0.703-0.262C30.695,42.538,30.016,42.422,30.01,41.996z" opacity=".05"/><path d="M30.781,42.797c-0.406,0.047-1.281-0.109-1.281-0.795v-5.804c0-1.094-0.328-2.151-0.936-3.052	c5.915-0.957,8.679-4.093,8.679-9.812c0-2.237-0.686-4.194-2.039-5.822c0.137-0.365,0.233-0.75,0.288-1.147	c0.175-1.276-0.016-2.086-0.184-2.801l-0.027-0.116c-0.178-0.761-0.388-1.297-0.397-1.319l-0.111-0.282l-0.303-0.032	c0,0-0.178-0.019-0.449-0.019c-0.381,0-0.944,0.037-1.466,0.215l-0.196,0.066c-0.714,0.241-1.389,0.468-2.321,1.024	c-0.332,0.198-0.702,0.431-1.101,0.694C27.404,13.394,25.745,13.19,24,13.19c-1.762,0-3.435,0.205-4.979,0.61	c-0.403-0.265-0.775-0.499-1.109-0.699c-0.932-0.556-1.607-0.784-2.321-1.024l-0.196-0.066c-0.521-0.177-1.085-0.215-1.466-0.215	c-0.271,0-0.449,0.019-0.449,0.019l-0.302,0.032l-0.113,0.283c-0.009,0.022-0.219,0.558-0.397,1.319l-0.027,0.116	c-0.169,0.715-0.36,1.524-0.184,2.8c0.056,0.407,0.156,0.801,0.298,1.174c-1.327,1.62-1.999,3.567-1.999,5.795	c0,5.703,2.766,8.838,8.686,9.806c-0.395,0.59-0.671,1.255-0.813,1.964c-0.33,0.13-0.629,0.216-0.891,0.256	c-0.263,0.04-0.537,0.06-0.814,0.06c-0.69,0-1.353-0.129-1.69-0.329c-0.44-0.261-1.057-0.914-1.572-1.665	c-0.35-0.51-1.047-1.417-1.788-1.755c-0.635-0.29-1.298-0.457-1.821-0.457c-0.11,0-0.21,0.008-0.298,0.022	c-0.366,0.058-0.668,0.252-0.828,0.534c-0.128,0.224-0.149,0.483-0.059,0.708c0.179,0.448,0.842,0.85,1.119,1.002	c0.335,0.184,0.919,0.744,1.254,1.284c0.251,0.404,0.37,0.697,0.521,1.067c0.085,0.209,0.178,0.437,0.304,0.712	c0.331,0.719,1.353,1.472,1.905,1.803c0.754,0.452,2.154,0.578,2.922,0.612l0.111,0.002c0.299,0,0.8-0.045,1.495-0.135v3.177	c0,0.779-0.991,0.81-1.234,0.81c-0.031,0,0.503,0.184,0.503,0.184C19.731,43.64,21.822,44,24,44c2.178,0,4.269-0.36,6.231-1.003	C30.231,42.997,30.812,42.793,30.781,42.797z" opacity=".07"/><path fill="#fff" d="M36.744,23.334c0-2.31-0.782-4.226-2.117-5.728c0.145-0.325,0.296-0.761,0.371-1.309	c0.172-1.25-0.031-2-0.203-2.734s-0.375-1.25-0.375-1.25s-0.922-0.094-1.703,0.172s-1.453,0.469-2.422,1.047	c-0.453,0.27-0.909,0.566-1.27,0.806C27.482,13.91,25.785,13.69,24,13.69c-1.801,0-3.513,0.221-5.067,0.652	c-0.362-0.241-0.821-0.539-1.277-0.811c-0.969-0.578-1.641-0.781-2.422-1.047s-1.703-0.172-1.703-0.172s-0.203,0.516-0.375,1.25	s-0.375,1.484-0.203,2.734c0.077,0.562,0.233,1.006,0.382,1.333c-1.31,1.493-2.078,3.397-2.078,5.704	c0,5.983,3.232,8.714,9.121,9.435c-0.687,0.726-1.148,1.656-1.303,2.691c-0.387,0.17-0.833,0.33-1.262,0.394	c-1.104,0.167-2.271,0-2.833-0.333s-1.229-1.083-1.729-1.813c-0.422-0.616-1.031-1.331-1.583-1.583	c-0.729-0.333-1.438-0.458-1.833-0.396c-0.396,0.063-0.583,0.354-0.5,0.563c0.083,0.208,0.479,0.521,0.896,0.75	c0.417,0.229,1.063,0.854,1.438,1.458c0.418,0.674,0.5,1.063,0.854,1.833c0.249,0.542,1.101,1.219,1.708,1.583	c0.521,0.313,1.562,0.491,2.688,0.542c0.389,0.018,1.308-0.096,2.083-0.206v3.75c0,0.639-0.585,1.125-1.191,1.013	C19.756,43.668,21.833,44,24,44c2.166,0,4.243-0.332,6.19-0.984C29.585,43.127,29,42.641,29,42.002v-5.804	c0-1.329-0.527-2.53-1.373-3.425C33.473,32.071,36.744,29.405,36.744,23.334z M11.239,32.727c-0.154-0.079-0.237-0.225-0.185-0.328	c0.052-0.103,0.22-0.122,0.374-0.043c0.154,0.079,0.237,0.225,0.185,0.328S11.393,32.806,11.239,32.727z M12.451,33.482	c-0.081,0.088-0.255,0.06-0.389-0.062s-0.177-0.293-0.096-0.381c0.081-0.088,0.255-0.06,0.389,0.062S12.532,33.394,12.451,33.482z M13.205,34.732c-0.102,0.072-0.275,0.005-0.386-0.15s-0.118-0.34-0.016-0.412s0.275-0.005,0.386,0.15	C13.299,34.475,13.307,34.66,13.205,34.732z M14.288,35.673c-0.069,0.112-0.265,0.117-0.437,0.012s-0.256-0.281-0.187-0.393	c0.069-0.112,0.265-0.117,0.437-0.012S14.357,35.561,14.288,35.673z M15.312,36.594c-0.213-0.026-0.371-0.159-0.353-0.297	c0.017-0.138,0.204-0.228,0.416-0.202c0.213,0.026,0.371,0.159,0.353,0.297C15.711,36.529,15.525,36.62,15.312,36.594z M16.963,36.833c-0.227-0.013-0.404-0.143-0.395-0.289c0.009-0.146,0.2-0.255,0.427-0.242c0.227,0.013,0.404,0.143,0.395,0.289	C17.381,36.738,17.19,36.846,16.963,36.833z M18.521,36.677c-0.242,0-0.438-0.126-0.438-0.281s0.196-0.281,0.438-0.281	c0.242,0,0.438,0.126,0.438,0.281S18.762,36.677,18.521,36.677z"/></svg>
+          </a>
+        </div>
+      </div>
+
+      <div class="container content">
+        <h1>10. Duality in Linear Programs</h1>
+
+
+
+
+
+
+<!-- Get first post and show it -->
+
+<p>이번 장에서부터는 최적화 이론에서 큰 비중을 차지하는 duality에 대해서 살펴본다.
+최적화 관점에서 duality를 간단히 말하자면, 하나의 최적화 문제를 primal problem과 dual problem 두 가지 시각으로 볼 수 있다는 개념이다.</p>
+
+<p>이 장에서는 특히 linear program에 대한 duality를 알아본다.
+일반적인 convex 문제에 바로 적용하기보다는 linear program에 적용함으로써 primal problem에서 dual problem을 유도하고, 이 둘의 관계가 어떻게 이루어지는지, 또한 특정한 조건 하에 어떤 성질을 가지는지 정리해보고자 한다.</p>
+
+
+<!-- Remove first element from post_list which is already shown above. -->
+  
+
+<!-- List up the posts in the chapter -->
+<ul style="list-style: none;">
+
+  
+  
+  
+  
+    <li style="text-align:left; vertical-align: middle; margin-left: -2em; margin-top: 5px;" >
+      <a href="#_page_1">10-01 Lower Bounds in Linear Programs</a>
+    </li>
+  
+  
+
+  
+  
+  
+  
+    <li style="text-align:left; vertical-align: middle; margin-left: -2em; margin-top: 5px;" >
+      <a href="#_page_2">10-02 Duality in general LPs</a>
+    </li>
+  
+  
+
+  
+  
+  
+  
+    <li style="text-align:left; vertical-align: middle; margin-left: -2em; margin-top: 5px;" >
+      <a href="#_page_3">10-03 Max flow and min cut</a>
+    </li>
+  
+  
+
+  
+  
+  
+  
+    <li style="text-align:left; vertical-align: middle; margin-left: -2em; margin-top: 5px;" >
+      <a href="#_page_4">10-04 Another Perspective on LP duality</a>
+    </li>
+  
+  
+
+  
+  
+  
+  
+    <li style="text-align:left; vertical-align: middle; margin-left: -2em; margin-top: 5px;" >
+      <a href="#_page_5">10-05 Matrix Games</a>
+    </li>
+  
+  
+
+</ul>
+
+
+<main class="container">
+    <div class="content">
+        <article class="post-body">
+            <h1><a name="_page_1"></a>10-01 Lower Bounds in Linear Programs</h1>
+            <script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+    displayAlign: "center"
+});
+</script>
+
+<h2 id="example-1--constraint에-objective-function이-포함된-형태">Example 1 : Constraint에 objective function이 포함된 형태</h2>
+
+<p>주어진 convex 문제에 대하여 최적값의 lower bound(하한) 값 B를 찾고자 한다고 하자.</p>
+
+<blockquote>
+\[\begin{align}
+B \leq \min_{x} f(x).
+\end{align}\]
+</blockquote>
+
+<p>특히 linear program의 lower bound를 생각해보자. 간단한 케이스에서부터 일반화된 형태까지 차례로 살펴본다.
+첫 번째로, 가장 간단한 형태의 LP 문제를 예시로 들면</p>
+
+<blockquote>
+\[\begin{align}
+&amp;\min_{x, y}  
+&amp; &amp;{x+y} \\\\
+&amp;\text{subject to} 
+&amp; &amp;{x + y \geq 2}\\\\
+&amp; &amp; &amp;{x, y \geq 0.}\\\\
+\end{align}\]
+</blockquote>
+
+<p>위의 문제는 constraint에 이미 objective function의 lower bound를 포함하므로 쉽게 \(B=2\)임을 알 수 있다.</p>
+
+<p>나아가 constraint에 lower bound가 포함되어 있지 않은 경우를 살펴보자.</p>
+
+<h2 id="example-2--constraint들의-linear-combination으로-objective-function이-표현-가능한-형태1">Example 2 : Constraint들의 Linear combination으로 objective function이 표현 가능한 형태(1)</h2>
+
+<blockquote>
+\[\begin{align}
+&amp;\min_{x, y}  
+&amp; &amp; {x+3y} \\\\
+&amp;\text{subject to} 
+&amp; &amp;{x + y \geq 2}\\\\
+&amp; &amp; &amp;{x, y \geq 0.}\\\\
+\end{align}\]
+</blockquote>
+
+<p>\(x,\, y\)가 feasible하다면, 세 constraint에 scalar 값을 곱해 더하거나 빼더라도 세 constraint를 그대로 만족한다. 따라서, 위와 같은 LP 문제가 있다면, constraint에 scalar 값을 곱해 더하거나 빼는 과정, 즉 constraint들의 선형 결합(linear combination)으로 objective function에 대한 표현이 가능하고, 그 결과로 \(B\)를 알 수 있다.</p>
+
+<blockquote>
+\[\begin{align}
+&amp; &amp;{x + y \geq 2}\\\\
+&amp;{+} &amp;{0x \geq 0}\\\\
+&amp;{+} &amp;{2y \geq 0}\\\\
+&amp;{=} &amp;{x + 3y \geq 2}\\\\
+
+&amp; &amp;{\text{Lower bound}\ B = 2.}
+\end{align}\]
+</blockquote>
+
+<p>좀 더 일반화하여 임의의 변수를 적용하여 objectvie function을 나타내면 다음과 같다.</p>
+
+<blockquote>
+\[\begin{align}
+&amp;\min_{x, y}  
+&amp; &amp;{px+qy} \\\\
+&amp;\text{subject to} 
+&amp; &amp;{x + y \geq 2}\\\\
+&amp; &amp; &amp;{x, y \geq 0.}\\\\
+\end{align}\]
+</blockquote>
+
+<p>두 번째 예시와 동일하게, constraint에 대하여 각각 scalar 값 a, b, c를 곱하면, 이 셋의 선형 결합으로 objective function에 대한 표현이 가능하다.</p>
+
+<blockquote>
+\[\begin{align}
+&amp; &amp;{a(x+y) \geq 2a} \\\\
+&amp;{+} &amp;{bx \geq 0} \\\\
+&amp;{+} &amp;{cy \geq 0} \\\\
+&amp;{=} &amp;{(a+b)x+(a+c)y \geq 2a} \\\\
+&amp;&amp;\text{Lower bound}\ B=2a, \\
+&amp;&amp;\text{for any satisfying a,b,c below}\\\\
+&amp; &amp;{a + b = p}\\\\
+&amp; &amp;{a + c = q}\\\\
+&amp; &amp;{a,b,c \geq 0.}\\\\
+\end{align}\]
+</blockquote>
+
+<p>lower bound가 위에서처럼 2a임을 만족하기 위해서는, scalar 값을 곱하는 과정에서 부등호가 바뀌어선 성립하지 않기 때문에, \(a, b, c\)가 양수라는 조건과 scalar 값의 합이 obejctive function과 동일하다는 조건인 \(a+b = p\), \(a+c = q\)라는 조건을 만족해야만 한다.</p>
+
+<p>위와 같이 얻은 lower bound 결과를 최대화하는 것으로 새로운 최적화 문제를 정의할 수 있다. 이때 lower bound를 만족하게 하는 조건들이 이 문제에서의 constraint가 된다.</p>
+
+<blockquote>
+\[\begin{align}
+&amp;\max_{a, b, c}  
+&amp; &amp;{2a} \\\\
+&amp;\text{subject to} 
+&amp; &amp;{a + b = p}\\\\
+&amp; &amp; &amp;{a + c = q}\\\\
+&amp; &amp; &amp;{a, b, c \geq 0}\\\\
+\end{align}\]
+</blockquote>
+
+<p>위의 원 LP문제를 primal LP라 부르고, primal LP에서의 lower bound를 최대화하는 것으로 최적화 문제를 재정의한 형태를 dual LP라고 부른다. 이 때, dual 문제의 optimization variable의 개수는 primal 문제에서의 constraint의 개수와 같다는 것을 유념하자.</p>
+
+<blockquote>
+\[\begin{align}
+\text{Primal LP}\qquad
+&amp;\qquad \min_{x, y}  &amp;{px+qy} \\\\
+&amp;\qquad \text{subject to} &amp;{x + y \geq 2}\\\\
+&amp;\qquad &amp;{x, y \geq 0}\\\\
+\\\\
+\\\\
+\text{Dual LP}\qquad
+&amp;\qquad \max_{a, b, c}  &amp;{2a} \\\\
+&amp;\qquad \text{subject to} &amp;{a + b = p}\\\\
+&amp;\qquad &amp;{a + c = q}\\\\
+&amp;\qquad &amp;{a, b, c \geq 0}\\\\
+\end{align}\]
+</blockquote>
+
+<h2 id="example-2--constraint들의-linear-combination으로-objective-function이-표현-가능한-형태2">Example 2 : Constraint들의 Linear combination으로 Objective function이 표현 가능한 형태(2)</h2>
+
+<p>마지막 예시로  constraint의 부등호가 반대로 되어있고, 등호가 포함 되어있는 형태를 살펴보자.</p>
+
+<blockquote>
+\[\begin{align}
+&amp;\min_{x, y}  &amp;{px+qy} \\\\
+&amp;\text{subject to} &amp;{x \geq 0}\\\\
+&amp; &amp;{y \leq 1}\\\\
+&amp; &amp;{3x + y = 2}\\\\
+\\\\
+&amp; &amp;{ax \geq 0}\\\\
+&amp;{+} &amp;{-by \geq -b}\\\\
+&amp;{+} &amp;{3cx + cy = 2c}\\\\
+&amp;{=} &amp;{(a+3c)x+(-b+c)y \geq 2c-b}
+\\\\
+\\\\
+&amp;&amp; \text{Lower bound}  \ B=2c-b, \\
+&amp;&amp; \text{for any satisfying a,b,c below}\\\\
+&amp; &amp;{a + 3c = p}\\\\
+&amp; &amp;{-b + c = q}\\\\
+&amp; &amp;{a,b \geq 0}\\\\
+\end{align}\]
+</blockquote>
+
+<p>이때, c는 등호의 양변에 곱해진 scalar 값으로 어떤 값을 곱해도 무방하다.</p>
+
+<p>결과적으로, dual LP를 다음과 같이 정의할 수 있다.</p>
+
+<blockquote>
+\[\begin{align}
+&amp;\qquad \max_{a, b, c}  &amp;{2c-b} \\\\
+&amp;\qquad \text{subject to} &amp;{a + 3c = p}\\\\
+&amp;\qquad &amp;{-b + c = q}\\\\
+&amp;\qquad &amp;{a, b \geq 0}\\\\
+\end{align}\]
+</blockquote>
+
+        </article>
+    </div>
+</main>
+
+<main class="container">
+    <div class="content">
+        <article class="post-body">
+            <h1><a name="_page_2"></a>10-02 Duality in general LPs</h1>
+            <script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+    displayAlign: "center"
+});
+</script>
+
+<p><a href="/contents/chapter10/2021/03/22/10_01_Lower_Bounds_in_Linear_Programs/">10-01</a>에서 단일 차원의 변수의 LP 문제에 대한 primal, dual을 살펴보았다. 10-02에서는 general form(일반형)을 가지는 LP에 대한 dual을 살펴보고자 한다.</p>
+
+<p>LP의 general form은 다음과 같다.</p>
+
+<p>\(c\in\mathbb{R}^{n},\, A\in\mathbb{R}^{m\times n},\, b\in\mathbb{R}^{m},\, G\in\mathbb{R}^{r\times n},\, h\in\mathbb{R}^{r}\) 라 주어졌을 때,</p>
+
+<blockquote>
+\[\begin{align}
+&amp;\min_{x} &amp;&amp;c^{T}x\\\\
+&amp;\text{subject to} &amp;&amp;Ax = b\\\\
+&amp; &amp;&amp;Gx \leq h.\\\\
+\end{align}\]
+</blockquote>
+
+<p>앞 10-01의 예시와 동일하게, constraint 개수와 동일한 수의 dual variable \(u, v\)를 정의하고,
+constraint와 각 dual variable의 곱의 합으로 dual 문제의 objective function을 정의하고, constraint를 정의할 수 있다.</p>
+
+<blockquote>
+\[\begin{align}
+&amp; &amp;u^{T}(Ax-b) = 0\\\\
+&amp;{+} &amp;v^{T}(Gx-h)\leq 0\\\\
+&amp;{=} &amp;u^{T}(Ax-b) + v^{T}(Gx-h)\leq 0.\\\\
+\end{align}\]
+</blockquote>
+
+<p>등호에 대한 dual variable \(u\)는 조건이 없고, \(v\)는 부등호에 대한 dual variable이기 때문에 양수라는 조건이 추가됨을 기억하자.
+마지막 식을 정리하여 primal LP의 objective function을 나타내면, dual LP가 된다.</p>
+
+<blockquote>
+\[\begin{align}
+u^{T}(Ax-b) + v^{T}(Gx-h)\leq 0 \\\\
+\underbrace{(-A^{T}u-G^{T}v)^{T}}_{=c^{T}}x\geq-b^{T}u-h^{T}v \\\\
+\text{Lower bound is} -b^{T}u-h^{T}v \\\\ 
+\text{for } x \text{ primal feasible, and any u, v satisfies,} \\\\
+c = -A^{T}u-G^{T}v \\\\
+v\geq 0. \\\\
+\end{align}\]
+</blockquote>
+
+<p>즉, \(c = -A^{T}u-G^{T}v\) 일 때, primal의 optimal value는 \(-b^{T}u-h^{T}v\)의 하한을 가진다.</p>
+
+<p>결과적으로, dual LP는 다음과 같이 정의할 수 있다.</p>
+
+<blockquote>
+\[\begin{align}
+&amp;\max_{u,v} &amp;&amp;-b^{T}u-h^{T}v \\\\
+&amp;\text{subject to} &amp;&amp;c = -A^{T}u-G^{T}v \\\\
+&amp; &amp;&amp;v\geq 0.
+\end{align}\]
+</blockquote>
+
+
+        </article>
+    </div>
+</main>
+
+<main class="container">
+    <div class="content">
+        <article class="post-body">
+            <h1><a name="_page_3"></a>10-03 Max flow and min cut</h1>
+            <script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+    displayAlign: "center"
+});
+</script>
+
+<p>Linear program의 duality에 대한 예시로 max flow min cut 문제에 대해 살펴보고자 한다.</p>
+
+<h2 id="directed-graph-condition-of-flow">Directed Graph, Condition of flow</h2>
+
+<figure class="image" style="align: center;">
+<p align="center">
+ <img src="/img/chapter_img/chapter10/max_flow.png" alt="" width="70%" height="70%" />
+ <figcaption style="text-align: center;">[Fig 1] Directed Graph[3]</figcaption>
+</p>
+</figure>
+
+<p>위와 같이 방향이 있는(directed) graph \(G = (V, E)\)가 있고, vertex i와 vertex j를 잇는 edge, \((i,j)\in E\), 즉 i에서 j로 흐르는 flow(유량)를 \(f_{ij}\)라고 하자. 각 edge에는 capacity, 즉 흐를 수 있는 최대 flow가 정해져있다. 이를 \(c_{ij}\)라 하자.</p>
+
+<p>쉬운 예시로, source(s)에서 나오는 어떤 flow가 sink(t)로 흘러나가는 과정을 그래프로 나타낸 것이라 이해할 수 있다. 도시 배수/송전 계획, 물자 수송 등 다양한 문제에 적용될 수 있는 그래프 형태이다.</p>
+
+<p>여기서 flow는 3가지 조건을 만족한다.</p>
+
+<ol>
+  <li>\(f_{ij}\)는 항상 0과 같거나 큰 양수이다 : \(f_{ij} \geq 0,\, (i,j)\in E\)</li>
+  <li>\(f_{ij}\)는 edge에 정해져 있는 최대 flow, 즉 capacity(한계 용량) \(c_{ij}\)보다 작아야 한다 : \(f_{ij}&lt;c_{ij}, \, (i,j)\in E\)</li>
+  <li>source(flow가 나오는 지점, s) 또는 sink(flow가 나가는 지점, t)을 제외한 vertex k에 대해서, k로 들어가는 flow의 총량과 k에서 나오는 flow의 총량은 같다 : \(\sum_{(i,k)\in E}f_{ik} = \sum_{(k,j)\in E}f_{kj}, \, k\in V\backslash{s,t}\)</li>
+</ol>
+
+<h2 id="relationship-between-max-flow-and-min-cut-problem1">Relationship between Max flow and Min cut problem(1)</h2>
+
+<p>위처럼 정의된 graph와 flow에 대하여 대표적으로 알려진 두 가지 문제, max flow 문제, min cut 문제와 이 둘의 관계에 대해 살펴볼 것이다.</p>
+
+<p>결론부터 말하자면, max flow 문제는 LP 문제이고, min cut 문제는 integer program인데, max flow 문제의 dual은 min cut 문제를 LP relaxation한 것과 동일한 문제형태를 갖는다.</p>
+
+<blockquote>
+\[\begin{align}
+\text{Value of max flow} &amp;\leq \text{dual LP of max flow}\\\\
+&amp;= \text{Optimal value for LP relaxed min cut}\\\\
+&amp;\leq \text{Capacity of min cut}\\\\
+\end{align}\]
+</blockquote>
+
+<p>이 페이지에서는 dual과 relaxation의 역과정(LP 문제에 제약 조건을 추가하여, integer program으로 변환)으로 다음과 같은 부등호 관계를 보일 것이다, 여기선 다루지 않지만, 실제론 이 세 결과가 모두 같다.</p>
+
+<p>이를 max flow min cut theorem이라 부르며, 네트워크의 최대 flow는 cut의 최소 capacity와 같다는 정리이다.</p>
+
+<p>좀 더 일반화하여 보면, 특정 조건에서 primal 문제와 dual 문제의 optimal value가 동일한 값을 가지는 경우가 있는데 이때를 strong duality 관계에 있다고 한다.</p>
+
+<p>LP 문제에서는 두 primal, dual 문제 모두가 infeasible한 경우를 제외하고는 strong duality를 가진다. 이에 대한 내용은 11장에서 다루게 된다.</p>
+
+<p>먼저 두 가지 문제에 대하여 살펴보고, max flow 문제에서 dual을 유도하고, 이 dual 문제에서 문제에 특정 조건을 추가함으로써(relaxation의 역과정) min cut 문제로 변환 됨을 보인다.</p>
+
+<h2 id="max-flow-problem">Max flow problem</h2>
+
+<p>Max flow problem이란 위 조건을 만족하는 그래프에 대해서 s에서 t로 흘러가는 flow의 최댓값을 찾는 문제이다.</p>
+
+<blockquote>
+\[\begin{align}
+&amp;\max_{f\in {\mathbb{R}^{|E|}}} &amp;&amp;{\sum_{(s,j)\in E} f_{sj}}\\\\
+&amp;\text{subject to} &amp;&amp;{f_{ij}\geq 0,\,f_{ij}\leq c_{i,j}\,\, \text{for all }(i, j)\in E}\\\\
+&amp;&amp;&amp;{\sum_{(i, k)\in E}f_{ik}=\sum_{(k,j)\in E}f_{kj}}\,\, \text{for all }k\in V \backslash \{s,t\}.\\\\
+\end{align}\]
+</blockquote>
+
+<h2 id="min-cut-problem">Min cut problem</h2>
+
+<figure class="image" style="align: center;">
+<p align="center">
+ <img src="/img/chapter_img/chapter10/min_cut.png" alt="" width="70%" height="70%" />
+ <figcaption style="text-align: center;">[Fig 2] Graph Cut Example[3]</figcaption>
+</p>
+</figure>
+
+<p>Min cut 문제는 graph의 전체 vertex를 그림에서처럼 색칠된 영역, 색칠되지 않은 영역 두 집합에 나눠서 속하게 하는데, 한 집합에는 source를 포함하고, 나머지 집합에는 sink를 포함하되, 나머지 vertex는 임의로 두 집합 중 하나에 속하게 나눈다(여기서는 source를 포함하는 집합을 A, sink를 포함하는 집합을 B라고 할 것이다),이때 집합 A에서 B로 진행하는 방향의 edge들의 capacity 총합을 cut이라고 정의한다.</p>
+
+<p>다시 말해, cut은 source와 sink를 각각 다른 partition에 존재하게 구분하는 graph의 vertex partition이다. min cut은 graph가 주어졌을 때 이 cut의 최솟값을 찾는 문제이다. 일반적으로 정의되는 min cut 문제의 경우 directed graph 상에서 정의되기 때문에, 항상 source \(x_{s}=1\), sink \(x_{t}=0\)을 만족한다. 아래의 문제 정의에는 이 부분이 생략되어 있다.</p>
+
+<blockquote>
+\[\begin{align}
+&amp;\min_{b\in {\mathbb{R}^{|E|}},\, x \in {\mathbb{R}^{|V|}} } &amp;&amp;{\sum_{(i,j)\in E} b_{ij}c_{ij}}\\\\
+&amp;\text{subject to} &amp;&amp;{b_{ij} \geq x_{i}-x_{j}}\\\\
+&amp;&amp;&amp;{b_{ij},\,x_{i},\,x_{j}\,\in \{ 0,1 \} }\\\\
+&amp;&amp;&amp;\text{for all }i, j.\\\\
+\end{align}\]
+</blockquote>
+
+<p>직관적으로 생각하면, max flow 문제는 source에서 나오는 flow의 최댓값을 찾는 문제이고, min cut 문제는 source 집합에서 sink 집합으로 보낼 수 있는 전체 capacity의 최솟값을 찾는 문제이므로, 어렴풋이나마 이 둘의 문제가 비슷함을 알 수 있다.</p>
+
+<h2 id="dual-of-max-flow-problem">Dual of Max flow problem</h2>
+<p>Max flow의 최적화 문제에 대하여 dual을 구해보자.</p>
+
+<p>먼저 constraint에 대하여 dual variable을 순서대로 \(a_{ij}, b_{ij}, x_{k}\)로 정의한다.  max 문제의 dual의 경우 upper bound를 minimize하는 형태가 될 것이므로, 정리한 형태가 primal objective의 upper bound를 가지는 primal objective \(\leq\) sth의 형태가 되어야 한다. 따라서, constraint에 대하여 \(f_{ij}\)의 upper bound를 찾는 방향으로 식을 정리한다.
+이를 정리하면 다음과 같다.</p>
+
+<blockquote>
+\[\begin{align}
+\sum_{(i,j)\in E} {\Big(-a_{ij}f_{ij}+b_{ij}(f_{ij}-c_{ij})\Big)} + \sum_{k \in V\backslash \{s,t\}} x_{k}\Big( \sum_{(i,k)\in E} f_{ik} - \sum_{(k,j)\in E } f_{kj} \Big)\leq 0\\\\
+\text{for any }a_{ij}, b_{ij} \geq 0, (i, j)\in E, \text{ and } x_{k}, k\in V \backslash \{s,t\}.
+\end{align}\]
+</blockquote>
+
+<p>primal LP의 목적함수와 관계된 \(f\)항을 좌항으로, 그 나머지는 우항으로 정리한다.</p>
+
+<p>그 다음, 이 과정에서 우리가 원하는 것은 primal LP의  상한(upper bound)이므로, 좌항의 \(f\) 앞에 곱해져 있는 항들의 결과가 primal LP의 목적함수와 일치하도록 만드는 식을 찾는다.</p>
+
+<p>이 식을 만족하도록 하는 조건이 dual LP에서의 constraint가 된다.</p>
+
+<p>즉, \(f_{ij}\)의 식이 \(\sum_{(s,j)\in E}f_{sj}\)에서만 1을 갖고 나머지가 0이 되도록 정리한다.</p>
+
+<p>이 과정을 조금 더 자세히 보면 다음과 같다.</p>
+
+<blockquote>
+\[\begin{align}
+\sum_{(i,j)\in E}{\Big((b_{ij}-a_{ij})f_{ij}\Big)}+\sum_{k\in V\backslash \{s,t\}}{x_{k}\Big(\sum_{(i,k)\in E}{f_{ik}}-\sum_{(k,j)\in E}{f_{kj}}\Big)} \leq \sum_{(i,j)\in E}b_{ij}c_{ij}.
+\end{align}\]
+</blockquote>
+
+<p>여기서, 우리는 \(i=s\)인 경우에 좌항의 결과가 \(\sum_{(s,j)\in E}f_{sj}\)이 되고, 다른 경우에 대해서는 0이 되게 식을 정리하는 것이 목표이다.</p>
+
+<p>두 번째 시그마의 x항의 k는 source와 sink에 대해서는 포함되지 않음을 유의하면서, \(i=s, j\neq t\)인 경우, \(i\neq s, j=t\)인 경우, \(i\neq s,j\neq t\)가 아닌 경우로 나누어 좌항을 정리할 수 있다.</p>
+
+<h3 id="case-1-i--s-j-neq-t">Case 1. \(i = s, j \neq t.\)</h3>
+
+<p>\(x_{k}\)에 곱해진 항에 대해서 \(k=j\)인 경우를 제외하고는, flow의 세번째 조건에 의해 소거된다.
+따라서, 두 번째 항의 \(x\)항에 대한 시그마를 다음과 같이 정리할 수 있다.</p>
+
+<blockquote>
+\[\begin{align}
+&amp;=\sum_{(s,j)\in E}{\Big((b_{sj}-a_{sj})f_{sj}\Big)}+x_{j}\sum_{(s,j)\in E}{f_{sj}}+\sum_{k\in V\backslash \\{s,t,j\\}}{x_{k}\Big(\underbrace{\sum_{(s,k)\in E}{f_{sk}}-\sum_{(k,j)\in E}{f_{kj}}}_{=0}\Big)} \\\\
+&amp;=\sum_{(s,j)\in E}{\Big(b_{sj}-a_{sj}+x_{j}\Big)f_{sj}}, \ j \in V \backslash \{s,t\},\\\\
+\end{align}\]
+</blockquote>
+
+<h3 id="case-2-i-neq-s-j--t">Case 2. \(i \neq s, j = t.\)</h3>
+<p>\(x_{k}\)에 곱해진 항에 대해서 \(k=i\)인 경우를 제외하고는, flow의 세 번째 조건에 의해 소거된다.
+따라서, 두 번째 항의 \(x\)항에 대한 시그마를 다음과 같이 정리할 수 있다.</p>
+
+<blockquote>
+\[\begin{align}
+&amp;=\sum_{(i,t)\in E}{\Big((b_{it}-a_{it})f_{it}\Big)}-x_{i}\sum_{(i,t)\in E}{f_{it}}+\sum_{k\in V\backslash \{s,t,i\}}{x_{k}\Big(\underbrace{\sum_{(i,k)\in E}{f_{ik}}-\sum_{(k,t)\in E}{f_{kt}}}_{=0}\Big)} \\\\
+&amp;=\sum_{(i,t)\in E}{\Big(b_{it}-a_{it}-x_{i}\Big)f_{it}}, \ i \in V\backslash \{s,t\},\\\\
+\end{align}\]
+</blockquote>
+
+<h3 id="case-3-i-neq-s-j-neq-t">Case 3. \(i \neq s, j \neq t.\)</h3>
+<p>\(x_{k}\)에 곱해진 항에 대해서 \(k=i, k=j\)인 경우를 제외하고는, flow의 세 번째 조건에 의해 소거된다.
+따라서, 두 번째 항의 \(x\)항에 대한 시그마를 다음과 같이 정리할 수 있다.</p>
+
+<blockquote>
+\[\begin{align}
+&amp;=\sum_{(i,j)\in E}{\Big((b_{ij}-a_{ij})f_{ij}\Big)}+x_{j}\sum_{(i,j)\in E}{f_{ij}}-x_{i}\sum_{(i,j)\in E}{f_{ij}}+\sum_{k\in V\backslash \{s,t,i,j\}}{x_{k}\Big(\underbrace{\sum_{(i,k)\in E}{f_{ik}}-\sum_{(k,j)\in E}{f_{kj}}}_{=0}\Big)} \\\\
+&amp;=\sum_{(i,j)\in E}{\Big(b_{ij}-a_{ij}+x_{j}-x_{i}\Big)f_{ij}}, \ i, j \in V \backslash \{s,t\}. \\\\
+\end{align}\]
+</blockquote>
+
+<p>primal LP의 목적함수는 이 세 가지 케이스 중 첫 번째 케이스에 \(b_{sj}-a_{sj}+x_{j}\) 항이 1이 되는 경우와 일치한다. 또한 나머지 케이스에 대해서는 곱해진 항을 0으로 만들어 주어 primal LP와 해당 식을 일치시켜주어, 좌항이 objectvie function, 우항이 upper bound인 형태를 완성할 수 있다.</p>
+
+<blockquote>
+\[\begin{align}
+&amp;b_{sj}-a_{sj}+x_{j} = 1\\\\
+&amp;b_{it}-a_{it}-x_{i} = 0\\\\
+&amp;b_{ij}-a_{ij}+x_{j}-x_{i} = 0\\\\
+&amp;\text{Result in,} \\\\
+&amp;\sum_{(s,j)\in E}{f_{sj}} \leq \sum_{(i,j)\in E}{b_{ij}c_{ij}}.
+\end{align}\]
+</blockquote>
+
+<p>따라서, dual 문제는 dual variable \(a, b, x\)에 대하여 위에서 구한 upper bound(dual LP의 목적 함수)의 최소값을 찾는 형태이고, 이 최소값이 가장 좋은 upper bound가 된다. 일종의 dummy variable인 \(a\)를 조건을 유지하며 소거한다. 추가로, directed graph에서의 flow 조건을 추가하여 source에서 sink로 flow가 흘러간다는 조건을 constraint에 명시하면, 식은 다음과 같다.</p>
+
+<blockquote>
+\[\begin{align}
+&amp;\min_{b\in {\mathbb{R}^{|E|}},\, x\in{\mathbb{R}^{|V|}}}  &amp;&amp;{\sum_{(i,j)\in E} b_{ij}c_{ij}} \\\\
+&amp;\text{subject to} &amp;&amp;{b_{ij}+x_{j}-x_{i}\geq 0 \,\, \text{for all } (i,j)\in E}\\\\
+&amp;&amp;&amp;{b\geq 0, x_{s}=1,x_{t}=0}.\\\\
+\end{align}\]
+</blockquote>
+
+<h2 id="dual-lp-to-integer-program">Dual LP to Integer program</h2>
+<p>이제 이 dual LP가 min cut 문제의 LP relaxation과 동일해짐을 보이고자 한다.
+따라서 위 문제에 조건을 추가함으로써 integer program으로 바꾸는 과정을 거칠 것이다.
+  위 dual LP 문제에 대해서, \(x\)는 vertex가 s, t일 때를 제외하고 정의되어 있지 않은 형태이다.
+  따라서 문제의 scope를 좁히고자, s, t를 제외한 나머지의 vertex가 s 또는 t의 그룹에 속한다는 조건을 추가하여 문제를 해결해보자.
+  다시 말하면, 모든 vertex가 0 또는 1의 그룹에 속한다고 가정하자. 이는 min cut의 vertex partition을 정하는 것과 동일하다.</p>
+
+<blockquote>
+\[\begin{align}
+x_{i} \in \{0,1 \} \ \ \text{ for all }i\in V.
+\end{align}\]
+</blockquote>
+
+<p>1에 속하는 그룹을 집합 A로 정의하고, 0에 속하는 그룹을 집합 B로 정의하자. 또한 source(s)는 A에, sink (t)는 B에 속한다고 정하자.</p>
+
+<p>위와 같이 정하면, \(b_{ij}\)는 집합 A에서 집합 B로 향하는 edge에 대해서는 1, 나머지에 대해선 0을 가지는 일종의 on/off의 역할을 한다.</p>
+
+<p>이를 정리하면 다음과 같다.</p>
+
+<blockquote>
+  <p>\(\begin{align}
+&amp;\text{Let } A= \{ i:x_{i}=1 \} ,\, B= \{ i:x_{i}=0 \} \\\\
+&amp;\text{note that  } s \in A, \,t \in B, \text{ and  }b_{ij}\geq x_{i}-x_{j} \,\,\,\, \text{for }\,(i,j) \in E, \,\, b\geq 0,\\\\
+\end{align}\)
+\(\begin{align}
+\text{Simply say, } \qquad \begin{cases} b_{ij}=1 \qquad \text{if } i\in A, j\in B\\\\
+0 \qquad\qquad \text{otherwise}.\end{cases}
+\end{align}\)</p>
+</blockquote>
+
+<p>위의 결과는 min cut 문제의 formulation과 동일하다.</p>
+
+<h2 id="relationship-between-max-flow-and-min-cut-problem2">Relationship between Max flow and Min cut problem(2)</h2>
+<p>즉, max flow problem의 dual problem은, min cut 문제에서 \(x\)의 s, t를 제외한 vertex를 0, 1로 포함된다는 조건을 없앤(relaxation)한 결과이다. optimal value of max flow \(\geq\) dual LP(upper bound)이고, 이 relaxation은 optimization variable의 domain scope를 확장시키므로, optimal value LP relaxed min cut \(\geq\) capacity of min cut의 관계를 가진다. 이 세 가지 결과를 정리하면 아래의 결과를 얻을 수 있다.</p>
+
+<blockquote>
+\[\begin{align}
+\text{Value of max flow} &amp;\leq \text{Dual LP of max flow}\\\\
+&amp;= \text{Optimal value for LP relaxed min cut}\\\\
+&amp;\leq \text{Capacity of min cut}\\\\
+\end{align}\]
+</blockquote>
+
+<p>이 세 가지 결과가 모두 같음에 대해서는 max-flow min-cut theorem[11]
+에서, max flow min cut 문제를 푸는 대표적인 알고리즘으로는 Ford-Fulkerson algorithm[12]을 참고할 수 있다.</p>
+
+        </article>
+    </div>
+</main>
+
+<main class="container">
+    <div class="content">
+        <article class="post-body">
+            <h1><a name="_page_4"></a>10-04 Another Perspective on LP duality</h1>
+            <script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+    displayAlign: "center"
+});
+</script>
+
+<p>앞에서 다룬 duality의 경우, LP에 대하여, primal 문제의 constraint에 dual variable을 곱하고, 이들의 선형 결합(linear combination)을 구한 뒤, 정리하여 primal의 objective function을 분리해내어 bound를 구하는 형태였다. 분리된 나머지 항(아래 수식의 something)이 primal 문제의 bound 역할을 하였다. 즉, dual 문제의 objective function이 되고, 수식 전개 과정에서 만들어진 조건들이 dual 문제의 constraint가 되었다.
+이 일부 과정(위의 내용 중 primal objective function을 분리해 내어 bound를 구하는 부분)을 수식으로 적어보면 다음과 같다.</p>
+
+<blockquote>
+\[\begin{align}
+&amp;\min_{x} &amp;&amp;f(x)\\\\
+&amp;\text{subject to} &amp;&amp;Ax = b\\\\
+&amp; &amp;&amp;Gx \leq h\\\\
+\end{align}\]
+</blockquote>
+
+<blockquote>
+\[\begin{align}
+&amp; &amp;\text{for any }u,\, v\geq 0,\\\\
+&amp; &amp;u^{T}(Ax-b) = 0\\\\
+&amp;{+} &amp;v^{T}(Gx-h)\leq 0\\\\
+&amp;{=} &amp;u^{T}(Ax-b) + v^{T}(Gx-h)\leq 0\\\\
+&amp;{\approx} &amp;f(x)+\text{something}. \\\\
+\end{align}\]
+</blockquote>
+
+<p>하지만 linear program이 아닌 최적화 문제의 경우, 대부분이 constraint의 선형 결합으로 objective function을 표현할 수 없다.</p>
+
+<p>이 장에서는 좀 더 보편적으로 통용되는 문제(모든 convex, 대부분의 non-convex)에 적용가능한 duality의 관점에 대해 살펴본다. lagrangian으로 불리는 이 방법으로 LP의 duality를 구하고, 좀 더 자세한 논의에 대해서는 11장에서 살펴보자.</p>
+
+<p>위에 서술되었던 primal LP 문제에 대하여 선형 결합 형태까지의 식을 보게 되면, 다음과 같은 관계를 알 수 있다.</p>
+<blockquote>
+\[\begin{align}
+c^{T}x\geq c^{T}x+\overbrace{u^{T} \underbrace{(Ax-b)} _ {=0}+\underbrace{v^{T}} _ {\geq 0} \underbrace{(Gx-h)} _ {\leq 0}} ^ {\leq 0} := L(x,u,v).
+\end{align}\]
+</blockquote>
+
+<p>부등호의 우항은 조건들에 의하여 좌항보다 작거나 같은 값을 가진다. 또한 이 식을 \(L(x, u, v)\)라는 x, u, v에 대한 함수로 정의한다.
+여기서 primal LP의 constraint를 만족하는 집합(primal feasible set)을 C라 칭하면, 다음과 같은 관계를 알 수 있다.</p>
+
+<blockquote>
+  <p>\(\begin{align}
+C =  \{ x: Ax=b, Gx\leq h \},
+\end{align}\)
+\(\begin{align}
+f^{*}=\min_{x\in C} f(x) \geq \min_{x\in C}L(x,u,v)\geq \min_{x}L(x,u,v):=g(u,v).\\\\
+\end{align}\)</p>
+</blockquote>
+
+<p>다시말해서, \(g(u,v)\)는 어떤  u나 \(v\geq0\)을 만족하는 \(v\)에 대해서 \(f^{*}\)의  Lower bound가 된다.
+이때 \(g(u,v)\)로 결정되는 Lower bound 값을 살펴보자.</p>
+
+<blockquote>
+\[\begin{align}
+g(u,v) = min_{x} c^{T}x+u^{T}(Ax-b) + v^{T}(Gx-h) \\\\
+= \min_{x} (c+A^{T}u+G^{T}v)^{T}x - b^{T}u-h^{T}v \\\\
+\begin{cases}= -b^{T}u-h^{T}v \qquad &amp;\text{if }\ c = -A^{T}u-G^{T}v \\\\
+-\infty \qquad &amp;\text{otherwise}.
+\end{cases}
+\end{align}\]
+</blockquote>
+
+<p>식에서도 알 수 있다시피, \(c = -A^{T}u-G^{T}v\)를 만족하지 않을 때엔 \(x\)항으로 인하여 \(-\infty\)의 값을 갖는다.
+우리는 \(f^{*}\)에 가장 가까운 Lower bound를 찾길 원하므로, \(g(u, v)\)를 Maximize(최대화)하는 값을 찾고자 한다. 이는 \(c = -A^{T}u-G^{T}v\)를 만족할때의 값인 \(-b^{T}u-h^{T}v\)이고, 이는 우리가 첫 번째 방법으로 구했던 Dual LP와 일치한다.</p>
+
+<blockquote>
+\[\begin{align}
+f^{*} \geq g(u,v), \qquad \text{provided } v \geq 0\\\\
+\text{find the biggest lowerbound  } g(u,v)\\\\
+\max_{u,v} g(u,v)\\\\
+\text{s.t. }v \geq 0. 
+\end{align}\]
+</blockquote>
+
+<p>이 방법은 LP형태가 아닌 다른 형태의 최적화 문제에 대해서도 적용 가능하다.</p>
+
+        </article>
+    </div>
+</main>
+
+<main class="container">
+    <div class="content">
+        <article class="post-body">
+            <h1><a name="_page_5"></a>10-05 Matrix Games</h1>
+            <script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+    displayAlign: "center"
+});
+</script>
+
+<p>이번 장에서는 게임이론에서의 primal LP, dual LP의 예시인 mixed strategies for matrix games에 대해서 살펴본다. 설정은 두명의 player, J와 R, 그리고 payout matrix \(P\)가 있다고 하자.</p>
+
+<h2 id="game-setup">Game Setup</h2>
+
+<figure class="image" style="align: center;">
+<p align="center">
+  <img src="/img/chapter_img/chapter10/matrix_game.png" alt="Line Segment" width="70%" />
+  <figcaption style="text-align: center;">[Fig 1] Game Setup[3]</figcaption>
+</p>
+</figure>
+
+<p>payout matrix는 만약 J가 전략 \(i\)를 선택하고(row), R이 전략 \(j\)를 선택했을때(column), J가 R에게 주어야 하는 보상의 크기이다(\(P_{ij}\)). 하지만 이 값이 양수라면, J가 R에게 해당 matrix의 크기만큼의 보상을 주고, 음수라면 R이 J에게 해당 matrix의 크기만큼의 보상을 주게 된다.</p>
+
+<p>이러한 setting을 zero-sum setting이라고도 하는데, R이 받게 될 혹은 지불해야할 보상을 \(r_{R}\), J의 보상을 \(r_{J}\)라 할 때, 매 게임에서 보상의 결과는 \(r_{R} = - r_{J}\)이고, 두 보상의 총합은 항상 0이 된다.</p>
+
+<p>또한 두 명의 player가 모두 mixed strategies를 사용한다고 가정한다, mixed stratigies는 각자의 선택이 특정한 확률분포를 따른다는(혹은 특정한 확률분포에서 sampling 된다는) 가정이다.</p>
+
+<blockquote>
+\[\begin{align}
+x : P(\text{J chooses i}) = x_{i}, \qquad i=1,...m\\\\
+y : P(\text{R chooses j}) = y_{j}, \qquad j=1,...n.\\\\
+\end{align}\]
+</blockquote>
+
+<p>서로가 서로의 mixed strategy, 즉 확률분포를 알고 있다면, 각자는 각자가 얻을 것으로 기대하는 payout, 즉 expected payout을 계산할 수 있다.</p>
+
+<blockquote>
+\[\begin{align}
+\sum_{i=1}^{m}\sum_{j=1}^{n}x_{i}y_{j}P_{ij} = x^{T}Py.\\\\
+\end{align}\]
+</blockquote>
+
+<p>payout matrix의 부호가 J가 R에게 주는 크기로 정의되어 있음을 생각할 때, J는 R에게 최대한 주지 않으려 하기 때문에, 이 expected payout을 최소화(minimize)하려 할 것이고, R은 J에게서 최대한 받고 싶어하기 떄문에, 이 expected payout을 최대화(maximize)하려 할 것이다.</p>
+
+<p>이제 두 player의 입장에서 각자가 상대의 mixed strategy를 고려하여, 이 expected payout을 최대화(R의 입장) 혹은 최소화(J의 입장)하려는 관점을 살펴보고, 서로가 서로를 optimal하게 행동하는 전제하에, 두 입장에서 유도되는 optimal strategy를 구하고, 결과적으론 Von Neumman’s minimax theorem에 의해 두 결과가 같다는 것을 확인할 것이다.</p>
+
+<h2 id="minimizing-expected-payout--js-perspective">Minimizing Expected Payout : J’s Perspective</h2>
+<p>먼저 R이 J의 strategy \(x\)를 알고 있다고 가정하자. R은 expected payout \(x^{T}Py\)를 maximize하고자 할 것이다.</p>
+
+<blockquote>
+\[\begin{align}
+\max\{x^{T}Py : y\geq0, 1^{T}y = 1\} = \max_{i=1,...n}(P^{T}x)_{i}.\\\\
+\end{align}\]
+</blockquote>
+
+<p>이때 R은 식의 내용처럼 \((P^{T}x)_{i}\) 중 가장 큰 값을 갖는 i(row index)를 찾게되고, 이 i에 대응되는 \(y_{i}\)를 1로 가지고 나머지의 row index에 대해선 0을 가지는 strategy가 R에게 있어서 expected payout을 maximize하는 strategy일 것이다.</p>
+
+<p>R이 위처럼 최적으로 행동할 것을 알고 있을 때, J의 최적의 strategy는 밑의 식을 만족하는 distribution \(x\)일 것이다.</p>
+
+<blockquote>
+\[\begin{align}
+&amp; \min_{x}
+&amp; &amp;\max_{i=1,...n} (P^{T}x)_{i}\\\\
+&amp; \text{subject to}
+&amp; &amp; x\geq 0, 1^{T}x =1.\\\\
+\end{align}\]
+</blockquote>
+
+<p>Convex function의 maximization 또한 convex function이 된다.  이를 첫 번째 관점의 문제 정의라고 칭할 것이다. 또한 이 최적화 문제의 해를 optimal expected payout \(f^{*}_{1}\)이라고 정하자. 또 하나 유념할 점은 게임참가자, 즉 player들이 모두 최적으로 행동한다는 가정이 기본적인 형태의 게임이론 formulation에서 가정이 된다.</p>
+
+<h2 id="maximizing-expected-payout--rs-perspective">Maximizing Expected Payout : R’s Perspective</h2>
+<p>두 번째 관점으로 J가 R의 strategy \(y\)를 알고 있다고 가정하자. J는 expected payout을 minimize하고자 할 것이다.</p>
+
+<blockquote>
+\[\begin{align}
+\min \{x^{T}Py : x\geq0, 1^{T}x = 1\} = \min_{j=1,...n}(Py)_{j}.\\\\
+\end{align}\]
+</blockquote>
+
+<p>같은 논리로, J가 위처럼 최적으로 행동할 것을 알고 있을 때 R의 최적의 strategy는 밑의 식을 만족하는 distribution \(y\)이다.</p>
+
+<blockquote>
+\[\begin{align}
+&amp; \max_{y}  
+&amp; &amp; \min_{j=1,...m} (Py)_{j}\\\\
+&amp;\text{subject to}
+&amp; &amp;y\geq 0, 1^{T}y =1.\\\\
+\end{align}\]
+</blockquote>
+
+<p>위와 마찬가지로 이를 두 번째 관점의 문제 정의라고 칭하고, 이 최적화 문제의 해를 \(f^{*}_{2}\) 라고 하자. player R이 이 expected payout을 maximize하고자 하기 때문에, 첫 번째, 즉, R이 J의 strategy를 미리 알고 있다는 가정 하에 결정되는 expected payout \(f^{*}_{1}\)이 두 번째 가정보다 더 크거나 같은 값을 가질 것이라 쉽게 예상할 수 있다. (\(f^{*}_{1}\geq f^{*}_{2}\))</p>
+
+<h2 id="von-neumanns-minimax-theorem">Von Neumann’s minimax theorem</h2>
+<p>하지만,  Von Neumann’s minimax theorem에 따르면 \(f^{*}_{1} = f^{*}_{2}\)가 된다. 실제 minimax theorem은 다음과 같다.</p>
+
+<blockquote>
+\[\begin{align}
+&amp;\text{Let } X\subset \mathbb{R}^{N} \text{ and }Y\subset \mathbb{R}^{m} \text{ be compact convex sets. }\\\\
+&amp;\text{If } f:X\times Y\rightarrow \mathbb{R} \text{ is a continuous function that is convex-concave, i.e.}\\\\
+&amp;\qquad f(\cdot, y): X\rightarrow\mathbb{R} \text{ is convex for fixed }y, \text{ and}\\\\
+&amp;\qquad f(x, \cdot): Y\rightarrow\mathbb{R} \text{ is concave for fixed }x.\\\\
+&amp;\text{Then we have that} \\\\ 
+&amp;\min_{x\in X} \max_{y\in Y} f(x,y) = \max_{y\in Y} \min_{x\in X} f(x,y).\\\\
+\end{align}\]
+</blockquote>
+
+<p>해당 내용의 증명은 생략한다.</p>
+
+<h2 id="proof-of-each-perspective-having-primal-and-dual-relationship">Proof of each perspective having Primal and Dual relationship</h2>
+<p>이제 위 두 가지 관점의 경우에 대한 expected payout이 LP 문제로써 서로 primal, dual 관계이고, Von Neumman’s minimax theorem에 의하여 두 결과가 같다는 점을 이용하여, strong duality를 만족함을 보이고자 한다.</p>
+
+<p>먼저 첫 번째 관점의 문제를 다음과 같이 reformulate 할 수 있다.</p>
+
+<blockquote>
+\[\begin{align}
+&amp; \min_{x} \max_{i=1,...m} 
+&amp; &amp;(P^{T}x)_{i}\\\\
+&amp;\text{subject to } 
+&amp; &amp;x\geq 0, 1^{T}x = 1\\\\
+\end{align}\]
+
+\[\begin{align}
+\Leftrightarrow{} \\\\
+&amp; \min_{x,t}
+&amp; &amp; t \\\\
+&amp;\text{subject to } 
+&amp; &amp;x\geq0, 1^{T}x = 1, P^{T}x \preceq t. \\\\
+\end{align}\]
+</blockquote>
+
+<p>\(t\)를 \(P^{T}x\)의 항들 중 가장 큰 값과 같게 만들어주는 문제로 refomulate 하였다.</p>
+
+<p>이제 여기에 앞서 배운 duality의 두 번째 방법인 lagragian을 구하고,  lagrange dual function \(g\)를 구하면,</p>
+
+<blockquote>
+\[\begin{align}
+&amp;L(x, t, u, v, y) &amp;&amp;= t-u^{T}x+v(1-1^{T}x)+y^{T}(P^{T}x-t1)\\\\
+&amp;g(u, v, y) &amp;&amp;= \min_{x,t} \quad L(x, t, u, v, y)\\\\
+&amp;&amp;&amp;= \begin{cases} v \qquad &amp;\text{if } 1-1^{T}y = 0, Py-u-v1=0\\\\
+-\infty \qquad &amp;\text{otherwise.} \end{cases}
+\end{align}\]
+</blockquote>
+
+<p>\(u\)는 slack variable이므로, 이를 제거하고 식을 정리하면 다음과 같다.</p>
+
+<blockquote>
+\[\begin{align}
+&amp;\max_{y,v} \qquad \quad &amp;&amp; v\\\\
+&amp;\text{subject to }\quad &amp;&amp; y\geq0, 1^{T}y = 1\\\\
+&amp;&amp;&amp; Py\geq v.
+\end{align}\]
+</blockquote>
+
+<p>이는 두 번째 관점의 문제의 primal LP이다. 따라서 두 관점은 dual 관계에 있고 두 문제의 optimal value는 같으므로, strong duality가 성립한다.</p>
+
+<p>일반적으로 LP문제에서는, 향 후의 내용에서 다루지만, primal과 dual 중 하나만 feasible하다면 strong duality가 성립한다.</p>
+
+        </article>
+    </div>
+</main>
+
+
+
+
+      </div>
+    </div>
+
+    <label for="sidebar-checkbox" class="sidebar-toggle"></label>
+
+    <script src='/public/js/script.js'></script>
+  </body>
+</html>
